@@ -4,14 +4,19 @@
                 exclude-result-prefixes="#all"
                 version="2.0">
 
+    <!-- Generate links to CSS files -->
     <xsl:template name="generateCssLinks">
         <xsl:variable name="childlang" as="xs:string">
             <xsl:variable name="lang">
                 <xsl:choose>
                     <xsl:when test="self::dita[not(@xml:lang)]">
-                        <xsl:for-each select="*[1]"><xsl:call-template name="getLowerCaseLang"/></xsl:for-each>
+                        <xsl:for-each select="*[1]">
+                            <xsl:call-template name="getLowerCaseLang"/>
+                        </xsl:for-each>
                     </xsl:when>
-                    <xsl:otherwise><xsl:call-template name="getLowerCaseLang"/></xsl:otherwise>
+                    <xsl:otherwise>
+                        <xsl:call-template name="getLowerCaseLang"/>
+                    </xsl:otherwise>
                 </xsl:choose>
             </xsl:variable>
             <xsl:sequence select="($lang, $DEFAULTLANG)[normalize-space(.)][1]"/>
@@ -21,36 +26,38 @@
                 <xsl:with-param name="lang" select="$childlang"/>
             </xsl:apply-templates>
         </xsl:variable>
-        <xsl:variable name="urltest" as="xs:boolean">
+        <xsl:variable name="urltest" as="xs:boolean"> <!-- test for URL -->
             <xsl:call-template name="url-string">
                 <xsl:with-param name="urltext" select="concat($CSSPATH, $CSS)"/>
             </xsl:call-template>
         </xsl:variable>
         <xsl:choose>
             <xsl:when test="$direction = 'rtl' and $urltest ">
-                <link rel="stylesheet" type="text/css" href="{$CSSPATH}{$bidi-dita-css}" />
+                <link rel="stylesheet" type="text/css" href="{$CSSPATH}{$bidi-dita-css}"/>
             </xsl:when>
             <xsl:when test="$direction = 'rtl' and not($urltest)">
-                <link rel="stylesheet" type="text/css" href="{$PATH2PROJ}{$CSSPATH}{$bidi-dita-css}" />
+                <link rel="stylesheet" type="text/css" href="{$PATH2PROJ}{$CSSPATH}{$bidi-dita-css}"/>
             </xsl:when>
             <xsl:when test="$urltest">
-                <link rel="stylesheet" type="text/css" href="{$CSSPATH}{$dita-css}" />
+                <link rel="stylesheet" type="text/css" href="{$CSSPATH}{$dita-css}"/>
             </xsl:when>
             <xsl:otherwise>
-                <link rel="stylesheet" type="text/css" href="{$PATH2PROJ}{$CSSPATH}{$dita-css}" />
+                <link rel="stylesheet" type="text/css" href="{$PATH2PROJ}{$CSSPATH}{$dita-css}"/>
             </xsl:otherwise>
         </xsl:choose>
 
-        <link rel="stylesheet" type="text/css" href="{$PATH2PROJ}{$CSSPATH}bootstrap.min.css" />
-        <link rel="stylesheet" type="text/css" href="{$PATH2PROJ}{$CSSPATH}xml.rocks.css" />
+
+        <!--our css style-->
+        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
+        <link rel="stylesheet" type="text/css" href="css/xml.rocks.css"/>
 
         <xsl:if test="string-length($CSS) > 0">
             <xsl:choose>
                 <xsl:when test="$urltest">
-                    <link rel="stylesheet" type="text/css" href="{$CSSPATH}{$CSS}" />
+                    <link rel="stylesheet" type="text/css" href="{$CSSPATH}{$CSS}"/>
                 </xsl:when>
                 <xsl:otherwise>
-                    <link rel="stylesheet" type="text/css" href="{$PATH2PROJ}{$CSSPATH}{$CSS}" />
+                    <link rel="stylesheet" type="text/css" href="{$PATH2PROJ}{$CSSPATH}{$CSS}"/>
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:if>
@@ -102,6 +109,10 @@
                     <input class="form-control search" type="search" placeholder="Search" aria-label="Search"/>
                 </nav>
             </div>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+                    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+                    crossorigin="anonymous"></script>
+
         </header>
     </xsl:template>
 
@@ -116,6 +127,7 @@
             <xsl:apply-templates/>
             <xsl:call-template name="gen-endnotes"/>
             <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-endprop ')]" mode="out-of-line"/>
+            <xsl:apply-templates select="*[contains(@class, ' topic/related-links ')]" mode="breadcrumb"/>
         </article>
     </xsl:template>
 
@@ -149,7 +161,20 @@
                  </svg>-->
             </a>
         </button>
+        <!-- Go back button-->
+        <button onclick="goBack()"
+                class="go-back accent-background-color"
+                id="btn-go-back">Back
+        </button>
+
+        <script>
+            function goBack() {
+            window.history.back();
+            }
+        </script>
         <!-- XML Rocks JS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
         <script src="{$PATH2PROJ}js/xml.rocks.js"></script>
     </xsl:template>
 
