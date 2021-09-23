@@ -154,3 +154,18 @@ li.active {
     padding-top: 0.5em;
     text-decoration: none;
 }
+
+/*removing underline from TOC*/
+a:hover, a:visited, a:link, a:active {
+    text-decoration: none;
+}
+
+nav li:before {
+    content: "\2228 \0020";
+    color: #6d2077;
+}
+
+nav li:before  {
+    content: "\2228 \0020";
+    color: #6d2077;
+}
