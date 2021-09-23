@@ -31,6 +31,10 @@
   margin-right: auto;
 }
 
+.header-logo {
+    margin-right: 0.5em;
+}
+
 .search {
   border: none;
   border-radius: 30px;

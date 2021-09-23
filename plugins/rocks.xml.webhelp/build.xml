@@ -14,6 +14,11 @@
                 <include name="**/*.*"/>
             </fileset>
         </copy>
+        <copy todir="${output.dir}/img">
+            <fileset dir="${dita.plugin.rocks.xml.webhelp.dir}/img">
+                <include name="**/*.*"/>
+            </fileset>
+        </copy>
         <copy todir="${output.dir}/js">
             <fileset dir="${dita.plugin.rocks.xml.webhelp.dir}/js">
                 <include name="**/*.*"/>
