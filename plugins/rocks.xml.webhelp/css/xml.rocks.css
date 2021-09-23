@@ -91,7 +91,12 @@
 }
 
 .footer-container {
-  background-color: #ebebeb;
+    background-color: #ebebeb;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    max-width: 1600px;
 }
 
 .footer-div {
