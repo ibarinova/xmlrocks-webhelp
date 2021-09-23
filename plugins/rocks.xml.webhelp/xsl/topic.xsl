@@ -82,6 +82,7 @@
 
     <!-- Process <body> content that is appropriate for HTML5 header section. -->
     <xsl:template match="*" mode="addHeaderToHtmlBodyElement">
+        <!-- FIXME HEADER IS HARDCODED! -->
         <header class="rocks-header sticky-top accent-background-color">
             <div class="d-flex flex-column flex-md-row align-items-center mb-4 main-header max-width">
                 <!--       TODO: use text dark for white background -->
@@ -121,6 +122,7 @@
     <xsl:template match="*" mode="addFooterToHtmlBodyElement">
         <footer class="footer-container">
             <div class="d-flex flex-column footer-div max-width">
+                <!-- FIXME HARDCODE! -->
                 <a class="footer-text d-inline-flex mt-2 mt-md-0 ms-md-auto" href="#">Organization name © 2021</a>
             </div>
         </footer>
