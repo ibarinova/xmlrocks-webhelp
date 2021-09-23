@@ -1,0 +1,125 @@
+.accent-background-color {
+  /* accent color black with transpparency */
+  background-color: #000000b9;
+  /* accent color blue */
+  /*background-color: #0844a4b9;*/
+  /* accent color teal */
+  /*background-color: #008db1b9;*/
+  /* accent color orange */
+  /*background-color: #ff6800b9;*/
+  /* accent color white */
+  /*background-color: #ffffffb9;*/
+}
+
+.max-width {
+  /* Adjustable value for whole publication */
+  max-width: 960px;
+  /*max-width: 1260px;*/
+  /*max-width: 860px;*/
+}
+
+.rocks-header {
+  position: sticky;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 5px #bbbbbb;
+}
+
+.main-header {
+  padding: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.search {
+  border: none;
+  border-radius: 30px;
+  box-shadow: 0 0 5px #bbbbbb;
+}
+
+.rounded-card-rocks {
+  border-radius: 8px;
+  background-color: #fbfbfb;
+  border-color: #fbfbfb;
+}
+
+.card-body {
+  border: 3px solid #fbfbfb;
+}
+
+.card-body:hover {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  border: 3px solid #0844a4b9;
+  border-radius: 8px;
+}
+
+.topic-link {
+  color: #0844a4b9;
+  text-decoration: none;
+}
+
+.breadcrumbs_block ul {
+  list-style: none;
+  display: flex;
+  padding-left: 0;
+}
+
+.breadcrumbs_block li a {
+  text-decoration: none;
+  color: #232323;
+}
+
+.breadcrumbs_block li a:after {
+  content: "/";
+  display: inline-block;
+  margin: 0 5px;
+  color: #232323;
+}
+
+.breadcrumbs_block li:last-child a:after {
+  content: "";
+}
+
+.breadcrumbs_block li:last-child a {
+  color: #bbbbbb;
+}
+
+.topic-title {
+  color: #0844a4b9;
+}
+
+.footer-container {
+  background-color: #ebebeb;
+}
+
+.footer-div {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.footer-text {
+  padding: 1rem;
+  text-decoration: none;
+  color: #1a1e21;
+}
+
+#btn-back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+  color: #ffffff;
+  border-radius: 10px;
+  padding: 0;
+  border: none;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 5px #bbbbbb;
+}
+
+/* FIXME (used to highlight active topic in TOC) */
+li.active {
+  color: red;
+}
