@@ -92,7 +92,7 @@
             <div class="d-flex flex-column flex-md-row align-items-center mb-4 main-header max-width">
                 <!--       TODO: use text dark for white background -->
 <!--                        <a href="/" class="d-flex align-items-center text-dark text-decoration-none">-->
-                <a href="index.html" class="d-flex align-items-center text-light text-decoration-none">
+                <a href="{$PATH2PROJ}index.html" class="d-flex align-items-center text-light text-decoration-none">
                     <svg xmlns="http://www.w3.org/2000/svg" width="40" height="32" class="me-2" viewBox="0 0 118 94"
                          role="img"><title>Bootstrap</title>
                         <path fill-rule="evenodd" clip-rule="evenodd"

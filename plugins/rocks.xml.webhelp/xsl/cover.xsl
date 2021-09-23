@@ -11,7 +11,7 @@
                 <div class="d-flex flex-column flex-md-row align-items-center mb-4 main-header max-width">
                     <!--       TODO: use text dark for white background -->
                     <!--                        <a href="/" class="d-flex align-items-center text-dark text-decoration-none">-->
-                    <a href="index.html" class="d-flex align-items-center text-light text-decoration-none">
+                    <a href="{$PATH2PROJ}index.html" class="d-flex align-items-center text-light text-decoration-none">
                         <svg xmlns="http://www.w3.org/2000/svg" width="40" height="32" class="me-2" viewBox="0 0 118 94"
                              role="img"><title>Bootstrap</title>
                             <path fill-rule="evenodd" clip-rule="evenodd"
@@ -64,7 +64,6 @@
         </body>
     </xsl:template>
 
-
     <xsl:template match="*" mode="addHeaderToHtmlBodyElement">
         <xsl:variable name="header-content" as="node()*">
             <xsl:call-template name="generateBreadcrumbs"/>
@@ -75,18 +74,17 @@
                                      /dita/*[1]/*[contains(@class, ' topic/prolog ')]/*[contains(@class, ' topic/metadata ')]/*[contains(@class, ' topic/keywords ')]/*[contains(@class, ' topic/indexterm ')]"/>
             </xsl:if>
         </xsl:variable>
-
     </xsl:template>
-
 
     <xsl:template name="addFooterToHtmlBodyElement">
 
         <footer class="footer-container">
             <div class="d-flex flex-column footer-div max-width">
+                <!-- FIXME HARDCODE! -->
                 <a class="footer-text d-inline-flex mt-2 mt-md-0 ms-md-auto" href="#">Organization name © 2021</a>
             </div>
         </footer>
-        <!-- TODO get it out from there (make button and js independent from footer) -->
+        <!-- TODO: get it out from there (make button and js independent from footer) -->
         <!-- Back to top button -->
         <button type="button"
                 class="go-to-top accent-background-color"
@@ -102,17 +100,17 @@
                               y1="30.33333" x1="23.66658" stroke-width="4" fill="none"/>
                     </g>
                 </svg>
-                <!--        use this svg for white background-->
-                <!--<svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
-                    <g id="Layer_1">
-                        <line stroke="#000" id="svg_7" y2="17.66667" x2="26.33332" y1="30.33333" x1="13.66667" stroke-width="4" fill="none"/>
-                        <line transform="rotate(90.1903 29.9999 24)" stroke="#000" id="svg_10" y2="17.66667" x2="36.33323" y1="30.33333" x1="23.66658" stroke-width="4" fill="none"/>
-                    </g>
-                </svg>-->
+                <!--       TODO: use this svg for white background-->
+                 <!--<svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
+                     <g id="Layer_1">
+                         <line stroke="#000" id="svg_7" y2="17.66667" x2="26.33332" y1="30.33333" x1="13.66667" stroke-width="4" fill="none"/>
+                         <line transform="rotate(90.1903 29.9999 24)" stroke="#000" id="svg_10" y2="17.66667" x2="36.33323" y1="30.33333" x1="23.66658" stroke-width="4" fill="none"/>
+                     </g>
+                 </svg>-->
             </a>
         </button>
         <!-- XML Rocks JS -->
-        <script src="js/xml.rocks.js"></script>
+        <script src="{$PATH2PROJ}js/xml.rocks.js"></script>
     </xsl:template>
 
 </xsl:stylesheet>
