@@ -26,7 +26,7 @@
                 <xsl:with-param name="lang" select="$childlang"/>
             </xsl:apply-templates>
         </xsl:variable>
-        <xsl:variable name="urltest" as="xs:boolean"> <!-- test for URL -->
+        <xsl:variable name="urltest" as="xs:boolean">
             <xsl:call-template name="url-string">
                 <xsl:with-param name="urltext" select="concat($CSSPATH, $CSS)"/>
             </xsl:call-template>
@@ -46,10 +46,8 @@
             </xsl:otherwise>
         </xsl:choose>
 
-
-        <!--our css style-->
-        <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css"/>
-        <link rel="stylesheet" type="text/css" href="css/xml.rocks.css"/>
+        <link rel="stylesheet" type="text/css" href="{$PATH2PROJ}{$CSSPATH}bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="{$PATH2PROJ}{$CSSPATH}xml.rocks.css" />
 
         <xsl:if test="string-length($CSS) > 0">
             <xsl:choose>
@@ -109,10 +107,6 @@
                     <input class="form-control search" type="search" placeholder="Search" aria-label="Search"/>
                 </nav>
             </div>
-            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-                    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-                    crossorigin="anonymous"></script>
-
         </header>
     </xsl:template>
 
@@ -167,14 +161,11 @@
                 id="btn-go-back">Back
         </button>
 
-        <script>
-            function goBack() {
-            window.history.back();
-            }
-        </script>
-        <!-- XML Rocks JS -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+                integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+                crossorigin="anonymous"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
+        <!-- XML Rocks JS -->
         <script src="{$PATH2PROJ}js/xml.rocks.js"></script>
     </xsl:template>
 
