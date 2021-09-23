@@ -4,5 +4,5 @@
     <feature extension="dita.xsl.html5" value="xsl/topic.xsl" type="file"/>
     <feature extension="dita.xsl.html5.cover" value="xsl/cover.xsl" type="file"/>
 
-    <transtype name="xml-rocks-help" desc="rocks.xml.webhelp plugin" extends="html5"/>
+    <transtype name="xmlrocks-webhelp" desc="rocks.xml.webhelp plugin" extends="html5"/>
 </plugin>

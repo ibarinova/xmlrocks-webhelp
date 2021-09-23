@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<project name="xml-rocks-help">
-    <target name="dita2xml-rocks-help.init">
+<project name="xmlrocks-webhelp">
+    <target name="dita2xmlrocks-webhelp.init">
         <property name="nav-toc" value="full"/>
     </target>
 
-    <target name="dita2xml-rocks-help" depends="dita2xml-rocks-help.init,
+    <target name="dita2xmlrocks-webhelp" depends="dita2xmlrocks-webhelp.init,
                                                 dita2html5,
-                                                dita2xml-rocks-help.postprocess"/>
+                                                dita2xmlrocks-webhelp.postprocess"/>
 
-    <target name="dita2xml-rocks-help.postprocess">
+    <target name="dita2xmlrocks-webhelp.postprocess">
         <copy todir="${output.dir}">
             <fileset dir="${dita.plugin.rocks.xml.webhelp.dir}/css">
                 <include name="**/*.*"/>
