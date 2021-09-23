@@ -4,7 +4,23 @@
                 exclude-result-prefixes="#all"
                 version="2.0">
 
-    <!-- Generate links to CSS files -->
+    <xsl:template match="*" mode="chapterHead">
+        <head>
+            <xsl:call-template name="generateCharset"/>
+            <xsl:apply-templates select="." mode="generateDefaultCopyright"/>
+            <xsl:call-template name="generateDefaultMeta"/>
+            <xsl:apply-templates select="." mode="getMeta"/>
+            <xsl:call-template name="copyright"/>
+            <xsl:call-template name="generateCssLinks"/>
+            <xsl:call-template name="addFavicon"/>
+            <xsl:call-template name="generateChapterTitle"/>
+            <xsl:call-template name="gen-user-head" />
+            <xsl:call-template name="gen-user-scripts" />
+            <xsl:call-template name="gen-user-styles" />
+            <xsl:call-template name="processHDF"/>
+        </head>
+    </xsl:template>
+
     <xsl:template name="generateCssLinks">
         <xsl:variable name="childlang" as="xs:string">
             <xsl:variable name="lang">
@@ -49,9 +65,6 @@
         <link rel="stylesheet" type="text/css" href="{$PATH2PROJ}{$CSSPATH}bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="{$PATH2PROJ}{$CSSPATH}xml.rocks.css" />
 
-        <!-- FIXME add favicon in another template-->
-        <link rel="icon" type="image/png" href="{$PATH2PROJ}img/favicon.png"/>
-
         <xsl:if test="string-length($CSS) > 0">
             <xsl:choose>
                 <xsl:when test="$urltest">
@@ -62,6 +75,10 @@
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:if>
+    </xsl:template>
+
+    <xsl:template name="addFavicon">
+        <link rel="icon" type="image/png" href="{$PATH2PROJ}img/favicon.png"/>
     </xsl:template>
 
     <xsl:template match="*" mode="chapterBody">
