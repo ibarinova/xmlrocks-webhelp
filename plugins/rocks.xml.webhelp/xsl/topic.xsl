@@ -49,6 +49,9 @@
         <link rel="stylesheet" type="text/css" href="{$PATH2PROJ}{$CSSPATH}bootstrap.min.css" />
         <link rel="stylesheet" type="text/css" href="{$PATH2PROJ}{$CSSPATH}xml.rocks.css" />
 
+        <!-- FIXME add favicon in another template-->
+        <link rel="icon" type="image/png" href="{$PATH2PROJ}img/favicon.png"/>
+
         <xsl:if test="string-length($CSS) > 0">
             <xsl:choose>
                 <xsl:when test="$urltest">
