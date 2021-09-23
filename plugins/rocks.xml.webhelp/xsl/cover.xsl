@@ -85,7 +85,9 @@
         <footer class="footer-container">
             <div class="d-flex flex-column footer-div max-width">
                 <!-- FIXME HARDCODE! -->
-                <a class="footer-text d-inline-flex mt-2 mt-md-0 ms-md-auto" href="#">Organization name © 2021</a>
+                <a class="footer-text d-inline-flex mt-2 mt-md-0 ms-md-auto" href="#">Organization name ©
+                    <xsl:call-template name="insertCurrentYear"/>
+                </a>
             </div>
         </footer>
         <!-- TODO: get it out from there (make button and js independent from footer) -->
