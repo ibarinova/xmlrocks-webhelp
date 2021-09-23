@@ -124,6 +124,22 @@
   box-shadow: 0 2px 5px #bbbbbb;
 }
 
+#btn-go-back {
+    position: fixed;
+    top: 6em;
+    left: 3.5em;
+    z-index: 99;
+    outline: none;
+    color: #ffffff;
+    box-shadow: 0 2px 5px #bbbbbb;
+    /*opacity: 50%;*/
+    color: white;
+    cursor: pointer;
+    padding: 0.5em 2em;
+    border: none;
+    border-radius: 10px;
+}
+
 /* FIXME (used to highlight active topic in TOC) */
 li.active {
   color: red;
