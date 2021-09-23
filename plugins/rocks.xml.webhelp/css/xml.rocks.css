@@ -144,3 +144,13 @@
 li.active {
   color: red;
 }
+
+/*removing dots from TOC and adding pudding*/
+.toc-container li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    word-wrap: break-word;
+    padding-top: 0.5em;
+    text-decoration: none;
+}
