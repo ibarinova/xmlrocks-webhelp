@@ -139,11 +139,6 @@
     border-radius: 10px;
 }
 
-/* FIXME (used to highlight active topic in TOC) */
-li.active {
-  color: red;
-}
-
 /*removing dots from TOC and adding pudding*/
 .toc-container li {
     list-style: none;
