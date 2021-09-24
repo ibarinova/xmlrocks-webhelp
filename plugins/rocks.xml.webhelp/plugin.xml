@@ -3,6 +3,7 @@
     <feature extension="dita.conductor.target.relative" value="build.xml" type="file"/>
     <feature extension="dita.xsl.html5" value="xsl/topic.xsl" type="file"/>
     <feature extension="dita.xsl.html5.cover" value="xsl/cover.xsl" type="file"/>
+    <feature extension="dita.xsl.maplink" value="xsl/ancestorRole.xsl" type="file"/>
 
     <transtype name="xmlrocks-webhelp" desc="rocks.xml.webhelp plugin" extends="html5"/>
 </plugin>
