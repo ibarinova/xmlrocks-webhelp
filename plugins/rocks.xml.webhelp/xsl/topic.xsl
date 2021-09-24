@@ -9,6 +9,10 @@
                as="xs:string"/>
     <xsl:variable name="include.roles" select="tokenize(normalize-space($include.rellinks), '\s+')" as="xs:string*"/>
 
+    <xsl:attribute-set name="banner">
+        <xsl:attribute name="class">rocks-header sticky-top accent-background-color</xsl:attribute>
+    </xsl:attribute-set>
+
     <xsl:template match="*" mode="chapterHead">
         <head>
             <xsl:call-template name="generateCharset"/>
@@ -93,6 +97,7 @@
             <xsl:apply-templates select="." mode="addHeaderToHtmlBodyElement"/>
             <main role="main">
                 <xsl:attribute name="class" select="'container max-width'"/>
+                <xsl:call-template name="generateBreadcrumbs"/>
                 <div class="row row-cols-1 row-cols-md-3 mb-3 text-left">
                     <div class="col col-sm-4">
                         <div class="card mb-4 rounded-card-rocks">
@@ -110,33 +115,30 @@
         </body>
     </xsl:template>
 
-    <!-- Process <body> content that is appropriate for HTML5 header section. -->
-    <xsl:template match="*" mode="addHeaderToHtmlBodyElement">
-        <!-- FIXME HEADER IS HARDCODED! -->
-        <header class="rocks-header sticky-top accent-background-color">
-            <div class="d-flex flex-column flex-md-row align-items-center mb-4 main-header max-width">
-                <!--       TODO: use text dark for white background -->
-<!--                        <a href="/" class="d-flex align-items-center text-dark text-decoration-none">-->
-                <a href="{$PATH2PROJ}index.html" class="d-flex align-items-center text-light text-decoration-none header-logo">
-                    <img src="{$PATH2PROJ}img/logo.svg"/>
-                </a>
-                <!--       TODO: use text dark for white background -->
-<!--                        <span class="fs-4 text-dark"> -->
-                <span class="fs-4 text-light">
-                    <xsl:choose>
-                        <xsl:when test="$input.map/*[contains(@class, ' map/map ')][1]/*[contains(@class, ' topic/title ')][1]">
-                            <xsl:value-of select="$input.map/*[contains(@class, ' map/map ')][1]/*[contains(@class, ' topic/title ')][1]"/>
-                        </xsl:when>
-                        <xsl:otherwise>
-                            <xsl:value-of select="$input.map/@title"/>
-                        </xsl:otherwise>
-                    </xsl:choose>
-                </span>
-                <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
-                    <input class="form-control search" type="search" placeholder="Search" aria-label="Search"/>
-                </nav>
-            </div>
-        </header>
+    <xsl:template match="/|node()|@*" mode="gen-user-header">
+        <div class="d-flex flex-column flex-md-row align-items-center mb-4 main-header max-width">
+            <!--       TODO: use text-dark for white background -->
+            <a href="{$PATH2PROJ}index.html" class="d-flex align-items-center text-light text-decoration-none header-logo">
+                <img src="{$PATH2PROJ}img/logo.svg"/>
+            </a>
+            <!--       TODO: use text-dark for white background -->
+            <span class="fs-4 text-light">
+                <xsl:choose>
+                    <xsl:when test="ancestor-or-self::*[contains(@class, ' map/map ')]">
+                        <xsl:value-of select="ancestor-or-self::*[contains(@class, ' map/map ')][1]/*[contains(@class, ' topic/title ')][1]"/>
+                    </xsl:when>
+                    <xsl:when test="$input.map/*[contains(@class, ' map/map ')][1]/*[contains(@class, ' topic/title ')][1]">
+                        <xsl:value-of select="$input.map/*[contains(@class, ' map/map ')][1]/*[contains(@class, ' topic/title ')][1]"/>
+                    </xsl:when>
+                    <xsl:otherwise>
+                        <xsl:value-of select="$input.map/@title"/>
+                    </xsl:otherwise>
+                </xsl:choose>
+            </span>
+            <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+                <input class="form-control search" type="search" placeholder="Search" aria-label="Search"/>
+            </nav>
+        </div>
     </xsl:template>
 
     <xsl:template match="*" mode="addContentToHtmlBodyElement">
@@ -247,28 +249,20 @@
         </xsl:for-each>
     </xsl:template>
 
-
-
     <!--create breadcrumbs for each grouping of ancestor links; include previous, next, and ancestor links, sorted by linkpool/related-links parent. If there is more than one linkpool that contains ancestors, multiple breadcrumb trails will be generated-->
     <xsl:template match="*[contains(@class, ' topic/related-links ')]" mode="breadcrumb1">
+        <xsl:for-each select="ancestor-or-self::*[contains(@class, ' topic/related-links ')]">
+            <xsl:apply-templates select="*[@href][@role = 'parent'][1]" mode="breadcrumb"/>
+        </xsl:for-each>
 
-            <xsl:for-each select="ancestor-or-self::*[contains(@class, ' topic/related-links ')]">
-                <!--title current topic-->
-
-                <xsl:apply-templates select="*[@href][@role = 'parent'][1]" mode="breadcrumb"/>
-                <!--<xsl:text> > </xsl:text>-->
-
-            </xsl:for-each>
-            <xsl:value-of
-                    select="ancestor::*[contains(@class, ' topic/topic ')][1]/*[contains(@class, ' topic/title ')][1]"/>
-
+        <xsl:value-of select="ancestor::*[contains(@class, ' topic/topic ')][1]/*[contains(@class, ' topic/title ')][1]"/>
     </xsl:template>
 
     <xsl:template match="*" mode="addHeaderToHtmlBodyElement">
         <xsl:variable name="header-content">
-            <xsl:call-template name="generateBreadcrumbs"/>
-            <xsl:call-template name="gen-user-header"/>  <!-- include user's XSL running header here -->
+            <xsl:call-template name="gen-user-header"/>
             <xsl:call-template name="processHDR"/>
+
             <xsl:if test="$INDEXSHOW = 'yes'">
                 <xsl:apply-templates select="/*/*[contains(@class, ' topic/prolog ')]/*[contains(@class, ' topic/metadata ')]/*[contains(@class, ' topic/keywords ')]/*[contains(@class, ' topic/indexterm ')] |
                                      /dita/*[1]/*[contains(@class, ' topic/prolog ')]/*[contains(@class, ' topic/metadata ')]/*[contains(@class, ' topic/keywords ')]/*[contains(@class, ' topic/indexterm ')]"/>
@@ -283,23 +277,17 @@
     </xsl:template>
 
     <xsl:template name="generateBreadcrumbs">
-
         <div class="breadcrumb">
             <span class="home">
-                <!-- Use a span inside the 'a' element, such that users can hide the text and add a background image. -->
                 <a href="{concat($PATH2PROJ, 'index', $OUTEXT)}">
-                    <span>
-                        Home
-                        <xsl:text> > </xsl:text>
-                    </span>
+                    <xsl:text>Home</xsl:text>
                 </a>
+                <xsl:text> > </xsl:text>
             </span>
 
             <!-- Insert previous/next/ancestor breadcrumbs links at the top of the html5. -->
             <xsl:apply-templates select="*[contains(@class, ' topic/related-links ')]" mode="breadcrumb"/>
-
             <xsl:apply-templates select="*[contains(@class, ' topic/related-links ')]" mode="breadcrumb1"/>
         </div>
     </xsl:template>
-
 </xsl:stylesheet>
