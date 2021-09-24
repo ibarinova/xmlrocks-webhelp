@@ -3,6 +3,11 @@
                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
                 exclude-result-prefixes="#all"
                 version="2.0">
+    <!--Param & varaible for creating breadcrumbs-->
+    <xsl:param name="include.rellinks"
+               select="'#default parent child sibling friend next previous cousin ancestor descendant sample external other'"
+               as="xs:string"/>
+    <xsl:variable name="include.roles" select="tokenize(normalize-space($include.rellinks), '\s+')" as="xs:string*"/>
 
     <xsl:template match="*" mode="chapterHead">
         <head>
@@ -198,6 +203,92 @@
     <xsl:template name="insertCurrentYear">
         <xsl:variable name="currentDate" as="xs:date" select="current-date()"/>
         <xsl:value-of select="year-from-date($currentDate)"/>
+    </xsl:template>
+
+    <xsl:template match="*" mode="breadcrumb1" priority="-1">
+        <xsl:apply-templates select="node()" mode="breadcrumb1"/>
+    </xsl:template>
+
+    <xsl:template match="*[contains(@class, ' topic/related-links ')]" mode="breadcrumb">
+        <xsl:for-each select="descendant-or-self::*[contains(@class, ' topic/related-links ') or contains(@class, ' topic/linkpool ')][*[@role = 'ancestor']]">
+            <!--<div class="breadcrumb">-->
+                <xsl:if test="$include.roles = 'previous'">
+                    <!--output previous link first, if it exists-->
+                    <xsl:if test="*[@href][@role = 'previous']">
+                        <xsl:apply-templates select="*[@href][@role = 'previous'][1]" mode="breadcrumb"/>
+                    </xsl:if>
+                </xsl:if>
+                <!--if both previous and next links exist, output a separator bar-->
+                <xsl:if test="$include.roles = 'previous' and $include.roles = 'next'">
+                    <xsl:if test="*[@href][@role = 'next'] and *[@href][@role = 'previous']">
+                        <xsl:text> | </xsl:text>
+                    </xsl:if>
+                </xsl:if>
+                <xsl:if test="$include.roles = 'next'">
+                    <!--output next link, if it exists-->
+                    <xsl:if test="*[@href][@role = 'next']">
+                        <xsl:apply-templates select="*[@href][@role = 'next'][1]" mode="breadcrumb"/>
+                    </xsl:if>
+                </xsl:if>
+                <xsl:if test="$include.roles = 'previous' and $include.roles = 'next' and $include.roles = 'ancestor'">
+                    <!--if we have either next or previous, plus ancestors, separate the next/prev from the ancestors with a vertical bar-->
+                    <xsl:if test="(*[@href][@role = 'next'] or *[@href][@role = 'previous']) and *[@href][@role = 'ancestor']">
+                        <xsl:text> | </xsl:text>
+                    </xsl:if>
+                </xsl:if>
+                <xsl:if test="$include.roles = 'ancestor'">
+                    <!--if ancestors exist, output them, and include a greater-than symbol after each one, including a trailing one-->
+                    <xsl:for-each select="*[@href][@role = 'ancestor']">
+                        <xsl:apply-templates select="."/>
+                        <xsl:text> &gt; </xsl:text>
+                    </xsl:for-each>
+                </xsl:if>
+        </xsl:for-each>
+    </xsl:template>
+<!--end original template-->
+
+
+    <!--create breadcrumbs for each grouping of ancestor links; include previous, next, and ancestor links, sorted by linkpool/related-links parent. If there is more than one linkpool that contains ancestors, multiple breadcrumb trails will be generated-->
+    <xsl:template match="*[contains(@class, ' topic/related-links ')]" mode="breadcrumb1">
+
+            <xsl:for-each select="ancestor-or-self::*[contains(@class, ' topic/related-links ')]">
+                <!--title current topic-->
+
+                <xsl:apply-templates select="*[@href][@role = 'parent'][1]" mode="breadcrumb"/>
+                <!--<xsl:text> > </xsl:text>-->
+
+            </xsl:for-each>
+            <xsl:value-of
+                    select="ancestor::*[contains(@class, ' topic/topic ')][1]/*[contains(@class, ' topic/title ')][1]"/>
+
+    </xsl:template>
+
+    <xsl:template match="*" mode="addHeaderToHtmlBodyElement">
+        <xsl:variable name="header-content">
+            <xsl:call-template name="generateBreadcrumbs"/>
+            <xsl:call-template name="gen-user-header"/>  <!-- include user's XSL running header here -->
+            <xsl:call-template name="processHDR"/>
+            <xsl:if test="$INDEXSHOW = 'yes'">
+                <xsl:apply-templates select="/*/*[contains(@class, ' topic/prolog ')]/*[contains(@class, ' topic/metadata ')]/*[contains(@class, ' topic/keywords ')]/*[contains(@class, ' topic/indexterm ')] |
+                                     /dita/*[1]/*[contains(@class, ' topic/prolog ')]/*[contains(@class, ' topic/metadata ')]/*[contains(@class, ' topic/keywords ')]/*[contains(@class, ' topic/indexterm ')]"/>
+            </xsl:if>
+        </xsl:variable>
+
+        <xsl:if test="exists($header-content)">
+            <header xsl:use-attribute-sets="banner">
+                <xsl:sequence select="$header-content"/>
+            </header>
+        </xsl:if>
+    </xsl:template>
+
+    <xsl:template name="generateBreadcrumbs">
+
+        <div class="breadcrumb">
+        <!-- Insert previous/next/ancestor breadcrumbs links at the top of the html5. -->
+        <xsl:apply-templates select="*[contains(@class, ' topic/related-links ')]" mode="breadcrumb"/>
+
+        <xsl:apply-templates select="*[contains(@class, ' topic/related-links ')]" mode="breadcrumb1"/>
+        </div>
     </xsl:template>
 
 </xsl:stylesheet>
