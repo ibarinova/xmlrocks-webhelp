@@ -210,8 +210,9 @@
     </xsl:template>
 
     <xsl:template match="*[contains(@class, ' topic/related-links ')]" mode="breadcrumb">
-        <xsl:for-each select="descendant-or-self::*[contains(@class, ' topic/related-links ') or contains(@class, ' topic/linkpool ')][*[@role = 'ancestor']]">
-            <!--<div class="breadcrumb">-->
+        <xsl:for-each
+                select="descendant-or-self::*[contains(@class, ' topic/related-links ') or contains(@class, ' topic/linkpool ')][*[@role = 'ancestor']]">
+
                 <xsl:if test="$include.roles = 'previous'">
                     <!--output previous link first, if it exists-->
                     <xsl:if test="*[@href][@role = 'previous']">
@@ -245,7 +246,7 @@
                 </xsl:if>
         </xsl:for-each>
     </xsl:template>
-<!--end original template-->
+
 
 
     <!--create breadcrumbs for each grouping of ancestor links; include previous, next, and ancestor links, sorted by linkpool/related-links parent. If there is more than one linkpool that contains ancestors, multiple breadcrumb trails will be generated-->
@@ -284,10 +285,20 @@
     <xsl:template name="generateBreadcrumbs">
 
         <div class="breadcrumb">
-        <!-- Insert previous/next/ancestor breadcrumbs links at the top of the html5. -->
-        <xsl:apply-templates select="*[contains(@class, ' topic/related-links ')]" mode="breadcrumb"/>
+            <span class="home">
+                <!-- Use a span inside the 'a' element, such that users can hide the text and add a background image. -->
+                <a href="{concat($PATH2PROJ, 'index', $OUTEXT)}">
+                    <span>
+                        Home
+                        <xsl:text> > </xsl:text>
+                    </span>
+                </a>
+            </span>
 
-        <xsl:apply-templates select="*[contains(@class, ' topic/related-links ')]" mode="breadcrumb1"/>
+            <!-- Insert previous/next/ancestor breadcrumbs links at the top of the html5. -->
+            <xsl:apply-templates select="*[contains(@class, ' topic/related-links ')]" mode="breadcrumb"/>
+
+            <xsl:apply-templates select="*[contains(@class, ' topic/related-links ')]" mode="breadcrumb1"/>
         </div>
     </xsl:template>
 

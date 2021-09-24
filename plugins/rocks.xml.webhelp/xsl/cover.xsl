@@ -40,7 +40,6 @@
             <xsl:apply-templates select="." mode="addAttributesToBody"/>
             <xsl:call-template name="setidaname"/>
             <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-startprop ')]" mode="out-of-line"/>
-            <xsl:call-template name="generateBreadcrumbs"/>
             <xsl:call-template name="gen-user-header"/>
             <xsl:call-template name="processHDR"/>
             <xsl:if test="$INDEXSHOW = 'yes'">
@@ -70,7 +69,6 @@
 
     <xsl:template match="*" mode="addHeaderToHtmlBodyElement">
         <xsl:variable name="header-content" as="node()*">
-            <xsl:call-template name="generateBreadcrumbs"/>
             <xsl:call-template name="gen-user-header"/>  <!-- include user's XSL running header here -->
             <xsl:call-template name="processHDR"/>
             <xsl:if test="$INDEXSHOW = 'yes'">
