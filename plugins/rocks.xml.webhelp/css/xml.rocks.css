@@ -167,3 +167,13 @@ nav li:before  {
     content: "\2228 \0020";
     color: #6d2077;
 }
+
+/*breadcrumbs*/
+.breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1em 1em 0 2em;
+    margin-bottom: 1rem;
+    list-style: none;
+    font-size: 17px;
+}
