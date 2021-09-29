@@ -98,6 +98,15 @@
             <main role="main">
                 <xsl:attribute name="class" select="'container max-width'"/>
                 <xsl:call-template name="generateBreadcrumbs"/>
+
+                <div class="dropdown">
+                    <button onclick="myFunction()" class="dropbtn">Download</button>
+                    <div id="myDropdown" class="dropdown-content">
+                        <input type="button" id="downloadbtn" value="Download HTML as PDF" onclick="getPDF()"/>
+                        <input type="button" value="Download PDF File" onclick="DownloadFile('bm_dude.pdf')"/>
+                    </div>
+                </div>
+
                 <div class="row row-cols-1 row-cols-md-3 mb-3 text-left">
                     <div class="col col-sm-4">
                         <div class="card mb-4 rounded-card-rocks">
@@ -112,6 +121,10 @@
                 </div>
             </main>
             <xsl:apply-templates select="." mode="addFooterToHtmlBodyElement"/>
+
+            <script src="{$PATH2PROJ}lib/jquery-3.6.0.js"></script>
+            <script src="{$PATH2PROJ}lib/jspdf.min.js"></script>
+            <script src="{$PATH2PROJ}lib/html2canvas.js"></script>
         </body>
     </xsl:template>
 
