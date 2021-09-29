@@ -24,5 +24,8 @@
                 <include name="**/*.*"/>
             </fileset>
         </copy>
+        <copy file="${dita.plugin.rocks.xml.webhelp.dir}/bm_dude.pdf"
+              todir="${output.dir}/pdf">
+        </copy>
     </target>
 </project>
