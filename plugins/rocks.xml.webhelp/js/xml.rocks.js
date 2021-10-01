@@ -66,8 +66,7 @@ function getPDF(){
 // Function for download pdf from output
 function DownloadFile(fileName) {
     //Set the File URL.
-    var url = "/pdf/bm_dude.pdf";
-
+    var url = "pdf/" + fileName;
     //Create XMLHTTP Request.
     var req = new XMLHttpRequest();
     req.open("GET", url, true);
