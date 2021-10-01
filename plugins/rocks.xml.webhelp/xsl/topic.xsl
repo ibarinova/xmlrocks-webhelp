@@ -100,11 +100,14 @@
                 <xsl:call-template name="generateBreadcrumbs"/>
 
                 <div class="dropdown">
-                    <button onclick="myFunction()" class="dropbtn">Download</button>
+                    <button onclick="myFunction()" class="dropbtn"></button>
                     <div id="myDropdown" class="dropdown-content">
                         <input type="button" id="downloadbtn" value="Download HTML as PDF" onclick="getPDF()"/>
                         <input type="button" value="Download PDF File" onclick="DownloadFile('bm_dude.pdf')"/>
                     </div>
+
+                    <input type="button" id="printbtn" onclick="printDiv('topic-article')"/>
+
                 </div>
 
                 <div class="row row-cols-1 row-cols-md-3 mb-3 text-left">
@@ -207,12 +210,11 @@
                 id="btn-go-back">Back
         </button>
 
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-                integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-                crossorigin="anonymous"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-        <!-- XML Rocks JS -->
+        <!-- JS -->
         <script src="{$PATH2PROJ}js/xml.rocks.js"></script>
+        <script src="{$PATH2PROJ}lib/jquery-3.6.0.js"></script>
+        <script src="{$PATH2PROJ}lib/jspdf.min.js"></script>
+        <script src="{$PATH2PROJ}lib/html2canvas.js"></script>
     </xsl:template>
 
     <xsl:template name="insertCurrentYear">
