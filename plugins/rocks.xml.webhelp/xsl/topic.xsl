@@ -211,7 +211,7 @@
         <script src="{$PATH2PROJ}lib/jspdf-1.5.3.min.js"></script>
         <script src="{$PATH2PROJ}lib/html2canvas-1.3.2.js"></script>
         <script src="{$PATH2PROJ}lib/popper.min.js"></script>
-        <script src="{$PATH2PROJ}js/xml.rocks.js"></script>
+        <script src="{$PATH2PROJ}lib/xml.rocks.js"></script>
     </xsl:template>
 
     <xsl:template name="insertCurrentYear">
