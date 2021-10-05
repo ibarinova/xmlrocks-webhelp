@@ -6,9 +6,9 @@
 
     <target name="dita2xmlrocks-webhelp" depends="dita2xmlrocks-webhelp.init,
                                                 dita2html5,
-                                                dita2xmlrocks-webhelp.postprocess"/>
+                                                dita2xmlrocks-webhelp.copy-resources"/>
 
-    <target name="dita2xmlrocks-webhelp.postprocess">
+    <target name="dita2xmlrocks-webhelp.copy-resources">
         <copy todir="${output.dir}">
             <fileset dir="${dita.plugin.rocks.xml.webhelp.dir}/css">
                 <include name="**/*.*"/>
@@ -19,7 +19,8 @@
                 <include name="**/*.*"/>
             </fileset>
         </copy>
-        <copy todir="${output.dir}/js">
+
+        <copy todir="${output.dir}/lib">
             <fileset dir="${dita.plugin.rocks.xml.webhelp.dir}/js">
                 <include name="**/*.*"/>
             </fileset>

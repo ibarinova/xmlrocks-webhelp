@@ -3,7 +3,7 @@
                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
                 exclude-result-prefixes="#all"
                 version="2.0">
-    <!--Param & varaible for creating breadcrumbs-->
+    <!--Param & variable for creating breadcrumbs-->
     <xsl:param name="include.rellinks"
                select="'#default parent child sibling friend next previous cousin ancestor descendant sample external other'"
                as="xs:string"/>
@@ -23,9 +23,9 @@
             <xsl:call-template name="generateCssLinks"/>
             <xsl:call-template name="addFavicon"/>
             <xsl:call-template name="generateChapterTitle"/>
-            <xsl:call-template name="gen-user-head" />
-            <xsl:call-template name="gen-user-scripts" />
-            <xsl:call-template name="gen-user-styles" />
+            <xsl:call-template name="gen-user-head"/>
+            <xsl:call-template name="gen-user-scripts"/>
+            <xsl:call-template name="gen-user-styles"/>
             <xsl:call-template name="processHDF"/>
         </head>
     </xsl:template>
@@ -71,8 +71,8 @@
             </xsl:otherwise>
         </xsl:choose>
 
-        <link rel="stylesheet" type="text/css" href="{$PATH2PROJ}{$CSSPATH}bootstrap.min.css" />
-        <link rel="stylesheet" type="text/css" href="{$PATH2PROJ}{$CSSPATH}xml.rocks.css" />
+        <link rel="stylesheet" type="text/css" href="{$PATH2PROJ}{$CSSPATH}bootstrap.min.css"/>
+        <link rel="stylesheet" type="text/css" href="{$PATH2PROJ}{$CSSPATH}xml.rocks.css"/>
 
         <xsl:if test="string-length($CSS) > 0">
             <xsl:choose>
@@ -98,15 +98,26 @@
             <main role="main">
                 <xsl:attribute name="class" select="'container max-width'"/>
                 <xsl:call-template name="generateBreadcrumbs"/>
-
-                <div class="dropdown">
-                    <button onclick="myFunction()" class="dropbtn"></button>
-                    <div id="myDropdown" class="dropdown-content">
+                <div class="dropdown-download">
+                    <button onclick="dropdownDownload()" class="drop-button-download">
+                    </button>
+                    <div id="menu-dropdown-download" class="dropdown-content-download">
                         <input type="button" id="downloadbtn" value="Download HTML as PDF" onclick="getPDF()"/>
                         <input type="button" value="Download PDF File" onclick="DownloadFile('bm_dude.pdf')"/>
                     </div>
-
                     <input type="button" id="printbtn" onclick="printDiv('topic-article')"/>
+                </div>
+
+                <div class="dropdown-google-drive">
+                    <button onclick="dropdownGoogleDrive()" class="drop-button-google-drive">
+                    </button>
+                    <div id="menu-dropdown-google-drive" class="dropdown-content-google-drive">
+                        <input type="button" class="g-savetodrive"
+                               data-src="pdf/bm_dude.pdf"
+                               data-filename="bm_dude.pdf"
+                               data-sitename="PDF output">
+                        </input>
+                    </div>
 
                 </div>
 
@@ -118,16 +129,13 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="col col-sm-8">
                         <xsl:apply-templates select="." mode="addContentToHtmlBodyElement"/>
                     </div>
                 </div>
             </main>
             <xsl:apply-templates select="." mode="addFooterToHtmlBodyElement"/>
-
-            <script src="{$PATH2PROJ}lib/jquery-3.6.0.js"></script>
-            <script src="{$PATH2PROJ}lib/jspdf.min.js"></script>
-            <script src="{$PATH2PROJ}lib/html2canvas.js"></script>
         </body>
     </xsl:template>
 
@@ -211,10 +219,11 @@
         </button>
 
         <!-- JS -->
-        <script src="{$PATH2PROJ}js/xml.rocks.js"></script>
-        <script src="{$PATH2PROJ}lib/jquery-3.6.0.js"></script>
-        <script src="{$PATH2PROJ}lib/jspdf.min.js"></script>
-        <script src="{$PATH2PROJ}lib/html2canvas.js"></script>
+        <script src="{$PATH2PROJ}lib/jquery-3.6.0.min.js"></script>
+        <script src="{$PATH2PROJ}lib/jspdf-1.5.3.min.js"></script>
+        <script src="{$PATH2PROJ}lib/html2canvas-1.3.2.js"></script>
+        <script src="{$PATH2PROJ}lib/popper.min.js"></script>
+        <script src="{$PATH2PROJ}lib/xml.rocks.js"></script>
     </xsl:template>
 
     <xsl:template name="insertCurrentYear">
@@ -230,37 +239,37 @@
         <xsl:for-each
                 select="descendant-or-self::*[contains(@class, ' topic/related-links ') or contains(@class, ' topic/linkpool ')][*[@role = 'ancestor']]">
 
-                <xsl:if test="$include.roles = 'previous'">
-                    <!--output previous link first, if it exists-->
-                    <xsl:if test="*[@href][@role = 'previous']">
-                        <xsl:apply-templates select="*[@href][@role = 'previous'][1]" mode="breadcrumb"/>
-                    </xsl:if>
+            <xsl:if test="$include.roles = 'previous'">
+                <!--output previous link first, if it exists-->
+                <xsl:if test="*[@href][@role = 'previous']">
+                    <xsl:apply-templates select="*[@href][@role = 'previous'][1]" mode="breadcrumb"/>
                 </xsl:if>
-                <!--if both previous and next links exist, output a separator bar-->
-                <xsl:if test="$include.roles = 'previous' and $include.roles = 'next'">
-                    <xsl:if test="*[@href][@role = 'next'] and *[@href][@role = 'previous']">
-                        <xsl:text> | </xsl:text>
-                    </xsl:if>
+            </xsl:if>
+            <!--if both previous and next links exist, output a separator bar-->
+            <xsl:if test="$include.roles = 'previous' and $include.roles = 'next'">
+                <xsl:if test="*[@href][@role = 'next'] and *[@href][@role = 'previous']">
+                    <xsl:text> | </xsl:text>
                 </xsl:if>
-                <xsl:if test="$include.roles = 'next'">
-                    <!--output next link, if it exists-->
-                    <xsl:if test="*[@href][@role = 'next']">
-                        <xsl:apply-templates select="*[@href][@role = 'next'][1]" mode="breadcrumb"/>
-                    </xsl:if>
+            </xsl:if>
+            <xsl:if test="$include.roles = 'next'">
+                <!--output next link, if it exists-->
+                <xsl:if test="*[@href][@role = 'next']">
+                    <xsl:apply-templates select="*[@href][@role = 'next'][1]" mode="breadcrumb"/>
                 </xsl:if>
-                <xsl:if test="$include.roles = 'previous' and $include.roles = 'next' and $include.roles = 'ancestor'">
-                    <!--if we have either next or previous, plus ancestors, separate the next/prev from the ancestors with a vertical bar-->
-                    <xsl:if test="(*[@href][@role = 'next'] or *[@href][@role = 'previous']) and *[@href][@role = 'ancestor']">
-                        <xsl:text> | </xsl:text>
-                    </xsl:if>
+            </xsl:if>
+            <xsl:if test="$include.roles = 'previous' and $include.roles = 'next' and $include.roles = 'ancestor'">
+                <!--if we have either next or previous, plus ancestors, separate the next/prev from the ancestors with a vertical bar-->
+                <xsl:if test="(*[@href][@role = 'next'] or *[@href][@role = 'previous']) and *[@href][@role = 'ancestor']">
+                    <xsl:text> | </xsl:text>
                 </xsl:if>
-                <xsl:if test="$include.roles = 'ancestor'">
-                    <!--if ancestors exist, output them, and include a greater-than symbol after each one, including a trailing one-->
-                    <xsl:for-each select="*[@href][@role = 'ancestor']">
-                        <xsl:apply-templates select="."/>
-                        <xsl:text> &gt; </xsl:text>
-                    </xsl:for-each>
-                </xsl:if>
+            </xsl:if>
+            <xsl:if test="$include.roles = 'ancestor'">
+                <!--if ancestors exist, output them, and include a greater-than symbol after each one, including a trailing one-->
+                <xsl:for-each select="*[@href][@role = 'ancestor']">
+                    <xsl:apply-templates select="."/>
+                    <xsl:text> &gt; </xsl:text>
+                </xsl:for-each>
+            </xsl:if>
         </xsl:for-each>
     </xsl:template>
 
