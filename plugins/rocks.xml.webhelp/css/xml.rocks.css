@@ -143,6 +143,13 @@
     border-radius: 10px;
 }
 
+.download-pdf-output {
+    color: green;
+    position: fixed;
+    top: 6em;
+    right: 2.5em;
+}
+
 /*removing dots from TOC and adding pudding*/
 .toc-container li {
     list-style: none;
@@ -176,3 +183,75 @@ nav li:before  {
     list-style: none;
     font-size: 17px;
 }
+
+
+/* Dropdown Button */
+.dropbtn {
+    background-image: url(img/download-icon.svg);
+    background-repeat: no-repeat;
+    background-color: #FFFFFF;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    position: relative;
+    left: 49em;
+    cursor: pointer;
+    bottom: 2.5em;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    left: 39.6em;
+    top: 2.2em;
+}
+
+/* Links inside the dropdown */
+.dropdown-content div {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+button, input, optgroup, select, textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    border: none;
+    padding-bottom: 0.4em;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {
+    display: block;
+}
+
+#printbtn {
+    background-image: url(img/print-icon.svg);
+    background-repeat: no-repeat;
+    background-color: #FFFFFF;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    position: relative;
+    left: 51em;
+    cursor: pointer;
+    bottom: 0em;
+}
+
