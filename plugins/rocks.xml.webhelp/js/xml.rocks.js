@@ -123,7 +123,8 @@ function printDiv(divName) {
     w.close();
 }
 
-function getArticleElement(href) {
+// The function dynamically updates parts of a web page, without reloading the whole page.
+function getDynamicTopicData(href, listItemID) {
     switch (window.location.protocol) {
         case 'file:':
             // go to href if HTML is opened as file:

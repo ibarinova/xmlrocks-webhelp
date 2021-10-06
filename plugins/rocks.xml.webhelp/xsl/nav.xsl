@@ -22,6 +22,7 @@
                     </xsl:if>
                     <xsl:choose>
                         <xsl:when test="normalize-space(@href)">
+                            <!-- href value is stored in current-href variable to pass it in getDynamicTopicData function -->
                             <xsl:variable name="current-href">
                                 <xsl:if test="not(@scope = 'external')">
                                     <xsl:value-of select="$pathFromMaplist"/>
@@ -50,9 +51,11 @@
                                 </xsl:choose>
                             </xsl:variable>
                             <a>
+                                <!-- Added @onclick which runs function getDynamicTopicData() -->
+                                <!-- to update parts of web page without reloading the whole page -->
                                 <xsl:attribute name="href" select="'#'"/>
                                 <xsl:attribute name="onclick"
-                                               select="concat('getArticleElement(''', $current-href, ''')')"/>
+                                               select="concat('getDynamicTopicData(''', $current-href, ''',''', concat('#li-', generate-id(.)), ''')')"/>
                                 <xsl:value-of select="$title"/>
                             </a>
                         </xsl:when>
