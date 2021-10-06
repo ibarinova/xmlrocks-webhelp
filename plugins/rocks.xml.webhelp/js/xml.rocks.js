@@ -167,7 +167,7 @@ function applyExpandedClass(id){
         // add .expanded to current TOC topic
         $(id).parent().addClass('expanded');
 
-        // change symbol to +
+        // change symbol to -
         $(id).html('- ');
 
         // remove .expanded for all siblings
