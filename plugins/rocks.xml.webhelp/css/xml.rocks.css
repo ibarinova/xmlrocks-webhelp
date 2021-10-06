@@ -165,16 +165,6 @@ a:hover, a:visited, a:link, a:active {
     text-decoration: none;
 }
 
-nav li:before {
-    content: "\2228 \0020";
-    color: #6d2077;
-}
-
-nav li:before  {
-    content: "\2228 \0020";
-    color: #6d2077;
-}
-
 .breadcrumb {
     display: flex;
     flex-wrap: wrap;
@@ -183,7 +173,6 @@ nav li:before  {
     list-style: none;
     font-size: 17px;
 }
-
 
 /* Dropdown Button */
 .dropbtn {
@@ -255,3 +244,24 @@ button, input, optgroup, select, textarea {
     bottom: 0em;
 }
 
+/* TOC style */
+nav li ul{
+    display: none;
+}
+
+nav li.expanded > ul{
+    display: block;
+}
+
+.expand-collapse-button {
+    color:#bbbbbb;
+    cursor: pointer;
+}
+
+.expand-collapse-button:hover {
+    color:#000000;
+}
+
+nav li.active > a {
+    color:#6610f2;
+}
