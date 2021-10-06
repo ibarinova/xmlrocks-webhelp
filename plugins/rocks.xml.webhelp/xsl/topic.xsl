@@ -129,7 +129,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="col col-sm-8">
                         <xsl:apply-templates select="." mode="addContentToHtmlBodyElement"/>
                     </div>

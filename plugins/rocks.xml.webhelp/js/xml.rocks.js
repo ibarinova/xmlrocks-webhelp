@@ -138,4 +138,30 @@ function printDiv(divName) {
     w.document.write(printContents);
     w.print();
     w.close();
-};
+}
+
+// The function dynamically updates parts of a web page, without reloading the whole page.
+function getDynamicTopicData(href) {
+    switch (window.location.protocol) {
+        case 'file:':
+            // go to href if HTML is opened as file:
+            window.location = href;
+            break;
+        default:
+            // update required elements if HTML is opened on server
+            jQuery.post(href, function (content) {
+                var htmlContent = $.parseHTML(content),
+                    articleContent = $(htmlContent).find('article').contents(),
+                    breadcrumbsContent = $(htmlContent).find('.breadcrumb').contents();
+
+                // update address bar
+                history.pushState("", "", href);
+
+                // update breadcrumbs
+                $('.breadcrumb').html(breadcrumbsContent);
+
+                // update article
+                $('article').html(articleContent);
+            }, 'html')
+    }
+}
