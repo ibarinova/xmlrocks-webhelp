@@ -55,7 +55,7 @@
                                 <!-- to update parts of web page without reloading the whole page -->
                                 <xsl:attribute name="href" select="'#'"/>
                                 <xsl:attribute name="onclick"
-                                               select="concat('getDynamicTopicData(''', $current-href, ''',''', concat('#li-', generate-id(.)), ''')')"/>
+                                               select="concat('getDynamicTopicData(''', $current-href, ''')')"/>
                                 <xsl:value-of select="$title"/>
                             </a>
                         </xsl:when>
