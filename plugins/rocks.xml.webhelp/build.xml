@@ -2,6 +2,7 @@
 <project name="xmlrocks-webhelp">
     <target name="dita2xmlrocks-webhelp.init">
         <property name="nav-toc" value="full"/>
+        <property name="args.csspath" value="css"/>
     </target>
 
     <target name="dita2xmlrocks-webhelp" depends="dita2xmlrocks-webhelp.init,
@@ -9,7 +10,7 @@
                                                 dita2xmlrocks-webhelp.copy-resources"/>
 
     <target name="dita2xmlrocks-webhelp.copy-resources">
-        <copy todir="${output.dir}">
+        <copy todir="${output.dir}/${args.csspath}">
             <fileset dir="${dita.plugin.rocks.xml.webhelp.dir}/css">
                 <include name="**/*.*"/>
             </fileset>
