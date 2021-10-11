@@ -17,8 +17,14 @@
         <xsl:choose>
             <xsl:when test="normalize-space($title)">
                 <li>
+                    <!-- Added @id to li's to highlight current topic in TOC when page is updated with jQuery -->
+                    <xsl:attribute name="id" select="concat('li-', generate-id(.))"/>
                     <xsl:if test=". is $current-topicref">
                         <xsl:attribute name="class">active</xsl:attribute>
+                    </xsl:if>
+                    <!-- Added span with + symbol to expand child topics in TOC  -->
+                    <xsl:if test="child::*[contains(@class, ' map/topicref ')][not(contains(@class, ' ditavalref-d/ditavalref '))]">
+                        <span id="{generate-id(.)}" class="expand-collapse-button" onclick="applyExpandedClass('#{generate-id(.)}')">+ </span>
                     </xsl:if>
                     <xsl:choose>
                         <xsl:when test="normalize-space(@href)">
@@ -55,7 +61,7 @@
                                 <!-- to update parts of web page without reloading the whole page -->
                                 <xsl:attribute name="href" select="'#'"/>
                                 <xsl:attribute name="onclick"
-                                               select="concat('getDynamicTopicData(''', $current-href, ''')')"/>
+                                               select="concat('getDynamicTopicData(''', $current-href, ''',''', concat('#li-', generate-id(.)), ''')')"/>
                                 <xsl:value-of select="$title"/>
                             </a>
                         </xsl:when>

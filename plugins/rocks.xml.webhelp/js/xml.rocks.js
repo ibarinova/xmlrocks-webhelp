@@ -141,7 +141,7 @@ function printDiv(divName) {
 }
 
 // The function dynamically updates parts of a web page, without reloading the whole page.
-function getDynamicTopicData(href) {
+function getDynamicTopicData(href, listItemID) {
     switch (window.location.protocol) {
         case 'file:':
             // go to href if HTML is opened as file:
@@ -162,6 +162,47 @@ function getDynamicTopicData(href) {
 
                 // update article
                 $('article').html(articleContent);
+
+                // reset .active
+                $('.toc-container').find('.active').removeClass('active');
+
+                // add .active to recent TOC li
+                $('.toc-container').find(listItemID).addClass('active');
             }, 'html')
     }
 }
+
+// This function expands topics in TOC
+function applyExpandedClass(id){
+    if ($(id).parent().hasClass('expanded')) {
+        // remove .expanded from current TOC topic
+        $(id).parent().removeClass('expanded');
+
+        // change symbol to +
+        $(id).html('+ ');
+    } else {
+        // add .expanded to current TOC topic
+        $(id).parent().addClass('expanded');
+
+        // change symbol to -
+        $(id).html('- ');
+
+        // remove .expanded for all siblings
+        $(id).parent().siblings().removeClass('expanded');
+
+        // remove .expanded for all descendants of siblings
+        $(id).parent().siblings().find('.expand-collapse-button').parent().removeClass('expanded');
+
+        // change - to + for all closed siblings
+        $(id).parent().siblings().find('.expand-collapse-button').html('+ ');
+    }
+}
+
+// This function reveals active topic in TOC when the page reloads
+$(document).ready(function() {
+    // expand all parent li's
+    $('.active').parents('nav li').addClass('expanded');
+
+    // update expanded symbol
+    $('.active').parents('nav li').children('.expand-collapse-button').html('- ');
+});

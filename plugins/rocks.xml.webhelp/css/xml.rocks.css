@@ -1,21 +1,21 @@
 .accent-background-color {
-    /* accent color black with transpparency */
-    background-color: #000000b9;
-    /* accent color blue */
-    /*background-color: #0844a4b9;*/
-    /* accent color teal */
-    /*background-color: #008db1b9;*/
-    /* accent color orange */
-    /*background-color: #ff6800b9;*/
-    /* accent color white */
-    /*background-color: #ffffffb9;*/
+  /* accent color black with transpparency */
+  background-color: #000000b9;
+  /* accent color blue */
+  /*background-color: #0844a4b9;*/
+  /* accent color teal */
+  /*background-color: #008db1b9;*/
+  /* accent color orange */
+  /*background-color: #ff6800b9;*/
+  /* accent color white */
+  /*background-color: #ffffffb9;*/
 }
 
 .max-width {
-    /* Adjustable value for whole publication */
-    max-width: 960px;
-    /*max-width: 1260px;*/
-    /*max-width: 860px;*/
+  /* Adjustable value for whole publication */
+  max-width: 960px;
+  /*max-width: 1260px;*/
+  /*max-width: 860px;*/
 }
 
 .rocks-header {
@@ -165,16 +165,6 @@ a:hover, a:visited, a:link, a:active {
     text-decoration: none;
 }
 
-nav li:before {
-    content: "\2228 \0020";
-    color: #6d2077;
-}
-
-nav li:before {
-    content: "\2228 \0020";
-    color: #6d2077;
-}
-
 .breadcrumb {
     display: flex;
     flex-wrap: wrap;
@@ -183,7 +173,6 @@ nav li:before {
     list-style: none;
     font-size: 17px;
 }
-
 
 /* Dropdown Button */
 .drop-button-download {
@@ -256,6 +245,27 @@ button, input, optgroup, select, textarea {
     bottom: 0em;
 }
 
+/* TOC style */
+nav li ul{
+    display: none;
+}
+
+nav li.expanded > ul{
+    display: block;
+}
+
+.expand-collapse-button {
+    color:#bbbbbb;
+    cursor: pointer;
+}
+
+.expand-collapse-button:hover {
+    color:#000000;
+}
+
+nav li.active > a {
+    color:#6610f2;
+}
 
 
 
