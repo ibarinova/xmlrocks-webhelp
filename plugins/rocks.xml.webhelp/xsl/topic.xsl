@@ -181,7 +181,7 @@
         <!-- Back to top button -->
         <button type="button"
                 class="go-to-top accent-background-color"
-                id="btn-back-to-top">
+                id="button-back-to-top">
             <a href="#">
                 <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
                     <g id="Layer_1">

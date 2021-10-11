@@ -113,34 +113,18 @@
   color: #1a1e21;
 }
 
-#btn-back-to-top {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  display: none;
-  color: #ffffff;
-  border-radius: 10px;
-  padding: 0;
-  border: none;
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 2px 5px #bbbbbb;
-}
-
-#btn-go-back {
+#button-back-to-top {
     position: fixed;
-    top: 6em;
-    left: 3.5em;
-    z-index: 99;
-    outline: none;
+    bottom: 20px;
+    right: 20px;
+    display: none;
     color: #ffffff;
-    box-shadow: 0 2px 5px #bbbbbb;
-    /*opacity: 50%;*/
-    color: white;
-    cursor: pointer;
-    padding: 0.5em 2em;
-    border: none;
     border-radius: 10px;
+    padding: 0;
+    border: none;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 5px #bbbbbb;
 }
 
 .download-pdf-output {
@@ -175,7 +159,7 @@ a:hover, a:visited, a:link, a:active {
 }
 
 /* Dropdown Button */
-.dropbtn {
+.drop-button-download {
     background-image: url(img/download-icon.svg);
     background-repeat: no-repeat;
     background-color: #FFFFFF;
@@ -188,26 +172,25 @@ a:hover, a:visited, a:link, a:active {
     bottom: 2.5em;
 }
 
-/* The container <div> - needed to position the dropdown content */
-.dropdown {
+.dropdown-download {
     position: relative;
     display: inline-block;
 }
 
 /* Dropdown Content (Hidden by Default) */
-.dropdown-content {
+.dropdown-content-download {
     display: none;
     position: absolute;
     background-color: #f1f1f1;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
     left: 39.6em;
     top: 2.2em;
 }
 
 /* Links inside the dropdown */
-.dropdown-content div {
+.dropdown-content-download div {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
@@ -224,7 +207,9 @@ button, input, optgroup, select, textarea {
 }
 
 /* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color: #ddd}
+.dropdown-content-download a:hover {
+    background-color: #ddd
+}
 
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {
@@ -232,7 +217,7 @@ button, input, optgroup, select, textarea {
 }
 
 #printbtn {
-    background-image: url(img/print-icon.svg);
+    background-image: url(img/print-solid.svg);
     background-repeat: no-repeat;
     background-color: #FFFFFF;
     padding: 16px;
@@ -245,7 +230,7 @@ button, input, optgroup, select, textarea {
 }
 
 /* TOC style */
-nav li ul{
+nav li ul {
     display: none;
 }
 
@@ -265,3 +250,105 @@ nav li.expanded > ul{
 nav li.active > a {
     color:#6610f2;
 }
+
+
+.drop-button-google-drive {
+    background-image: url(img/google-drive-brands.svg);
+    background-repeat: no-repeat;
+    background-color: #FFFFFF;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    position: relative;
+    left: 53em;
+    cursor: pointer;
+    bottom: 2.5em;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown-google-drive {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content-google-drive {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    max-width: 5px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    left: 51.5em;
+    top: 0.2em;
+}
+
+
+/* Links inside the dropdown */
+.dropdown-content-google-drive div {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+button, input, optgroup, select, textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    border: none;
+    padding-bottom: 0.4em;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content-google-drive a:hover {
+    background-color: #ddd
+}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {
+    display: block;
+}
+
+.related-links {
+    display: block;
+}
+
+
+/*end style for dropdown buttons*/
+
+@media print {
+    .rocks-header {
+        display: none;
+    }
+
+    .breadcrumb {
+        display: none;
+    }
+
+    .header-logo {
+        display: none;
+    }
+
+    .col.col-sm-4 {
+        display: none;
+    }
+
+    #button-back-to-top {
+        display: none;
+    }
+
+    .dropdown-download {
+        display: none;
+    }
+
+    .related-links {
+        display: none;
+    }
+
+    .footer-container {
+        display: none;
+    }
+}
+
