@@ -32,8 +32,15 @@ function goBack() {
 //Create PDF from HTML...
 function getPDF() {
     console.log('in get pdf')
+
+    var idTopicArticle = document.getElementById("topic-article");
+    var removedChild = idTopicArticle.querySelector('.related-links');
+
+    idTopicArticle.removeChild(idTopicArticle.querySelector('.related-links'));
+
     var HTML_Width = $("#topic-article").width();
     var HTML_Height = $("#topic-article").height();
+
     var top_left_margin = 15;
     var PDF_Width = HTML_Width + (top_left_margin * 2);
     var PDF_Height = (PDF_Width * 1.5) + (top_left_margin * 2);
@@ -43,7 +50,7 @@ function getPDF() {
     var totalPDFPages = Math.ceil(HTML_Height / PDF_Height) - 1;
 
 
-    html2canvas($("#topic-article")[0], {allowTaint: true}).then(function (canvas) {
+    html2canvas(idTopicArticle, {allowTaint: true}).then(function (canvas) {
         canvas.getContext('2d');
 
         console.log(canvas.height + "  " + canvas.width);
@@ -59,8 +66,10 @@ function getPDF() {
             pdf.addImage(imgData, 'JPG', top_left_margin, -(PDF_Height * i) + (top_left_margin * 4), canvas_image_width, canvas_image_height);
         }
 
-        pdf.save("HTML-Document.pdf");
+        pdf.save("Current-page.pdf");
     });
+
+    idTopicArticle.appendChild(removedChild);
 };
 
 // Function for download pdf from output
@@ -131,15 +140,6 @@ window.onclick = function (event) {
     }
 };
 
-// Function for print <article> content
-function printDiv(divName) {
-    var printContents = document.getElementById(divName).innerHTML;
-    w = window.open();
-    w.document.write(printContents);
-    w.print();
-    w.close();
-}
-
 // The function dynamically updates parts of a web page, without reloading the whole page.
 function getDynamicTopicData(href, listItemID) {
     switch (window.location.protocol) {
@@ -173,7 +173,7 @@ function getDynamicTopicData(href, listItemID) {
 }
 
 // This function expands topics in TOC
-function applyExpandedClass(id){
+function applyExpandedClass(id) {
     if ($(id).parent().hasClass('expanded')) {
         // remove .expanded from current TOC topic
         $(id).parent().removeClass('expanded');
@@ -199,7 +199,7 @@ function applyExpandedClass(id){
 }
 
 // This function reveals active topic in TOC when the page reloads
-$(document).ready(function() {
+$(document).ready(function () {
     // expand all parent li's
     $('.active').parents('nav li').addClass('expanded');
 

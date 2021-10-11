@@ -16,7 +16,7 @@
             <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-startprop ')]" mode="out-of-line"/>
 
             <xsl:variable name="header-content">
-            <xsl:call-template name="gen-user-header"/>
+                <xsl:call-template name="gen-user-header"/>
             </xsl:variable>
 
             <xsl:if test="exists($header-content)">

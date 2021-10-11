@@ -233,7 +233,7 @@ button, input, optgroup, select, textarea {
 }
 
 #printbtn {
-    background-image: url(img/print-icon.svg);
+    background-image: url(img/print-solid.svg);
     background-repeat: no-repeat;
     background-color: #FFFFFF;
     padding: 16px;
@@ -326,5 +326,49 @@ button, input, optgroup, select, textarea {
 /* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
 .show {
     display: block;
+}
+.related-links{
+    display:block;
+}
+
+
+/*end style for dropdown buttons*/
+
+@media print{
+    .rocks-header{
+        display:none;
+    }
+
+    .breadcrumb{
+        display:none;
+    }
+
+    .header-logo{
+        display:none;
+    }
+
+    .col.col-sm-4{
+        display:none;
+    }
+
+    #btn-go-back{
+        display:none;
+    }
+
+    #btn-back-to-top{
+        display:none;
+    }
+
+    .dropdown-download{
+        display:none;
+    }
+
+    .related-links{
+        display:none ;
+    }
+
+    .footer-container{
+        display:none;
+    }
 }
 

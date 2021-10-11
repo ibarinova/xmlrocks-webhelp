@@ -102,10 +102,10 @@
                     <button onclick="dropdownDownload()" class="drop-button-download">
                     </button>
                     <div id="menu-dropdown-download" class="dropdown-content-download">
-                        <input type="button" id="downloadbtn" value="Download HTML as PDF" onclick="getPDF()"/>
-                        <input type="button" value="Download PDF File" onclick="DownloadFile('bm_dude.pdf')"/>
+                        <input type="button" id="downloadbtn" value="Download this page as PDF" onclick="getPDF()"/>
+                        <input type="button" value="Download PDF output" onclick="DownloadFile('bm_dude.pdf')"/>
                     </div>
-                    <input type="button" id="printbtn" onclick="printDiv('topic-article')"/>
+                    <input type="button" id="printbtn" onclick="window.print()"/>
                 </div>
 
                 <div class="dropdown-google-drive">
@@ -141,17 +141,21 @@
     <xsl:template match="/|node()|@*" mode="gen-user-header">
         <div class="d-flex flex-column flex-md-row align-items-center mb-4 main-header max-width">
             <!--       TODO: use text-dark for white background -->
-            <a href="{$PATH2PROJ}index.html" class="d-flex align-items-center text-light text-decoration-none header-logo">
+            <a href="{$PATH2PROJ}index.html"
+               class="d-flex align-items-center text-light text-decoration-none header-logo">
                 <img src="{$PATH2PROJ}img/logo.svg"/>
             </a>
             <!--       TODO: use text-dark for white background -->
             <span class="fs-4 text-light">
                 <xsl:choose>
                     <xsl:when test="ancestor-or-self::*[contains(@class, ' map/map ')]">
-                        <xsl:value-of select="ancestor-or-self::*[contains(@class, ' map/map ')][1]/*[contains(@class, ' topic/title ')][1]"/>
+                        <xsl:value-of
+                                select="ancestor-or-self::*[contains(@class, ' map/map ')][1]/*[contains(@class, ' topic/title ')][1]"/>
                     </xsl:when>
-                    <xsl:when test="$input.map/*[contains(@class, ' map/map ')][1]/*[contains(@class, ' topic/title ')][1]">
-                        <xsl:value-of select="$input.map/*[contains(@class, ' map/map ')][1]/*[contains(@class, ' topic/title ')][1]"/>
+                    <xsl:when
+                            test="$input.map/*[contains(@class, ' map/map ')][1]/*[contains(@class, ' topic/title ')][1]">
+                        <xsl:value-of
+                                select="$input.map/*[contains(@class, ' map/map ')][1]/*[contains(@class, ' topic/title ')][1]"/>
                     </xsl:when>
                     <xsl:otherwise>
                         <xsl:value-of select="$input.map/@title"/>
@@ -196,19 +200,21 @@
             <a href="#">
                 <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
                     <g id="Layer_1">
-                        <line stroke="#fff" id="svg_7" y2="17.66667" x2="26.33332" y1="30.33333" x1="13.66667" stroke-width="4"
+                        <line stroke="#fff" id="svg_7" y2="17.66667" x2="26.33332" y1="30.33333" x1="13.66667"
+                              stroke-width="4"
                               fill="none"/>
-                        <line transform="rotate(90.1903 29.9999 24)" stroke="#fff" id="svg_10" y2="17.66667" x2="36.33323"
+                        <line transform="rotate(90.1903 29.9999 24)" stroke="#fff" id="svg_10" y2="17.66667"
+                              x2="36.33323"
                               y1="30.33333" x1="23.66658" stroke-width="4" fill="none"/>
                     </g>
                 </svg>
                 <!--       TODO: use this svg for white background-->
-                 <!--<svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
-                     <g id="Layer_1">
-                         <line stroke="#000" id="svg_7" y2="17.66667" x2="26.33332" y1="30.33333" x1="13.66667" stroke-width="4" fill="none"/>
-                         <line transform="rotate(90.1903 29.9999 24)" stroke="#000" id="svg_10" y2="17.66667" x2="36.33323" y1="30.33333" x1="23.66658" stroke-width="4" fill="none"/>
-                     </g>
-                 </svg>-->
+                <!--<svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
+                    <g id="Layer_1">
+                        <line stroke="#000" id="svg_7" y2="17.66667" x2="26.33332" y1="30.33333" x1="13.66667" stroke-width="4" fill="none"/>
+                        <line transform="rotate(90.1903 29.9999 24)" stroke="#000" id="svg_10" y2="17.66667" x2="36.33323" y1="30.33333" x1="23.66658" stroke-width="4" fill="none"/>
+                    </g>
+                </svg>-->
             </a>
         </button>
         <!-- Go back button-->
@@ -279,7 +285,8 @@
             <xsl:apply-templates select="*[@href][@role = 'parent'][1]" mode="breadcrumb"/>
         </xsl:for-each>
 
-        <xsl:value-of select="ancestor::*[contains(@class, ' topic/topic ')][1]/*[contains(@class, ' topic/title ')][1]"/>
+        <xsl:value-of
+                select="ancestor::*[contains(@class, ' topic/topic ')][1]/*[contains(@class, ' topic/title ')][1]"/>
     </xsl:template>
 
     <xsl:template match="*" mode="addHeaderToHtmlBodyElement">
