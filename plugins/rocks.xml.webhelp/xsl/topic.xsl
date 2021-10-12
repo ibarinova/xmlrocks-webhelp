@@ -203,25 +203,23 @@
         <!-- Back to top button -->
         <button type="button"
                 class="go-to-top accent-background-color"
-                id="btn-back-to-top">
+                id="button-back-to-top">
             <a href="#">
                 <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
                     <g id="Layer_1">
-                        <line stroke="#fff" id="svg_7" y2="17.66667" x2="26.33332" y1="30.33333" x1="13.66667"
-                              stroke-width="4"
+                        <line stroke="#fff" id="svg_7" y2="17.66667" x2="26.33332" y1="30.33333" x1="13.66667" stroke-width="4"
                               fill="none"/>
-                        <line transform="rotate(90.1903 29.9999 24)" stroke="#fff" id="svg_10" y2="17.66667"
-                              x2="36.33323"
+                        <line transform="rotate(90.1903 29.9999 24)" stroke="#fff" id="svg_10" y2="17.66667" x2="36.33323"
                               y1="30.33333" x1="23.66658" stroke-width="4" fill="none"/>
                     </g>
                 </svg>
                 <!--       TODO: use this svg for white background-->
-                <!--<svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
-                    <g id="Layer_1">
-                        <line stroke="#000" id="svg_7" y2="17.66667" x2="26.33332" y1="30.33333" x1="13.66667" stroke-width="4" fill="none"/>
-                        <line transform="rotate(90.1903 29.9999 24)" stroke="#000" id="svg_10" y2="17.66667" x2="36.33323" y1="30.33333" x1="23.66658" stroke-width="4" fill="none"/>
-                    </g>
-                </svg>-->
+                 <!--<svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
+                     <g id="Layer_1">
+                         <line stroke="#000" id="svg_7" y2="17.66667" x2="26.33332" y1="30.33333" x1="13.66667" stroke-width="4" fill="none"/>
+                         <line transform="rotate(90.1903 29.9999 24)" stroke="#000" id="svg_10" y2="17.66667" x2="36.33323" y1="30.33333" x1="23.66658" stroke-width="4" fill="none"/>
+                     </g>
+                 </svg>-->
             </a>
         </button>
 
@@ -248,37 +246,37 @@
         <xsl:for-each
                 select="descendant-or-self::*[contains(@class, ' topic/related-links ') or contains(@class, ' topic/linkpool ')][*[@role = 'ancestor']]">
 
-            <xsl:if test="$include.roles = 'previous'">
-                <!--output previous link first, if it exists-->
-                <xsl:if test="*[@href][@role = 'previous']">
-                    <xsl:apply-templates select="*[@href][@role = 'previous'][1]" mode="breadcrumb"/>
+                <xsl:if test="$include.roles = 'previous'">
+                    <!--output previous link first, if it exists-->
+                    <xsl:if test="*[@href][@role = 'previous']">
+                        <xsl:apply-templates select="*[@href][@role = 'previous'][1]" mode="breadcrumb"/>
+                    </xsl:if>
                 </xsl:if>
-            </xsl:if>
-            <!--if both previous and next links exist, output a separator bar-->
-            <xsl:if test="$include.roles = 'previous' and $include.roles = 'next'">
-                <xsl:if test="*[@href][@role = 'next'] and *[@href][@role = 'previous']">
-                    <xsl:text> | </xsl:text>
+                <!--if both previous and next links exist, output a separator bar-->
+                <xsl:if test="$include.roles = 'previous' and $include.roles = 'next'">
+                    <xsl:if test="*[@href][@role = 'next'] and *[@href][@role = 'previous']">
+                        <xsl:text> | </xsl:text>
+                    </xsl:if>
                 </xsl:if>
-            </xsl:if>
-            <xsl:if test="$include.roles = 'next'">
-                <!--output next link, if it exists-->
-                <xsl:if test="*[@href][@role = 'next']">
-                    <xsl:apply-templates select="*[@href][@role = 'next'][1]" mode="breadcrumb"/>
+                <xsl:if test="$include.roles = 'next'">
+                    <!--output next link, if it exists-->
+                    <xsl:if test="*[@href][@role = 'next']">
+                        <xsl:apply-templates select="*[@href][@role = 'next'][1]" mode="breadcrumb"/>
+                    </xsl:if>
                 </xsl:if>
-            </xsl:if>
-            <xsl:if test="$include.roles = 'previous' and $include.roles = 'next' and $include.roles = 'ancestor'">
-                <!--if we have either next or previous, plus ancestors, separate the next/prev from the ancestors with a vertical bar-->
-                <xsl:if test="(*[@href][@role = 'next'] or *[@href][@role = 'previous']) and *[@href][@role = 'ancestor']">
-                    <xsl:text> | </xsl:text>
+                <xsl:if test="$include.roles = 'previous' and $include.roles = 'next' and $include.roles = 'ancestor'">
+                    <!--if we have either next or previous, plus ancestors, separate the next/prev from the ancestors with a vertical bar-->
+                    <xsl:if test="(*[@href][@role = 'next'] or *[@href][@role = 'previous']) and *[@href][@role = 'ancestor']">
+                        <xsl:text> | </xsl:text>
+                    </xsl:if>
                 </xsl:if>
-            </xsl:if>
-            <xsl:if test="$include.roles = 'ancestor'">
-                <!--if ancestors exist, output them, and include a greater-than symbol after each one, including a trailing one-->
-                <xsl:for-each select="*[@href][@role = 'ancestor']">
-                    <xsl:apply-templates select="."/>
-                    <xsl:text> &gt; </xsl:text>
-                </xsl:for-each>
-            </xsl:if>
+                <xsl:if test="$include.roles = 'ancestor'">
+                    <!--if ancestors exist, output them, and include a greater-than symbol after each one, including a trailing one-->
+                    <xsl:for-each select="*[@href][@role = 'ancestor']">
+                        <xsl:apply-templates select="."/>
+                        <xsl:text> &gt; </xsl:text>
+                    </xsl:for-each>
+                </xsl:if>
         </xsl:for-each>
     </xsl:template>
 
@@ -288,8 +286,7 @@
             <xsl:apply-templates select="*[@href][@role = 'parent'][1]" mode="breadcrumb"/>
         </xsl:for-each>
 
-        <xsl:value-of
-                select="ancestor::*[contains(@class, ' topic/topic ')][1]/*[contains(@class, ' topic/title ')][1]"/>
+        <xsl:value-of select="ancestor::*[contains(@class, ' topic/topic ')][1]/*[contains(@class, ' topic/title ')][1]"/>
     </xsl:template>
 
     <xsl:template match="*" mode="addHeaderToHtmlBodyElement">

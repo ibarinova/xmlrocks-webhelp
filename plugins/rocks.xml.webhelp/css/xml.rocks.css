@@ -113,18 +113,18 @@
   color: #1a1e21;
 }
 
-#btn-back-to-top {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  display: none;
-  color: #ffffff;
-  border-radius: 10px;
-  padding: 0;
-  border: none;
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 2px 5px #bbbbbb;
+#button-back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 0;
+    border: none;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 5px #bbbbbb;
 }
 
 .download-pdf-output {
@@ -183,7 +183,7 @@ a:hover, a:visited, a:link, a:active {
     position: absolute;
     background-color: #f1f1f1;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
     left: 39.6em;
     top: 2.2em;
@@ -250,7 +250,6 @@ nav li.expanded > ul{
 nav li.active > a {
     color:#6610f2;
 }
-
 
 
 .drop-button-google-drive {
@@ -335,12 +334,8 @@ button, input, optgroup, select, textarea {
         display:none;
     }
 
-    #btn-go-back{
-        display:none;
-    }
-
-    #btn-back-to-top{
-        display:none;
+    #button-back-to-top {
+        display: none;
     }
 
     .dropdown-download{
