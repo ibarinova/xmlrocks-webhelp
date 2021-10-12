@@ -165,16 +165,6 @@ a:hover, a:visited, a:link, a:active {
     text-decoration: none;
 }
 
-nav li:before {
-    content: "\2228 \0020";
-    color: #6d2077;
-}
-
-nav li:before  {
-    content: "\2228 \0020";
-    color: #6d2077;
-}
-
 .breadcrumb {
     display: flex;
     flex-wrap: wrap;
@@ -184,10 +174,9 @@ nav li:before  {
     font-size: 17px;
 }
 
-
 /* Dropdown Button */
 .dropbtn {
-    background-image: url(img/download-icon.svg);
+    background-image: url(../img/download-icon.svg);
     background-repeat: no-repeat;
     background-color: #FFFFFF;
     padding: 16px;
@@ -243,7 +232,7 @@ button, input, optgroup, select, textarea {
 }
 
 #printbtn {
-    background-image: url(img/print-icon.svg);
+    background-image: url(../img/print-icon.svg);
     background-repeat: no-repeat;
     background-color: #FFFFFF;
     padding: 16px;
@@ -253,6 +242,28 @@ button, input, optgroup, select, textarea {
     left: 51em;
     cursor: pointer;
     bottom: 0em;
+}
+
+/* TOC style */
+nav li ul{
+    display: none;
+}
+
+nav li.expanded > ul{
+    display: block;
+}
+
+.expand-collapse-button {
+    color:#bbbbbb;
+    cursor: pointer;
+}
+
+.expand-collapse-button:hover {
+    color:#000000;
+}
+
+nav li.active > a {
+    color:#6610f2;
 }
 
 .main-page-container > .title {
@@ -265,3 +276,4 @@ button, input, optgroup, select, textarea {
     min-height: 100px;
     padding: 0.6em;
 }
+
