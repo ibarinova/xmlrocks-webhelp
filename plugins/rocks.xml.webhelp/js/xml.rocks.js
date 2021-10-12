@@ -49,6 +49,9 @@ function getPDF() {
 
     var totalPDFPages = Math.ceil(HTML_Height / PDF_Height) - 1;
 
+    var topicName = document.getElementsByClassName("title topictitle1")[0].textContent;
+
+    topicName = topicName.replace(/\s+/g, '-');
 
     html2canvas(idTopicArticle, {allowTaint: true}).then(function (canvas) {
         canvas.getContext('2d');
@@ -66,7 +69,7 @@ function getPDF() {
             pdf.addImage(imgData, 'JPG', top_left_margin, -(PDF_Height * i) + (top_left_margin * 4), canvas_image_width, canvas_image_height);
         }
 
-        pdf.save("Current-page.pdf");
+        pdf.save(topicName + ".pdf");
     });
 
     idTopicArticle.appendChild(removedChild);
