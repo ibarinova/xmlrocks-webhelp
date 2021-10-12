@@ -176,7 +176,7 @@ a:hover, a:visited, a:link, a:active {
 
 /* Dropdown Button */
 .dropbtn {
-    background-image: url(img/download-icon.svg);
+    background-image: url(../img/download-icon.svg);
     background-repeat: no-repeat;
     background-color: #FFFFFF;
     padding: 16px;
@@ -232,7 +232,7 @@ button, input, optgroup, select, textarea {
 }
 
 #printbtn {
-    background-image: url(img/print-icon.svg);
+    background-image: url(../img/print-icon.svg);
     background-repeat: no-repeat;
     background-color: #FFFFFF;
     padding: 16px;
