@@ -31,6 +31,10 @@
     </xsl:template>
 
     <xsl:template name="generateCssLinks">
+        <!-- When user pass empty string in args.csspath parameter then $CSSPATH='/' -->
+        <!-- so we need to remove slash symbol to use css files in root directory -->
+        <xsl:variable name="css-path-normalized" select="if($CSSPATH = '/') then('') else($CSSPATH)"/>
+
         <xsl:variable name="childlang" as="xs:string">
             <xsl:variable name="lang">
                 <xsl:choose>
@@ -46,41 +50,44 @@
             </xsl:variable>
             <xsl:sequence select="($lang, $DEFAULTLANG)[normalize-space(.)][1]"/>
         </xsl:variable>
+
         <xsl:variable name="direction">
             <xsl:apply-templates select="." mode="get-render-direction">
                 <xsl:with-param name="lang" select="$childlang"/>
             </xsl:apply-templates>
         </xsl:variable>
+
         <xsl:variable name="urltest" as="xs:boolean">
             <xsl:call-template name="url-string">
-                <xsl:with-param name="urltext" select="concat($CSSPATH, $CSS)"/>
+                <xsl:with-param name="urltext" select="concat($css-path-normalized, $CSS)"/>
             </xsl:call-template>
         </xsl:variable>
+
         <xsl:choose>
             <xsl:when test="$direction = 'rtl' and $urltest ">
-                <link rel="stylesheet" type="text/css" href="{$CSSPATH}{$bidi-dita-css}"/>
+                <link rel="stylesheet" type="text/css" href="{$css-path-normalized}{$bidi-dita-css}"/>
             </xsl:when>
             <xsl:when test="$direction = 'rtl' and not($urltest)">
-                <link rel="stylesheet" type="text/css" href="{$PATH2PROJ}{$CSSPATH}{$bidi-dita-css}"/>
+                <link rel="stylesheet" type="text/css" href="{$PATH2PROJ}{$css-path-normalized}{$bidi-dita-css}"/>
             </xsl:when>
             <xsl:when test="$urltest">
-                <link rel="stylesheet" type="text/css" href="{$CSSPATH}{$dita-css}"/>
+                <link rel="stylesheet" type="text/css" href="{$css-path-normalized}{$dita-css}"/>
             </xsl:when>
             <xsl:otherwise>
-                <link rel="stylesheet" type="text/css" href="{$PATH2PROJ}{$CSSPATH}{$dita-css}"/>
+                <link rel="stylesheet" type="text/css" href="{$PATH2PROJ}{$css-path-normalized}{$dita-css}"/>
             </xsl:otherwise>
         </xsl:choose>
 
-        <link rel="stylesheet" type="text/css" href="{$PATH2PROJ}{$CSSPATH}bootstrap.min.css"/>
-        <link rel="stylesheet" type="text/css" href="{$PATH2PROJ}{$CSSPATH}xml.rocks.css"/>
+        <link rel="stylesheet" type="text/css" href="{$PATH2PROJ}{$css-path-normalized}bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="{$PATH2PROJ}{$css-path-normalized}xml.rocks.css" />
 
         <xsl:if test="string-length($CSS) > 0">
             <xsl:choose>
                 <xsl:when test="$urltest">
-                    <link rel="stylesheet" type="text/css" href="{$CSSPATH}{$CSS}"/>
+                    <link rel="stylesheet" type="text/css" href="{$css-path-normalized}{$CSS}"/>
                 </xsl:when>
                 <xsl:otherwise>
-                    <link rel="stylesheet" type="text/css" href="{$PATH2PROJ}{$CSSPATH}{$CSS}"/>
+                    <link rel="stylesheet" type="text/css" href="{$PATH2PROJ}{$css-path-normalized}{$CSS}"/>
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:if>
