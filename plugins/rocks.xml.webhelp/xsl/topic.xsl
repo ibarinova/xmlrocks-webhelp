@@ -217,11 +217,7 @@
                 </svg>-->
             </a>
         </button>
-        <!-- Go back button-->
-        <button onclick="goBack()"
-                class="go-back accent-background-color"
-                id="btn-go-back">Back
-        </button>
+
 
         <!-- JS -->
         <script src="{$PATH2PROJ}lib/jquery-3.6.0.min.js"></script>
