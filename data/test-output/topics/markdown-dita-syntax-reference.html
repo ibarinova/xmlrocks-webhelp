@@ -1,0 +1,360 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="copyright" content="(C) Copyright 2021"><meta name="generator" content="DITA-OT"><meta name="description" content="Markdown DITA uses CommonMark as the underlying markup language."><meta name="keywords" content="Pandoc, UTF, DITA, specializations, Markdown, CommonMark"><meta name="prodname" content="DITA Open Toolkit"><meta name="prodname" content="DITA Open Toolkit"><meta name="version" content=""><meta name="version" content=""><link rel="stylesheet" type="text/css" href="../css/commonltr.css"><link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"><link rel="stylesheet" type="text/css" href="../css/xml.rocks.css"><link rel="icon" type="image/png" href="../img/favicon.png"><title>Markdown DITA syntax reference</title></head><body id="markdown-dita-syntax-reference"><header role="banner" class="rocks-header sticky-top accent-background-color"><div class="d-flex flex-column flex-md-row align-items-center mb-4 main-header max-width"><a href="../index.html" class="d-flex align-items-center text-light text-decoration-none header-logo"><img src="../img/logo.svg"></a><span class="fs-4 text-light">DITA Open Toolkit 3.6</span><nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto"><input class="form-control search" type="search" placeholder="Search" aria-label="Search"></nav></div></header><main role="main" class="container max-width"><div class="breadcrumb"><span class="home"><a href="../index.html">Home</a> &gt; </span><a class="link" href="../topics/input-formats.html" title="In addition to standard DITA XML, DITA-OT supports several alternative input formats, including Markdown and the proposed XDITA, MDITA and HDITA authoring formats currently in development for Lightweight DITA.">Authoring formats</a> &gt; Markdown DITA syntax reference</div><div class="dropdown"><button onclick="myFunction()" class="dropbtn"></button><div id="myDropdown" class="dropdown-content"><input type="button" id="downloadbtn" value="Download HTML as PDF" onclick="getPDF()"><input type="button" value="Download PDF File" onclick="DownloadFile('bm_dude.pdf')"></div><input type="button" id="printbtn" onclick="printDiv('topic-article')"></div><div class="row row-cols-1 row-cols-md-3 mb-3 text-left"><div class="col col-sm-4"><div class="card mb-4 rounded-card-rocks"><div class="toc-container"><nav role="toc"><ul><li id="li-d78347e31"><span id="d78347e31" class="expand-collapse-button" onclick="applyExpandedClass('#d78347e31')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/installing-client.html','#li-d78347e31')">Installing DITA Open Toolkit Supercalifragilisticexpialidocious title and better than all good titles before</a><ul><li id="li-d78347e51"><a href="#" onclick="getDynamicTopicData('../topics/prerequisite-software.html','#li-d78347e51')">Prerequisite software</a></li><li id="li-d78347e71"><a href="#" onclick="getDynamicTopicData('../topics/determining-version-of-ditaot.html','#li-d78347e71')">Checking the version</a></li><li id="li-d78347e91"><a href="#" onclick="getDynamicTopicData('../topics/first-build-using-dita-command.html','#li-d78347e91')">Building output</a><ul></ul></li><li id="li-d78347e124"><a href="#" onclick="getDynamicTopicData('../topics/installing-via-homebrew.html','#li-d78347e124')">Installing via Homebrew</a></li></ul></li><li id="li-d78347e148"><span id="d78347e148" class="expand-collapse-button" onclick="applyExpandedClass('#d78347e148')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/building-output.html','#li-d78347e148')">Building output</a><ul><li id="li-d78347e171"><span id="d78347e171" class="expand-collapse-button" onclick="applyExpandedClass('#d78347e171')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/build-using-dita-command.html','#li-d78347e171')">Using the dita command</a><ul><li id="li-d78347e200"><a href="#" onclick="getDynamicTopicData('../topics/using-dita-properties-file.html','#li-d78347e200')">Using a properties file</a></li><li id="li-d78347e229"><a href="#" onclick="getDynamicTopicData('../topics/migrating-ant-to-dita.html','#li-d78347e229')">Migrating Ant builds</a></li><li id="li-d78347e252"><span id="d78347e252" class="expand-collapse-button" onclick="applyExpandedClass('#d78347e252')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/using-project-files.html','#li-d78347e252')">Using a project file</a><ul><li id="li-d78347e276"><a href="#" onclick="getDynamicTopicData('../topics/project-files-xml.html','#li-d78347e276')">XML project files</a></li><li id="li-d78347e302"><a href="#" onclick="getDynamicTopicData('../topics/project-files-json.html','#li-d78347e302')">JSON project files</a></li><li id="li-d78347e325"><a href="#" onclick="getDynamicTopicData('../topics/project-files-yaml.html','#li-d78347e325')">YAML project files</a></li></ul></li></ul></li><li id="li-d78347e355"><span id="d78347e355" class="expand-collapse-button" onclick="applyExpandedClass('#d78347e355')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/using-docker-images.html','#li-d78347e355')">Using Docker images</a><ul><li id="li-d78347e380"><a href="#" onclick="getDynamicTopicData('../topics/creating-docker-images.html','#li-d78347e380')">Custom images</a></li></ul></li><li id="li-d78347e403"><a href="#" onclick="getDynamicTopicData('../topics/using-github-actions.html','#li-d78347e403')">Using GitHub Actions</a></li><li id="li-d78347e431"><span id="d78347e431" class="expand-collapse-button" onclick="applyExpandedClass('#d78347e431')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/publishing-with-ant.html','#li-d78347e431')">Using Ant</a><ul><li id="li-d78347e451"><a href="#" onclick="getDynamicTopicData('../topics/ant.html','#li-d78347e451')">Ant</a></li><li id="li-d78347e471"><a href="#" onclick="getDynamicTopicData('../topics/building-with-ant.html','#li-d78347e471')">Building output using Ant</a></li><li id="li-d78347e491"><a href="#" onclick="getDynamicTopicData('../topics/creating-an-ant-build-script.html','#li-d78347e491')">Creating an Ant build script</a></li></ul></li><li id="li-d78347e511"><a href="#" onclick="getDynamicTopicData('../reference/java-api.html','#li-d78347e511')">Using the Java API</a></li></ul></li><li id="li-d78347e533"><span id="d78347e533" class="expand-collapse-button" onclick="applyExpandedClass('#d78347e533')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/input-formats.html','#li-d78347e533')">Authoring formats</a><ul><li id="li-d78347e553"><a href="#" onclick="getDynamicTopicData('../topics/dita-xml-input.html','#li-d78347e553')">Standard DITA XML</a></li><li id="li-d78347e576"><a href="#" onclick="getDynamicTopicData('../topics/markdown-input.html','#li-d78347e576')">Markdown content</a></li><li id="li-d78347e599"><a href="#" onclick="getDynamicTopicData('../topics/lwdita-input.html','#li-d78347e599')">Lightweight DITA</a></li><li id="li-d78347e625" class="active"><a href="#" onclick="getDynamicTopicData('../topics/markdown-dita-syntax-reference.html','#li-d78347e625')">Markdown DITA syntax</a></li></ul></li><li id="li-d78347e649"><span id="d78347e649" class="expand-collapse-button" onclick="applyExpandedClass('#d78347e649')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/output-formats.html','#li-d78347e649')">Output formats</a><ul><li id="li-d78347e672"><a href="#" onclick="getDynamicTopicData('../topics/dita2pdf.html','#li-d78347e672')">PDF</a></li><li id="li-d78347e695"><a href="#" onclick="getDynamicTopicData('../topics/dita2html5.html','#li-d78347e695')">HTML5</a></li><li id="li-d78347e718"><a href="#" onclick="getDynamicTopicData('../topics/dita2eclipsehelp.html','#li-d78347e718')">Eclipse help</a></li><li id="li-d78347e741"><a href="#" onclick="getDynamicTopicData('../topics/dita2htmlhelp.html','#li-d78347e741')">HTML Help</a></li><li id="li-d78347e764"><a href="#" onclick="getDynamicTopicData('../topics/dita2markdown.html','#li-d78347e764')">Markdown</a></li><li id="li-d78347e784"><a href="#" onclick="getDynamicTopicData('../topics/dita2dita.html','#li-d78347e784')">Normalized DITA</a></li><li id="li-d78347e807"><a href="#" onclick="getDynamicTopicData('../topics/dita2xhtml.html','#li-d78347e807')">XHTML</a></li></ul></li><li id="li-d78347e831"><span id="d78347e831" class="expand-collapse-button" onclick="applyExpandedClass('#d78347e831')">+ </span><a href="#" onclick="getDynamicTopicData('../parameters/index.html','#li-d78347e831')">Parameters</a><ul><li id="li-d78347e857"><a href="#" onclick="getDynamicTopicData('../parameters/dita-command-arguments.html','#li-d78347e857')">DITA command arguments</a></li><li id="li-d78347e880"><span id="d78347e880" class="expand-collapse-button" onclick="applyExpandedClass('#d78347e880')">+ </span><a href="#" onclick="getDynamicTopicData('../parameters/parameters_intro.html','#li-d78347e880')">DITA-OT parameters</a><ul><li id="li-d78347e909"><a href="#" onclick="getDynamicTopicData('../parameters/parameters-base.html','#li-d78347e909')">Common</a></li><li id="li-d78347e929"><a href="#" onclick="getDynamicTopicData('../parameters/parameters-pdf.html','#li-d78347e929')">PDF</a></li><li id="li-d78347e949"><a href="#" onclick="getDynamicTopicData('../parameters/parameters-base-html.html','#li-d78347e949')">HTML-based output</a></li><li id="li-d78347e972"><a href="#" onclick="getDynamicTopicData('../parameters/parameters-html5.html','#li-d78347e972')">HTML5</a></li><li id="li-d78347e995"><a href="#" onclick="getDynamicTopicData('../parameters/parameters-xhtml.html','#li-d78347e995')">XHTML</a></li><li id="li-d78347e1015"><a href="#" onclick="getDynamicTopicData('../parameters/parameters-htmlhelp.html','#li-d78347e1015')">HTML Help</a></li><li id="li-d78347e1035"><a href="#" onclick="getDynamicTopicData('../parameters/parameters-eclipsehelp.html','#li-d78347e1035')">Eclipse Help</a></li><li id="li-d78347e1055"><a href="#" onclick="getDynamicTopicData('../parameters/parameters-other.html','#li-d78347e1055')">Other</a></li></ul></li><li id="li-d78347e1091"><span id="d78347e1091" class="expand-collapse-button" onclick="applyExpandedClass('#d78347e1091')">+ </span><a href="#" onclick="getDynamicTopicData('../parameters/configuration-properties.html','#li-d78347e1091')">Configuration properties</a><ul><li id="li-d78347e1114"><a href="#" onclick="getDynamicTopicData('../parameters/local-properties-file.html','#li-d78347e1114')">local.properties</a></li><li id="li-d78347e1138"><a href="#" onclick="getDynamicTopicData('../parameters/plugin-properties-file.html','#li-d78347e1138')">plugin.properties</a></li><li id="li-d78347e1162"><a href="#" onclick="getDynamicTopicData('../parameters/configuration-properties-file.html','#li-d78347e1162')">configuration.properties</a></li><li id="li-d78347e1186"><a href="#" onclick="getDynamicTopicData('../parameters/internal-ant-properties.html','#li-d78347e1186')">Internal Ant properties</a></li></ul></li></ul></li><li id="li-d78347e1207"><span id="d78347e1207" class="expand-collapse-button" onclick="applyExpandedClass('#d78347e1207')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/html-customization.html','#li-d78347e1207')">Customizing HTML</a><ul><li id="li-d78347e1230"><span id="d78347e1230" class="expand-collapse-button" onclick="applyExpandedClass('#d78347e1230')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/html-customization-parameters.html','#li-d78347e1230')">Setting HTML parameters</a><ul><li id="li-d78347e1250"><a href="#" onclick="getDynamicTopicData('../topics/html-customization-navigation.html','#li-d78347e1250')">Adding navigation</a></li><li id="li-d78347e1273"><a href="#" onclick="getDynamicTopicData('../topics/html-customization-css.html','#li-d78347e1273')">Adding custom CSS</a></li><li id="li-d78347e1293"><a href="#" onclick="getDynamicTopicData('../topics/html-customization-header.html','#li-d78347e1293')">Headers and footers</a></li><li id="li-d78347e1313"><a href="#" onclick="getDynamicTopicData('../parameters/generate-copy-outer.html','#li-d78347e1313')">Handling content outside the map directory</a></li></ul></li><li id="li-d78347e1336"><a href="#" onclick="getDynamicTopicData('../topics/html-customization-properties-file.html','#li-d78347e1336')">Using a properties file</a></li></ul></li><li id="li-d78347e1366"><span id="d78347e1366" class="expand-collapse-button" onclick="applyExpandedClass('#d78347e1366')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/pdf-customization.html','#li-d78347e1366')">Customizing PDF</a><ul><li id="li-d78347e1389"><a href="#" onclick="getDynamicTopicData('../topics/pdf-customization-approaches.html','#li-d78347e1389')">Customization approaches</a></li><li id="li-d78347e1409"><a href="#" onclick="getDynamicTopicData('../topics/pdf2-creating-change-bars.html','#li-d78347e1409')">Generating revision bars</a></li></ul></li><li id="li-d78347e1439"><span id="d78347e1439" class="expand-collapse-button" onclick="applyExpandedClass('#d78347e1439')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/adding-plugins.html','#li-d78347e1439')">Adding plug-ins</a><ul><li id="li-d78347e1462"><a href="#" onclick="getDynamicTopicData('../topics/plugins-installing.html','#li-d78347e1462')">Installing plug-ins</a></li><li id="li-d78347e1485"><a href="#" onclick="getDynamicTopicData('../topics/plugins-removing.html','#li-d78347e1485')">Removing plug-ins</a></li><li id="li-d78347e1508"><a href="#" onclick="getDynamicTopicData('../topics/plugins-registry.html','#li-d78347e1508')">Plug-in registry</a></li><li id="li-d78347e1532"><a href="#" onclick="getDynamicTopicData('../topics/rebuilding-docs.html','#li-d78347e1532')">Rebuilding documentation</a></li></ul></li><li id="li-d78347e1554"><span id="d78347e1554" class="expand-collapse-button" onclick="applyExpandedClass('#d78347e1554')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/custom-plugins.html','#li-d78347e1554')">Creating plug-ins</a><ul><li id="li-d78347e1577"><a href="#" onclick="getDynamicTopicData('../topics/plugin-benefits.html','#li-d78347e1577')">Plug-in benefits</a></li><li id="li-d78347e1597"><a href="#" onclick="getDynamicTopicData('../topics/plugin-configfile.html','#li-d78347e1597')">Plug-in descriptor file</a></li><li id="li-d78347e1620"><a href="#" onclick="getDynamicTopicData('../topics/plugin-coding-conventions.html','#li-d78347e1620')">Coding conventions</a></li><li id="li-d78347e1640"><span id="d78347e1640" class="expand-collapse-button" onclick="applyExpandedClass('#d78347e1640')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/plugin-dependencies.html','#li-d78347e1640')">Plug-in dependencies</a><ul><li id="li-d78347e1660"><a href="#" onclick="getDynamicTopicData('../topics/referencing-other-plugins.html','#li-d78347e1660')">Referencing files from other plug-ins</a></li></ul></li><li id="li-d78347e1691"><span id="d78347e1691" class="expand-collapse-button" onclick="applyExpandedClass('#d78347e1691')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/plugin-use-cases.html','#li-d78347e1691')">Plug-in use cases</a><ul><li id="li-d78347e1711"><a href="#" onclick="getDynamicTopicData('../topics/plugin-set-parameters.html','#li-d78347e1711')">Setting parameters</a></li><li id="li-d78347e1731"><a href="#" onclick="getDynamicTopicData('../topics/plugin-anttarget.html','#li-d78347e1731')">Adding a new Ant target</a></li><li id="li-d78347e1754"><a href="#" onclick="getDynamicTopicData('../topics/plugin-antpreprocess.html','#li-d78347e1754')">Adding a pre-processing step</a></li><li id="li-d78347e1774"><a href="#" onclick="getDynamicTopicData('../topics/plugin-newtranstype.html','#li-d78347e1774')">Adding a new output format</a></li><li id="li-d78347e1794"><a href="#" onclick="getDynamicTopicData('../topics/plugin-xsltparams.html','#li-d78347e1794')">Adding new parameters</a></li><li id="li-d78347e1817"><a href="#" onclick="getDynamicTopicData('../topics/plugin-overridestyle.html','#li-d78347e1817')">Overriding XSLT steps</a></li><li id="li-d78347e1837"><a href="#" onclick="getDynamicTopicData('../topics/plugin-javalib.html','#li-d78347e1837')">Adding a Java library</a></li><li id="li-d78347e1863"><a href="#" onclick="getDynamicTopicData('../topics/plugin-messages.html','#li-d78347e1863')">Adding new messages</a></li><li id="li-d78347e1886"><a href="#" onclick="getDynamicTopicData('../topics/plugin-newextensions.html','#li-d78347e1886')">New extension points</a></li><li id="li-d78347e1909"><a href="#" onclick="getDynamicTopicData('../topics/plugin-xmlcatalog.html','#li-d78347e1909')">Extending an XML catalog file</a></li><li id="li-d78347e1930"><a href="#" onclick="getDynamicTopicData('../topics/plugin-rewrite-rules.html','#li-d78347e1930')">Rewriting file names</a></li><li id="li-d78347e1953"><span id="d78347e1953" class="expand-collapse-button" onclick="applyExpandedClass('#d78347e1953')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/implement-saxon-customizations.html','#li-d78347e1953')">Saxon customizations</a><ul><li id="li-d78347e1976"><a href="#" onclick="getDynamicTopicData('../topics/implement-saxon-extension-functions.html','#li-d78347e1976')">Saxon extensions</a></li><li id="li-d78347e1996"><a href="#" onclick="getDynamicTopicData('../topics/implement-saxon-collation-uri-resolvers.html','#li-d78347e1996')">Custom collation URI resolvers</a></li></ul></li></ul></li><li id="li-d78347e2016"><span id="d78347e2016" class="expand-collapse-button" onclick="applyExpandedClass('#d78347e2016')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/html-customization-plugins.html','#li-d78347e2016')">Custom HTML plug-ins</a><ul><li id="li-d78347e2036"><a href="#" onclick="getDynamicTopicData('../topics/html-customization-plugin-bundle-css.html','#li-d78347e2036')">Bundling custom CSS</a></li><li id="li-d78347e2056"><a href="#" onclick="getDynamicTopicData('../topics/html-customization-plugin-webfont.html','#li-d78347e2056')">Embedding web fonts</a></li><li id="li-d78347e2076"><a href="#" onclick="getDynamicTopicData('../topics/html-customization-plugin-javascript.html','#li-d78347e2076')">Inserting JavaScript</a></li></ul></li><li id="li-d78347e2096"><span id="d78347e2096" class="expand-collapse-button" onclick="applyExpandedClass('#d78347e2096')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/pdf-customization-plugins.html','#li-d78347e2096')">Custom PDF plug-ins</a><ul><li id="li-d78347e2116"><a href="#" onclick="getDynamicTopicData('../topics/pdf-customization-plugin-types.html','#li-d78347e2116')">Types of PDF plug-ins</a></li><li id="li-d78347e2136"><span id="d78347e2136" class="expand-collapse-button" onclick="applyExpandedClass('#d78347e2136')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/pdf-plugin-structure.html','#li-d78347e2136')">PDF plug-in structure</a><ul><li id="li-d78347e2156"><a href="#" onclick="getDynamicTopicData('../topics/pdf-plugin-structure_common-artwork.html','#li-d78347e2156')">Custom artwork</a></li><li id="li-d78347e2182"><a href="#" onclick="getDynamicTopicData('../topics/pdf-plugin-structure_common-index.html','#li-d78347e2182')">Index configuration</a></li><li id="li-d78347e2208"><a href="#" onclick="getDynamicTopicData('../topics/pdf-plugin-structure_common-vars.html','#li-d78347e2208')">Variable overrides</a></li><li id="li-d78347e2234"><a href="#" onclick="getDynamicTopicData('../topics/pdf-plugin-structure_fo-attrs.html','#li-d78347e2234')">Custom attributes</a></li><li id="li-d78347e2260"><a href="#" onclick="getDynamicTopicData('../topics/pdf-plugin-structure_fo-i18n.html','#li-d78347e2260')">Internationalization</a></li><li id="li-d78347e2286"><a href="#" onclick="getDynamicTopicData('../topics/pdf-plugin-structure_fo-xsl.html','#li-d78347e2286')">Custom stylesheets</a></li></ul></li><li id="li-d78347e2312"><a href="#" onclick="getDynamicTopicData('../topics/pdf-customization-example.html','#li-d78347e2312')">Simple PDF plug-in</a></li><li id="li-d78347e2338"><a href="#" onclick="getDynamicTopicData('../topics/pdf-customization-resources.html','#li-d78347e2338')">PDF plug-in resources</a></li></ul></li><li id="li-d78347e2358"><span id="d78347e2358" class="expand-collapse-button" onclick="applyExpandedClass('#d78347e2358')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/globalization.html','#li-d78347e2358')">Globalizing DITA content</a><ul><li id="li-d78347e2384"><a href="#" onclick="getDynamicTopicData('../topics/globalization-support.html','#li-d78347e2384')">Globalization support</a></li><li id="li-d78347e2404"><a href="#" onclick="getDynamicTopicData('../topics/plugin-addgeneratedtext.html','#li-d78347e2404')">Customizing generated text</a></li><li id="li-d78347e2427"><a href="#" onclick="getDynamicTopicData('../topics/globalization-languages.html','#li-d78347e2427')">Supported languages</a></li></ul></li><li id="li-d78347e2447"><span id="d78347e2447" class="expand-collapse-button" onclick="applyExpandedClass('#d78347e2447')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/migration.html','#li-d78347e2447')">Migrating customizations</a><ul><li id="li-d78347e2470"><a href="#" onclick="getDynamicTopicData('../topics/migrating-to-3.6.html','#li-d78347e2470')">To 3.6</a></li><li id="li-d78347e2502"><a href="#" onclick="getDynamicTopicData('../topics/migrating-to-3.5.html','#li-d78347e2502')">To 3.5</a></li><li id="li-d78347e2528"><a href="#" onclick="getDynamicTopicData('../topics/migrating-to-3.4.html','#li-d78347e2528')">To 3.4</a></li><li id="li-d78347e2551"><a href="#" onclick="getDynamicTopicData('../topics/migrating-to-3.3.html','#li-d78347e2551')">To 3.3</a></li><li id="li-d78347e2574"><a href="#" onclick="getDynamicTopicData('../topics/migrating-to-3.2.html','#li-d78347e2574')">To 3.2</a></li><li id="li-d78347e2597"><a href="#" onclick="getDynamicTopicData('../topics/migrating-to-3.1.html','#li-d78347e2597')">To 3.1</a></li><li id="li-d78347e2623"><a href="#" onclick="getDynamicTopicData('../topics/migrating-to-3.0.html','#li-d78347e2623')">To 3.0</a></li><li id="li-d78347e2648"><a href="#" onclick="getDynamicTopicData('../topics/migrating-to-2.5.html','#li-d78347e2648')">To 2.5</a></li><li id="li-d78347e2668"><a href="#" onclick="getDynamicTopicData('../topics/migrating-to-2.4.html','#li-d78347e2668')">To 2.4</a></li><li id="li-d78347e2694"><a href="#" onclick="getDynamicTopicData('../topics/migrating-to-2.3.html','#li-d78347e2694')">To 2.3</a></li><li id="li-d78347e2721"><a href="#" onclick="getDynamicTopicData('../topics/migrating-to-2.2.html','#li-d78347e2721')">To 2.2</a></li><li id="li-d78347e2744"><a href="#" onclick="getDynamicTopicData('../topics/migrating-to-2.1.html','#li-d78347e2744')">To 2.1</a></li><li id="li-d78347e2779"><a href="#" onclick="getDynamicTopicData('../topics/migrating-to-2.0.html','#li-d78347e2779')">To 2.0</a></li><li id="li-d78347e2802"><a href="#" onclick="getDynamicTopicData('../topics/migrating-to-1.8.html','#li-d78347e2802')">To 1.8</a></li><li id="li-d78347e2822"><span id="d78347e2822" class="expand-collapse-button" onclick="applyExpandedClass('#d78347e2822')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/migrating-to-1.7.html','#li-d78347e2822')">To 1.7</a><ul><li id="li-d78347e2845"><a href="#" onclick="getDynamicTopicData('../reference/flagging-migration.html','#li-d78347e2845')">Flagging updates</a></li></ul></li><li id="li-d78347e2865"><a href="#" onclick="getDynamicTopicData('../topics/migrating-to-1.6.html','#li-d78347e2865')">To 1.6</a></li><li id="li-d78347e2891"><a href="#" onclick="getDynamicTopicData('../topics/migrating-to-1.5.4.html','#li-d78347e2891')">To 1.5.4</a></li></ul></li></ul></li><li id="li-d78347e2912"><span id="d78347e2912" class="expand-collapse-button" onclick="applyExpandedClass('#d78347e2912')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/troubleshooting-overview.html','#li-d78347e2912')">Troubleshooting</a><ul><li id="li-d78347e2932"><a href="#" onclick="getDynamicTopicData('../topics/logging.html','#li-d78347e2932')">Logging</a></li><li id="li-d78347e2952"><a href="#" onclick="getDynamicTopicData('../topics/enabling-debug-mode.html','#li-d78347e2952')">Enabling debug mode</a></li><li id="li-d78347e2972"><a href="#" onclick="getDynamicTopicData('../topics/error-messages.html','#li-d78347e2972')">DITA-OT error messages</a></li><li id="li-d78347e2992"><a href="#" onclick="getDynamicTopicData('../topics/other-errors.html','#li-d78347e2992')">Other error messages</a></li><li id="li-d78347e3012"><a href="#" onclick="getDynamicTopicData('../topics/dita-command-help.html','#li-d78347e3012')">Command line help</a></li><li id="li-d78347e3038"><a href="#" onclick="getDynamicTopicData('../topics/increasing-the-jvm.html','#li-d78347e3038')">Increasing Java memory</a></li><li id="li-d78347e3061"><a href="#" onclick="getDynamicTopicData('../topics/reducing-processing-time.html','#li-d78347e3061')">Speeding up builds</a></li></ul></li><li id="li-d78347e3082"><span id="d78347e3082" class="expand-collapse-button" onclick="applyExpandedClass('#d78347e3082')">+ </span><a href="#" onclick="getDynamicTopicData('../reference/index.html','#li-d78347e3082')">Reference</a><ul><li id="li-d78347e3105"><span id="d78347e3105" class="expand-collapse-button" onclick="applyExpandedClass('#d78347e3105')">+ </span><a href="#" onclick="getDynamicTopicData('../reference/architecture.html','#li-d78347e3105')">DITA-OT architecture</a><ul><li id="li-d78347e3125"><a href="#" onclick="getDynamicTopicData('../reference/processing-structure.html','#li-d78347e3125')">Processing structure</a></li><li id="li-d78347e3145"><a href="#" onclick="getDynamicTopicData('../reference/map-first-preprocessing.html','#li-d78347e3145')">Map-first preprocessing</a></li><li id="li-d78347e3172"><a href="#" onclick="getDynamicTopicData('../reference/processing-pipeline-modules.html','#li-d78347e3172')">Processing modules</a></li><li id="li-d78347e3192"><a href="#" onclick="getDynamicTopicData('../reference/processing-order.html','#li-d78347e3192')">Processing order</a></li><li id="li-d78347e3212"><a href="#" onclick="getDynamicTopicData('../reference/store-api.html','#li-d78347e3212')">Store API</a></li><li id="li-d78347e3232"><span id="d78347e3232" class="expand-collapse-button" onclick="applyExpandedClass('#d78347e3232')">+ </span><a href="#" onclick="getDynamicTopicData('../reference/preprocessing.html','#li-d78347e3232')">Pre-processing modules</a><ul><li id="li-d78347e3255"><a href="#" onclick="getDynamicTopicData('../reference/preprocess-genlist.html','#li-d78347e3255')">Generate lists (gen-list)</a></li><li id="li-d78347e3278"><a href="#" onclick="getDynamicTopicData('../reference/preprocess-debugfilter.html','#li-d78347e3278')">Debug and filter (debug-filter)</a></li><li id="li-d78347e3301"><a href="#" onclick="getDynamicTopicData('../reference/preprocess-mapref.html','#li-d78347e3301')">Resolve map references (mapref)</a></li><li id="li-d78347e3324"><a href="#" onclick="getDynamicTopicData('../reference/preprocess-branch-filter.html','#li-d78347e3324')">Branch filtering (branch-filter)</a></li><li id="li-d78347e3347"><a href="#" onclick="getDynamicTopicData('../reference/preprocess-keyref.html','#li-d78347e3347')">Resolve key references (keyref)</a></li><li id="li-d78347e3373"><a href="#" onclick="getDynamicTopicData('../reference/preprocess-copy-to.html','#li-d78347e3373')">Copy topics (copy-to)</a></li><li id="li-d78347e3399"><a href="#" onclick="getDynamicTopicData('../reference/preprocess-conrefpush.html','#li-d78347e3399')">Conref push (conrefpush)</a></li><li id="li-d78347e3422"><a href="#" onclick="getDynamicTopicData('../reference/preprocess-conref.html','#li-d78347e3422')">Resolve content references (conref)</a></li><li id="li-d78347e3448"><a href="#" onclick="getDynamicTopicData('../reference/preprocess-profile.html','#li-d78347e3448')">Filter conditional content (profile)</a></li><li id="li-d78347e3474"><a href="#" onclick="getDynamicTopicData('../reference/preprocess-topic-fragment.html','#li-d78347e3474')">Resolve topic fragments and code references (topic-fragment)</a></li><li id="li-d78347e3501"><a href="#" onclick="getDynamicTopicData('../reference/preprocess-chunk.html','#li-d78347e3501')">Chunk topics (chunk)</a></li><li id="li-d78347e3524"><a href="#" onclick="getDynamicTopicData('../reference/preprocess-metadata.html','#li-d78347e3524')">Move metadata (move-meta-entries) and pull content into maps (mappull) </a></li><li id="li-d78347e3547"><a href="#" onclick="getDynamicTopicData('../reference/preprocess-maplink.html','#li-d78347e3547')">Map based linking (maplink)</a></li><li id="li-d78347e3570"><a href="#" onclick="getDynamicTopicData('../reference/preprocess-topicpull.html','#li-d78347e3570')">Pull content into topics (topicpull)</a></li><li id="li-d78347e3599"><a href="#" onclick="getDynamicTopicData('../reference/preprocess-flagging.html','#li-d78347e3599')">Flagging (flag-module)</a></li><li id="li-d78347e3622"><a href="#" onclick="getDynamicTopicData('../reference/preprocess-clean-map.html','#li-d78347e3622')">Map cleanup (clean-map)</a></li><li id="li-d78347e3645"><a href="#" onclick="getDynamicTopicData('../reference/preprocess-copyfiles.html','#li-d78347e3645')">Copy related files (copy-files)</a></li></ul></li><li id="li-d78347e3668"><span id="d78347e3668" class="expand-collapse-button" onclick="applyExpandedClass('#d78347e3668')">+ </span><a href="#" onclick="getDynamicTopicData('../reference/html-based-processing.html','#li-d78347e3668')">HTML-based processing modules</a><ul><li id="li-d78347e3688"><a href="#" onclick="getDynamicTopicData('../reference/common-html-processing.html','#li-d78347e3688')">Common HTML-based processing</a></li><li id="li-d78347e3708"><a href="#" onclick="getDynamicTopicData('../reference/xhtml-processing.html','#li-d78347e3708')">XHTML processing</a></li><li id="li-d78347e3737"><a href="#" onclick="getDynamicTopicData('../reference/html5-processing.html','#li-d78347e3737')">HTML5 processing</a></li><li id="li-d78347e3763"><a href="#" onclick="getDynamicTopicData('../reference/eclipsehelp-processing.html','#li-d78347e3763')">Eclipse help processing</a></li><li id="li-d78347e3789"><a href="#" onclick="getDynamicTopicData('../reference/htmlhelp-processing.html','#li-d78347e3789')">HTML Help processing</a></li></ul></li><li id="li-d78347e3812"><span id="d78347e3812" class="expand-collapse-button" onclick="applyExpandedClass('#d78347e3812')">+ </span><a href="#" onclick="getDynamicTopicData('../reference/pdf-transform.html','#li-d78347e3812')">PDF processing modules</a><ul><li id="li-d78347e3838"><a href="#" onclick="getDynamicTopicData('../reference/pdf-transformation-history.html','#li-d78347e3838')">History of the PDF transformation</a></li></ul></li></ul></li><li id="li-d78347e3858"><span id="d78347e3858" class="expand-collapse-button" onclick="applyExpandedClass('#d78347e3858')">+ </span><a href="#" onclick="getDynamicTopicData('../reference/dita-spec-support.html','#li-d78347e3858')">DITA specification support</a><ul><li id="li-d78347e3881"><a href="#" onclick="getDynamicTopicData('../reference/dita-v1-2-support.html','#li-d78347e3881')">DITA 1.2 support</a></li><li id="li-d78347e3904"><a href="#" onclick="getDynamicTopicData('../reference/dita-v1-3-support.html','#li-d78347e3904')">DITA 1.3 support</a></li><li id="li-d78347e3928"><a href="#" onclick="getDynamicTopicData('../reference/dita-v2-0-support.html','#li-d78347e3928')">DITA 2.0 preview</a></li><li id="li-d78347e3951"><a href="#" onclick="getDynamicTopicData('../reference/implementation-dependent-features.html','#li-d78347e3951')">Implementation-dependent features</a></li><li id="li-d78347e3971"><a href="#" onclick="getDynamicTopicData('../reference/extended-functionality.html','#li-d78347e3971')">Codeblock extensions</a></li><li id="li-d78347e3991"><a href="#" onclick="getDynamicTopicData('../reference/docs-dita-features.html','#li-d78347e3991')">DITA features in docs</a></li></ul></li><li id="li-d78347e4011"><span id="d78347e4011" class="expand-collapse-button" onclick="applyExpandedClass('#d78347e4011')">+ </span><a href="#" onclick="getDynamicTopicData('../extension-points/plugin-extension-points.html','#li-d78347e4011')">Extension points</a><ul><li id="li-d78347e4034"><a href="#" onclick="getDynamicTopicData('../extension-points/all-extension-points.html','#li-d78347e4034')">All extension points</a></li><li id="li-d78347e4054"><a href="#" onclick="getDynamicTopicData('../extension-points/plugin-extension-points-general.html','#li-d78347e4054')">General extension points</a></li><li id="li-d78347e4077"><a href="#" onclick="getDynamicTopicData('../extension-points/plugin-extension-points-pre-processing.html','#li-d78347e4077')">Pre-processing extension points</a></li><li id="li-d78347e4097"><a href="#" onclick="getDynamicTopicData('../extension-points/plugin-extension-points-xslt-import.html','#li-d78347e4097')">XSLT-import extension points</a></li><li id="li-d78347e4123"><a href="#" onclick="getDynamicTopicData('../extension-points/plugin-extension-points-xslt-parameters.html','#li-d78347e4123')">XSLT-parameter extension points</a></li><li id="li-d78347e4146"><a href="#" onclick="getDynamicTopicData('../extension-points/plugin-extension-points-support.html','#li-d78347e4146')">Version and support information</a></li><li id="li-d78347e4166"><span id="d78347e4166" class="expand-collapse-button" onclick="applyExpandedClass('#d78347e4166')">+ </span><a href="#" onclick="getDynamicTopicData('../extension-points/extension-points-by-plugin.html','#li-d78347e4166')">Plug-in extension points</a><ul><li id="li-d78347e4186"><a href="#" onclick="getDynamicTopicData('../extension-points/extension-points-in-org.dita.base.html','#li-d78347e4186')">Common processing</a></li><li id="li-d78347e4212"><a href="#" onclick="getDynamicTopicData('../extension-points/extension-points-in-org.dita.eclipsehelp.html','#li-d78347e4212')">Eclipse Help</a></li><li id="li-d78347e4235"><a href="#" onclick="getDynamicTopicData('../extension-points/extension-points-in-org.dita.html5.html','#li-d78347e4235')">HTML5</a></li><li id="li-d78347e4261"><a href="#" onclick="getDynamicTopicData('../extension-points/extension-points-in-org.dita.htmlhelp.html','#li-d78347e4261')">HTML Help</a></li><li id="li-d78347e4284"><a href="#" onclick="getDynamicTopicData('../extension-points/extension-points-in-org.dita.pdf2.html','#li-d78347e4284')">PDF</a></li><li id="li-d78347e4307"><a href="#" onclick="getDynamicTopicData('../extension-points/extension-points-in-org.dita.xhtml.html','#li-d78347e4307')">HTML-based output</a></li></ul></li></ul></li><li id="li-d78347e4352"><span id="d78347e4352" class="expand-collapse-button" onclick="applyExpandedClass('#d78347e4352')">+ </span><a href="#" onclick="getDynamicTopicData('../reference/license.html','#li-d78347e4352')">License</a><ul><li id="li-d78347e4375"><a href="#" onclick="getDynamicTopicData('../reference/third-party-software.html','#li-d78347e4375')">Third-party software</a></li></ul></li><li id="li-d78347e4395"><span id="d78347e4395" class="expand-collapse-button" onclick="applyExpandedClass('#d78347e4395')">+ </span><a href="#" onclick="getDynamicTopicData('../reference/glossary.html#glossary','#li-d78347e4395')">Glossary</a><ul><li id="li-d78347e4415"><a href="#" onclick="getDynamicTopicData('../reference/glossary.html#gloss-argument','#li-d78347e4415')">argument</a></li><li id="li-d78347e4432"><a href="#" onclick="getDynamicTopicData('../reference/glossary.html#gloss-dita-open-toolkit','#li-d78347e4432')">DITA Open Toolkit</a></li><li id="li-d78347e4449"><a href="#" onclick="getDynamicTopicData('../reference/glossary.html#gloss-extension-point','#li-d78347e4449')">extension point</a></li><li id="li-d78347e4466"><a href="#" onclick="getDynamicTopicData('../reference/glossary.html#gloss-option','#li-d78347e4466')">option</a></li><li id="li-d78347e4483"><a href="#" onclick="getDynamicTopicData('../reference/glossary.html#gloss-output-format','#li-d78347e4483')">output format</a></li><li id="li-d78347e4500"><a href="#" onclick="getDynamicTopicData('../reference/glossary.html#gloss-parameter','#li-d78347e4500')">parameter</a></li><li id="li-d78347e4517"><a href="#" onclick="getDynamicTopicData('../reference/glossary.html#gloss-plug-in','#li-d78347e4517')">plug-in</a></li><li id="li-d78347e4534"><a href="#" onclick="getDynamicTopicData('../reference/glossary.html#gloss-processor','#li-d78347e4534')">processor</a></li><li id="li-d78347e4551"><a href="#" onclick="getDynamicTopicData('../reference/glossary.html#gloss-property','#li-d78347e4551')">property</a></li><li id="li-d78347e4568"><a href="#" onclick="getDynamicTopicData('../reference/glossary.html#gloss-template-plugin','#li-d78347e4568')">template</a></li><li id="li-d78347e4586"><a href="#" onclick="getDynamicTopicData('../reference/glossary.html#gloss-transformation-type','#li-d78347e4586')">transformation type</a></li><li id="li-d78347e4603"><a href="#" onclick="getDynamicTopicData('../reference/glossary.html#gloss-variable','#li-d78347e4603')">variable</a></li><li id="li-d78347e4620"><a href="#" onclick="getDynamicTopicData('../reference/glossary.html#gloss-template-xslt','#li-d78347e4620')">XSL template</a></li></ul></li></ul></li></ul></nav></div></div></div><div class="col col-sm-8"><article role="article" id="topic-article" class="topic-article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Markdown DITA syntax reference</h1>
+  
+  
+  
+
+  <div class="body"><p class="shortdesc">Markdown DITA uses
+    <a class="xref" href="http://commonmark.org" target="_blank" rel="external noopener">CommonMark</a> as the underlying markup language.</p>
+    <p class="p">Markdown DITA files must be UTF-8 encoded.</p>
+    <section class="section" id="markdown-dita-syntax-reference__titles-and-document-structure"><h2 class="title sectiontitle">Titles and document structure</h2>
+      
+      <p class="p">Each header level will generate a topic and associated title:</p>
+      <pre class="pre codeblock language-markdown normalize-space show-line-numbers show-whitespace"><code># Topic title
+
+## Nested topic title</code></pre>
+      <pre class="pre codeblock language-xml normalize-space show-line-numbers show-whitespace"><code>&lt;topic id="topic_title"&gt;
+  &lt;title&gt;Topic title&lt;/title&gt;
+  &lt;topic id="nested_topic_title"&gt;
+    &lt;title&gt;Nested topic title&lt;/title&gt;
+  &lt;/topic&gt;
+&lt;/topic&gt;</code></pre>
+      <p class="p">Pandoc
+        <a class="xref" href="http://pandoc.org/MANUAL.html#extension-header_attributes" target="_blank" rel="external noopener">header_attributes</a> can be used to define <code class="ph codeph">id</code> or
+          <code class="ph codeph">outputclass</code> attributes:</p>
+      <pre class="pre codeblock language-markdown normalize-space show-line-numbers show-whitespace"><code># Topic title {#carrot .juice}</code></pre>
+      <pre class="pre codeblock language-xml normalize-space show-line-numbers show-whitespace"><code>&lt;topic id="carrot" outputclass="juice"&gt;
+  &lt;title&gt;Topic title&lt;/title&gt;</code></pre>
+      <p class="p">If topic ID is not defined using header_attributes, the ID is generated from title contents.</p>
+      <p class="p">Pandoc
+        <a class="xref" href="http://pandoc.org/MANUAL.html#extension-pandoc_title_block" target="_blank" rel="external noopener">pandoc_title_block</a>
+        extension can be used to group multiple level 1 headers under a common title:</p>
+      <pre class="pre codeblock language-markdown normalize-space show-line-numbers show-whitespace"><code>% Common title
+
+# Topic title
+
+# Second title</code></pre>
+      <pre class="pre codeblock language-xml normalize-space show-line-numbers show-whitespace"><code>&lt;topic id="common_title"&gt;
+  &lt;title&gt;Common title&lt;/title&gt;
+  &lt;topic id="topic_title"&gt;
+    &lt;title&gt;Topic title&lt;/title&gt;
+  &lt;/topic&gt;
+  &lt;topic id="second_title"&gt;
+    &lt;title&gt;Second title&lt;/title&gt;
+  &lt;/topic&gt;
+&lt;/topic&gt;</code></pre>
+    </section>
+    <section class="section" id="markdown-dita-syntax-reference__topic-content"><h2 class="title sectiontitle">Topic content</h2>
+      
+      <p class="p">In LwDITA compatible documents (MDITA) the first paragraph is treated as a <code class="ph codeph">shortdesc</code> element.
+        In generic Markdown documents all paragraphs appear inside the <code class="ph codeph">body</code> element.</p></section>
+    <section class="section" id="markdown-dita-syntax-reference__specialization-types"><h2 class="title sectiontitle">Specialization types</h2>
+      
+      <p class="p">The following class values in
+        <a class="xref" href="http://pandoc.org/MANUAL.html#extension-header_attributes" target="_blank" rel="external noopener">header_attributes</a> have a special meaning on level 1 headers:</p>
+      <ul class="ul">
+        <li class="li">
+          <code class="ph codeph">concept</code></li>
+        <li class="li">
+          <code class="ph codeph">task</code></li>
+        <li class="li">
+          <code class="ph codeph">reference</code></li>
+      </ul>
+      <p class="p">They can be used to change the Markdown DITA topic type to one of the built-in structural specialization
+        types.</p>
+      <pre class="pre codeblock language-markdown normalize-space show-line-numbers show-whitespace"><code># Task {.task}
+
+Context
+
+1.  Command
+
+    Info.</code></pre>
+      <pre class="pre codeblock language-xml normalize-space show-line-numbers show-whitespace"><code>&lt;task id="task"&gt;
+  &lt;title&gt;Task &lt;/title&gt;
+  &lt;taskbody&gt;
+    &lt;context&gt;
+      &lt;p&gt;Context&lt;/p&gt;
+    &lt;/context&gt;
+    &lt;steps&gt;
+      &lt;step&gt;
+        &lt;cmd&gt;Command&lt;/cmd&gt;
+        &lt;info&gt;
+          &lt;p&gt;Info.&lt;/p&gt;
+        &lt;/info&gt;
+      &lt;/step&gt;
+    &lt;/steps&gt;
+  &lt;/taskbody&gt;
+&lt;/task&gt;</code></pre>
+    </section>
+    <section class="section" id="markdown-dita-syntax-reference__sections"><h2 class="title sectiontitle">Sections</h2>
+      
+      <p class="p">The following class values in
+        <a class="xref" href="http://pandoc.org/MANUAL.html#extension-header_attributes" target="_blank" rel="external noopener">header_attributes</a> have a special meaning on header levels other than 1:</p>
+      <ul class="ul">
+        <li class="li">
+          <code class="ph codeph">section</code></li>
+        <li class="li">
+          <code class="ph codeph">example</code></li>
+      </ul>
+      <p class="p">They are used to generate
+        <a class="xref" href="http://docs.oasis-open.org/dita/v1.2/os/spec/langref/section.html" target="_blank" rel="external noopener"><code class="ph codeph">section</code></a> and
+        <a class="xref" href="http://docs.oasis-open.org/dita/v1.2/os/spec/langref/example.html" target="_blank" rel="external noopener"><code class="ph codeph">example</code></a> elements:</p>
+      <pre class="pre codeblock language-markdown normalize-space show-line-numbers show-whitespace"><code># Topic title
+
+## Section title {.section}
+
+## Example title {.example}</code></pre>
+      <pre class="pre codeblock language-xml normalize-space show-line-numbers show-whitespace"><code>&lt;topic id="topic_title"&gt;
+  &lt;title&gt;Topic title&lt;/title&gt;
+  &lt;body&gt;
+    &lt;section&gt;
+      &lt;title&gt;Section title&lt;/title&gt;
+    &lt;/section&gt;
+    &lt;example&gt;
+      &lt;title&gt;Example title&lt;/title&gt;
+    &lt;/example&gt;
+  &lt;/body&gt;
+&lt;/topic&gt;</code></pre>
+    </section>
+    <section class="section" id="markdown-dita-syntax-reference__hard-line-breaks"><h2 class="title sectiontitle">Hard line breaks</h2>
+      
+      <p class="p">A line break that is preceded by two or more spaces is parsed as a hard line break. Because DITA doesn't have a
+          <code class="ph codeph">&lt;br&gt;</code> element for line break, hard line breaks are converted into
+          <code class="keyword markupname xmlpi">&lt;?linebreak?&gt;</code> processing instructions.</p>
+      <pre class="pre codeblock language-markdown normalize-space show-line-numbers show-whitespace"><code>foo··
+baz</code></pre>
+      <pre class="pre codeblock language-xml normalize-space show-line-numbers show-whitespace"><code>&lt;p&gt;foo&lt;?linebreak?&gt;baz&lt;/p&gt;</code></pre>
+    </section>
+    <section class="section" id="markdown-dita-syntax-reference__links"><h2 class="title sectiontitle">Links</h2>
+      
+      <p class="p">The format of local link targets is detected based on file extension. The following extensions are treated as
+        DITA files:</p>
+      <table class="table table-hover frame-none"><caption></caption><colgroup><col><col></colgroup><thead class="thead">
+            <tr class="row">
+              <th class="entry colsep-0 rowsep-1" id="markdown-dita-syntax-reference__links__entry__1">extension</th>
+              <th class="entry colsep-0 rowsep-1" id="markdown-dita-syntax-reference__links__entry__2">format</th>
+            </tr>
+          </thead><tbody class="tbody">
+            <tr class="row">
+              <td class="entry colsep-0 rowsep-1" headers="markdown-dita-syntax-reference__links__entry__1"><code class="ph codeph">.dita</code></td>
+              <td class="entry colsep-0 rowsep-1" headers="markdown-dita-syntax-reference__links__entry__2"><code class="ph codeph">dita</code></td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-0 rowsep-1" headers="markdown-dita-syntax-reference__links__entry__1"><code class="ph codeph">.xml</code></td>
+              <td class="entry colsep-0 rowsep-1" headers="markdown-dita-syntax-reference__links__entry__2"><code class="ph codeph">dita</code></td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-0 rowsep-1" headers="markdown-dita-syntax-reference__links__entry__1"><code class="ph codeph">.md</code></td>
+              <td class="entry colsep-0 rowsep-1" headers="markdown-dita-syntax-reference__links__entry__2"><code class="ph codeph">markdown</code></td>
+            </tr>
+            <tr class="row">
+              <td class="entry colsep-0 rowsep-1" headers="markdown-dita-syntax-reference__links__entry__1"><code class="ph codeph">.markdown</code></td>
+              <td class="entry colsep-0 rowsep-1" headers="markdown-dita-syntax-reference__links__entry__2"><code class="ph codeph">markdown</code></td>
+            </tr>
+          </tbody></table>
+      <p class="p">All other link targets use <code class="ph codeph">format</code> from file extension and are treated as non-DITA files.
+        Absolute links targets are treated as external scope links:</p>
+      <pre class="pre codeblock language-markdown normalize-space show-line-numbers show-whitespace"><code>[Markdown](test.md)
+[DITA](test.dita)
+[HTML](test.html)
+[External](http://www.example.com/test.html)</code></pre>
+      <pre class="pre codeblock language-xml normalize-space show-line-numbers show-whitespace"><code>&lt;xref href="test.md"&gt;Markdown&lt;/xref&gt;
+&lt;xref href="test.dita"&gt;DITA&lt;/xref&gt;
+&lt;xref href="test.html" format="html"&gt;HTML&lt;/xref&gt;
+&lt;xref href="http://www.example.com/test.html" format="html" scope="external"&gt;External&lt;/xref&gt;</code></pre>
+    </section>
+    <section class="section" id="markdown-dita-syntax-reference__images"><h2 class="title sectiontitle">Images</h2>
+      
+      
+      <p class="p">Images used in inline content will result in inline placement. If a block level image contains a title, it will
+        be treated as an image wrapped in figure:</p>
+      <pre class="pre codeblock language-markdown normalize-space show-line-numbers show-whitespace"><code>An inline ![Alt](test.jpg).
+
+![Alt](test.jpg)
+
+![Alt](test.jpg "Title")</code></pre>
+      <pre class="pre codeblock language-xml normalize-space show-line-numbers show-whitespace"><code>&lt;p&gt;An inline &lt;image href="test.jpg"&gt;&lt;alt&gt;Alt&lt;/alt&gt;&lt;/image&gt;.&lt;/p&gt;
+&lt;image href="test.jpg" placement="break"&gt;
+  &lt;alt&gt;Alt&lt;/alt&gt;
+&lt;/image&gt;
+&lt;fig&gt;
+  &lt;title&gt;Title&lt;/title&gt;
+  &lt;image href="test.jpg"&gt;
+    &lt;alt&gt;Alt&lt;/alt&gt;
+  &lt;/image&gt;
+&lt;/fig&gt;</code></pre>
+    </section>
+    <section class="section" id="markdown-dita-syntax-reference__key-references"><h2 class="title sectiontitle">Key references</h2>
+      
+      <p class="p">Key reference can be used with
+        <a class="xref" href="http://spec.commonmark.org/0.18/#shortcut-reference-link" target="_blank" rel="external noopener">shortcut
+          reference links</a>:</p>
+      <pre class="pre codeblock language-markdown normalize-space show-line-numbers show-whitespace"><code>[key]
+![image-key]</code></pre>
+      <pre class="pre codeblock language-xml normalize-space show-line-numbers show-whitespace"><code>&lt;xref keyref="key"/&gt;
+&lt;image keyref="image-key"/&gt;</code></pre>
+    </section>
+    <section class="section" id="markdown-dita-syntax-reference__inline"><h2 class="title sectiontitle">Inline</h2>
+      
+      <p class="p">The following inline elements are supported:</p>
+      <pre class="pre codeblock language-markdown normalize-space show-line-numbers show-whitespace"><code>**bold**
+*italic*
+`code`
+~~strikethrough~~</code></pre>
+      <pre class="pre codeblock language-xml normalize-space show-line-numbers show-whitespace"><code>&lt;b&gt;bold&lt;/b&gt;
+&lt;i&gt;italic&lt;/i&gt;
+&lt;codeph&gt;code&lt;/codeph&gt;
+&lt;ph status="deleted"&gt;strikethrough&lt;/ph&gt;</code></pre>
+    </section>
+    <section class="section" id="markdown-dita-syntax-reference__lists"><h2 class="title sectiontitle">Lists</h2>
+      
+      <p class="p">Unordered can be marked up with either hyphen or asterisk:</p>
+      <pre class="pre codeblock language-markdown normalize-space show-line-numbers show-whitespace"><code>*   one
+*   two
+    -   three
+    -   four</code></pre>
+      <pre class="pre codeblock language-xml normalize-space show-line-numbers show-whitespace"><code>&lt;ul&gt;
+  &lt;li&gt;one&lt;/li&gt;
+  &lt;li&gt;two
+    &lt;ul&gt;
+      &lt;li&gt;three&lt;/li&gt;
+      &lt;li&gt;four&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+      <p class="p">Ordered can be marked up with either number or number sign, followed by a period:</p>
+      <pre class="pre codeblock language-markdown normalize-space show-line-numbers show-whitespace"><code>1.  one
+2.  two
+    #.  three
+    #.  four</code></pre>
+      <pre class="pre codeblock language-xml normalize-space show-line-numbers show-whitespace"><code>&lt;ol&gt;
+  &lt;li&gt;one&lt;/li&gt;
+  &lt;li&gt;two
+    &lt;ol&gt;
+      &lt;li&gt;three&lt;/li&gt;
+      &lt;li&gt;four&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+      <p class="p">Definition lists use the
+        <a class="xref" href="http://michelf.com/projects/php-markdown/extra/#def-list" target="_blank" rel="external noopener">PHP
+          Markdown Extra</a> format:</p>
+      <pre class="pre codeblock language-markdown normalize-space show-line-numbers show-whitespace"><code>Term
+:   Definition.</code></pre>
+      <pre class="pre codeblock language-xml normalize-space show-line-numbers show-whitespace"><code>&lt;dl&gt;
+  &lt;delentry&gt;
+    &lt;dt&gt;Term&lt;/dt&gt;
+    &lt;dd&gt;Defintion.&lt;/dd&gt;
+  &lt;/delentry&gt;
+&lt;/dl&gt;</code></pre>
+      <p class="p">Each definition entry must have only one term and contain only inline content.</p></section>
+    <section class="section" id="markdown-dita-syntax-reference__tables"><h2 class="title sectiontitle">Tables</h2>
+      
+      
+      <p class="p">Tables use
+        <a class="xref" href="http://fletcherpenney.net/multimarkdown/" target="_blank" rel="external noopener">MultiMarkdown</a> table
+        extension format:</p>
+      <pre class="pre codeblock normalize-space show-line-numbers show-whitespace"><code>| First Header | Second Header | Third Header |
+| ------------ | :-----------: | -----------: |
+| Content      | *Long Cell*                 ||
+| Content      | **Cell**      | Cell         |</code></pre>
+      <pre class="pre codeblock language-xml normalize-space show-line-numbers show-whitespace"><code>&lt;table&gt;
+  &lt;tgroup cols="3"&gt;
+    &lt;colspec colname="col1"/&gt;
+    &lt;colspec colname="col2" align="center"/&gt;
+    &lt;colspec colname="col3" align="right"/&gt;
+    &lt;thead&gt;
+      &lt;row&gt;
+        &lt;entry&gt;First Header &lt;/entry&gt;
+        &lt;entry&gt;Second Header &lt;/entry&gt;
+        &lt;entry&gt;Third Header &lt;/entry&gt;
+      &lt;/row&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+      &lt;row&gt;
+        &lt;entry&gt;Content &lt;/entry&gt;
+        &lt;entry namest="col2" nameend="col3"&gt;&lt;i&gt;Long Cell&lt;/i&gt;&lt;/entry&gt;
+      &lt;/row&gt;
+      &lt;row&gt;
+        &lt;entry&gt;Content &lt;/entry&gt;
+        &lt;entry&gt;&lt;b&gt;Cell&lt;/b&gt;&lt;/entry&gt;
+        &lt;entry&gt;Cell &lt;/entry&gt;
+      &lt;/row&gt;
+    &lt;/tbody&gt;
+  &lt;/tgroup&gt;
+&lt;/table&gt;</code></pre>
+      <p class="p">Table cells may only contain inline content and column spans; block content and row spans are not supported by
+        Markdown DITA.</p></section>
+    <section class="section" id="markdown-dita-syntax-reference__metadata"><h2 class="title sectiontitle">Metadata</h2>
+      
+      
+      
+      
+      <p class="p">
+        <a class="xref" href="http://www.yaml.org/" target="_blank" rel="external noopener">YAML</a> metadata block as defined in Pandoc
+        <a class="xref" href="http://pandoc.org/MANUAL.html#extension-yaml_metadata_block" target="_blank" rel="external noopener">pandoc_metadata_block</a> can be used to specify different metadata elements. The supported elements
+        are:</p>
+      <ul class="ul">
+        <li class="li">
+          <code class="ph codeph">author</code></li>
+        <li class="li">
+          <code class="ph codeph">source</code></li>
+        <li class="li">
+          <code class="ph codeph">publisher</code></li>
+        <li class="li">
+          <code class="ph codeph">permissions</code></li>
+        <li class="li">
+          <code class="ph codeph">audience</code></li>
+        <li class="li">
+          <code class="ph codeph">category</code></li>
+        <li class="li">
+          <code class="ph codeph">keyword</code></li>
+        <li class="li">
+          <code class="ph codeph">resourceid</code></li>
+      </ul>
+      <p class="p">Unrecognized keys are output using <code class="ph codeph">data</code> element.</p>
+      <pre class="pre codeblock language-markdown normalize-space show-line-numbers show-whitespace"><code>---
+author:
+  - Author One
+  - Author Two
+source: Source
+publisher: Publisher
+permissions: Permissions
+audience: Audience
+category: Category
+keyword:
+  - Keyword1
+  - Keyword2
+resourceid:
+  - Resourceid1
+  - Resourceid2
+workflow: review
+---
+
+# Sample with YAML header</code></pre>
+      <pre class="pre codeblock language-xml normalize-space show-line-numbers show-whitespace"><code>&lt;title&gt;Sample with YAML header&lt;/title&gt;
+&lt;prolog&gt;
+  &lt;author&gt;Author One&lt;/author&gt;
+  &lt;author&gt;Author Two&lt;/author&gt;
+  &lt;source&gt;Source&lt;/source&gt;
+  &lt;publisher&gt;Publisher&lt;/publisher&gt;
+  &lt;permissions view="Permissions"/&gt;
+  &lt;metadata&gt;
+    &lt;audience audience="Audience"/&gt;
+    &lt;category&gt;Category&lt;/category&gt;
+    &lt;keywords&gt;
+      &lt;keyword&gt;Keyword1&lt;/keyword&gt;
+      &lt;keyword&gt;Keyword2&lt;/keyword&gt;
+    &lt;/keywords&gt;
+  &lt;/metadata&gt;
+  &lt;resourceid appid="Resourceid1"/&gt;
+  &lt;resourceid appid="Resourceid2"/&gt;
+  &lt;data name="workflow" value="review"/&gt;
+&lt;/prolog&gt;</code></pre>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../topics/input-formats.html" title="In addition to standard DITA XML, DITA-OT supports several alternative input formats, including Markdown and the proposed XDITA, MDITA and HDITA authoring formats currently in development for Lightweight DITA.">Authoring formats</a></div></div></nav><a class="link" href="../topics/input-formats.html" title="In addition to standard DITA XML, DITA-OT supports several alternative input formats, including Markdown and the proposed XDITA, MDITA and HDITA authoring formats currently in development for Lightweight DITA.">Authoring formats</a> &gt; </article></div></div></main><footer class="footer-container"><div class="d-flex flex-column footer-div max-width"><a class="footer-text d-inline-flex mt-2 mt-md-0 ms-md-auto" href="#">Organization name ©
+                    2021</a></div></footer><button type="button" class="go-to-top accent-background-color" id="btn-back-to-top"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"><g id="Layer_1"><line stroke="#fff" id="svg_7" y2="17.66667" x2="26.33332" y1="30.33333" x1="13.66667" stroke-width="4" fill="none"></line><line transform="rotate(90.1903 29.9999 24)" stroke="#fff" id="svg_10" y2="17.66667" x2="36.33323" y1="30.33333" x1="23.66658" stroke-width="4" fill="none"></line></g></svg></a></button><button onclick="goBack()" class="go-back accent-background-color" id="btn-go-back">Back
+        </button><script src="../lib/jquery-3.6.0.min.js"></script><script src="../lib/jspdf-1.5.3.min.js"></script><script src="../lib/html2canvas-1.3.2.js"></script><script src="../lib/popper.min.js"></script><script src="../lib/xml.rocks.js"></script></body></html>

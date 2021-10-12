@@ -1,0 +1,489 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="copyright" content="(C) Copyright 2021"><meta name="generator" content="DITA-OT"><meta name="abstract" content="DITA Open Toolkit 3.6.1 is a maintenance release that fixes issues reported in DITA-OT 3.6, which includes performance enhancements such as processing in parallel and in memory, support for PDF changebars with Apache FOP, and an updated preview of features for the latest draft of the upcoming DITA 2.0 standard, including the audio and video elements, and the new emphasis domain."><meta name="description" content="DITA Open Toolkit 3.6.1 is a maintenance release that fixes issues reported in DITA-OT 3.6, which includes performance enhancements such as processing in parallel and in memory, support for PDF changebars with Apache FOP, and an updated preview of features for the latest draft of the upcoming DITA 2.0 standard, including the audio and video elements, and the new emphasis domain."><meta name="prodname" content="DITA Open Toolkit"><meta name="prodname" content="DITA Open Toolkit"><meta name="version" content=""><meta name="version" content=""><link rel="stylesheet" type="text/css" href="../css/commonltr.css"><link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"><link rel="stylesheet" type="text/css" href="../css/xml.rocks.css"><link rel="icon" type="image/png" href="../img/favicon.png"><title>DITA Open Toolkit 3.6 Release Notes</title></head><body id="ID"><header role="banner" class="rocks-header sticky-top accent-background-color"><div class="d-flex flex-column flex-md-row align-items-center mb-4 main-header max-width"><a href="../index.html" class="d-flex align-items-center text-light text-decoration-none header-logo"><img src="../img/logo.svg"></a><span class="fs-4 text-light">DITA Open Toolkit 3.6</span><nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto"><input class="form-control search" type="search" placeholder="Search" aria-label="Search"></nav></div></header><main role="main" class="container max-width"><div class="breadcrumb"><span class="home"><a href="../index.html">Home</a> &gt; </span></div><div class="dropdown"><button onclick="myFunction()" class="dropbtn"></button><div id="myDropdown" class="dropdown-content"><input type="button" id="downloadbtn" value="Download HTML as PDF" onclick="getPDF()"><input type="button" value="Download PDF File" onclick="DownloadFile('bm_dude.pdf')"></div><input type="button" id="printbtn" onclick="printDiv('topic-article')"></div><div class="row row-cols-1 row-cols-md-3 mb-3 text-left"><div class="col col-sm-4"><div class="card mb-4 rounded-card-rocks"><div class="toc-container"><nav role="toc"><ul><li id="li-d107471e31"><span id="d107471e31" class="expand-collapse-button" onclick="applyExpandedClass('#d107471e31')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/installing-client.html','#li-d107471e31')">Installing DITA Open Toolkit Supercalifragilisticexpialidocious title and better than all good titles before</a><ul><li id="li-d107471e51"><a href="#" onclick="getDynamicTopicData('../topics/prerequisite-software.html','#li-d107471e51')">Prerequisite software</a></li><li id="li-d107471e71"><a href="#" onclick="getDynamicTopicData('../topics/determining-version-of-ditaot.html','#li-d107471e71')">Checking the version</a></li><li id="li-d107471e91"><a href="#" onclick="getDynamicTopicData('../topics/first-build-using-dita-command.html','#li-d107471e91')">Building output</a><ul></ul></li><li id="li-d107471e124"><a href="#" onclick="getDynamicTopicData('../topics/installing-via-homebrew.html','#li-d107471e124')">Installing via Homebrew</a></li></ul></li><li id="li-d107471e148"><span id="d107471e148" class="expand-collapse-button" onclick="applyExpandedClass('#d107471e148')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/building-output.html','#li-d107471e148')">Building output</a><ul><li id="li-d107471e171"><span id="d107471e171" class="expand-collapse-button" onclick="applyExpandedClass('#d107471e171')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/build-using-dita-command.html','#li-d107471e171')">Using the dita command</a><ul><li id="li-d107471e200"><a href="#" onclick="getDynamicTopicData('../topics/using-dita-properties-file.html','#li-d107471e200')">Using a properties file</a></li><li id="li-d107471e229"><a href="#" onclick="getDynamicTopicData('../topics/migrating-ant-to-dita.html','#li-d107471e229')">Migrating Ant builds</a></li><li id="li-d107471e252"><span id="d107471e252" class="expand-collapse-button" onclick="applyExpandedClass('#d107471e252')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/using-project-files.html','#li-d107471e252')">Using a project file</a><ul><li id="li-d107471e276"><a href="#" onclick="getDynamicTopicData('../topics/project-files-xml.html','#li-d107471e276')">XML project files</a></li><li id="li-d107471e302"><a href="#" onclick="getDynamicTopicData('../topics/project-files-json.html','#li-d107471e302')">JSON project files</a></li><li id="li-d107471e325"><a href="#" onclick="getDynamicTopicData('../topics/project-files-yaml.html','#li-d107471e325')">YAML project files</a></li></ul></li></ul></li><li id="li-d107471e355"><span id="d107471e355" class="expand-collapse-button" onclick="applyExpandedClass('#d107471e355')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/using-docker-images.html','#li-d107471e355')">Using Docker images</a><ul><li id="li-d107471e380"><a href="#" onclick="getDynamicTopicData('../topics/creating-docker-images.html','#li-d107471e380')">Custom images</a></li></ul></li><li id="li-d107471e403"><a href="#" onclick="getDynamicTopicData('../topics/using-github-actions.html','#li-d107471e403')">Using GitHub Actions</a></li><li id="li-d107471e431"><span id="d107471e431" class="expand-collapse-button" onclick="applyExpandedClass('#d107471e431')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/publishing-with-ant.html','#li-d107471e431')">Using Ant</a><ul><li id="li-d107471e451"><a href="#" onclick="getDynamicTopicData('../topics/ant.html','#li-d107471e451')">Ant</a></li><li id="li-d107471e471"><a href="#" onclick="getDynamicTopicData('../topics/building-with-ant.html','#li-d107471e471')">Building output using Ant</a></li><li id="li-d107471e491"><a href="#" onclick="getDynamicTopicData('../topics/creating-an-ant-build-script.html','#li-d107471e491')">Creating an Ant build script</a></li></ul></li><li id="li-d107471e511"><a href="#" onclick="getDynamicTopicData('../reference/java-api.html','#li-d107471e511')">Using the Java API</a></li></ul></li><li id="li-d107471e533"><span id="d107471e533" class="expand-collapse-button" onclick="applyExpandedClass('#d107471e533')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/input-formats.html','#li-d107471e533')">Authoring formats</a><ul><li id="li-d107471e553"><a href="#" onclick="getDynamicTopicData('../topics/dita-xml-input.html','#li-d107471e553')">Standard DITA XML</a></li><li id="li-d107471e576"><a href="#" onclick="getDynamicTopicData('../topics/markdown-input.html','#li-d107471e576')">Markdown content</a></li><li id="li-d107471e599"><a href="#" onclick="getDynamicTopicData('../topics/lwdita-input.html','#li-d107471e599')">Lightweight DITA</a></li><li id="li-d107471e625"><a href="#" onclick="getDynamicTopicData('../topics/markdown-dita-syntax-reference.html','#li-d107471e625')">Markdown DITA syntax</a></li></ul></li><li id="li-d107471e649"><span id="d107471e649" class="expand-collapse-button" onclick="applyExpandedClass('#d107471e649')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/output-formats.html','#li-d107471e649')">Output formats</a><ul><li id="li-d107471e672"><a href="#" onclick="getDynamicTopicData('../topics/dita2pdf.html','#li-d107471e672')">PDF</a></li><li id="li-d107471e695"><a href="#" onclick="getDynamicTopicData('../topics/dita2html5.html','#li-d107471e695')">HTML5</a></li><li id="li-d107471e718"><a href="#" onclick="getDynamicTopicData('../topics/dita2eclipsehelp.html','#li-d107471e718')">Eclipse help</a></li><li id="li-d107471e741"><a href="#" onclick="getDynamicTopicData('../topics/dita2htmlhelp.html','#li-d107471e741')">HTML Help</a></li><li id="li-d107471e764"><a href="#" onclick="getDynamicTopicData('../topics/dita2markdown.html','#li-d107471e764')">Markdown</a></li><li id="li-d107471e784"><a href="#" onclick="getDynamicTopicData('../topics/dita2dita.html','#li-d107471e784')">Normalized DITA</a></li><li id="li-d107471e807"><a href="#" onclick="getDynamicTopicData('../topics/dita2xhtml.html','#li-d107471e807')">XHTML</a></li></ul></li><li id="li-d107471e831"><span id="d107471e831" class="expand-collapse-button" onclick="applyExpandedClass('#d107471e831')">+ </span><a href="#" onclick="getDynamicTopicData('../parameters/index.html','#li-d107471e831')">Parameters</a><ul><li id="li-d107471e857"><a href="#" onclick="getDynamicTopicData('../parameters/dita-command-arguments.html','#li-d107471e857')">DITA command arguments</a></li><li id="li-d107471e880"><span id="d107471e880" class="expand-collapse-button" onclick="applyExpandedClass('#d107471e880')">+ </span><a href="#" onclick="getDynamicTopicData('../parameters/parameters_intro.html','#li-d107471e880')">DITA-OT parameters</a><ul><li id="li-d107471e909"><a href="#" onclick="getDynamicTopicData('../parameters/parameters-base.html','#li-d107471e909')">Common</a></li><li id="li-d107471e929"><a href="#" onclick="getDynamicTopicData('../parameters/parameters-pdf.html','#li-d107471e929')">PDF</a></li><li id="li-d107471e949"><a href="#" onclick="getDynamicTopicData('../parameters/parameters-base-html.html','#li-d107471e949')">HTML-based output</a></li><li id="li-d107471e972"><a href="#" onclick="getDynamicTopicData('../parameters/parameters-html5.html','#li-d107471e972')">HTML5</a></li><li id="li-d107471e995"><a href="#" onclick="getDynamicTopicData('../parameters/parameters-xhtml.html','#li-d107471e995')">XHTML</a></li><li id="li-d107471e1015"><a href="#" onclick="getDynamicTopicData('../parameters/parameters-htmlhelp.html','#li-d107471e1015')">HTML Help</a></li><li id="li-d107471e1035"><a href="#" onclick="getDynamicTopicData('../parameters/parameters-eclipsehelp.html','#li-d107471e1035')">Eclipse Help</a></li><li id="li-d107471e1055"><a href="#" onclick="getDynamicTopicData('../parameters/parameters-other.html','#li-d107471e1055')">Other</a></li></ul></li><li id="li-d107471e1091"><span id="d107471e1091" class="expand-collapse-button" onclick="applyExpandedClass('#d107471e1091')">+ </span><a href="#" onclick="getDynamicTopicData('../parameters/configuration-properties.html','#li-d107471e1091')">Configuration properties</a><ul><li id="li-d107471e1114"><a href="#" onclick="getDynamicTopicData('../parameters/local-properties-file.html','#li-d107471e1114')">local.properties</a></li><li id="li-d107471e1138"><a href="#" onclick="getDynamicTopicData('../parameters/plugin-properties-file.html','#li-d107471e1138')">plugin.properties</a></li><li id="li-d107471e1162"><a href="#" onclick="getDynamicTopicData('../parameters/configuration-properties-file.html','#li-d107471e1162')">configuration.properties</a></li><li id="li-d107471e1186"><a href="#" onclick="getDynamicTopicData('../parameters/internal-ant-properties.html','#li-d107471e1186')">Internal Ant properties</a></li></ul></li></ul></li><li id="li-d107471e1207"><span id="d107471e1207" class="expand-collapse-button" onclick="applyExpandedClass('#d107471e1207')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/html-customization.html','#li-d107471e1207')">Customizing HTML</a><ul><li id="li-d107471e1230"><span id="d107471e1230" class="expand-collapse-button" onclick="applyExpandedClass('#d107471e1230')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/html-customization-parameters.html','#li-d107471e1230')">Setting HTML parameters</a><ul><li id="li-d107471e1250"><a href="#" onclick="getDynamicTopicData('../topics/html-customization-navigation.html','#li-d107471e1250')">Adding navigation</a></li><li id="li-d107471e1273"><a href="#" onclick="getDynamicTopicData('../topics/html-customization-css.html','#li-d107471e1273')">Adding custom CSS</a></li><li id="li-d107471e1293"><a href="#" onclick="getDynamicTopicData('../topics/html-customization-header.html','#li-d107471e1293')">Headers and footers</a></li><li id="li-d107471e1313"><a href="#" onclick="getDynamicTopicData('../parameters/generate-copy-outer.html','#li-d107471e1313')">Handling content outside the map directory</a></li></ul></li><li id="li-d107471e1336"><a href="#" onclick="getDynamicTopicData('../topics/html-customization-properties-file.html','#li-d107471e1336')">Using a properties file</a></li></ul></li><li id="li-d107471e1366"><span id="d107471e1366" class="expand-collapse-button" onclick="applyExpandedClass('#d107471e1366')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/pdf-customization.html','#li-d107471e1366')">Customizing PDF</a><ul><li id="li-d107471e1389"><a href="#" onclick="getDynamicTopicData('../topics/pdf-customization-approaches.html','#li-d107471e1389')">Customization approaches</a></li><li id="li-d107471e1409"><a href="#" onclick="getDynamicTopicData('../topics/pdf2-creating-change-bars.html','#li-d107471e1409')">Generating revision bars</a></li></ul></li><li id="li-d107471e1439"><span id="d107471e1439" class="expand-collapse-button" onclick="applyExpandedClass('#d107471e1439')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/adding-plugins.html','#li-d107471e1439')">Adding plug-ins</a><ul><li id="li-d107471e1462"><a href="#" onclick="getDynamicTopicData('../topics/plugins-installing.html','#li-d107471e1462')">Installing plug-ins</a></li><li id="li-d107471e1485"><a href="#" onclick="getDynamicTopicData('../topics/plugins-removing.html','#li-d107471e1485')">Removing plug-ins</a></li><li id="li-d107471e1508"><a href="#" onclick="getDynamicTopicData('../topics/plugins-registry.html','#li-d107471e1508')">Plug-in registry</a></li><li id="li-d107471e1532"><a href="#" onclick="getDynamicTopicData('../topics/rebuilding-docs.html','#li-d107471e1532')">Rebuilding documentation</a></li></ul></li><li id="li-d107471e1554"><span id="d107471e1554" class="expand-collapse-button" onclick="applyExpandedClass('#d107471e1554')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/custom-plugins.html','#li-d107471e1554')">Creating plug-ins</a><ul><li id="li-d107471e1577"><a href="#" onclick="getDynamicTopicData('../topics/plugin-benefits.html','#li-d107471e1577')">Plug-in benefits</a></li><li id="li-d107471e1597"><a href="#" onclick="getDynamicTopicData('../topics/plugin-configfile.html','#li-d107471e1597')">Plug-in descriptor file</a></li><li id="li-d107471e1620"><a href="#" onclick="getDynamicTopicData('../topics/plugin-coding-conventions.html','#li-d107471e1620')">Coding conventions</a></li><li id="li-d107471e1640"><span id="d107471e1640" class="expand-collapse-button" onclick="applyExpandedClass('#d107471e1640')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/plugin-dependencies.html','#li-d107471e1640')">Plug-in dependencies</a><ul><li id="li-d107471e1660"><a href="#" onclick="getDynamicTopicData('../topics/referencing-other-plugins.html','#li-d107471e1660')">Referencing files from other plug-ins</a></li></ul></li><li id="li-d107471e1691"><span id="d107471e1691" class="expand-collapse-button" onclick="applyExpandedClass('#d107471e1691')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/plugin-use-cases.html','#li-d107471e1691')">Plug-in use cases</a><ul><li id="li-d107471e1711"><a href="#" onclick="getDynamicTopicData('../topics/plugin-set-parameters.html','#li-d107471e1711')">Setting parameters</a></li><li id="li-d107471e1731"><a href="#" onclick="getDynamicTopicData('../topics/plugin-anttarget.html','#li-d107471e1731')">Adding a new Ant target</a></li><li id="li-d107471e1754"><a href="#" onclick="getDynamicTopicData('../topics/plugin-antpreprocess.html','#li-d107471e1754')">Adding a pre-processing step</a></li><li id="li-d107471e1774"><a href="#" onclick="getDynamicTopicData('../topics/plugin-newtranstype.html','#li-d107471e1774')">Adding a new output format</a></li><li id="li-d107471e1794"><a href="#" onclick="getDynamicTopicData('../topics/plugin-xsltparams.html','#li-d107471e1794')">Adding new parameters</a></li><li id="li-d107471e1817"><a href="#" onclick="getDynamicTopicData('../topics/plugin-overridestyle.html','#li-d107471e1817')">Overriding XSLT steps</a></li><li id="li-d107471e1837"><a href="#" onclick="getDynamicTopicData('../topics/plugin-javalib.html','#li-d107471e1837')">Adding a Java library</a></li><li id="li-d107471e1863"><a href="#" onclick="getDynamicTopicData('../topics/plugin-messages.html','#li-d107471e1863')">Adding new messages</a></li><li id="li-d107471e1886"><a href="#" onclick="getDynamicTopicData('../topics/plugin-newextensions.html','#li-d107471e1886')">New extension points</a></li><li id="li-d107471e1909"><a href="#" onclick="getDynamicTopicData('../topics/plugin-xmlcatalog.html','#li-d107471e1909')">Extending an XML catalog file</a></li><li id="li-d107471e1930"><a href="#" onclick="getDynamicTopicData('../topics/plugin-rewrite-rules.html','#li-d107471e1930')">Rewriting file names</a></li><li id="li-d107471e1953"><span id="d107471e1953" class="expand-collapse-button" onclick="applyExpandedClass('#d107471e1953')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/implement-saxon-customizations.html','#li-d107471e1953')">Saxon customizations</a><ul><li id="li-d107471e1976"><a href="#" onclick="getDynamicTopicData('../topics/implement-saxon-extension-functions.html','#li-d107471e1976')">Saxon extensions</a></li><li id="li-d107471e1996"><a href="#" onclick="getDynamicTopicData('../topics/implement-saxon-collation-uri-resolvers.html','#li-d107471e1996')">Custom collation URI resolvers</a></li></ul></li></ul></li><li id="li-d107471e2016"><span id="d107471e2016" class="expand-collapse-button" onclick="applyExpandedClass('#d107471e2016')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/html-customization-plugins.html','#li-d107471e2016')">Custom HTML plug-ins</a><ul><li id="li-d107471e2036"><a href="#" onclick="getDynamicTopicData('../topics/html-customization-plugin-bundle-css.html','#li-d107471e2036')">Bundling custom CSS</a></li><li id="li-d107471e2056"><a href="#" onclick="getDynamicTopicData('../topics/html-customization-plugin-webfont.html','#li-d107471e2056')">Embedding web fonts</a></li><li id="li-d107471e2076"><a href="#" onclick="getDynamicTopicData('../topics/html-customization-plugin-javascript.html','#li-d107471e2076')">Inserting JavaScript</a></li></ul></li><li id="li-d107471e2096"><span id="d107471e2096" class="expand-collapse-button" onclick="applyExpandedClass('#d107471e2096')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/pdf-customization-plugins.html','#li-d107471e2096')">Custom PDF plug-ins</a><ul><li id="li-d107471e2116"><a href="#" onclick="getDynamicTopicData('../topics/pdf-customization-plugin-types.html','#li-d107471e2116')">Types of PDF plug-ins</a></li><li id="li-d107471e2136"><span id="d107471e2136" class="expand-collapse-button" onclick="applyExpandedClass('#d107471e2136')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/pdf-plugin-structure.html','#li-d107471e2136')">PDF plug-in structure</a><ul><li id="li-d107471e2156"><a href="#" onclick="getDynamicTopicData('../topics/pdf-plugin-structure_common-artwork.html','#li-d107471e2156')">Custom artwork</a></li><li id="li-d107471e2182"><a href="#" onclick="getDynamicTopicData('../topics/pdf-plugin-structure_common-index.html','#li-d107471e2182')">Index configuration</a></li><li id="li-d107471e2208"><a href="#" onclick="getDynamicTopicData('../topics/pdf-plugin-structure_common-vars.html','#li-d107471e2208')">Variable overrides</a></li><li id="li-d107471e2234"><a href="#" onclick="getDynamicTopicData('../topics/pdf-plugin-structure_fo-attrs.html','#li-d107471e2234')">Custom attributes</a></li><li id="li-d107471e2260"><a href="#" onclick="getDynamicTopicData('../topics/pdf-plugin-structure_fo-i18n.html','#li-d107471e2260')">Internationalization</a></li><li id="li-d107471e2286"><a href="#" onclick="getDynamicTopicData('../topics/pdf-plugin-structure_fo-xsl.html','#li-d107471e2286')">Custom stylesheets</a></li></ul></li><li id="li-d107471e2312"><a href="#" onclick="getDynamicTopicData('../topics/pdf-customization-example.html','#li-d107471e2312')">Simple PDF plug-in</a></li><li id="li-d107471e2338"><a href="#" onclick="getDynamicTopicData('../topics/pdf-customization-resources.html','#li-d107471e2338')">PDF plug-in resources</a></li></ul></li><li id="li-d107471e2358"><span id="d107471e2358" class="expand-collapse-button" onclick="applyExpandedClass('#d107471e2358')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/globalization.html','#li-d107471e2358')">Globalizing DITA content</a><ul><li id="li-d107471e2384"><a href="#" onclick="getDynamicTopicData('../topics/globalization-support.html','#li-d107471e2384')">Globalization support</a></li><li id="li-d107471e2404"><a href="#" onclick="getDynamicTopicData('../topics/plugin-addgeneratedtext.html','#li-d107471e2404')">Customizing generated text</a></li><li id="li-d107471e2427"><a href="#" onclick="getDynamicTopicData('../topics/globalization-languages.html','#li-d107471e2427')">Supported languages</a></li></ul></li><li id="li-d107471e2447"><span id="d107471e2447" class="expand-collapse-button" onclick="applyExpandedClass('#d107471e2447')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/migration.html','#li-d107471e2447')">Migrating customizations</a><ul><li id="li-d107471e2470"><a href="#" onclick="getDynamicTopicData('../topics/migrating-to-3.6.html','#li-d107471e2470')">To 3.6</a></li><li id="li-d107471e2502"><a href="#" onclick="getDynamicTopicData('../topics/migrating-to-3.5.html','#li-d107471e2502')">To 3.5</a></li><li id="li-d107471e2528"><a href="#" onclick="getDynamicTopicData('../topics/migrating-to-3.4.html','#li-d107471e2528')">To 3.4</a></li><li id="li-d107471e2551"><a href="#" onclick="getDynamicTopicData('../topics/migrating-to-3.3.html','#li-d107471e2551')">To 3.3</a></li><li id="li-d107471e2574"><a href="#" onclick="getDynamicTopicData('../topics/migrating-to-3.2.html','#li-d107471e2574')">To 3.2</a></li><li id="li-d107471e2597"><a href="#" onclick="getDynamicTopicData('../topics/migrating-to-3.1.html','#li-d107471e2597')">To 3.1</a></li><li id="li-d107471e2623"><a href="#" onclick="getDynamicTopicData('../topics/migrating-to-3.0.html','#li-d107471e2623')">To 3.0</a></li><li id="li-d107471e2648"><a href="#" onclick="getDynamicTopicData('../topics/migrating-to-2.5.html','#li-d107471e2648')">To 2.5</a></li><li id="li-d107471e2668"><a href="#" onclick="getDynamicTopicData('../topics/migrating-to-2.4.html','#li-d107471e2668')">To 2.4</a></li><li id="li-d107471e2694"><a href="#" onclick="getDynamicTopicData('../topics/migrating-to-2.3.html','#li-d107471e2694')">To 2.3</a></li><li id="li-d107471e2721"><a href="#" onclick="getDynamicTopicData('../topics/migrating-to-2.2.html','#li-d107471e2721')">To 2.2</a></li><li id="li-d107471e2744"><a href="#" onclick="getDynamicTopicData('../topics/migrating-to-2.1.html','#li-d107471e2744')">To 2.1</a></li><li id="li-d107471e2779"><a href="#" onclick="getDynamicTopicData('../topics/migrating-to-2.0.html','#li-d107471e2779')">To 2.0</a></li><li id="li-d107471e2802"><a href="#" onclick="getDynamicTopicData('../topics/migrating-to-1.8.html','#li-d107471e2802')">To 1.8</a></li><li id="li-d107471e2822"><span id="d107471e2822" class="expand-collapse-button" onclick="applyExpandedClass('#d107471e2822')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/migrating-to-1.7.html','#li-d107471e2822')">To 1.7</a><ul><li id="li-d107471e2845"><a href="#" onclick="getDynamicTopicData('../reference/flagging-migration.html','#li-d107471e2845')">Flagging updates</a></li></ul></li><li id="li-d107471e2865"><a href="#" onclick="getDynamicTopicData('../topics/migrating-to-1.6.html','#li-d107471e2865')">To 1.6</a></li><li id="li-d107471e2891"><a href="#" onclick="getDynamicTopicData('../topics/migrating-to-1.5.4.html','#li-d107471e2891')">To 1.5.4</a></li></ul></li></ul></li><li id="li-d107471e2912"><span id="d107471e2912" class="expand-collapse-button" onclick="applyExpandedClass('#d107471e2912')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/troubleshooting-overview.html','#li-d107471e2912')">Troubleshooting</a><ul><li id="li-d107471e2932"><a href="#" onclick="getDynamicTopicData('../topics/logging.html','#li-d107471e2932')">Logging</a></li><li id="li-d107471e2952"><a href="#" onclick="getDynamicTopicData('../topics/enabling-debug-mode.html','#li-d107471e2952')">Enabling debug mode</a></li><li id="li-d107471e2972"><a href="#" onclick="getDynamicTopicData('../topics/error-messages.html','#li-d107471e2972')">DITA-OT error messages</a></li><li id="li-d107471e2992"><a href="#" onclick="getDynamicTopicData('../topics/other-errors.html','#li-d107471e2992')">Other error messages</a></li><li id="li-d107471e3012"><a href="#" onclick="getDynamicTopicData('../topics/dita-command-help.html','#li-d107471e3012')">Command line help</a></li><li id="li-d107471e3038"><a href="#" onclick="getDynamicTopicData('../topics/increasing-the-jvm.html','#li-d107471e3038')">Increasing Java memory</a></li><li id="li-d107471e3061"><a href="#" onclick="getDynamicTopicData('../topics/reducing-processing-time.html','#li-d107471e3061')">Speeding up builds</a></li></ul></li><li id="li-d107471e3082"><span id="d107471e3082" class="expand-collapse-button" onclick="applyExpandedClass('#d107471e3082')">+ </span><a href="#" onclick="getDynamicTopicData('../reference/index.html','#li-d107471e3082')">Reference</a><ul><li id="li-d107471e3105"><span id="d107471e3105" class="expand-collapse-button" onclick="applyExpandedClass('#d107471e3105')">+ </span><a href="#" onclick="getDynamicTopicData('../reference/architecture.html','#li-d107471e3105')">DITA-OT architecture</a><ul><li id="li-d107471e3125"><a href="#" onclick="getDynamicTopicData('../reference/processing-structure.html','#li-d107471e3125')">Processing structure</a></li><li id="li-d107471e3145"><a href="#" onclick="getDynamicTopicData('../reference/map-first-preprocessing.html','#li-d107471e3145')">Map-first preprocessing</a></li><li id="li-d107471e3172"><a href="#" onclick="getDynamicTopicData('../reference/processing-pipeline-modules.html','#li-d107471e3172')">Processing modules</a></li><li id="li-d107471e3192"><a href="#" onclick="getDynamicTopicData('../reference/processing-order.html','#li-d107471e3192')">Processing order</a></li><li id="li-d107471e3212"><a href="#" onclick="getDynamicTopicData('../reference/store-api.html','#li-d107471e3212')">Store API</a></li><li id="li-d107471e3232"><span id="d107471e3232" class="expand-collapse-button" onclick="applyExpandedClass('#d107471e3232')">+ </span><a href="#" onclick="getDynamicTopicData('../reference/preprocessing.html','#li-d107471e3232')">Pre-processing modules</a><ul><li id="li-d107471e3255"><a href="#" onclick="getDynamicTopicData('../reference/preprocess-genlist.html','#li-d107471e3255')">Generate lists (gen-list)</a></li><li id="li-d107471e3278"><a href="#" onclick="getDynamicTopicData('../reference/preprocess-debugfilter.html','#li-d107471e3278')">Debug and filter (debug-filter)</a></li><li id="li-d107471e3301"><a href="#" onclick="getDynamicTopicData('../reference/preprocess-mapref.html','#li-d107471e3301')">Resolve map references (mapref)</a></li><li id="li-d107471e3324"><a href="#" onclick="getDynamicTopicData('../reference/preprocess-branch-filter.html','#li-d107471e3324')">Branch filtering (branch-filter)</a></li><li id="li-d107471e3347"><a href="#" onclick="getDynamicTopicData('../reference/preprocess-keyref.html','#li-d107471e3347')">Resolve key references (keyref)</a></li><li id="li-d107471e3373"><a href="#" onclick="getDynamicTopicData('../reference/preprocess-copy-to.html','#li-d107471e3373')">Copy topics (copy-to)</a></li><li id="li-d107471e3399"><a href="#" onclick="getDynamicTopicData('../reference/preprocess-conrefpush.html','#li-d107471e3399')">Conref push (conrefpush)</a></li><li id="li-d107471e3422"><a href="#" onclick="getDynamicTopicData('../reference/preprocess-conref.html','#li-d107471e3422')">Resolve content references (conref)</a></li><li id="li-d107471e3448"><a href="#" onclick="getDynamicTopicData('../reference/preprocess-profile.html','#li-d107471e3448')">Filter conditional content (profile)</a></li><li id="li-d107471e3474"><a href="#" onclick="getDynamicTopicData('../reference/preprocess-topic-fragment.html','#li-d107471e3474')">Resolve topic fragments and code references (topic-fragment)</a></li><li id="li-d107471e3501"><a href="#" onclick="getDynamicTopicData('../reference/preprocess-chunk.html','#li-d107471e3501')">Chunk topics (chunk)</a></li><li id="li-d107471e3524"><a href="#" onclick="getDynamicTopicData('../reference/preprocess-metadata.html','#li-d107471e3524')">Move metadata (move-meta-entries) and pull content into maps (mappull) </a></li><li id="li-d107471e3547"><a href="#" onclick="getDynamicTopicData('../reference/preprocess-maplink.html','#li-d107471e3547')">Map based linking (maplink)</a></li><li id="li-d107471e3570"><a href="#" onclick="getDynamicTopicData('../reference/preprocess-topicpull.html','#li-d107471e3570')">Pull content into topics (topicpull)</a></li><li id="li-d107471e3599"><a href="#" onclick="getDynamicTopicData('../reference/preprocess-flagging.html','#li-d107471e3599')">Flagging (flag-module)</a></li><li id="li-d107471e3622"><a href="#" onclick="getDynamicTopicData('../reference/preprocess-clean-map.html','#li-d107471e3622')">Map cleanup (clean-map)</a></li><li id="li-d107471e3645"><a href="#" onclick="getDynamicTopicData('../reference/preprocess-copyfiles.html','#li-d107471e3645')">Copy related files (copy-files)</a></li></ul></li><li id="li-d107471e3668"><span id="d107471e3668" class="expand-collapse-button" onclick="applyExpandedClass('#d107471e3668')">+ </span><a href="#" onclick="getDynamicTopicData('../reference/html-based-processing.html','#li-d107471e3668')">HTML-based processing modules</a><ul><li id="li-d107471e3688"><a href="#" onclick="getDynamicTopicData('../reference/common-html-processing.html','#li-d107471e3688')">Common HTML-based processing</a></li><li id="li-d107471e3708"><a href="#" onclick="getDynamicTopicData('../reference/xhtml-processing.html','#li-d107471e3708')">XHTML processing</a></li><li id="li-d107471e3737"><a href="#" onclick="getDynamicTopicData('../reference/html5-processing.html','#li-d107471e3737')">HTML5 processing</a></li><li id="li-d107471e3763"><a href="#" onclick="getDynamicTopicData('../reference/eclipsehelp-processing.html','#li-d107471e3763')">Eclipse help processing</a></li><li id="li-d107471e3789"><a href="#" onclick="getDynamicTopicData('../reference/htmlhelp-processing.html','#li-d107471e3789')">HTML Help processing</a></li></ul></li><li id="li-d107471e3812"><span id="d107471e3812" class="expand-collapse-button" onclick="applyExpandedClass('#d107471e3812')">+ </span><a href="#" onclick="getDynamicTopicData('../reference/pdf-transform.html','#li-d107471e3812')">PDF processing modules</a><ul><li id="li-d107471e3838"><a href="#" onclick="getDynamicTopicData('../reference/pdf-transformation-history.html','#li-d107471e3838')">History of the PDF transformation</a></li></ul></li></ul></li><li id="li-d107471e3858"><span id="d107471e3858" class="expand-collapse-button" onclick="applyExpandedClass('#d107471e3858')">+ </span><a href="#" onclick="getDynamicTopicData('../reference/dita-spec-support.html','#li-d107471e3858')">DITA specification support</a><ul><li id="li-d107471e3881"><a href="#" onclick="getDynamicTopicData('../reference/dita-v1-2-support.html','#li-d107471e3881')">DITA 1.2 support</a></li><li id="li-d107471e3904"><a href="#" onclick="getDynamicTopicData('../reference/dita-v1-3-support.html','#li-d107471e3904')">DITA 1.3 support</a></li><li id="li-d107471e3928"><a href="#" onclick="getDynamicTopicData('../reference/dita-v2-0-support.html','#li-d107471e3928')">DITA 2.0 preview</a></li><li id="li-d107471e3951"><a href="#" onclick="getDynamicTopicData('../reference/implementation-dependent-features.html','#li-d107471e3951')">Implementation-dependent features</a></li><li id="li-d107471e3971"><a href="#" onclick="getDynamicTopicData('../reference/extended-functionality.html','#li-d107471e3971')">Codeblock extensions</a></li><li id="li-d107471e3991"><a href="#" onclick="getDynamicTopicData('../reference/docs-dita-features.html','#li-d107471e3991')">DITA features in docs</a></li></ul></li><li id="li-d107471e4011"><span id="d107471e4011" class="expand-collapse-button" onclick="applyExpandedClass('#d107471e4011')">+ </span><a href="#" onclick="getDynamicTopicData('../extension-points/plugin-extension-points.html','#li-d107471e4011')">Extension points</a><ul><li id="li-d107471e4034"><a href="#" onclick="getDynamicTopicData('../extension-points/all-extension-points.html','#li-d107471e4034')">All extension points</a></li><li id="li-d107471e4054"><a href="#" onclick="getDynamicTopicData('../extension-points/plugin-extension-points-general.html','#li-d107471e4054')">General extension points</a></li><li id="li-d107471e4077"><a href="#" onclick="getDynamicTopicData('../extension-points/plugin-extension-points-pre-processing.html','#li-d107471e4077')">Pre-processing extension points</a></li><li id="li-d107471e4097"><a href="#" onclick="getDynamicTopicData('../extension-points/plugin-extension-points-xslt-import.html','#li-d107471e4097')">XSLT-import extension points</a></li><li id="li-d107471e4123"><a href="#" onclick="getDynamicTopicData('../extension-points/plugin-extension-points-xslt-parameters.html','#li-d107471e4123')">XSLT-parameter extension points</a></li><li id="li-d107471e4146"><a href="#" onclick="getDynamicTopicData('../extension-points/plugin-extension-points-support.html','#li-d107471e4146')">Version and support information</a></li><li id="li-d107471e4166"><span id="d107471e4166" class="expand-collapse-button" onclick="applyExpandedClass('#d107471e4166')">+ </span><a href="#" onclick="getDynamicTopicData('../extension-points/extension-points-by-plugin.html','#li-d107471e4166')">Plug-in extension points</a><ul><li id="li-d107471e4186"><a href="#" onclick="getDynamicTopicData('../extension-points/extension-points-in-org.dita.base.html','#li-d107471e4186')">Common processing</a></li><li id="li-d107471e4212"><a href="#" onclick="getDynamicTopicData('../extension-points/extension-points-in-org.dita.eclipsehelp.html','#li-d107471e4212')">Eclipse Help</a></li><li id="li-d107471e4235"><a href="#" onclick="getDynamicTopicData('../extension-points/extension-points-in-org.dita.html5.html','#li-d107471e4235')">HTML5</a></li><li id="li-d107471e4261"><a href="#" onclick="getDynamicTopicData('../extension-points/extension-points-in-org.dita.htmlhelp.html','#li-d107471e4261')">HTML Help</a></li><li id="li-d107471e4284"><a href="#" onclick="getDynamicTopicData('../extension-points/extension-points-in-org.dita.pdf2.html','#li-d107471e4284')">PDF</a></li><li id="li-d107471e4307"><a href="#" onclick="getDynamicTopicData('../extension-points/extension-points-in-org.dita.xhtml.html','#li-d107471e4307')">HTML-based output</a></li></ul></li></ul></li><li id="li-d107471e4352"><span id="d107471e4352" class="expand-collapse-button" onclick="applyExpandedClass('#d107471e4352')">+ </span><a href="#" onclick="getDynamicTopicData('../reference/license.html','#li-d107471e4352')">License</a><ul><li id="li-d107471e4375"><a href="#" onclick="getDynamicTopicData('../reference/third-party-software.html','#li-d107471e4375')">Third-party software</a></li></ul></li><li id="li-d107471e4395"><span id="d107471e4395" class="expand-collapse-button" onclick="applyExpandedClass('#d107471e4395')">+ </span><a href="#" onclick="getDynamicTopicData('../reference/glossary.html#glossary','#li-d107471e4395')">Glossary</a><ul><li id="li-d107471e4415"><a href="#" onclick="getDynamicTopicData('../reference/glossary.html#gloss-argument','#li-d107471e4415')">argument</a></li><li id="li-d107471e4432"><a href="#" onclick="getDynamicTopicData('../reference/glossary.html#gloss-dita-open-toolkit','#li-d107471e4432')">DITA Open Toolkit</a></li><li id="li-d107471e4449"><a href="#" onclick="getDynamicTopicData('../reference/glossary.html#gloss-extension-point','#li-d107471e4449')">extension point</a></li><li id="li-d107471e4466"><a href="#" onclick="getDynamicTopicData('../reference/glossary.html#gloss-option','#li-d107471e4466')">option</a></li><li id="li-d107471e4483"><a href="#" onclick="getDynamicTopicData('../reference/glossary.html#gloss-output-format','#li-d107471e4483')">output format</a></li><li id="li-d107471e4500"><a href="#" onclick="getDynamicTopicData('../reference/glossary.html#gloss-parameter','#li-d107471e4500')">parameter</a></li><li id="li-d107471e4517"><a href="#" onclick="getDynamicTopicData('../reference/glossary.html#gloss-plug-in','#li-d107471e4517')">plug-in</a></li><li id="li-d107471e4534"><a href="#" onclick="getDynamicTopicData('../reference/glossary.html#gloss-processor','#li-d107471e4534')">processor</a></li><li id="li-d107471e4551"><a href="#" onclick="getDynamicTopicData('../reference/glossary.html#gloss-property','#li-d107471e4551')">property</a></li><li id="li-d107471e4568"><a href="#" onclick="getDynamicTopicData('../reference/glossary.html#gloss-template-plugin','#li-d107471e4568')">template</a></li><li id="li-d107471e4586"><a href="#" onclick="getDynamicTopicData('../reference/glossary.html#gloss-transformation-type','#li-d107471e4586')">transformation type</a></li><li id="li-d107471e4603"><a href="#" onclick="getDynamicTopicData('../reference/glossary.html#gloss-variable','#li-d107471e4603')">variable</a></li><li id="li-d107471e4620"><a href="#" onclick="getDynamicTopicData('../reference/glossary.html#gloss-template-xslt','#li-d107471e4620')">XSL template</a></li></ul></li></ul></li></ul></nav></div></div></div><div class="col col-sm-8"><article role="article" id="topic-article" class="topic-article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">DITA Open Toolkit <span class="keyword">3.6</span> Release Notes</h1>
+  
+
+  <div class="abstract">
+    <p class="shortdesc">DITA Open Toolkit <span class="keyword">3.6.1</span> is a maintenance release that fixes issues
+      reported in DITA-OT <span class="keyword">3.6</span>, which includes <span class="ph">performance enhancements such
+            as processing in parallel and in memory, support for PDF changebars with Apache™ FOP, and an updated preview of features for the latest draft of the upcoming DITA 2.0
+            standard, including the <code class="keyword markupname xmlelement">&lt;audio&gt;</code> and <code class="keyword markupname xmlelement">&lt;video&gt;</code> elements, and the
+            new emphasis domain</span>.</p>
+    <p class="p">DITA-OT releases follow
+        <a class="xref" href="https://semver.org" target="_blank" rel="external noopener">semantic versioning</a> guidelines. Version numbers use the
+            <code class="ph codeph"><var class="keyword varname">major</var>.<var class="keyword varname">minor</var>.<var class="keyword varname">patch</var></code> syntax, where
+          <var class="keyword varname">major</var> versions may include incompatible API changes, <var class="keyword varname">minor</var> versions add
+        functionality in a backwards-compatible manner and <var class="keyword varname">patch</var> versions are maintenance releases
+        that include backwards-compatible bug fixes.</p>
+    <div class="note tip note_tip"><span class="note__title">Tip:</span> <span class="ph">Download the <span class="ph filepath">dita-ot-<span class="keyword">3.6.1</span>.zip</span>
+            package from the project website at
+            <a class="xref" href="https://www.dita-ot.org/download" target="_blank" rel="external noopener">dita-ot.org/download</a>.</span></div>
+  </div>
+
+  <article class="topic reference nested1" aria-labelledby="ariaid-title2" id="requirements">
+    <h2 class="title topictitle2" id="ariaid-title2">Requirements</h2>
+    <div class="body refbody">
+      <section class="section">
+        
+        <div class="p">DITA-OT is designed to run on Java version <span class="keyword">8u101</span> or later and
+        built and tested with the Open Java Development Kit (OpenJDK). Compatible Java distributions are available from
+        multiple sources:
+        
+        
+        
+        
+        <ul class="ul">
+          <li class="li">You can download the Oracle JRE or JDK from
+            <a class="xref" href="http://www.oracle.com/technetwork/java/javase/downloads" target="_blank" rel="external noopener">oracle.com/technetwork/java</a> under commercial license.</li>
+          <li class="li">OpenJDK is a free open-source implementation of Java available from
+            <a class="xref" href="https://adoptopenjdk.net" target="_blank" rel="external noopener">adoptopenjdk.net</a>.</li>
+          <li class="li">Free OpenJDK distributions are also available from other vendors, including
+            <a class="xref" href="https://aws.amazon.com/corretto/" target="_blank" rel="external noopener">Amazon Corretto</a>,
+            <a class="xref" href="https://www.azul.com/downloads/zulu/" target="_blank" rel="external noopener">Azul Zulu</a>, and
+            <a class="xref" href="https://developers.redhat.com/products/openjdk/download" target="_blank" rel="external noopener">Red Hat</a>.</li>
+        </ul>
+      </div>
+      </section>
+    </div>
+  </article>
+
+  <article class="topic reference nested1 mark" aria-labelledby="ariaid-title3" id="v3.6.1">
+    <h2 class="title topictitle2" id="ariaid-title3">DITA-OT <span class="keyword">3.6.1</span>
+      
+    </h2>
+
+    <div class="body refbody">
+      <section class="section">
+        <p class="p">DITA Open Toolkit <span class="keyword">3.6.1</span> is a maintenance release that includes the
+          following bug fixes.</p>
+        <ul class="ul">
+          <li class="li" id="v3.6.1__3656">In DITA-OT 3.6, builds failed with a NullPointerException when Ant targets in custom
+              <code class="keyword markupname xmlelement">&lt;pipeline&gt;</code> elements were run without passing references to the new Ant project by
+            setting the <code class="keyword markupname xmlatt">@inheritRefs</code> attribute on the <code class="keyword markupname xmlelement">&lt;antcall&gt;</code> to
+              <code class="ph codeph">true</code>. This case will no longer cause the build to fail, but custom plug-ins should still
+            set targets to inherit references to ensure that processing runs as expected.
+            <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3656" target="_blank" rel="external noopener">#3656</a>,
+            <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3657" target="_blank" rel="external noopener">#3657</a>
+          </li>
+          <li class="li" id="v3.6.1__3659">The <code class="ph codeph">jsass</code> compiler used in the HTML5 plug-in build process up to DITA-OT 3.6
+            relied on LibSass, which has been deprecated in favor of Dart Sass and caused errors when building on the
+            64-bit extension of the ARM architecture. The SCSS source files are now converted to CSS using the official
+            Dart Sass compiler, which allows DITA-OT distribution builds to run on recent Macs and other ARM systems.
+            <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3659" target="_blank" rel="external noopener">#3659</a>
+          </li>
+          <li class="li" id="v3.6.1__3667">In DITA-OT 3.6, builds failed with a NullPointerException when an unset logger was called. A new
+            guard has been added to handle these cases more gracefully.
+            <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3667" target="_blank" rel="external noopener">#3667</a>,
+            <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3706" target="_blank" rel="external noopener">#3706</a>
+          </li>
+          <li class="li" id="v3.6.1__3669">The <span class="keyword msgnum">DOTX037W</span> warning message that appears when source documents have no title
+            has been updated to clarify references to the fallback text that will be used for the HTML page title.
+            <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3669" target="_blank" rel="external noopener">#3669</a>,
+            <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3670" target="_blank" rel="external noopener">#3670</a>
+          </li>
+          <li class="li" id="v3.6.1__3677">DITA-OT 3.6 failed with an IllegalArgumentException when maps contained topic references to
+            e-mail addresses or other peer resources that are not accessible at build time. Processing has been updated
+            to properly handle non-file references.
+            <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3677" target="_blank" rel="external noopener">#3677</a>,
+            <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3698" target="_blank" rel="external noopener">#3698</a>
+          </li>
+          <li class="li" id="v3.6.1__3680">In DITA-OT 3.6, branch filtering with nested subtopics failed with an IllegalArgumentException:
+              <samp class="ph msgph">URI has a fragment component</samp>. Processing has been updated to correctly transform references
+            that contain anchors.
+            <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3680" target="_blank" rel="external noopener">#3680</a>,
+            <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3696" target="_blank" rel="external noopener">#3696</a>
+          </li>
+          <li class="li" id="v3.6.1__3687">DITA-OT 3.6 in-memory processing calculated absolute paths incorrectly when merging maps. The
+            merge map and topic parsers have been updated to properly compute absolute locations.
+            <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3687" target="_blank" rel="external noopener">#3687</a>,
+            <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3699" target="_blank" rel="external noopener">#3699</a>
+          </li>
+          <li class="li" id="v3.6.1__3688">DITA-OT 3.6 introduced a regression that prevented PDF2 custom font mappings from resolving
+            properly. The PDF pre-processor task has been updated with a delegating URI resolver to ensure that custom
+            resources in PDF plug-ins are applied as expected.
+            <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3688" target="_blank" rel="external noopener">#3688</a>,
+            <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3695" target="_blank" rel="external noopener">#3695</a>
+          </li>
+          <li class="li" id="v3.6.1__3689">Custom rules used to adjust the names and locations of output files in the map-first
+            pre-processing routine were no longer applied in DITA-OT 3.6. Preprocessing has been updated to ensure that
+            stylesheets specified via the <span class="keyword parmname">result.rewrite-rule.xsl</span> parameter are correctly applied.
+            <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3689" target="_blank" rel="external noopener">#3689</a>,
+            <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3697" target="_blank" rel="external noopener">#3697</a>
+          </li>
+          <li class="li" id="v3.6.1__3694">In DITA-OT 3.6, a regression prevented multi-level key references from resolving properly.
+            Processing has been updated to ensure that topic metadata is correctly copied between key definitions and
+            key references that point to other keys.
+            <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3694" target="_blank" rel="external noopener">#3694</a>,
+            <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3701" target="_blank" rel="external noopener">#3701</a>
+          </li>
+          <li class="li" id="v3.6.1__ghcr">The GitHub Packages Docker registry used to publish DITA-OT Docker images prior to version 3.6
+            has been superseded by the GitHub Container Registry. The new registry offers anonymous access to public
+            container images, so you can use it without a GitHub account. As of DITA-OT 3.6.1, the official image is
+            published to the new registry at <a class="xref" href="https://ghcr.io" target="_blank" rel="external noopener">ghcr.io</a>.
+            If you’ve pulled from <code class="ph codeph">docker.pkg.github.com/dita-ot/dita-ot/dita-ot:<var class="keyword varname">version</var></code>
+            in the past, update your workflow to pull from
+            <code class="ph codeph">ghcr.io/dita-ot/dita-ot:<var class="keyword varname">version</var></code> instead.
+          </li>
+          <li class="li" id="v3.6.1__gh-action">The DITA-OT project now provides an official
+            <a class="xref" href="https://github.com/dita-ot/dita-ot-action" target="_blank" rel="external noopener">dita-ot-action</a> that can be used to publish documentation via
+            <a class="xref" href="https://github.com/features/actions" target="_blank" rel="external noopener">GitHub Actions</a> whenever your source files are changed.</li>
+          <li class="li" id="v3.6.1__docs"> The documentation for DITA Open Toolkit Release 3.6.1 provides corrections and improvements to
+            existing topics, along with new information in the following topics:
+            <ul class="ul">
+              <li class="li">
+                <a class="xref" href="../topics/using-github-actions.html" title="GitHub Actions are a CI/CD workflow mechanism attached to GitHub. Each action is an individual unit of functionality that can be combined with other GitHub Actions to create workflows, which are triggered in response to certain GitHub events. As of version 3.6.1, the DITA-OT project provides an official dita-ot-action that can be used as a step within a GitHub workflow to publish documentation as part of your CI/CD pipeline.">Running the dita command from a GitHub Action</a></li>
+              <li class="li">
+                <a class="xref" href="../topics/using-docker-images.html" title="Docker is a platform used to build, share, and run portable application containers. As of version 3.4, the DITA-OT project provides an official Docker container image that includes everything you need to run the toolkit and publish DITA content from a containerized environment.">Running the dita command from a Docker image</a></li>
+              <li class="li">
+                <a class="xref" href="../topics/creating-docker-images.html" title="To install custom plug-ins or make other changes based on the DITA-OT parent image, you can create your own Dockerfile and specify the official DITA-OT image as the basis for your image.">Installing plug-ins in a Docker image</a></li>
+              <li class="li">
+                <a class="xref" href="../topics/plugin-coding-conventions.html" title="To ensure custom plug-ins work well with the core toolkit code and remain compatible with future releases, the DITA Open Toolkit project recommends that plug-ins use modern development practices and common coding patterns.">Plug-in coding conventions</a></li>
+            </ul>
+          </li>
+        </ul>
+        <p class="p">For additional information on the issues resolved since the previous release, see the
+          <a class="xref" href="https://github.com/dita-ot/dita-ot/issues?q=milestone%3A3.6.1+is%3Aclosed" target="_blank" rel="external noopener">3.6.1 milestone</a> and
+          <a class="xref" href="https://github.com/dita-ot/dita-ot/compare/3.6...3.6.1" target="_blank" rel="external noopener">
+            changelog</a> on GitHub.</p>
+      </section>
+    </div>
+  </article>
+  <article class="topic reference nested1" aria-labelledby="ariaid-title4" id="v3.6">
+    <h2 class="title topictitle2" id="ariaid-title4">DITA-OT <span class="keyword">3.6</span>
+      <span class="ph small text-muted">released December 19, 2020</span>
+    </h2>
+    
+    <div class="body refbody">
+      <section class="section">
+        <p class="p">DITA Open Toolkit Release <span class="keyword">3.6</span> includes <span class="ph" id="v3.6__summary">performance enhancements such
+            as processing in parallel and in memory, support for PDF changebars with Apache FOP, and an updated preview of features for the latest draft of the upcoming DITA 2.0
+            standard, including the <code class="keyword markupname xmlelement">&lt;audio&gt;</code> and <code class="keyword markupname xmlelement">&lt;video&gt;</code> elements, and the
+            new emphasis domain</span>.</p>
+      </section>
+      
+      <section class="section"><h3 class="title sectiontitle">Parallel processing</h3>
+      
+      
+      <p class="p">Preprocessing module code can now be run in parallel by setting the <span class="keyword parmname">parallel</span> parameter to
+          <span class="keyword option">true</span>. The performance benefits this option provides depend heavily on the source file set,
+        the DITA features used in the project, and the computer doing the processing, but under the right circumstances,
+        you may see notable improvements when this option is enabled.</p>
+    </section>
+
+      <section class="section"><h3 class="title sectiontitle">In-memory processing</h3>
+      
+      
+      <p class="p">DITA-OT 3.6 introduces a new Store API with preview support for in-memory processing. The Cache Store can be
+        activated by setting the <span class="keyword parmname">store-type</span> parameter to <span class="keyword option">memory</span>. 
+        <span class="ph" id="v3.6__d759e79">In-memory processing provides performance advantages in I/O bound environments such as cloud
+          computing platforms, where processing time depends primarily on how long it takes to read and write temporary
+          files.</span> For more information, see
+        <a class="xref" href="../reference/store-api.html" title="DITA-OT originally assumed resources would be available on disk and available from file paths. Recent versions added URI input, so HTTPS resources could be used, but temporary and output resources were still file-based. DITA-OT 3.6 introduces a new Store API that can process temporary resources in memory instead of writing them to disk.">Store API – Processing in memory</a>.</p>
+    </section>
+
+      <section class="section"><h3 class="title sectiontitle">Additional performance improvements</h3>
+        
+        <p class="p">DITA-OT 3.6 includes a series of related changes designed to improve the performance of DITA
+          transformations.</p>
+        <ul class="ul">
+          <li class="li" id="v3.6__3616">
+            <p class="p">A new <span class="keyword parmname">--repeat</span> option can be passed to the <span class="keyword cmdname">dita</span> command to run
+              the process a certain number of times. This option can be used by plug-in developers to measure
+              performance. (Timings for the first transformation are often dominated by Java warm-up time.)
+              <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3616" target="_blank" rel="external noopener">#3616</a></p>
+            <div class="p">To run a conversion five times, for example, use <span class="keyword parmname">--repeat</span>=<span class="keyword option">5</span>. The
+              duration of each execution will appear in the console when the final transformation is complete.
+              <pre class="pre codeblock syntax-bash multi-platform"><code>$ <span class="keyword cmdname">dita</span> <span class="keyword parmname">--input</span>=<span class="ph filepath">docsrc/samples/sequence.ditamap</span> <span class="keyword parmname">--format</span>=<span class="keyword option">html5</span> <span class="keyword parmname">--repeat</span>=<span class="keyword option">5</span>
+1 11281ms
+2 4132ms
+3 3690ms
+4 4337ms
+5 3634ms</code></pre>
+            </div>
+          </li>
+          <li class="li" id="v3.6__3569">The DITA-OT Java code uses a new caching <code class="ph codeph">DitaClass.getInstance(cls)</code> factory
+            method rather than generating <code class="ph codeph">DitaClass</code> instances directly. This allows previously created
+            instances to be re-used, which reduces the number of instances that need to be created.
+            <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3569" target="_blank" rel="external noopener">#3569</a>
+          </li>
+          <li class="li" id="v3.6__3570">The Java code for several preprocessing modules has been refactored to use concurrent sets or
+            queues. This helps to speed up certain operations during preprocessing, allowing builds to complete faster.
+            <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3570" target="_blank" rel="external noopener">#3570</a>
+          </li>
+          <li class="li" id="v3.6__3583">The Java code now uses a <code class="ph codeph">BufferedWriter</code> to serialize <code class="ph codeph">Job</code>
+            objects, which significantly improves UTF-8 encoding performance when writing the
+              <span class="ph filepath">.job.xml</span> file.
+            <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3583" target="_blank" rel="external noopener">#3583</a>
+          </li>
+        </ul>
+      </section>
+
+      <section class="section"><h3 class="title sectiontitle">PDF changebars with Apache FOP</h3>
+      
+      
+      
+      <p class="p">For DITA-OT 3.4, the bundled Apache™ Formatting Objects Processor library was upgraded to version 2.4, which
+        included support for changebars, but those features were not yet enabled in DITA-OT 3.4 pending further testing.
+        DITA-OT 3.6 removes the FOP-specific overrides that disabled changebars in earlier versions, allowing the
+        default PDF2 flagging routines to be applied when generating PDFs with FOP. For details, see
+        <a class="xref" href="../topics/pdf2-creating-change-bars.html" title="You can generate revision bars in your PDF output by using the changebar and color attributes of the DITAVAL revprop element.">Generating revision bars</a>.</p>
+      <p class="p">Plug-ins that implemented custom FOP flagging by overriding the
+          <span class="ph filepath">org.dita.pdf2.fop/xsl/fo/flagging_fop.xsl</span> stylesheet in prior versions will need to be
+        updated, as this file is no longer available in DITA-OT 3.6.
+        <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3511" target="_blank" rel="external noopener">#3511</a>,
+        <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3591" target="_blank" rel="external noopener">#3591</a>
+      </p>
+    </section>
+
+      <section class="section" id="v3.6__dita-2-0-preview"><h3 class="title sectiontitle">Updated DITA 2.0 preview</h3>
+        
+        <p class="p">In addition to the
+          <a class="xref" href="../reference/dita-v2-0-support.html" title="DITA Open Toolkit 3.6 provides a preview of features for the upcoming OASIS DITA 2.0 specification. This preliminary processing support is provided on the basis of the latest DRAFT versions of the DITA 2.0 DTD and RELAX&nbsp;NG grammar files from OASIS (as of October 2020).">DITA 2.0 preview support</a> provided in DITA-OT 3.5, this release includes updated processing support
+          for the latest DRAFT versions of the DITA 2.0 DTD and RELAX&nbsp;NG grammar files from OASIS (as of October 2020).
+          <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3586" target="_blank" rel="external noopener">#3586</a>,
+          <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3601" target="_blank" rel="external noopener">#3601</a>,
+          <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3617" target="_blank" rel="external noopener">#3617</a>,
+          <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3652" target="_blank" rel="external noopener">#3652</a>
+        </p>
+        <ul class="ul">
+        
+        <li class="li">Where earlier DITA versions relied on the <code class="keyword markupname xmlelement">&lt;object&gt;</code> to embed media in DITA source
+          files, DITA 2.0 provides new <code class="keyword markupname xmlelement">&lt;audio&gt;</code> and <code class="keyword markupname xmlelement">&lt;video&gt;</code> elements that
+          correspond to their HTML5 equivalents.</li>
+        <li class="li">For HTML5 compatibility, the new emphasis domain adds support for the <code class="keyword markupname xmlelement">&lt;strong&gt;</code> and
+            <code class="keyword markupname xmlelement">&lt;em&gt;</code> elements in addition to the existing <code class="keyword markupname xmlelement">&lt;b&gt;</code> and
+            <code class="keyword markupname xmlelement">&lt;i&gt;</code> elements in the highlighting domain.</li>
+        <li class="li">The troubleshooting domain has been updated with additional constructs that can be used to provide detailed
+          diagnostic information.</li>
+        <li class="li">Several obsolete elements and attributes have been removed from DITA 2.0, including:
+          <ul class="ul">
+            <li class="li"><code class="keyword markupname xmlelement">&lt;boolean&gt;</code></li>
+            <li class="li"><code class="keyword markupname xmlelement">&lt;data-about&gt;</code></li>
+            <li class="li"><code class="keyword markupname xmlelement">&lt;indextermref&gt;</code></li>
+            <li class="li"><code class="keyword markupname xmlatt">@alt</code> on <code class="keyword markupname xmlelement">&lt;image&gt;</code></li>
+            <li class="li"><code class="keyword markupname xmlatt">@navtitle</code> on <code class="keyword markupname xmlelement">&lt;topicref&gt;</code></li>
+            <li class="li"><code class="keyword markupname xmlatt">@query</code> on <code class="keyword markupname xmlelement">&lt;topicref&gt;</code></li>
+            <li class="li"><code class="keyword markupname xmlatt">@refcols</code> on <code class="keyword markupname xmlelement">&lt;simpletable&gt;</code></li>
+            <li class="li"><code class="keyword markupname xmlatt">@xtrc</code></li>
+            <li class="li"><code class="keyword markupname xmlatt">@xtrf</code></li>
+          </ul>
+        </li>
+      </ul>
+        <p class="p">DITA documents that reference the draft grammar files can be parsed, and where features
+      overlap with DITA 1.3, those features will work as expected.</p>
+        <div class="note note note_note"><span class="note__title">Note:</span> Other new or revised features proposed for DITA 2.0 are not yet supported. Additional
+        features will be implemented in future versions of DITA-OT as the specification evolves.</div>
+      </section>
+
+      <section class="section" id="v3.6__enhancements"><h3 class="title sectiontitle">Enhancements and changes</h3>
+        
+        
+        <p class="p">DITA Open Toolkit Release <span class="keyword">3.6</span> includes the following enhancements and changes to
+          existing features:</p>
+        
+        <ul class="ul">
+          <li class="li" id="v3.6__3448">The <code class="keyword markupname xmlatt">@rotate</code> attribute on table <code class="keyword markupname xmlelement">&lt;entry&gt;</code> elements is now
+            respected when generating HTML5 output. The rotation is implemented by setting the CSS
+              <code class="ph codeph">writing-mode</code> property to <code class="ph codeph">vertical-rl</code> to rotate the cell content. This
+            property is rendered correctly in Mozilla Firefox, but unevenly supported by other browsers. The
+              <code class="ph codeph">rotate</code> class is passed to HTML5 output, so custom plug-ins can implement alternative
+            presentation rules in CSS if necessary.
+            <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3448" target="_blank" rel="external noopener">#3448</a>,
+            <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3541" target="_blank" rel="external noopener">#3541</a>,
+            <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3651" target="_blank" rel="external noopener">#3651</a>
+          </li>
+          <li class="li" id="v3.6__3495">User-facing text for the <span class="keyword cmdname">dita</span> command line interface has been extracted to a
+            strings file to facilitate editing. The <span class="ph filepath">cli_en_US.properties</span> is provided in the
+              <span class="ph filepath">resources</span> folder as a basis for customization and localization.
+            <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3495" target="_blank" rel="external noopener">#3495</a>,
+            <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3523" target="_blank" rel="external noopener">#3523</a>
+          </li>
+          <li class="li" id="v3.6__3506">The new <code class="ph codeph">Store</code> implementation that supports in-memory processing includes an
+            immutable document reader method that can be used to request a document that doesn't need to change during
+            processing. This approach facilitates caching and helps to speed up processing.
+            <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3506" target="_blank" rel="external noopener">#3506</a>,
+            <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3548" target="_blank" rel="external noopener">#3548</a>
+          </li>
+          <li class="li" id="v3.6__3535">In earlier versions, variations in reference capitalization could cause unexpected results when
+            building output on case-sensitive file systems. DITA-OT now warns when file references use incorrect case.
+            (For example, if maps reference <span class="ph filepath">Topic.dita</span>, but the filename on disk is actually
+              <span class="ph filepath">topic.dita</span>.) In strict processing mode, this is considered a fatal error; in lax
+            processing mode, the file reference is rewritten to use the same case as the file system.
+            <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3535" target="_blank" rel="external noopener">#3535</a>
+          </li>
+          <li class="li" id="v3.6__3556">The <span class="keyword parmname">--filter</span> option can now be passed to the <span class="keyword cmdname">dita</span>
+            multiple times in a single command-line invocation to apply conditions from several DITAVAL files at once.
+            <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3556" target="_blank" rel="external noopener">#3556</a>
+          </li>
+          <li class="li" id="v3.6__3558">The bundled Apache Formatting Objects Processor (FOP)
+            has been upgraded to version 2.5, which includes security updates to various embedded libraries.
+            <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3558" target="_blank" rel="external noopener">#3558</a>,
+            <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3630" target="_blank" rel="external noopener">#3630</a>
+          </li>
+          <li class="li" id="v3.6__3562">The deprecated <code class="ph codeph">msgprefix</code> XSL variable (“DOTX”) has been removed. This variable
+            was originally deprecated in DITA-OT 2.3, but still defined in several stylesheets. Importing the common XSL
+            module <span class="ph filepath">output-message.xsl</span> no longer requires this variable to be defined.
+            <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3562" target="_blank" rel="external noopener">#3562</a>
+          </li>
+          <li class="li" id="v3.6__3564">The <span class="keyword apiname">S9api</span> message listener from the Saxon API is now used to forward log
+            messages to the <code class="ph codeph">DITAOTLogger</code>. This allows message levels and error codes to be passed from
+            XSLT to Java code for improved debugging.
+            <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3564" target="_blank" rel="external noopener">#3564</a>
+          </li>
+          
+          <li class="li" id="v3.6__3594">HTML5 output now includes additional metadata to indicate that the content was produced using
+            DITA Open Toolkit.
+            <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3594" target="_blank" rel="external noopener">#3594</a>
+            <pre class="pre codeblock language-html"><code>&lt;meta name="generator" content="DITA-OT"/&gt;</code></pre>
+          </li>
+          <li class="li" id="v3.6__3595">Up to version 3.5, DITA-OT included the
+            <a class="xref" href="https://dublincore.org/specifications/dublin-core/dcmi-terms" target="_blank" rel="external noopener">Dublin Core Metadata Element Set</a> in both XHTML and HTML5 output. For DITA-OT 3.6, this capability was extracted
+            to a separate plugin, and Dublin Core metadata is no longer generated in the default HTML5 output.
+            <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3595" target="_blank" rel="external noopener">#3595</a>
+            <p class="p">If necessary, the
+              <a class="xref" href="https://github.com/dita-ot/org.dita.html5.dublin-core/" target="_blank" rel="external noopener">org.dita.html5.dublin-core</a> plug-in can be installed from the plug-in registry at
+              <a class="xref" href="https://www.dita-ot.org/plugins" target="_blank" rel="external noopener">dita-ot.org/plugins</a> to add Dublin Core metadata to HTML5. To install the plug-in, run
+              the following command:</p>
+            <pre class="pre codeblock syntax-bash"><code><span class="keyword cmdname">dita install</span> org.dita.html5.dublin-core</code></pre>
+          </li>
+          <li class="li" id="v3.6__3599">In XHTML output, previous versions failed to distinguish <em class="ph i">Notice</em> note types from regular
+            notes, prefixing both with <strong class="ph b">Note</strong>. Support has been backported from HTML5 to XHTML to prefix notices
+            with <strong class="ph b">Notice</strong> as expected.
+            <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3599" target="_blank" rel="external noopener">#3599</a>,
+            <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3600" target="_blank" rel="external noopener">#3600</a>
+          </li>
+          <li class="li" id="v3.6__3602">Unused code for flagging and key processing has been removed along with related files that have
+            been deprecated since version 2.1, including the base <span class="ph filepath">flag.xsl</span> stylesheet, the
+            generated <span class="ph filepath">keydef.xml</span> file, and <span class="ph filepath">schemekeydef.xml</span>.
+            <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3602" target="_blank" rel="external noopener">#3602</a>,
+            <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3603" target="_blank" rel="external noopener">#3603</a>
+          </li>
+          
+          <li class="li" id="v3.6__3632">
+            <div class="p">Remaining inline style attributes were removed from HTML5 code, which prevented custom plug-ins from
+              overriding the presentation of the corresponding elements, including:
+              <ul class="ul">
+                <li class="li"><span class="ph line-through"><code class="keyword markupname xmlelement">&lt;line-through&gt;</code></span> and
+                      <span class="ph overline"><code class="keyword markupname xmlelement">&lt;overline&gt;</code></span> elements</li>
+                <li class="li">syntax diagrams</li>
+                <li class="li">long quote citations</li>
+                <li class="li">Boolean states</li>
+              </ul></div>
+            <p class="p">These changes move the default presentation rules to CSS to allow users to override these styles in
+              custom stylesheets. The output is visually equivalent to the results generated by previous toolkit
+              versions.
+              <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3632" target="_blank" rel="external noopener">#3632</a>
+            </p>
+            <div class="note important note_important"><span class="note__title">Important:</span> In publishing environments that do not use the default common CSS files, these styles
+              may need to be implemented in custom stylesheets.</div>
+          </li>
+        </ul>
+      </section>
+
+      <section class="section" id="v3.6__bugs"><h3 class="title sectiontitle">Bugs</h3>
+        
+        
+        <p class="p">DITA Open Toolkit Release <span class="keyword">3.6</span> provides fixes for the following bugs:</p>
+        
+        <ul class="ul">
+          
+          
+          <li class="li" id="v3.6__2414">
+            <p class="p">Folder names in development build archives previously included the “<code class="ph codeph">+</code>” plus sign, which
+              caused errors when running from the unpacked directory. The snapshot folder name syntax has been updated
+              to use the “<code class="ph codeph">@</code>” at sign instead, which allows builds to run directly from the extracted
+              folder.
+              <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/2414" target="_blank" rel="external noopener">#2414</a>,
+              <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3623" target="_blank" rel="external noopener">#3623</a>
+            </p>
+          </li>
+          <li class="li" id="v3.6__3608">
+            <p class="p">The license text for the beta DITA 2.0 grammar file plug-in was missing in DITA-OT 3.5 and is now
+              included in the distribution package.
+              <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3608" target="_blank" rel="external noopener">#3608</a>,
+              <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3649" target="_blank" rel="external noopener">#3649</a>
+            </p>
+          </li>
+          <li class="li">The Java code has been refactored to anticipate cases where resources are missing or incorrectly defined.
+            <ul class="ul">
+              <li class="li" id="v3.6__3624">The <code class="ph codeph">File.toURI()</code> method has been updated to ensure that the generated URI
+                for a directory will always end in a trailing slash. This prevents unexpected errors in cases when the
+                  <code class="ph codeph">File</code> input points to a path that doesn’t exist.
+                <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3621" target="_blank" rel="external noopener">#3621</a>,
+                <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3624" target="_blank" rel="external noopener">#3624</a>,
+                <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3626" target="_blank" rel="external noopener">#3626</a>
+              </li>
+              <li class="li" id="v3.6__3625">The <code class="ph codeph">JobSourceSet</code> has been fixed to handle cases where the
+                  <code class="ph codeph">src</code> input is <code class="ph codeph">null</code>.
+                <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3625" target="_blank" rel="external noopener">#3625</a>
+              </li>
+            </ul>
+          </li>
+          <li class="li" id="v3.6__3627">In DITA-OT 3.5.4, the HTMLHelp stylesheet <span class="ph filepath">map2hhcImpl.xsl</span> included an
+            invalid code remnant left over from previous edits. The unnecessary line has been removed.
+            <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3627" target="_blank" rel="external noopener">#3627</a>,
+            <a class="xref" href="https://github.com/dita-ot/dita-ot/issues/3634" target="_blank" rel="external noopener">#3634</a>
+          </li>
+          
+        </ul>
+      </section>
+
+      <section class="section" id="v3.6__contrib"><h3 class="title sectiontitle">Contributors</h3>
+        
+        <p class="p">DITA Open Toolkit Release <span class="keyword">3.6</span> includes
+          <a class="xref" href="https://github.com/dita-ot/dita-ot/graphs/contributors" target="_blank" rel="external noopener">code contributions</a> by the following people:</p>
+        
+        
+        <ol class="ol">
+          <li class="li">Jarno Elovirta</li>
+          <li class="li">Roger Sheen</li>
+          <li class="li">Robert D Anderson</li>
+          <li class="li">Radu Coravu</li>
+          <li class="li">David Bertalan</li>
+        </ol>
+        <p class="p">For the complete list of changes since the previous release, see the
+          <a class="xref" href="https://github.com/dita-ot/dita-ot/compare/3.5...3.6" target="_blank" rel="external noopener">
+            changelog</a> on GitHub.</p>
+      </section>
+
+      <section class="section" id="v3.6__docs"><h3 class="title sectiontitle">Documentation updates</h3>
+        
+        <p class="p">The documentation for DITA Open Toolkit Release <span class="keyword">3.6</span> provides corrections and
+          improvements to existing topics, along with new information in the following topics:</p>
+        <ul class="ul">
+          <li class="li">
+            <a class="xref" href="../reference/store-api.html" title="DITA-OT originally assumed resources would be available on disk and available from file paths. Recent versions added URI input, so HTTPS resources could be used, but temporary and output resources were still file-based. DITA-OT 3.6 introduces a new Store API that can process temporary resources in memory instead of writing them to disk.">Store API – Processing in memory</a></li>
+          <li class="li">
+            <a class="xref" href="../reference/dita-v2-0-support.html" title="DITA Open Toolkit 3.6 provides a preview of features for the upcoming OASIS DITA 2.0 specification. This preliminary processing support is provided on the basis of the latest DRAFT versions of the DITA 2.0 DTD and RELAX&nbsp;NG grammar files from OASIS (as of October 2020).">DITA 2.0 preview support</a></li>
+          <li class="li">
+            <a class="xref" href="../topics/migrating-to-3.6.html" title="DITA-OT 3.6 includes performance enhancements such as processing in parallel and in memory, support for PDF changebars with Apache FOP, and an updated preview of features for the latest draft of the upcoming DITA 2.0 standard, including the audio and video elements, and the new emphasis domain.">Migrating to release 3.6</a></li>
+          <li class="li">
+            <a class="xref" href="../topics/reducing-processing-time.html" title="Several configuration changes can significantly reduce DITA-OT processing time.">Speeding up builds</a></li>
+          <li class="li">
+            <a class="xref" href="../parameters/parameters-base.html" title="Certain parameters apply to all transformations that DITA Open Toolkit supports.">Common parameters</a></li>
+          <li class="li">
+            <a class="xref" href="../topics/build-using-dita-command.html" title="You can generate output using the dita command-line tool. Build parameters can be specified on the command line or with .properties files.">Using the dita command</a></li>
+          <li class="li">
+            <a class="xref" href="../parameters/dita-command-arguments.html" title="The dita command takes mandatory arguments to process DITA content. Subcommands can be used to manage plug-ins, or print information about the current configuration. A series of options are available to modify the command behavior or specify additional configuration parameters.">Arguments and options for the dita command</a></li>
+        </ul>
+        <p class="p">For additional information on documentation issues resolved in DITA Open Toolkit Release <span class="keyword">3.6</span>, see the
+          <a class="xref" href="https://github.com/dita-ot/docs/issues?q=milestone%3A3.6+is%3Aclosed" target="_blank" rel="external noopener"><span class="keyword">3.6</span> milestone</a> in the documentation repository.</p>
+        <p class="p">DITA Open Toolkit Release <span class="keyword">3.6</span> includes
+          <a class="xref" href="https://github.com/dita-ot/docs/graphs/contributors" target="_blank" rel="external noopener">documentation contributions</a> by the following people:</p>
+        
+        <ol class="ol">
+          <li class="li">Roger Sheen</li>
+          <li class="li">Jarno Elovirta</li>
+          <li class="li">Lief Erickson</li>
+          <li class="li">Heston Hoffman</li>
+        </ol>
+        <p class="p">For the complete list of documentation changes since the previous release, see the
+          <a class="xref" href="https://github.com/dita-ot/docs/compare/3.5...3.6" target="_blank" rel="external noopener">
+            changelog</a>.</p>
+      </section>
+    </div>
+  </article>
+</article></div></div></main><footer class="footer-container"><div class="d-flex flex-column footer-div max-width"><a class="footer-text d-inline-flex mt-2 mt-md-0 ms-md-auto" href="#">Organization name ©
+                    2021</a></div></footer><button type="button" class="go-to-top accent-background-color" id="btn-back-to-top"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"><g id="Layer_1"><line stroke="#fff" id="svg_7" y2="17.66667" x2="26.33332" y1="30.33333" x1="13.66667" stroke-width="4" fill="none"></line><line transform="rotate(90.1903 29.9999 24)" stroke="#fff" id="svg_10" y2="17.66667" x2="36.33323" y1="30.33333" x1="23.66658" stroke-width="4" fill="none"></line></g></svg></a></button><button onclick="goBack()" class="go-back accent-background-color" id="btn-go-back">Back
+        </button><script src="../lib/jquery-3.6.0.min.js"></script><script src="../lib/jspdf-1.5.3.min.js"></script><script src="../lib/html2canvas-1.3.2.js"></script><script src="../lib/popper.min.js"></script><script src="../lib/xml.rocks.js"></script></body></html>

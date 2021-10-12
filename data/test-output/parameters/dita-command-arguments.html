@@ -1,0 +1,424 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta charset="UTF-8"><meta name="copyright" content="(C) Copyright 2021"><meta name="generator" content="DITA-OT"><meta name="description" content="The dita command takes mandatory arguments to process DITA content. Subcommands can be used to manage plug-ins, or print information about the current configuration. A series of options are available to modify the command behavior or specify additional configuration parameters."><meta name="keywords" content="filters, command, dita, command, arguments list, arguments, installing, uninstalling, artlbl, args.artlbl"><meta name="prodname" content="DITA Open Toolkit"><meta name="prodname" content="DITA Open Toolkit"><meta name="version" content=""><meta name="version" content=""><link rel="stylesheet" type="text/css" href="../css/commonltr.css"><link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css"><link rel="stylesheet" type="text/css" href="../css/xml.rocks.css"><link rel="icon" type="image/png" href="../img/favicon.png"><title>Arguments and options for the dita command</title></head><body id="dita-command-properties"><header role="banner" class="rocks-header sticky-top accent-background-color"><div class="d-flex flex-column flex-md-row align-items-center mb-4 main-header max-width"><a href="../index.html" class="d-flex align-items-center text-light text-decoration-none header-logo"><img src="../img/logo.svg"></a><span class="fs-4 text-light">DITA Open Toolkit 3.6</span><nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto"><input class="form-control search" type="search" placeholder="Search" aria-label="Search"></nav></div></header><main role="main" class="container max-width"><div class="breadcrumb"><span class="home"><a href="../index.html">Home</a> &gt; </span><a class="link" href="../parameters/index.html" title="You can adjust DITA Open Toolkit behavior via dita command arguments and options, DITA-OT parameter settings, and configuration properties.">DITA Open Toolkit parameters</a> &gt; Arguments and options for the dita command</div><div class="dropdown"><button onclick="myFunction()" class="dropbtn"></button><div id="myDropdown" class="dropdown-content"><input type="button" id="downloadbtn" value="Download HTML as PDF" onclick="getPDF()"><input type="button" value="Download PDF File" onclick="DownloadFile('bm_dude.pdf')"></div><input type="button" id="printbtn" onclick="printDiv('topic-article')"></div><div class="row row-cols-1 row-cols-md-3 mb-3 text-left"><div class="col col-sm-4"><div class="card mb-4 rounded-card-rocks"><div class="toc-container"><nav role="toc"><ul><li id="li-d34873e31"><span id="d34873e31" class="expand-collapse-button" onclick="applyExpandedClass('#d34873e31')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/installing-client.html','#li-d34873e31')">Installing DITA Open Toolkit Supercalifragilisticexpialidocious title and better than all good titles before</a><ul><li id="li-d34873e51"><a href="#" onclick="getDynamicTopicData('../topics/prerequisite-software.html','#li-d34873e51')">Prerequisite software</a></li><li id="li-d34873e71"><a href="#" onclick="getDynamicTopicData('../topics/determining-version-of-ditaot.html','#li-d34873e71')">Checking the version</a></li><li id="li-d34873e91"><a href="#" onclick="getDynamicTopicData('../topics/first-build-using-dita-command.html','#li-d34873e91')">Building output</a><ul></ul></li><li id="li-d34873e124"><a href="#" onclick="getDynamicTopicData('../topics/installing-via-homebrew.html','#li-d34873e124')">Installing via Homebrew</a></li></ul></li><li id="li-d34873e148"><span id="d34873e148" class="expand-collapse-button" onclick="applyExpandedClass('#d34873e148')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/building-output.html','#li-d34873e148')">Building output</a><ul><li id="li-d34873e171"><span id="d34873e171" class="expand-collapse-button" onclick="applyExpandedClass('#d34873e171')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/build-using-dita-command.html','#li-d34873e171')">Using the dita command</a><ul><li id="li-d34873e200"><a href="#" onclick="getDynamicTopicData('../topics/using-dita-properties-file.html','#li-d34873e200')">Using a properties file</a></li><li id="li-d34873e229"><a href="#" onclick="getDynamicTopicData('../topics/migrating-ant-to-dita.html','#li-d34873e229')">Migrating Ant builds</a></li><li id="li-d34873e252"><span id="d34873e252" class="expand-collapse-button" onclick="applyExpandedClass('#d34873e252')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/using-project-files.html','#li-d34873e252')">Using a project file</a><ul><li id="li-d34873e276"><a href="#" onclick="getDynamicTopicData('../topics/project-files-xml.html','#li-d34873e276')">XML project files</a></li><li id="li-d34873e302"><a href="#" onclick="getDynamicTopicData('../topics/project-files-json.html','#li-d34873e302')">JSON project files</a></li><li id="li-d34873e325"><a href="#" onclick="getDynamicTopicData('../topics/project-files-yaml.html','#li-d34873e325')">YAML project files</a></li></ul></li></ul></li><li id="li-d34873e355"><span id="d34873e355" class="expand-collapse-button" onclick="applyExpandedClass('#d34873e355')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/using-docker-images.html','#li-d34873e355')">Using Docker images</a><ul><li id="li-d34873e380"><a href="#" onclick="getDynamicTopicData('../topics/creating-docker-images.html','#li-d34873e380')">Custom images</a></li></ul></li><li id="li-d34873e403"><a href="#" onclick="getDynamicTopicData('../topics/using-github-actions.html','#li-d34873e403')">Using GitHub Actions</a></li><li id="li-d34873e431"><span id="d34873e431" class="expand-collapse-button" onclick="applyExpandedClass('#d34873e431')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/publishing-with-ant.html','#li-d34873e431')">Using Ant</a><ul><li id="li-d34873e451"><a href="#" onclick="getDynamicTopicData('../topics/ant.html','#li-d34873e451')">Ant</a></li><li id="li-d34873e471"><a href="#" onclick="getDynamicTopicData('../topics/building-with-ant.html','#li-d34873e471')">Building output using Ant</a></li><li id="li-d34873e491"><a href="#" onclick="getDynamicTopicData('../topics/creating-an-ant-build-script.html','#li-d34873e491')">Creating an Ant build script</a></li></ul></li><li id="li-d34873e511"><a href="#" onclick="getDynamicTopicData('../reference/java-api.html','#li-d34873e511')">Using the Java API</a></li></ul></li><li id="li-d34873e533"><span id="d34873e533" class="expand-collapse-button" onclick="applyExpandedClass('#d34873e533')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/input-formats.html','#li-d34873e533')">Authoring formats</a><ul><li id="li-d34873e553"><a href="#" onclick="getDynamicTopicData('../topics/dita-xml-input.html','#li-d34873e553')">Standard DITA XML</a></li><li id="li-d34873e576"><a href="#" onclick="getDynamicTopicData('../topics/markdown-input.html','#li-d34873e576')">Markdown content</a></li><li id="li-d34873e599"><a href="#" onclick="getDynamicTopicData('../topics/lwdita-input.html','#li-d34873e599')">Lightweight DITA</a></li><li id="li-d34873e625"><a href="#" onclick="getDynamicTopicData('../topics/markdown-dita-syntax-reference.html','#li-d34873e625')">Markdown DITA syntax</a></li></ul></li><li id="li-d34873e649"><span id="d34873e649" class="expand-collapse-button" onclick="applyExpandedClass('#d34873e649')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/output-formats.html','#li-d34873e649')">Output formats</a><ul><li id="li-d34873e672"><a href="#" onclick="getDynamicTopicData('../topics/dita2pdf.html','#li-d34873e672')">PDF</a></li><li id="li-d34873e695"><a href="#" onclick="getDynamicTopicData('../topics/dita2html5.html','#li-d34873e695')">HTML5</a></li><li id="li-d34873e718"><a href="#" onclick="getDynamicTopicData('../topics/dita2eclipsehelp.html','#li-d34873e718')">Eclipse help</a></li><li id="li-d34873e741"><a href="#" onclick="getDynamicTopicData('../topics/dita2htmlhelp.html','#li-d34873e741')">HTML Help</a></li><li id="li-d34873e764"><a href="#" onclick="getDynamicTopicData('../topics/dita2markdown.html','#li-d34873e764')">Markdown</a></li><li id="li-d34873e784"><a href="#" onclick="getDynamicTopicData('../topics/dita2dita.html','#li-d34873e784')">Normalized DITA</a></li><li id="li-d34873e807"><a href="#" onclick="getDynamicTopicData('../topics/dita2xhtml.html','#li-d34873e807')">XHTML</a></li></ul></li><li id="li-d34873e831"><span id="d34873e831" class="expand-collapse-button" onclick="applyExpandedClass('#d34873e831')">+ </span><a href="#" onclick="getDynamicTopicData('../parameters/index.html','#li-d34873e831')">Parameters</a><ul><li id="li-d34873e857" class="active"><a href="#" onclick="getDynamicTopicData('../parameters/dita-command-arguments.html','#li-d34873e857')">DITA command arguments</a></li><li id="li-d34873e880"><span id="d34873e880" class="expand-collapse-button" onclick="applyExpandedClass('#d34873e880')">+ </span><a href="#" onclick="getDynamicTopicData('../parameters/parameters_intro.html','#li-d34873e880')">DITA-OT parameters</a><ul><li id="li-d34873e909"><a href="#" onclick="getDynamicTopicData('../parameters/parameters-base.html','#li-d34873e909')">Common</a></li><li id="li-d34873e929"><a href="#" onclick="getDynamicTopicData('../parameters/parameters-pdf.html','#li-d34873e929')">PDF</a></li><li id="li-d34873e949"><a href="#" onclick="getDynamicTopicData('../parameters/parameters-base-html.html','#li-d34873e949')">HTML-based output</a></li><li id="li-d34873e972"><a href="#" onclick="getDynamicTopicData('../parameters/parameters-html5.html','#li-d34873e972')">HTML5</a></li><li id="li-d34873e995"><a href="#" onclick="getDynamicTopicData('../parameters/parameters-xhtml.html','#li-d34873e995')">XHTML</a></li><li id="li-d34873e1015"><a href="#" onclick="getDynamicTopicData('../parameters/parameters-htmlhelp.html','#li-d34873e1015')">HTML Help</a></li><li id="li-d34873e1035"><a href="#" onclick="getDynamicTopicData('../parameters/parameters-eclipsehelp.html','#li-d34873e1035')">Eclipse Help</a></li><li id="li-d34873e1055"><a href="#" onclick="getDynamicTopicData('../parameters/parameters-other.html','#li-d34873e1055')">Other</a></li></ul></li><li id="li-d34873e1091"><span id="d34873e1091" class="expand-collapse-button" onclick="applyExpandedClass('#d34873e1091')">+ </span><a href="#" onclick="getDynamicTopicData('../parameters/configuration-properties.html','#li-d34873e1091')">Configuration properties</a><ul><li id="li-d34873e1114"><a href="#" onclick="getDynamicTopicData('../parameters/local-properties-file.html','#li-d34873e1114')">local.properties</a></li><li id="li-d34873e1138"><a href="#" onclick="getDynamicTopicData('../parameters/plugin-properties-file.html','#li-d34873e1138')">plugin.properties</a></li><li id="li-d34873e1162"><a href="#" onclick="getDynamicTopicData('../parameters/configuration-properties-file.html','#li-d34873e1162')">configuration.properties</a></li><li id="li-d34873e1186"><a href="#" onclick="getDynamicTopicData('../parameters/internal-ant-properties.html','#li-d34873e1186')">Internal Ant properties</a></li></ul></li></ul></li><li id="li-d34873e1207"><span id="d34873e1207" class="expand-collapse-button" onclick="applyExpandedClass('#d34873e1207')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/html-customization.html','#li-d34873e1207')">Customizing HTML</a><ul><li id="li-d34873e1230"><span id="d34873e1230" class="expand-collapse-button" onclick="applyExpandedClass('#d34873e1230')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/html-customization-parameters.html','#li-d34873e1230')">Setting HTML parameters</a><ul><li id="li-d34873e1250"><a href="#" onclick="getDynamicTopicData('../topics/html-customization-navigation.html','#li-d34873e1250')">Adding navigation</a></li><li id="li-d34873e1273"><a href="#" onclick="getDynamicTopicData('../topics/html-customization-css.html','#li-d34873e1273')">Adding custom CSS</a></li><li id="li-d34873e1293"><a href="#" onclick="getDynamicTopicData('../topics/html-customization-header.html','#li-d34873e1293')">Headers and footers</a></li><li id="li-d34873e1313"><a href="#" onclick="getDynamicTopicData('../parameters/generate-copy-outer.html','#li-d34873e1313')">Handling content outside the map directory</a></li></ul></li><li id="li-d34873e1336"><a href="#" onclick="getDynamicTopicData('../topics/html-customization-properties-file.html','#li-d34873e1336')">Using a properties file</a></li></ul></li><li id="li-d34873e1366"><span id="d34873e1366" class="expand-collapse-button" onclick="applyExpandedClass('#d34873e1366')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/pdf-customization.html','#li-d34873e1366')">Customizing PDF</a><ul><li id="li-d34873e1389"><a href="#" onclick="getDynamicTopicData('../topics/pdf-customization-approaches.html','#li-d34873e1389')">Customization approaches</a></li><li id="li-d34873e1409"><a href="#" onclick="getDynamicTopicData('../topics/pdf2-creating-change-bars.html','#li-d34873e1409')">Generating revision bars</a></li></ul></li><li id="li-d34873e1439"><span id="d34873e1439" class="expand-collapse-button" onclick="applyExpandedClass('#d34873e1439')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/adding-plugins.html','#li-d34873e1439')">Adding plug-ins</a><ul><li id="li-d34873e1462"><a href="#" onclick="getDynamicTopicData('../topics/plugins-installing.html','#li-d34873e1462')">Installing plug-ins</a></li><li id="li-d34873e1485"><a href="#" onclick="getDynamicTopicData('../topics/plugins-removing.html','#li-d34873e1485')">Removing plug-ins</a></li><li id="li-d34873e1508"><a href="#" onclick="getDynamicTopicData('../topics/plugins-registry.html','#li-d34873e1508')">Plug-in registry</a></li><li id="li-d34873e1532"><a href="#" onclick="getDynamicTopicData('../topics/rebuilding-docs.html','#li-d34873e1532')">Rebuilding documentation</a></li></ul></li><li id="li-d34873e1554"><span id="d34873e1554" class="expand-collapse-button" onclick="applyExpandedClass('#d34873e1554')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/custom-plugins.html','#li-d34873e1554')">Creating plug-ins</a><ul><li id="li-d34873e1577"><a href="#" onclick="getDynamicTopicData('../topics/plugin-benefits.html','#li-d34873e1577')">Plug-in benefits</a></li><li id="li-d34873e1597"><a href="#" onclick="getDynamicTopicData('../topics/plugin-configfile.html','#li-d34873e1597')">Plug-in descriptor file</a></li><li id="li-d34873e1620"><a href="#" onclick="getDynamicTopicData('../topics/plugin-coding-conventions.html','#li-d34873e1620')">Coding conventions</a></li><li id="li-d34873e1640"><span id="d34873e1640" class="expand-collapse-button" onclick="applyExpandedClass('#d34873e1640')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/plugin-dependencies.html','#li-d34873e1640')">Plug-in dependencies</a><ul><li id="li-d34873e1660"><a href="#" onclick="getDynamicTopicData('../topics/referencing-other-plugins.html','#li-d34873e1660')">Referencing files from other plug-ins</a></li></ul></li><li id="li-d34873e1691"><span id="d34873e1691" class="expand-collapse-button" onclick="applyExpandedClass('#d34873e1691')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/plugin-use-cases.html','#li-d34873e1691')">Plug-in use cases</a><ul><li id="li-d34873e1711"><a href="#" onclick="getDynamicTopicData('../topics/plugin-set-parameters.html','#li-d34873e1711')">Setting parameters</a></li><li id="li-d34873e1731"><a href="#" onclick="getDynamicTopicData('../topics/plugin-anttarget.html','#li-d34873e1731')">Adding a new Ant target</a></li><li id="li-d34873e1754"><a href="#" onclick="getDynamicTopicData('../topics/plugin-antpreprocess.html','#li-d34873e1754')">Adding a pre-processing step</a></li><li id="li-d34873e1774"><a href="#" onclick="getDynamicTopicData('../topics/plugin-newtranstype.html','#li-d34873e1774')">Adding a new output format</a></li><li id="li-d34873e1794"><a href="#" onclick="getDynamicTopicData('../topics/plugin-xsltparams.html','#li-d34873e1794')">Adding new parameters</a></li><li id="li-d34873e1817"><a href="#" onclick="getDynamicTopicData('../topics/plugin-overridestyle.html','#li-d34873e1817')">Overriding XSLT steps</a></li><li id="li-d34873e1837"><a href="#" onclick="getDynamicTopicData('../topics/plugin-javalib.html','#li-d34873e1837')">Adding a Java library</a></li><li id="li-d34873e1863"><a href="#" onclick="getDynamicTopicData('../topics/plugin-messages.html','#li-d34873e1863')">Adding new messages</a></li><li id="li-d34873e1886"><a href="#" onclick="getDynamicTopicData('../topics/plugin-newextensions.html','#li-d34873e1886')">New extension points</a></li><li id="li-d34873e1909"><a href="#" onclick="getDynamicTopicData('../topics/plugin-xmlcatalog.html','#li-d34873e1909')">Extending an XML catalog file</a></li><li id="li-d34873e1930"><a href="#" onclick="getDynamicTopicData('../topics/plugin-rewrite-rules.html','#li-d34873e1930')">Rewriting file names</a></li><li id="li-d34873e1953"><span id="d34873e1953" class="expand-collapse-button" onclick="applyExpandedClass('#d34873e1953')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/implement-saxon-customizations.html','#li-d34873e1953')">Saxon customizations</a><ul><li id="li-d34873e1976"><a href="#" onclick="getDynamicTopicData('../topics/implement-saxon-extension-functions.html','#li-d34873e1976')">Saxon extensions</a></li><li id="li-d34873e1996"><a href="#" onclick="getDynamicTopicData('../topics/implement-saxon-collation-uri-resolvers.html','#li-d34873e1996')">Custom collation URI resolvers</a></li></ul></li></ul></li><li id="li-d34873e2016"><span id="d34873e2016" class="expand-collapse-button" onclick="applyExpandedClass('#d34873e2016')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/html-customization-plugins.html','#li-d34873e2016')">Custom HTML plug-ins</a><ul><li id="li-d34873e2036"><a href="#" onclick="getDynamicTopicData('../topics/html-customization-plugin-bundle-css.html','#li-d34873e2036')">Bundling custom CSS</a></li><li id="li-d34873e2056"><a href="#" onclick="getDynamicTopicData('../topics/html-customization-plugin-webfont.html','#li-d34873e2056')">Embedding web fonts</a></li><li id="li-d34873e2076"><a href="#" onclick="getDynamicTopicData('../topics/html-customization-plugin-javascript.html','#li-d34873e2076')">Inserting JavaScript</a></li></ul></li><li id="li-d34873e2096"><span id="d34873e2096" class="expand-collapse-button" onclick="applyExpandedClass('#d34873e2096')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/pdf-customization-plugins.html','#li-d34873e2096')">Custom PDF plug-ins</a><ul><li id="li-d34873e2116"><a href="#" onclick="getDynamicTopicData('../topics/pdf-customization-plugin-types.html','#li-d34873e2116')">Types of PDF plug-ins</a></li><li id="li-d34873e2136"><span id="d34873e2136" class="expand-collapse-button" onclick="applyExpandedClass('#d34873e2136')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/pdf-plugin-structure.html','#li-d34873e2136')">PDF plug-in structure</a><ul><li id="li-d34873e2156"><a href="#" onclick="getDynamicTopicData('../topics/pdf-plugin-structure_common-artwork.html','#li-d34873e2156')">Custom artwork</a></li><li id="li-d34873e2182"><a href="#" onclick="getDynamicTopicData('../topics/pdf-plugin-structure_common-index.html','#li-d34873e2182')">Index configuration</a></li><li id="li-d34873e2208"><a href="#" onclick="getDynamicTopicData('../topics/pdf-plugin-structure_common-vars.html','#li-d34873e2208')">Variable overrides</a></li><li id="li-d34873e2234"><a href="#" onclick="getDynamicTopicData('../topics/pdf-plugin-structure_fo-attrs.html','#li-d34873e2234')">Custom attributes</a></li><li id="li-d34873e2260"><a href="#" onclick="getDynamicTopicData('../topics/pdf-plugin-structure_fo-i18n.html','#li-d34873e2260')">Internationalization</a></li><li id="li-d34873e2286"><a href="#" onclick="getDynamicTopicData('../topics/pdf-plugin-structure_fo-xsl.html','#li-d34873e2286')">Custom stylesheets</a></li></ul></li><li id="li-d34873e2312"><a href="#" onclick="getDynamicTopicData('../topics/pdf-customization-example.html','#li-d34873e2312')">Simple PDF plug-in</a></li><li id="li-d34873e2338"><a href="#" onclick="getDynamicTopicData('../topics/pdf-customization-resources.html','#li-d34873e2338')">PDF plug-in resources</a></li></ul></li><li id="li-d34873e2358"><span id="d34873e2358" class="expand-collapse-button" onclick="applyExpandedClass('#d34873e2358')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/globalization.html','#li-d34873e2358')">Globalizing DITA content</a><ul><li id="li-d34873e2384"><a href="#" onclick="getDynamicTopicData('../topics/globalization-support.html','#li-d34873e2384')">Globalization support</a></li><li id="li-d34873e2404"><a href="#" onclick="getDynamicTopicData('../topics/plugin-addgeneratedtext.html','#li-d34873e2404')">Customizing generated text</a></li><li id="li-d34873e2427"><a href="#" onclick="getDynamicTopicData('../topics/globalization-languages.html','#li-d34873e2427')">Supported languages</a></li></ul></li><li id="li-d34873e2447"><span id="d34873e2447" class="expand-collapse-button" onclick="applyExpandedClass('#d34873e2447')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/migration.html','#li-d34873e2447')">Migrating customizations</a><ul><li id="li-d34873e2470"><a href="#" onclick="getDynamicTopicData('../topics/migrating-to-3.6.html','#li-d34873e2470')">To 3.6</a></li><li id="li-d34873e2502"><a href="#" onclick="getDynamicTopicData('../topics/migrating-to-3.5.html','#li-d34873e2502')">To 3.5</a></li><li id="li-d34873e2528"><a href="#" onclick="getDynamicTopicData('../topics/migrating-to-3.4.html','#li-d34873e2528')">To 3.4</a></li><li id="li-d34873e2551"><a href="#" onclick="getDynamicTopicData('../topics/migrating-to-3.3.html','#li-d34873e2551')">To 3.3</a></li><li id="li-d34873e2574"><a href="#" onclick="getDynamicTopicData('../topics/migrating-to-3.2.html','#li-d34873e2574')">To 3.2</a></li><li id="li-d34873e2597"><a href="#" onclick="getDynamicTopicData('../topics/migrating-to-3.1.html','#li-d34873e2597')">To 3.1</a></li><li id="li-d34873e2623"><a href="#" onclick="getDynamicTopicData('../topics/migrating-to-3.0.html','#li-d34873e2623')">To 3.0</a></li><li id="li-d34873e2648"><a href="#" onclick="getDynamicTopicData('../topics/migrating-to-2.5.html','#li-d34873e2648')">To 2.5</a></li><li id="li-d34873e2668"><a href="#" onclick="getDynamicTopicData('../topics/migrating-to-2.4.html','#li-d34873e2668')">To 2.4</a></li><li id="li-d34873e2694"><a href="#" onclick="getDynamicTopicData('../topics/migrating-to-2.3.html','#li-d34873e2694')">To 2.3</a></li><li id="li-d34873e2721"><a href="#" onclick="getDynamicTopicData('../topics/migrating-to-2.2.html','#li-d34873e2721')">To 2.2</a></li><li id="li-d34873e2744"><a href="#" onclick="getDynamicTopicData('../topics/migrating-to-2.1.html','#li-d34873e2744')">To 2.1</a></li><li id="li-d34873e2779"><a href="#" onclick="getDynamicTopicData('../topics/migrating-to-2.0.html','#li-d34873e2779')">To 2.0</a></li><li id="li-d34873e2802"><a href="#" onclick="getDynamicTopicData('../topics/migrating-to-1.8.html','#li-d34873e2802')">To 1.8</a></li><li id="li-d34873e2822"><span id="d34873e2822" class="expand-collapse-button" onclick="applyExpandedClass('#d34873e2822')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/migrating-to-1.7.html','#li-d34873e2822')">To 1.7</a><ul><li id="li-d34873e2845"><a href="#" onclick="getDynamicTopicData('../reference/flagging-migration.html','#li-d34873e2845')">Flagging updates</a></li></ul></li><li id="li-d34873e2865"><a href="#" onclick="getDynamicTopicData('../topics/migrating-to-1.6.html','#li-d34873e2865')">To 1.6</a></li><li id="li-d34873e2891"><a href="#" onclick="getDynamicTopicData('../topics/migrating-to-1.5.4.html','#li-d34873e2891')">To 1.5.4</a></li></ul></li></ul></li><li id="li-d34873e2912"><span id="d34873e2912" class="expand-collapse-button" onclick="applyExpandedClass('#d34873e2912')">+ </span><a href="#" onclick="getDynamicTopicData('../topics/troubleshooting-overview.html','#li-d34873e2912')">Troubleshooting</a><ul><li id="li-d34873e2932"><a href="#" onclick="getDynamicTopicData('../topics/logging.html','#li-d34873e2932')">Logging</a></li><li id="li-d34873e2952"><a href="#" onclick="getDynamicTopicData('../topics/enabling-debug-mode.html','#li-d34873e2952')">Enabling debug mode</a></li><li id="li-d34873e2972"><a href="#" onclick="getDynamicTopicData('../topics/error-messages.html','#li-d34873e2972')">DITA-OT error messages</a></li><li id="li-d34873e2992"><a href="#" onclick="getDynamicTopicData('../topics/other-errors.html','#li-d34873e2992')">Other error messages</a></li><li id="li-d34873e3012"><a href="#" onclick="getDynamicTopicData('../topics/dita-command-help.html','#li-d34873e3012')">Command line help</a></li><li id="li-d34873e3038"><a href="#" onclick="getDynamicTopicData('../topics/increasing-the-jvm.html','#li-d34873e3038')">Increasing Java memory</a></li><li id="li-d34873e3061"><a href="#" onclick="getDynamicTopicData('../topics/reducing-processing-time.html','#li-d34873e3061')">Speeding up builds</a></li></ul></li><li id="li-d34873e3082"><span id="d34873e3082" class="expand-collapse-button" onclick="applyExpandedClass('#d34873e3082')">+ </span><a href="#" onclick="getDynamicTopicData('../reference/index.html','#li-d34873e3082')">Reference</a><ul><li id="li-d34873e3105"><span id="d34873e3105" class="expand-collapse-button" onclick="applyExpandedClass('#d34873e3105')">+ </span><a href="#" onclick="getDynamicTopicData('../reference/architecture.html','#li-d34873e3105')">DITA-OT architecture</a><ul><li id="li-d34873e3125"><a href="#" onclick="getDynamicTopicData('../reference/processing-structure.html','#li-d34873e3125')">Processing structure</a></li><li id="li-d34873e3145"><a href="#" onclick="getDynamicTopicData('../reference/map-first-preprocessing.html','#li-d34873e3145')">Map-first preprocessing</a></li><li id="li-d34873e3172"><a href="#" onclick="getDynamicTopicData('../reference/processing-pipeline-modules.html','#li-d34873e3172')">Processing modules</a></li><li id="li-d34873e3192"><a href="#" onclick="getDynamicTopicData('../reference/processing-order.html','#li-d34873e3192')">Processing order</a></li><li id="li-d34873e3212"><a href="#" onclick="getDynamicTopicData('../reference/store-api.html','#li-d34873e3212')">Store API</a></li><li id="li-d34873e3232"><span id="d34873e3232" class="expand-collapse-button" onclick="applyExpandedClass('#d34873e3232')">+ </span><a href="#" onclick="getDynamicTopicData('../reference/preprocessing.html','#li-d34873e3232')">Pre-processing modules</a><ul><li id="li-d34873e3255"><a href="#" onclick="getDynamicTopicData('../reference/preprocess-genlist.html','#li-d34873e3255')">Generate lists (gen-list)</a></li><li id="li-d34873e3278"><a href="#" onclick="getDynamicTopicData('../reference/preprocess-debugfilter.html','#li-d34873e3278')">Debug and filter (debug-filter)</a></li><li id="li-d34873e3301"><a href="#" onclick="getDynamicTopicData('../reference/preprocess-mapref.html','#li-d34873e3301')">Resolve map references (mapref)</a></li><li id="li-d34873e3324"><a href="#" onclick="getDynamicTopicData('../reference/preprocess-branch-filter.html','#li-d34873e3324')">Branch filtering (branch-filter)</a></li><li id="li-d34873e3347"><a href="#" onclick="getDynamicTopicData('../reference/preprocess-keyref.html','#li-d34873e3347')">Resolve key references (keyref)</a></li><li id="li-d34873e3373"><a href="#" onclick="getDynamicTopicData('../reference/preprocess-copy-to.html','#li-d34873e3373')">Copy topics (copy-to)</a></li><li id="li-d34873e3399"><a href="#" onclick="getDynamicTopicData('../reference/preprocess-conrefpush.html','#li-d34873e3399')">Conref push (conrefpush)</a></li><li id="li-d34873e3422"><a href="#" onclick="getDynamicTopicData('../reference/preprocess-conref.html','#li-d34873e3422')">Resolve content references (conref)</a></li><li id="li-d34873e3448"><a href="#" onclick="getDynamicTopicData('../reference/preprocess-profile.html','#li-d34873e3448')">Filter conditional content (profile)</a></li><li id="li-d34873e3474"><a href="#" onclick="getDynamicTopicData('../reference/preprocess-topic-fragment.html','#li-d34873e3474')">Resolve topic fragments and code references (topic-fragment)</a></li><li id="li-d34873e3501"><a href="#" onclick="getDynamicTopicData('../reference/preprocess-chunk.html','#li-d34873e3501')">Chunk topics (chunk)</a></li><li id="li-d34873e3524"><a href="#" onclick="getDynamicTopicData('../reference/preprocess-metadata.html','#li-d34873e3524')">Move metadata (move-meta-entries) and pull content into maps (mappull) </a></li><li id="li-d34873e3547"><a href="#" onclick="getDynamicTopicData('../reference/preprocess-maplink.html','#li-d34873e3547')">Map based linking (maplink)</a></li><li id="li-d34873e3570"><a href="#" onclick="getDynamicTopicData('../reference/preprocess-topicpull.html','#li-d34873e3570')">Pull content into topics (topicpull)</a></li><li id="li-d34873e3599"><a href="#" onclick="getDynamicTopicData('../reference/preprocess-flagging.html','#li-d34873e3599')">Flagging (flag-module)</a></li><li id="li-d34873e3622"><a href="#" onclick="getDynamicTopicData('../reference/preprocess-clean-map.html','#li-d34873e3622')">Map cleanup (clean-map)</a></li><li id="li-d34873e3645"><a href="#" onclick="getDynamicTopicData('../reference/preprocess-copyfiles.html','#li-d34873e3645')">Copy related files (copy-files)</a></li></ul></li><li id="li-d34873e3668"><span id="d34873e3668" class="expand-collapse-button" onclick="applyExpandedClass('#d34873e3668')">+ </span><a href="#" onclick="getDynamicTopicData('../reference/html-based-processing.html','#li-d34873e3668')">HTML-based processing modules</a><ul><li id="li-d34873e3688"><a href="#" onclick="getDynamicTopicData('../reference/common-html-processing.html','#li-d34873e3688')">Common HTML-based processing</a></li><li id="li-d34873e3708"><a href="#" onclick="getDynamicTopicData('../reference/xhtml-processing.html','#li-d34873e3708')">XHTML processing</a></li><li id="li-d34873e3737"><a href="#" onclick="getDynamicTopicData('../reference/html5-processing.html','#li-d34873e3737')">HTML5 processing</a></li><li id="li-d34873e3763"><a href="#" onclick="getDynamicTopicData('../reference/eclipsehelp-processing.html','#li-d34873e3763')">Eclipse help processing</a></li><li id="li-d34873e3789"><a href="#" onclick="getDynamicTopicData('../reference/htmlhelp-processing.html','#li-d34873e3789')">HTML Help processing</a></li></ul></li><li id="li-d34873e3812"><span id="d34873e3812" class="expand-collapse-button" onclick="applyExpandedClass('#d34873e3812')">+ </span><a href="#" onclick="getDynamicTopicData('../reference/pdf-transform.html','#li-d34873e3812')">PDF processing modules</a><ul><li id="li-d34873e3838"><a href="#" onclick="getDynamicTopicData('../reference/pdf-transformation-history.html','#li-d34873e3838')">History of the PDF transformation</a></li></ul></li></ul></li><li id="li-d34873e3858"><span id="d34873e3858" class="expand-collapse-button" onclick="applyExpandedClass('#d34873e3858')">+ </span><a href="#" onclick="getDynamicTopicData('../reference/dita-spec-support.html','#li-d34873e3858')">DITA specification support</a><ul><li id="li-d34873e3881"><a href="#" onclick="getDynamicTopicData('../reference/dita-v1-2-support.html','#li-d34873e3881')">DITA 1.2 support</a></li><li id="li-d34873e3904"><a href="#" onclick="getDynamicTopicData('../reference/dita-v1-3-support.html','#li-d34873e3904')">DITA 1.3 support</a></li><li id="li-d34873e3928"><a href="#" onclick="getDynamicTopicData('../reference/dita-v2-0-support.html','#li-d34873e3928')">DITA 2.0 preview</a></li><li id="li-d34873e3951"><a href="#" onclick="getDynamicTopicData('../reference/implementation-dependent-features.html','#li-d34873e3951')">Implementation-dependent features</a></li><li id="li-d34873e3971"><a href="#" onclick="getDynamicTopicData('../reference/extended-functionality.html','#li-d34873e3971')">Codeblock extensions</a></li><li id="li-d34873e3991"><a href="#" onclick="getDynamicTopicData('../reference/docs-dita-features.html','#li-d34873e3991')">DITA features in docs</a></li></ul></li><li id="li-d34873e4011"><span id="d34873e4011" class="expand-collapse-button" onclick="applyExpandedClass('#d34873e4011')">+ </span><a href="#" onclick="getDynamicTopicData('../extension-points/plugin-extension-points.html','#li-d34873e4011')">Extension points</a><ul><li id="li-d34873e4034"><a href="#" onclick="getDynamicTopicData('../extension-points/all-extension-points.html','#li-d34873e4034')">All extension points</a></li><li id="li-d34873e4054"><a href="#" onclick="getDynamicTopicData('../extension-points/plugin-extension-points-general.html','#li-d34873e4054')">General extension points</a></li><li id="li-d34873e4077"><a href="#" onclick="getDynamicTopicData('../extension-points/plugin-extension-points-pre-processing.html','#li-d34873e4077')">Pre-processing extension points</a></li><li id="li-d34873e4097"><a href="#" onclick="getDynamicTopicData('../extension-points/plugin-extension-points-xslt-import.html','#li-d34873e4097')">XSLT-import extension points</a></li><li id="li-d34873e4123"><a href="#" onclick="getDynamicTopicData('../extension-points/plugin-extension-points-xslt-parameters.html','#li-d34873e4123')">XSLT-parameter extension points</a></li><li id="li-d34873e4146"><a href="#" onclick="getDynamicTopicData('../extension-points/plugin-extension-points-support.html','#li-d34873e4146')">Version and support information</a></li><li id="li-d34873e4166"><span id="d34873e4166" class="expand-collapse-button" onclick="applyExpandedClass('#d34873e4166')">+ </span><a href="#" onclick="getDynamicTopicData('../extension-points/extension-points-by-plugin.html','#li-d34873e4166')">Plug-in extension points</a><ul><li id="li-d34873e4186"><a href="#" onclick="getDynamicTopicData('../extension-points/extension-points-in-org.dita.base.html','#li-d34873e4186')">Common processing</a></li><li id="li-d34873e4212"><a href="#" onclick="getDynamicTopicData('../extension-points/extension-points-in-org.dita.eclipsehelp.html','#li-d34873e4212')">Eclipse Help</a></li><li id="li-d34873e4235"><a href="#" onclick="getDynamicTopicData('../extension-points/extension-points-in-org.dita.html5.html','#li-d34873e4235')">HTML5</a></li><li id="li-d34873e4261"><a href="#" onclick="getDynamicTopicData('../extension-points/extension-points-in-org.dita.htmlhelp.html','#li-d34873e4261')">HTML Help</a></li><li id="li-d34873e4284"><a href="#" onclick="getDynamicTopicData('../extension-points/extension-points-in-org.dita.pdf2.html','#li-d34873e4284')">PDF</a></li><li id="li-d34873e4307"><a href="#" onclick="getDynamicTopicData('../extension-points/extension-points-in-org.dita.xhtml.html','#li-d34873e4307')">HTML-based output</a></li></ul></li></ul></li><li id="li-d34873e4352"><span id="d34873e4352" class="expand-collapse-button" onclick="applyExpandedClass('#d34873e4352')">+ </span><a href="#" onclick="getDynamicTopicData('../reference/license.html','#li-d34873e4352')">License</a><ul><li id="li-d34873e4375"><a href="#" onclick="getDynamicTopicData('../reference/third-party-software.html','#li-d34873e4375')">Third-party software</a></li></ul></li><li id="li-d34873e4395"><span id="d34873e4395" class="expand-collapse-button" onclick="applyExpandedClass('#d34873e4395')">+ </span><a href="#" onclick="getDynamicTopicData('../reference/glossary.html#glossary','#li-d34873e4395')">Glossary</a><ul><li id="li-d34873e4415"><a href="#" onclick="getDynamicTopicData('../reference/glossary.html#gloss-argument','#li-d34873e4415')">argument</a></li><li id="li-d34873e4432"><a href="#" onclick="getDynamicTopicData('../reference/glossary.html#gloss-dita-open-toolkit','#li-d34873e4432')">DITA Open Toolkit</a></li><li id="li-d34873e4449"><a href="#" onclick="getDynamicTopicData('../reference/glossary.html#gloss-extension-point','#li-d34873e4449')">extension point</a></li><li id="li-d34873e4466"><a href="#" onclick="getDynamicTopicData('../reference/glossary.html#gloss-option','#li-d34873e4466')">option</a></li><li id="li-d34873e4483"><a href="#" onclick="getDynamicTopicData('../reference/glossary.html#gloss-output-format','#li-d34873e4483')">output format</a></li><li id="li-d34873e4500"><a href="#" onclick="getDynamicTopicData('../reference/glossary.html#gloss-parameter','#li-d34873e4500')">parameter</a></li><li id="li-d34873e4517"><a href="#" onclick="getDynamicTopicData('../reference/glossary.html#gloss-plug-in','#li-d34873e4517')">plug-in</a></li><li id="li-d34873e4534"><a href="#" onclick="getDynamicTopicData('../reference/glossary.html#gloss-processor','#li-d34873e4534')">processor</a></li><li id="li-d34873e4551"><a href="#" onclick="getDynamicTopicData('../reference/glossary.html#gloss-property','#li-d34873e4551')">property</a></li><li id="li-d34873e4568"><a href="#" onclick="getDynamicTopicData('../reference/glossary.html#gloss-template-plugin','#li-d34873e4568')">template</a></li><li id="li-d34873e4586"><a href="#" onclick="getDynamicTopicData('../reference/glossary.html#gloss-transformation-type','#li-d34873e4586')">transformation type</a></li><li id="li-d34873e4603"><a href="#" onclick="getDynamicTopicData('../reference/glossary.html#gloss-variable','#li-d34873e4603')">variable</a></li><li id="li-d34873e4620"><a href="#" onclick="getDynamicTopicData('../reference/glossary.html#gloss-template-xslt','#li-d34873e4620')">XSL template</a></li></ul></li></ul></li></ul></nav></div></div></div><div class="col col-sm-8"><article role="article" id="topic-article" class="topic-article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Arguments and options for the <span class="keyword cmdname">dita</span> command</h1>
+  
+  
+  
+  <div class="body refbody"><p class="shortdesc">The <span class="keyword cmdname">dita</span> command takes mandatory arguments to process DITA content. Subcommands can be
+    used to manage plug-ins, or print information about the current configuration. A series of options are available to
+    modify the command behavior or specify additional configuration parameters.</p>
+    <section class="section"><h2 class="title sectiontitle">Usage</h2>
+      
+      <p class="p">To convert content from one format to another, specify the file to transform and the desired output format. If
+        necessary, you can set additional configuration parameters with options.</p>
+      <div class="fig syntaxdiagram">
+        <div><a name=""></a>
+          <blockquote> 
+            <kbd><b>dita</b></kbd>
+            <kbd><b>--input</b></kbd>
+            <kbd class="ph oper">=</kbd>
+            <var>file</var>
+            <kbd><b>--format</b></kbd>
+            <kbd class="ph oper">=</kbd>
+            <var>name</var>
+             [ 
+              <var>options</var>
+             ] 
+           </blockquote>
+        </div>
+        <div><a name=""></a>
+          <blockquote> 
+            <kbd><b>dita</b></kbd>
+            <kbd><b>--project</b></kbd>
+            <kbd class="ph oper">=</kbd>
+            <var>file</var>
+             [ 
+              <var>options</var>
+             ] 
+           </blockquote>
+        </div>
+      </div>
+      <div class="note note note_note"><span class="note__title">Note:</span> Most <span class="keyword cmdname">dita</span> command options support several syntax alternatives. All options can be
+        specified with a GNU-style option keyword preceded by two hyphens. In many cases, Unix-style single-letter
+        options (preceded by a single hyphen) are also available for brevity and backwards compatibility.</div>
+      <p class="p">The <span class="keyword cmdname">dita</span> command also supports a series of subcommands that can be used to manage plug-ins,
+        or print information about the current configuration or version.</p>
+      <div class="fig syntaxdiagram">
+        <div><a name=""></a>
+          <blockquote> 
+            <kbd><b>dita</b></kbd>
+            <kbd><b>deliverables</b></kbd>
+            <var>file</var>
+           </blockquote>
+        </div>
+        <div><a name=""></a>
+          <blockquote> 
+            <kbd><b>dita</b></kbd>
+            <kbd><b>install</b></kbd>
+             [ { 
+              <var>ID</var>
+              <var> | URL</var>
+              <var> | file</var>
+             } ] 
+           </blockquote>
+        </div>
+        <div><a name=""></a>
+          <blockquote> 
+            <kbd><b>dita</b></kbd>
+            <kbd><b>plugins</b></kbd>
+           </blockquote>
+        </div>
+        <div><a name=""></a>
+          <blockquote> 
+            <kbd><b>dita</b></kbd>
+            <kbd><b>transtypes</b></kbd>
+           </blockquote>
+        </div>
+        <div><a name=""></a>
+          <blockquote> 
+            <kbd><b>dita</b></kbd>
+            <kbd><b>uninstall</b></kbd>
+            <var>ID</var>
+           </blockquote>
+        </div>
+        <div><a name=""></a>
+          <blockquote> 
+            <kbd><b>dita</b></kbd>
+            <kbd><b>version</b></kbd>
+           </blockquote>
+        </div>
+      </div>
+      <div class="note attention note_attention"><span class="note__title">Attention:</span> Prior to DITA-OT 3.5, subcommands were specified with the double-hyphen option syntax,
+        which is still supported for backwards compatibility. (For example, <span class="keyword cmdname">dita</span>
+        <span class="keyword parmname">--install</span> will still work.)</div>
+    </section>
+
+    <section class="section"><h2 class="title sectiontitle">Arguments</h2>
+      
+      
+      
+      
+      
+      <p class="p">Each transformation requires you to specify at least the file to transform and the desired output format.</p>
+      <dl class="dl parml">
+        
+          <dt class="dt pt dlterm">
+            <span class="keyword parmname">--input</span>=<var class="keyword varname">file</var></dt>
+          <dt class="dt pt dlterm">
+            <span class="keyword parmname">-i</span>
+            <var class="keyword varname">file</var>
+          </dt>
+          <dd class="dd pd" id="dita-command-properties__args.input.desc">Specifies the main file for your documentation project. This argument corresponds
+            to the common parameter <span class="keyword parmname">args.input</span>. Typically this is a DITA map, however it also can
+            be a DITA topic if you want to transform a single DITA file. The path can be absolute, relative to
+              <span class="keyword parmname">args.input.dir</span>, or relative to the current directory if
+              <span class="keyword parmname">args.input.dir</span> is not defined.</dd>
+        
+        
+          <dt class="dt pt dlterm">
+            <span class="keyword parmname">--format</span>=<var class="keyword varname">name</var></dt>
+          <dt class="dt pt dlterm">
+            <span class="keyword parmname">-f</span>
+            <var class="keyword varname">name</var>
+          </dt>
+          <dd class="dd pd">Specifies the output format (transformation type).</dd>
+          <dd class="dd pd ddexpand">This argument corresponds to the common parameter <span class="keyword parmname">transtype</span>.</dd>
+          <dd class="dd pd ddexpand">To list the formats that are currently available in your environment, use <span class="keyword cmdname">dita
+              transtypes</span>.</dd>
+          <dd class="dd pd ddexpand">
+            <div class="p">You can create plug-ins to add new output formats; by default, the following values are
+                available:
+                
+                <ul class="ul">
+                  <li class="li"><span class="keyword option">dita</span></li>
+                  <li class="li"><span class="keyword option">eclipsehelp</span></li>
+                  <li class="li"><span class="keyword option">html5</span></li>
+                  <li class="li"><span class="keyword option">htmlhelp</span></li>
+                  <li class="li"><span class="keyword option">markdown</span>, <span class="keyword option">markdown_gitbook</span>, and
+                    <span class="keyword option">markdown_github</span></li>
+                  <li class="li"><span class="keyword option">pdf</span></li>
+                  <li class="li"><span class="keyword option">xhtml</span></li>
+                </ul>
+                <div class="note tip note_tip"><span class="note__title">Tip:</span> See
+                  <a class="xref" href="../topics/output-formats.html" title="DITA Open Toolkit ships with several core transformations that convert DITA content to different output formats. Additional formats are available from the plug-in registry at dita-ot.org/plugins.">DITA-OT transformations (output formats)</a> for sample command line syntax and more information on each
+                  transformation. </div>
+              </div>
+          </dd>
+        
+      </dl>
+    </section>
+
+    <section class="section"><h2 class="title sectiontitle">Subcommands</h2>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <dl class="dl parml">
+        
+          <dt class="dt pt dlterm">
+            <span class="keyword parmname">deliverables</span>
+            <var class="keyword varname">file</var></dt>
+          <dd class="dd pd">Show a list of the available deliverables in the specified project <var class="keyword varname">file</var>.</dd>
+        
+        
+          <dt class="dt pt dlterm">
+            <span class="keyword parmname">install</span>
+            <var class="keyword varname">{ ID | URL | file }</var></dt>
+          <dt class="dt pt dlterm">
+            <span class="keyword parmname">--install</span>=<var class="keyword varname">{ ID | URL | file }</var></dt>
+          <dd class="dd pd">Install a single plug-in <var class="keyword varname">ID </var>from the registry at
+            <a class="xref" href="https://www.dita-ot.org/plugins" target="_blank" rel="external noopener">dita-ot.org/plugins</a> (or a local registry), from a remote <var class="keyword varname">URL</var>, or a
+            local ZIP <var class="keyword varname">file</var>.</dd>
+        
+        
+          <dt class="dt pt dlterm">
+            <span class="keyword parmname">install</span>
+          </dt>
+          <dt class="dt pt dlterm">
+            <span class="keyword parmname">--install</span>
+          </dt>
+          <dd class="dd pd"><span class="ph">If no <var class="keyword varname">ID</var>, <var class="keyword varname">URL</var>, or
+                    <var class="keyword varname">file</var> argument is provided, the installation process reloads the current set of
+                  plug-ins from the <span class="ph filepath">plugins</span> directory (or any custom locations defined via the
+                    <span class="keyword parmname">pluginsdir</span> property in the <span class="ph filepath">configuration.properties</span> file
+                  in the <span class="ph filepath">config</span> directory). This approach can be used to add or remove multiple
+                  plug-ins at once, or any individual plug-ins you have already copied to (or removed from) the plug-in
+                  directories. Any plug-ins added or removed in the process will be listed by their plug-in
+                ID.</span></dd>
+        
+        
+          <dt class="dt pt dlterm">
+            <span class="keyword parmname">uninstall</span>
+            <var class="keyword varname">ID</var>
+          </dt>
+          <dt class="dt pt dlterm">
+            <span class="keyword parmname">--uninstall</span>=<var class="keyword varname">ID</var>
+          </dt>
+          <dd class="dd pd">Remove the plug-in with the specified <var class="keyword varname">ID</var>.</dd>
+          <dd class="dd pd ddexpand">For a list of the currently installed plug-in IDs, use <span class="keyword cmdname">dita plugins</span>.</dd>
+          <dd class="dd pd ddexpand">
+            <div class="note attention note_attention"><span class="note__title">Attention:</span> The <span class="keyword cmdname">uninstall</span> subcommand also
+                  removes the corresponding plug-in directory from the <span class="ph filepath">plugins</span> folder.
+                  </div>
+          </dd>
+        
+        
+          <dt class="dt pt dlterm">
+            <span class="keyword parmname">plugins</span>
+          </dt>
+          <dt class="dt pt dlterm">
+            <span class="keyword parmname">--plugins</span>
+          </dt>
+          <dd class="dd pd">Show a list of the currently installed plug-ins.</dd>
+        
+        
+          <dt class="dt pt dlterm">
+            <span class="keyword parmname">transtypes</span>
+          </dt>
+          <dt class="dt pt dlterm">
+            <span class="keyword parmname">--transtypes</span>
+          </dt>
+          <dd class="dd pd">Show a list of the available output formats (transformation types).</dd>
+          <dd class="dd pd ddexpand">The entries in this list may be passed as values to the <span class="keyword parmname">--format</span> argument.</dd>
+        
+        
+          <dt class="dt pt dlterm">
+            <span class="keyword parmname">version</span>
+          </dt>
+          <dt class="dt pt dlterm">
+            <span class="keyword parmname">--version</span>
+          </dt>
+          <dd class="dd pd">Print version information and exit.</dd>
+        
+      </dl>
+    </section>
+    <section class="section"><h2 class="title sectiontitle">Options</h2>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <dl class="dl parml" id="dita-command-properties__dita_build_options">
+        
+          <dt class="dt pt dlterm">
+            <span class="keyword parmname">--debug</span></dt>
+          <dt class="dt pt dlterm">
+            <span class="keyword parmname">-d</span>
+          </dt>
+          <dd class="dd pd">Debug logging prints considerably more additional information. The debug log includes all information from
+            the verbose log, plus details on Java classes, additional Ant properties and overrides, preprocessing
+            filters, parameters, and stages, and the complete build sequence. Debug logging requires additional
+            resources and can slow down the build process, so it should only be enabled when further details are
+            required to diagnose problems.</dd>
+        
+        
+          <dt class="dt pt dlterm">
+            <span class="keyword parmname">--output</span>=<var class="keyword varname">dir</var></dt>
+          <dt class="dt pt dlterm">
+            <span class="keyword parmname">-o</span>
+            <var class="keyword varname">dir</var>
+          </dt>
+          <dd class="dd pd" id="dita-command-properties__output.dir.desc">
+            <p class="p">Specifies the path of the output directory; the path can be absolute or relative to the current
+              directory.</p>
+            <p class="p">This argument corresponds to the common parameter <span class="keyword parmname">output.dir</span>. By default, the output
+              is written to the <span class="ph filepath">out</span> subdirectory of the current directory.</p>
+          </dd>
+        
+        
+          <dt class="dt pt dlterm">
+            <span class="keyword parmname">--filter</span>=<var class="keyword varname">files</var>
+          </dt>
+          <dd class="dd pd">
+            
+            <p class="p">Specifies filter file(s) used to include, exclude, or flag content. Relative paths are resolved against
+              the current directory and internally converted to absolute paths.</p>
+            <div class="note note note_note"><span class="note__title">Note:</span> 
+              <p class="p">To specify multiple filter files, use the system path separator character to delimit individual file
+                paths (semicolon ‘<code class="ph codeph">;</code>’ on Windows, and colon ‘<code class="ph codeph">:</code>’ on macOS and Linux) and
+                wrap the value in quotes:</p>
+              <p class="p"><code class="ph codeph">--filter="filter1.ditaval;filter2.ditaval;filter3.ditaval"</code></p>
+              <p class="p">As of DITA-OT 3.6, the <span class="keyword parmname">--filter</span> option can also be passed multiple times:</p>
+              <p class="p"><code class="ph codeph">--filter=filter1.ditaval --filter=filter2.ditaval --filter=filter3.ditaval</code></p>
+              <p class="p">DITAVAL files are evaluated in the order specified, so conditions specified in the first file take
+                precedence over matching conditions specified in later files, just as conditions at the start of a
+                DITAVAL document take precedence over matching conditions later in the same document.</p>
+            </div>
+          </dd>
+        
+        
+          <dt class="dt pt dlterm">
+            <span class="keyword parmname">--force</span>
+          </dt>
+          <dd class="dd pd">Force-install an existing plug-in.</dd>
+          <dd class="dd pd ddexpand">Passed as an additional option to the installation subcommand: <span class="keyword cmdname">dita
+              install</span>&nbsp;<var class="keyword varname">plug-in-zip</var>&nbsp;<span class="keyword parmname">--force</span></dd>
+        
+        
+          <dt class="dt pt dlterm">
+            <span class="keyword parmname">--help</span></dt>
+          <dt class="dt pt dlterm">
+            <span class="keyword parmname">-h</span>
+          </dt>
+          <dd class="dd pd">Print a list of available arguments, options, and subcommands.</dd>
+        
+        
+          <dt class="dt pt dlterm">
+            <span class="keyword parmname">--logfile</span>=<var class="keyword varname">file</var></dt>
+          <dt class="dt pt dlterm">
+            <span class="keyword parmname">-l</span>
+            <var class="keyword varname">file</var>
+          </dt>
+          <dd class="dd pd">Write logging messages to a file.</dd>
+        
+        
+          <dt class="dt pt dlterm">
+            <span class="keyword parmname">--parameter</span>=<var class="keyword varname">value</var></dt>
+          <dt class="dt pt dlterm">
+            <span class="keyword parmname">-D</span><var class="keyword varname">parameter</var>=<var class="keyword varname">value</var>
+          </dt>
+          <dd class="dd pd">Specify a value for a DITA-OT or Ant build parameter.</dd>
+          <dd class="dd pd ddexpand">The GNU-style <span class="keyword parmname">--parameter</span>=<var class="keyword varname">value</var> form is only available for
+            parameters that are configured in the plug-in configuration file; the Java-style <span class="keyword parmname">-D</span>
+            form can also be used to specify additional non-configured parameters or set system properties.</dd>
+          <dd class="dd pd ddexpand">Parameters not implemented by the specified transformation type or referenced in a
+              <span class="ph filepath">.properties</span> file are ignored. <div class="note tip note_tip"><span class="note__title">Tip:</span> If you are building in different environments where the location of the input
+        files is not consistent, set <span class="keyword option">args.input.dir</span> with the <span class="keyword cmdname">dita</span> command and
+        reference its value with <code class="ph codeph">${args.input.dir}</code> in your <span class="ph filepath">.properties</span> file.
+        
+        
+      </div>
+          </dd>
+        
+        
+          <dt class="dt pt dlterm">
+            <span class="keyword parmname">--propertyfile</span>=<var class="keyword varname">file</var>
+          </dt>
+          <dd class="dd pd">Use build parameters defined in the referenced <span class="ph filepath">.properties</span> file.</dd>
+          <dd class="dd pd ddexpand">Build parameters specified on the command line override those set in the <span class="ph filepath">.properties</span>
+            file.</dd>
+        
+        
+          <dt class="dt pt dlterm">
+            <span class="keyword parmname">--repeat</span>=<var class="keyword varname">N</var>
+          </dt>
+          <dd class="dd pd">Repeat the transformation <var class="keyword varname">N</var> number of times.</dd>
+          <dd class="dd pd ddexpand">This option can be used by plug-in developers to measure performance. To run a conversion five times, for
+            example, use <span class="keyword parmname">--repeat</span>=<span class="keyword option">5</span>. The duration of each execution will appear in
+            the console when the final transformation is complete.
+            <pre class="pre codeblock syntax-bash multi-platform"><code>$ <span class="keyword cmdname">dita</span> <span class="keyword parmname">--input</span>=<span class="ph filepath">docsrc/samples/sequence.ditamap</span> <span class="keyword parmname">--format</span>=<span class="keyword option">html5</span> \
+       <span class="keyword parmname">--repeat</span>=<span class="keyword option">5</span>
+1 11281ms
+2 4132ms
+3 3690ms
+4 4337ms
+5 3634ms</code></pre>
+          </dd>
+        
+        
+          <dt class="dt pt dlterm">
+            <span class="keyword parmname">--resource</span>=<var class="keyword varname">file</var>
+          </dt>
+          <dt class="dt pt dlterm">
+            <span class="keyword parmname">-r</span>
+            <var class="keyword varname">file</var>
+          </dt>
+          <dd class="dd pd">Convert partial documentation sets by processing input with additional resources.</dd>
+          <dd class="dd pd ddexpand">For example, to process a single topic file with a map that contains key definitions, use a command like
+            this:
+            <pre class="pre codeblock syntax-bash"><code><span class="keyword cmdname">dita</span> <span class="keyword parmname">--input</span>=<span class="ph filepath">topic.dita</span> <span class="keyword parmname">--resource</span>=<span class="ph filepath">keys.ditamap</span> <span class="keyword parmname">--format</span>=<span class="keyword option">html5</span></code></pre>
+          </dd>
+          <dd class="dd pd ddexpand">To convert a chapter map to HTML5 and insert related links from relationship tables in a separate map,
+            use:
+            <pre class="pre codeblock syntax-bash"><code><span class="keyword cmdname">dita</span> <span class="keyword parmname">--input</span>=<span class="ph filepath">chapter.ditamap</span> <span class="keyword parmname">--resource</span>=<span class="ph filepath">reltables.ditamap</span> <span class="keyword parmname">--format</span>=<span class="keyword option">html5</span></code></pre>
+          </dd>
+        
+        
+          <dt class="dt pt dlterm">
+            <span class="keyword parmname">--temp</span>=<var class="keyword varname">dir</var></dt>
+          <dt class="dt pt dlterm">
+            <span class="keyword parmname">-t</span>
+            <var class="keyword varname">dir</var>
+          </dt>
+          <dd class="dd pd">Specifies the location of the temporary directory.</dd>
+          <dd class="dd pd ddexpand">This argument corresponds to the common parameter <span class="keyword parmname">dita.temp.dir</span>.</dd>
+        
+        
+          <dt class="dt pt dlterm">
+            <span class="keyword parmname">--verbose</span></dt>
+          <dt class="dt pt dlterm">
+            <span class="keyword parmname">-v</span>
+          </dt>
+          <dd class="dd pd">Verbose logging prints additional information to the console, including directory settings, effective
+            values for Ant properties, input/output files, and informational messages to assist in troubleshooting.</dd>
+        
+      </dl>
+    </section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="../parameters/index.html" title="You can adjust DITA Open Toolkit behavior via dita command arguments and options, DITA-OT parameter settings, and configuration properties.">DITA Open Toolkit parameters</a></div></div><div class="linklist reltasks"><strong>Related tasks</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="../topics/build-using-dita-command.html" title="You can generate output using the dita command-line tool. Build parameters can be specified on the command line or with .properties files.">Building output using the dita command</a></li><li class="linklist"><a class="link" href="../topics/using-dita-properties-file.html" title="Usually, DITA builds require setting a number of parameters that do not change frequently. You can reference a set of build parameters defined in a .properties file when building output with the dita command. If needed, you can override any parameter by specifying it explicitly as an argument to the dita command.">Setting build parameters with .properties files</a></li><li class="linklist"><a class="link" href="../topics/dita-command-help.html" title="You can access a list of subcommands and supported parameters for the dita command by passing the --help option on the command line.">Accessing help for the dita command</a></li></ul></div><div class="linklist relref"><strong>Related reference</strong><br><ul class="linklist"><li class="linklist"><a class="link" href="../parameters/parameters_intro.html" title="Certain parameters apply to all DITA-OT transformations. Other parameters are common to the HTML-based transformations. Some parameters apply only to specific transformation types. These parameters can be passed as options to the dita command using the --parameter=value syntax or included in build scripts as Ant properties.">DITA-OT parameters</a></li><li class="linklist"><a class="link" href="../parameters/internal-ant-properties.html" title="Reference list of Ant properties used by DITA-OT internally.">Internal Ant properties</a></li></ul></div></nav><a class="link" href="../parameters/index.html" title="You can adjust DITA Open Toolkit behavior via dita command arguments and options, DITA-OT parameter settings, and configuration properties.">DITA Open Toolkit parameters</a> &gt; </article></div></div></main><footer class="footer-container"><div class="d-flex flex-column footer-div max-width"><a class="footer-text d-inline-flex mt-2 mt-md-0 ms-md-auto" href="#">Organization name ©
+                    2021</a></div></footer><button type="button" class="go-to-top accent-background-color" id="btn-back-to-top"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="50" height="50"><g id="Layer_1"><line stroke="#fff" id="svg_7" y2="17.66667" x2="26.33332" y1="30.33333" x1="13.66667" stroke-width="4" fill="none"></line><line transform="rotate(90.1903 29.9999 24)" stroke="#fff" id="svg_10" y2="17.66667" x2="36.33323" y1="30.33333" x1="23.66658" stroke-width="4" fill="none"></line></g></svg></a></button><button onclick="goBack()" class="go-back accent-background-color" id="btn-go-back">Back
+        </button><script src="../lib/jquery-3.6.0.min.js"></script><script src="../lib/jspdf-1.5.3.min.js"></script><script src="../lib/html2canvas-1.3.2.js"></script><script src="../lib/popper.min.js"></script><script src="../lib/xml.rocks.js"></script></body></html>
