@@ -135,10 +135,14 @@ function getDynamicTopicData(href, listItemID) {
             jQuery.post(href, function (content) {
                 var htmlContent = $.parseHTML(content),
                     articleContent = $(htmlContent).find('article').contents(),
-                    breadcrumbsContent = $(htmlContent).find('.breadcrumb').contents();
+                    breadcrumbsContent = $(htmlContent).find('.breadcrumb').contents(),
+                    titleContent = $(htmlContent).filter('title').contents();
 
                 // update address bar
                 history.pushState("", "", href);
+
+                // update head title
+                $('title').html(titleContent);
 
                 // update breadcrumbs
                 $('.breadcrumb').html(breadcrumbsContent);
