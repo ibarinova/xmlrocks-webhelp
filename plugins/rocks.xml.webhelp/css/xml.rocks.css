@@ -1,21 +1,21 @@
 .accent-background-color {
-  /* accent color black with transpparency */
-  background-color: #000000b9;
-  /* accent color blue */
-  /*background-color: #0844a4b9;*/
-  /* accent color teal */
-  /*background-color: #008db1b9;*/
-  /* accent color orange */
-  /*background-color: #ff6800b9;*/
-  /* accent color white */
-  /*background-color: #ffffffb9;*/
+    /* accent color black with transpparency */
+    background-color: #000000b9;
+    /* accent color blue */
+    /*background-color: #0844a4b9;*/
+    /* accent color teal */
+    /*background-color: #008db1b9;*/
+    /* accent color orange */
+    /*background-color: #ff6800b9;*/
+    /* accent color white */
+    /*background-color: #ffffffb9;*/
 }
 
 .max-width {
-  /* Adjustable value for whole publication */
-  max-width: 960px;
-  /*max-width: 1260px;*/
-  /*max-width: 860px;*/
+    /* Adjustable value for whole publication */
+    max-width: 960px;
+    /*max-width: 1260px;*/
+    /*max-width: 860px;*/
 }
 
 .rocks-header {
@@ -36,62 +36,62 @@
 }
 
 .search {
-  border: none;
-  border-radius: 30px;
-  box-shadow: 0 0 5px #bbbbbb;
+    border: none;
+    border-radius: 30px;
+    box-shadow: 0 0 5px #bbbbbb;
 }
 
 .rounded-card-rocks {
-  border-radius: 8px;
-  background-color: #fbfbfb;
-  border-color: #fbfbfb;
+    border-radius: 8px;
+    background-color: #fbfbfb;
+    border-color: #fbfbfb;
 }
 
 .card-body {
-  border: 3px solid #fbfbfb;
+    border: 3px solid #fbfbfb;
 }
 
 .card-body:hover {
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  border: 3px solid #0844a4b9;
-  border-radius: 8px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    border: 3px solid #0844a4b9;
+    border-radius: 8px;
 }
 
 .topic-link {
-  color: #0844a4b9;
-  text-decoration: none;
+    color: #0844a4b9;
+    text-decoration: none;
 }
 
 .breadcrumbs_block ul {
-  list-style: none;
-  display: flex;
-  padding-left: 0;
+    list-style: none;
+    display: flex;
+    padding-left: 0;
 }
 
 .breadcrumbs_block li a {
-  text-decoration: none;
-  color: #232323;
+    text-decoration: none;
+    color: #232323;
 }
 
 .breadcrumbs_block li a:after {
-  content: "/";
-  display: inline-block;
-  margin: 0 5px;
-  color: #232323;
+    content: "/";
+    display: inline-block;
+    margin: 0 5px;
+    color: #232323;
 }
 
 .breadcrumbs_block li:last-child a:after {
-  content: "";
+    content: "";
 }
 
 .breadcrumbs_block li:last-child a {
-  color: #bbbbbb;
+    color: #bbbbbb;
 }
 
 .topic-title {
-  color: #0844a4b9;
+    color: #0844a4b9;
 }
 
 .footer-container {
@@ -103,14 +103,14 @@
 }
 
 .footer-div {
-  margin-left: auto;
-  margin-right: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .footer-text {
-  padding: 1rem;
-  text-decoration: none;
-  color: #1a1e21;
+    padding: 1rem;
+    text-decoration: none;
+    color: #1a1e21;
 }
 
 #button-back-to-top {
@@ -160,7 +160,7 @@ a:hover, a:visited, a:link, a:active {
 
 /* Dropdown Button */
 .drop-button-download {
-    background-image: url(img/download-icon.svg);
+    background-image: url(../img/download-icon.svg);
     background-repeat: no-repeat;
     background-color: #FFFFFF;
     padding: 16px;
@@ -234,21 +234,21 @@ nav li ul {
     display: none;
 }
 
-nav li.expanded > ul{
+nav li.expanded > ul {
     display: block;
 }
 
 .expand-collapse-button {
-    color:#bbbbbb;
+    color: #bbbbbb;
     cursor: pointer;
 }
 
 .expand-collapse-button:hover {
-    color:#000000;
+    color: #000000;
 }
 
 nav li.active > a {
-    color:#6610f2;
+    color: #6610f2;
 }
 
 
@@ -315,41 +315,39 @@ button, input, optgroup, select, textarea {
     display: block;
 }
 
-
 /*end style for dropdown buttons*/
 
-
-@media print{
-    .rocks-header{
-        display:none;
+@media print {
+    .rocks-header {
+        display: none;
     }
 
-    .breadcrumb{
-        display:none;
+    .breadcrumb {
+        display: none;
     }
 
-    .header-logo{
-        display:none;
+    .header-logo {
+        display: none;
     }
 
-    .col.col-sm-4{
-        display:none;
+    .col.col-sm-4 {
+        display: none;
     }
 
     #button-back-to-top {
         display: none;
     }
 
-    .dropdown-download{
-        display:none;
+    .dropdown-download {
+        display: none;
     }
 
-    .related-links{
-        display:none ;
+    .related-links {
+        display: none;
     }
 
-    .footer-container{
-        display:none;
+    .footer-container {
+        display: none;
     }
 }
 

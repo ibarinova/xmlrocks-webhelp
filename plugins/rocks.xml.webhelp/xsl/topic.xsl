@@ -142,6 +142,8 @@
                 </div>
             </main>
             <xsl:apply-templates select="." mode="addFooterToHtmlBodyElement"/>
+            <xsl:call-template name="insertBackToTopButton"/>
+            <xsl:call-template name="insertJavaScript"/>
         </body>
     </xsl:template>
 
@@ -193,18 +195,20 @@
     <xsl:template match="*" mode="addFooterToHtmlBodyElement">
         <footer class="footer-container">
             <div class="d-flex flex-column footer-div max-width">
-                <!-- FIXME HARDCODE! -->
+                <!-- FIXME 'Organization name ©' is HARDCODED! -->
                 <a class="footer-text d-inline-flex mt-2 mt-md-0 ms-md-auto" href="#">Organization name ©
                     <xsl:call-template name="insertCurrentYear"/>
                 </a>
             </div>
         </footer>
-        <!-- TODO: get it out from there (make button and js independent from footer) -->
-        <!-- Back to top button -->
+    </xsl:template>
+
+    <xsl:template name="insertBackToTopButton">
         <button type="button"
                 class="go-to-top accent-background-color"
                 id="button-back-to-top">
             <a href="#">
+                <!--       TODO: use stroke="#000" for white background-->
                 <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
                     <g id="Layer_1">
                         <line stroke="#fff" id="svg_7" y2="17.66667" x2="26.33332" y1="30.33333" x1="13.66667" stroke-width="4"
@@ -213,23 +217,16 @@
                               y1="30.33333" x1="23.66658" stroke-width="4" fill="none"/>
                     </g>
                 </svg>
-                <!--       TODO: use this svg for white background-->
-                 <!--<svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
-                     <g id="Layer_1">
-                         <line stroke="#000" id="svg_7" y2="17.66667" x2="26.33332" y1="30.33333" x1="13.66667" stroke-width="4" fill="none"/>
-                         <line transform="rotate(90.1903 29.9999 24)" stroke="#000" id="svg_10" y2="17.66667" x2="36.33323" y1="30.33333" x1="23.66658" stroke-width="4" fill="none"/>
-                     </g>
-                 </svg>-->
             </a>
         </button>
+    </xsl:template>
 
-
-        <!-- JS -->
+    <xsl:template name="insertJavaScript">
         <script src="{$PATH2PROJ}lib/jquery-3.6.0.min.js"></script>
         <script src="{$PATH2PROJ}lib/jspdf-1.5.3.min.js"></script>
         <script src="{$PATH2PROJ}lib/html2canvas-1.3.2.js"></script>
         <script src="{$PATH2PROJ}lib/popper.min.js"></script>
-        <script src="https://apis.google.com/js/platform.js"></script>
+        <script src="{$PATH2PROJ}lib/platform.js"></script>
         <script src="{$PATH2PROJ}lib/xml.rocks.js"></script>
     </xsl:template>
 
