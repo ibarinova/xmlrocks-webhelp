@@ -251,6 +251,16 @@ nav li.active > a {
     color:#6610f2;
 }
 
+.main-page-container > .title {
+    font-size: 35px;
+    font-weight: 200;
+    margin: 0.7em 0;
+}
+
+.main-page-tile {
+    min-height: 100px;
+    padding: 0.6em;
+}
 
 .drop-button-google-drive {
     background-image: url(../img/google-drive-brands.svg);
