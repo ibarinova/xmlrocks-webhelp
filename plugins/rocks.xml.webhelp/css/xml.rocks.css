@@ -19,16 +19,16 @@
 }
 
 .rocks-header {
-  position: sticky;
-  -webkit-backdrop-filter: blur(10px);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 2px 5px #bbbbbb;
+    position: sticky;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 5px #bbbbbb;
 }
 
 .main-header {
-  padding: 1rem;
-  margin-left: auto;
-  margin-right: auto;
+    padding: 1rem;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .header-logo {
@@ -217,7 +217,7 @@ button, input, optgroup, select, textarea {
 }
 
 #printbtn {
-    background-image: url(img/print-solid.svg);
+    background-image: url(../img/print-solid.svg);
     background-repeat: no-repeat;
     background-color: #FFFFFF;
     padding: 16px;
@@ -253,7 +253,7 @@ nav li.active > a {
 
 
 .drop-button-google-drive {
-    background-image: url(img/google-drive-brands.svg);
+    background-image: url(../img/google-drive-brands.svg);
     background-repeat: no-repeat;
     background-color: #FFFFFF;
     padding: 16px;
@@ -318,37 +318,38 @@ button, input, optgroup, select, textarea {
 
 /*end style for dropdown buttons*/
 
-@media print {
-    .rocks-header {
-        display: none;
+
+@media print{
+    .rocks-header{
+        display:none;
     }
 
-    .breadcrumb {
-        display: none;
+    .breadcrumb{
+        display:none;
     }
 
-    .header-logo {
-        display: none;
+    .header-logo{
+        display:none;
     }
 
-    .col.col-sm-4 {
-        display: none;
+    .col.col-sm-4{
+        display:none;
     }
 
     #button-back-to-top {
         display: none;
     }
 
-    .dropdown-download {
-        display: none;
+    .dropdown-download{
+        display:none;
     }
 
-    .related-links {
-        display: none;
+    .related-links{
+        display:none ;
     }
 
-    .footer-container {
-        display: none;
+    .footer-container{
+        display:none;
     }
 }
 

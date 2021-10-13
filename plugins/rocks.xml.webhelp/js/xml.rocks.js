@@ -33,21 +33,39 @@ function goBack() {
 function getPDF() {
     console.log('in get pdf')
 
+
     var idTopicArticle = document.getElementById("topic-article");
     var removedChild = idTopicArticle.querySelector('.related-links');
 
     idTopicArticle.removeChild(idTopicArticle.querySelector('.related-links'));
 
-    var htmlWidth = $("#topic-article").width();
-    var htmlHeight = $("#topic-article").height();
+    var HTML_Width = $("#topic-article").width();
+    var HTML_Height = $("#topic-article").height();
 
-    var topLeftMargin = 15;
-    var pdfWidth = htmlWidth + (topLeftMargin * 2);
-    var pdfHeight = (pdfWidth * 1.5) + (topLeftMargin * 2);
-    var canvasImageWidth = htmlWidth;
-    var canvasImageHeight = htmlHeight;
+    var top_left_margin = 15;
+    var PDF_Width = HTML_Width + (top_left_margin * 2);
+    var PDF_Height = (PDF_Width * 1.5) + (top_left_margin * 2);
+    var canvas_image_width = HTML_Width;
+    var canvas_image_height = HTML_Height;
+
+    var totalPDFPages = Math.ceil(HTML_Height / PDF_Height) - 1;
+
+    var topicName = document.getElementsByClassName("title topictitle1")[0].textContent;
+
+    topicName = topicName.replace(/\s+/g, '-');
+
+    html2canvas(idTopicArticle, {allowTaint: true}).then(function (canvas) {
+        canvas.getContext('2d');
+
+        console.log(canvas.height + "  " + canvas.width);
+
 
     var totalPDFPages = Math.ceil(htmlHeight / pdfHeight) - 1;
+
+
+        var imgData = canvas.toDataURL("image/jpeg", 1.0);
+        var pdf = new jsPDF('p', 'pt', [PDF_Width, PDF_Height]);
+        pdf.addImage(imgData, 'JPG', top_left_margin, top_left_margin, canvas_image_width, canvas_image_height);
 
 
     html2canvas(idTopicArticle, {allowTaint: true}).then(function (canvas) {
@@ -60,13 +78,14 @@ function getPDF() {
         pdf.addImage(imgData, 'JPG', topLeftMargin, topLeftMargin, canvasImageWidth, canvasImageHeight);
 
         for (var i = 1; i <= totalPDFPages; i++) {
-            pdf.addPage(pdfWidth, pdfHeight);
-            pdf.addImage(imgData, 'JPG', topLeftMargin, -(pdfHeight * i) + (topLeftMargin * 4), canvasImageWidth, canvasImageHeight);
+
+            pdf.addPage(PDF_Width, PDF_Height);
+            pdf.addImage(imgData, 'JPG', top_left_margin, -(PDF_Height * i) + (top_left_margin * 4), canvas_image_width, canvas_image_height);
         }
 
-        pdf.save("Current-page.pdf");
+        pdf.save(topicName + ".pdf");
     });
-// Append 'related-links' to the page after downloading current topic
+
     idTopicArticle.appendChild(removedChild);
 };
 
@@ -100,7 +119,9 @@ function DownloadFile(fileName) {
     req.send();
 };
 
+
 // Function for dropdown menu for 'download' button
+
 function dropdownDownload() {
     document.getElementById("menu-dropdown-download").classList.toggle("show");
 }
@@ -119,7 +140,9 @@ window.onclick = function (event) {
     }
 };
 
+
 // Function for dropdown menu for 'save to Google Drive' button
+
 function dropdownGoogleDrive() {
     document.getElementById("menu-dropdown-google-drive").classList.toggle("show");
 }
@@ -150,10 +173,14 @@ function getDynamicTopicData(href, listItemID) {
             jQuery.post(href, function (content) {
                 var htmlContent = $.parseHTML(content),
                     articleContent = $(htmlContent).find('article').contents(),
-                    breadcrumbsContent = $(htmlContent).find('.breadcrumb').contents();
+                    breadcrumbsContent = $(htmlContent).find('.breadcrumb').contents(),
+                    titleContent = $(htmlContent).filter('title').contents();
 
                 // update address bar
                 history.pushState("", "", href);
+
+                // update head title
+                $('title').html(titleContent);
 
                 // update breadcrumbs
                 $('.breadcrumb').html(breadcrumbsContent);
@@ -197,7 +224,7 @@ function applyExpandedClass(id) {
 }
 
 // This function reveals active topic in TOC when the page reloads
-$(document).ready(function() {
+$(document).ready(function () {
     // expand all parent li's
     $('.active').parents('nav li').addClass('expanded');
 

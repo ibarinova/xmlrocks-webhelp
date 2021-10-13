@@ -3,7 +3,7 @@
                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
                 exclude-result-prefixes="#all"
                 version="2.0">
-    <!--Param & varaible for creating breadcrumbs-->
+    <!--Param & variable for creating breadcrumbs-->
     <xsl:param name="include.rellinks"
                select="'#default parent child sibling friend next previous cousin ancestor descendant sample external other'"
                as="xs:string"/>
@@ -23,14 +23,18 @@
             <xsl:call-template name="generateCssLinks"/>
             <xsl:call-template name="addFavicon"/>
             <xsl:call-template name="generateChapterTitle"/>
-            <xsl:call-template name="gen-user-head" />
-            <xsl:call-template name="gen-user-scripts" />
-            <xsl:call-template name="gen-user-styles" />
+            <xsl:call-template name="gen-user-head"/>
+            <xsl:call-template name="gen-user-scripts"/>
+            <xsl:call-template name="gen-user-styles"/>
             <xsl:call-template name="processHDF"/>
         </head>
     </xsl:template>
 
     <xsl:template name="generateCssLinks">
+        <!-- When user pass empty string in args.csspath parameter then $CSSPATH='/' -->
+        <!-- so we need to remove slash symbol to use css files in root directory -->
+        <xsl:variable name="css-path-normalized" select="if($CSSPATH = '/') then('') else($CSSPATH)"/>
+
         <xsl:variable name="childlang" as="xs:string">
             <xsl:variable name="lang">
                 <xsl:choose>
@@ -46,41 +50,44 @@
             </xsl:variable>
             <xsl:sequence select="($lang, $DEFAULTLANG)[normalize-space(.)][1]"/>
         </xsl:variable>
+
         <xsl:variable name="direction">
             <xsl:apply-templates select="." mode="get-render-direction">
                 <xsl:with-param name="lang" select="$childlang"/>
             </xsl:apply-templates>
         </xsl:variable>
+
         <xsl:variable name="urltest" as="xs:boolean">
             <xsl:call-template name="url-string">
-                <xsl:with-param name="urltext" select="concat($CSSPATH, $CSS)"/>
+                <xsl:with-param name="urltext" select="concat($css-path-normalized, $CSS)"/>
             </xsl:call-template>
         </xsl:variable>
+
         <xsl:choose>
             <xsl:when test="$direction = 'rtl' and $urltest ">
-                <link rel="stylesheet" type="text/css" href="{$CSSPATH}{$bidi-dita-css}"/>
+                <link rel="stylesheet" type="text/css" href="{$css-path-normalized}{$bidi-dita-css}"/>
             </xsl:when>
             <xsl:when test="$direction = 'rtl' and not($urltest)">
-                <link rel="stylesheet" type="text/css" href="{$PATH2PROJ}{$CSSPATH}{$bidi-dita-css}"/>
+                <link rel="stylesheet" type="text/css" href="{$PATH2PROJ}{$css-path-normalized}{$bidi-dita-css}"/>
             </xsl:when>
             <xsl:when test="$urltest">
-                <link rel="stylesheet" type="text/css" href="{$CSSPATH}{$dita-css}"/>
+                <link rel="stylesheet" type="text/css" href="{$css-path-normalized}{$dita-css}"/>
             </xsl:when>
             <xsl:otherwise>
-                <link rel="stylesheet" type="text/css" href="{$PATH2PROJ}{$CSSPATH}{$dita-css}"/>
+                <link rel="stylesheet" type="text/css" href="{$PATH2PROJ}{$css-path-normalized}{$dita-css}"/>
             </xsl:otherwise>
         </xsl:choose>
 
-        <link rel="stylesheet" type="text/css" href="{$PATH2PROJ}{$CSSPATH}bootstrap.min.css" />
-        <link rel="stylesheet" type="text/css" href="{$PATH2PROJ}{$CSSPATH}xml.rocks.css" />
+        <link rel="stylesheet" type="text/css" href="{$PATH2PROJ}{$css-path-normalized}bootstrap.min.css" />
+        <link rel="stylesheet" type="text/css" href="{$PATH2PROJ}{$css-path-normalized}xml.rocks.css" />
 
         <xsl:if test="string-length($CSS) > 0">
             <xsl:choose>
                 <xsl:when test="$urltest">
-                    <link rel="stylesheet" type="text/css" href="{$CSSPATH}{$CSS}"/>
+                    <link rel="stylesheet" type="text/css" href="{$css-path-normalized}{$CSS}"/>
                 </xsl:when>
                 <xsl:otherwise>
-                    <link rel="stylesheet" type="text/css" href="{$PATH2PROJ}{$CSSPATH}{$CSS}"/>
+                    <link rel="stylesheet" type="text/css" href="{$PATH2PROJ}{$css-path-normalized}{$CSS}"/>
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:if>
@@ -98,15 +105,26 @@
             <main role="main">
                 <xsl:attribute name="class" select="'container max-width'"/>
                 <xsl:call-template name="generateBreadcrumbs"/>
-
-                <div class="dropdown">
-                    <button onclick="myFunction()" class="dropbtn"></button>
-                    <div id="myDropdown" class="dropdown-content">
-                        <input type="button" id="downloadbtn" value="Download HTML as PDF" onclick="getPDF()"/>
-                        <input type="button" value="Download PDF File" onclick="DownloadFile('bm_dude.pdf')"/>
+                <div class="dropdown-download">
+                    <button onclick="dropdownDownload()" class="drop-button-download">
+                    </button>
+                    <div id="menu-dropdown-download" class="dropdown-content-download">
+                        <input type="button" id="downloadbtn" value="Download this page as PDF" onclick="getPDF()"/>
+                        <input type="button" value="Download PDF output" onclick="DownloadFile('bm_dude.pdf')"/>
                     </div>
+                    <input type="button" id="printbtn" onclick="window.print()"/>
+                </div>
 
-                    <input type="button" id="printbtn" onclick="printDiv('topic-article')"/>
+                <div class="dropdown-google-drive">
+                    <button onclick="dropdownGoogleDrive()" class="drop-button-google-drive">
+                    </button>
+                    <div id="menu-dropdown-google-drive" class="dropdown-content-google-drive">
+                        <input type="button" class="g-savetodrive"
+                               data-src="pdf/bm_dude.pdf"
+                               data-filename="bm_dude.pdf"
+                               data-sitename="PDF output">
+                        </input>
+                    </div>
 
                 </div>
 
@@ -130,17 +148,21 @@
     <xsl:template match="/|node()|@*" mode="gen-user-header">
         <div class="d-flex flex-column flex-md-row align-items-center mb-4 main-header max-width">
             <!--       TODO: use text-dark for white background -->
-            <a href="{$PATH2PROJ}index.html" class="d-flex align-items-center text-light text-decoration-none header-logo">
+            <a href="{$PATH2PROJ}index.html"
+               class="d-flex align-items-center text-light text-decoration-none header-logo">
                 <img src="{$PATH2PROJ}img/logo.svg"/>
             </a>
             <!--       TODO: use text-dark for white background -->
             <span class="fs-4 text-light">
                 <xsl:choose>
                     <xsl:when test="ancestor-or-self::*[contains(@class, ' map/map ')]">
-                        <xsl:value-of select="ancestor-or-self::*[contains(@class, ' map/map ')][1]/*[contains(@class, ' topic/title ')][1]"/>
+                        <xsl:value-of
+                                select="ancestor-or-self::*[contains(@class, ' map/map ')][1]/*[contains(@class, ' topic/title ')][1]"/>
                     </xsl:when>
-                    <xsl:when test="$input.map/*[contains(@class, ' map/map ')][1]/*[contains(@class, ' topic/title ')][1]">
-                        <xsl:value-of select="$input.map/*[contains(@class, ' map/map ')][1]/*[contains(@class, ' topic/title ')][1]"/>
+                    <xsl:when
+                            test="$input.map/*[contains(@class, ' map/map ')][1]/*[contains(@class, ' topic/title ')][1]">
+                        <xsl:value-of
+                                select="$input.map/*[contains(@class, ' map/map ')][1]/*[contains(@class, ' topic/title ')][1]"/>
                     </xsl:when>
                     <xsl:otherwise>
                         <xsl:value-of select="$input.map/@title"/>
@@ -200,17 +222,14 @@
                  </svg>-->
             </a>
         </button>
-        <!-- Go back button-->
-        <button onclick="goBack()"
-                class="go-back accent-background-color"
-                id="btn-go-back">Back
-        </button>
+
 
         <!-- JS -->
         <script src="{$PATH2PROJ}lib/jquery-3.6.0.min.js"></script>
         <script src="{$PATH2PROJ}lib/jspdf-1.5.3.min.js"></script>
         <script src="{$PATH2PROJ}lib/html2canvas-1.3.2.js"></script>
         <script src="{$PATH2PROJ}lib/popper.min.js"></script>
+        <script src="https://apis.google.com/js/platform.js"></script>
         <script src="{$PATH2PROJ}lib/xml.rocks.js"></script>
     </xsl:template>
 
