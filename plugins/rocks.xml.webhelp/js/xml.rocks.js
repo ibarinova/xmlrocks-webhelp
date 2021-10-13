@@ -1,5 +1,5 @@
 //Get the button
-let mybutton = document.getElementById("btn-back-to-top");
+let backToTopButton = document.getElementById("button-back-to-top");
 
 // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function () {
@@ -11,14 +11,14 @@ function scrollFunction() {
         document.body.scrollTop > 20 ||
         document.documentElement.scrollTop > 20
     ) {
-        mybutton.style.display = "block";
+        backToTopButton.style.display = "block";
     } else {
-        mybutton.style.display = "none";
+        backToTopButton.style.display = "none";
     }
 }
 
 // When the user clicks on the button, scroll to the top of the document
-mybutton.addEventListener("click", backToTop);
+backToTopButton.addEventListener("click", backToTop);
 
 function backToTop() {
     document.body.scrollTop = 0;
@@ -32,6 +32,7 @@ function goBack() {
 //Create PDF from HTML...
 function getPDF() {
     console.log('in get pdf')
+
 
     var idTopicArticle = document.getElementById("topic-article");
     var removedChild = idTopicArticle.querySelector('.related-links');
@@ -59,12 +60,25 @@ function getPDF() {
         console.log(canvas.height + "  " + canvas.width);
 
 
+    var totalPDFPages = Math.ceil(htmlHeight / pdfHeight) - 1;
+
+
         var imgData = canvas.toDataURL("image/jpeg", 1.0);
         var pdf = new jsPDF('p', 'pt', [PDF_Width, PDF_Height]);
         pdf.addImage(imgData, 'JPG', top_left_margin, top_left_margin, canvas_image_width, canvas_image_height);
 
 
+    html2canvas(idTopicArticle, {allowTaint: true}).then(function (canvas) {
+        canvas.getContext('2d');
+
+        console.log(canvas.height + "  " + canvas.width);
+
+        var imgData = canvas.toDataURL("image/jpeg", 1.0);
+        var pdf = new jsPDF('p', 'pt', [pdfWidth, pdfHeight]);
+        pdf.addImage(imgData, 'JPG', topLeftMargin, topLeftMargin, canvasImageWidth, canvasImageHeight);
+
         for (var i = 1; i <= totalPDFPages; i++) {
+
             pdf.addPage(PDF_Width, PDF_Height);
             pdf.addImage(imgData, 'JPG', top_left_margin, -(PDF_Height * i) + (top_left_margin * 4), canvas_image_width, canvas_image_height);
         }
@@ -75,7 +89,7 @@ function getPDF() {
     idTopicArticle.appendChild(removedChild);
 };
 
-// Function for download pdf from output
+// Function for download output file in PDF format from local output folder
 function DownloadFile(fileName) {
     //Set the File URL.
     var url = "pdf/" + fileName;
@@ -105,7 +119,9 @@ function DownloadFile(fileName) {
     req.send();
 };
 
-// Function for dropdown menu
+
+// Function for dropdown menu for 'download' button
+
 function dropdownDownload() {
     document.getElementById("menu-dropdown-download").classList.toggle("show");
 }
@@ -124,7 +140,9 @@ window.onclick = function (event) {
     }
 };
 
-// Function for dropdown menu
+
+// Function for dropdown menu for 'save to Google Drive' button
+
 function dropdownGoogleDrive() {
     document.getElementById("menu-dropdown-google-drive").classList.toggle("show");
 }
