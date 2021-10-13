@@ -19,6 +19,7 @@
             <xsl:apply-templates select="." mode="generateDefaultCopyright"/>
             <xsl:call-template name="generateDefaultMeta"/>
             <xsl:apply-templates select="." mode="getMeta"/>
+            <xsl:call-template name="insertViewport"/>
             <xsl:call-template name="copyright"/>
             <xsl:call-template name="generateCssLinks"/>
             <xsl:call-template name="addFavicon"/>
@@ -91,6 +92,10 @@
                 </xsl:otherwise>
             </xsl:choose>
         </xsl:if>
+    </xsl:template>
+
+    <xsl:template name="insertViewport">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </xsl:template>
 
     <xsl:template name="addFavicon">
