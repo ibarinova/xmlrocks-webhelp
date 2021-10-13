@@ -1,5 +1,5 @@
 //Get the button
-let backToTopButton = document.getElementById("button-back-to-top");
+var backToTopButton = document.getElementById("button-back-to-top");
 
 // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function () {
@@ -25,30 +25,23 @@ function backToTop() {
     document.documentElement.scrollTop = 0;
 }
 
-function goBack() {
-    window.history.back();
-}
-
 //Create PDF from HTML...
 function getPDF() {
-    console.log('in get pdf')
-
-
     var idTopicArticle = document.getElementById("topic-article");
     var removedChild = idTopicArticle.querySelector('.related-links');
 
     idTopicArticle.removeChild(idTopicArticle.querySelector('.related-links'));
 
-    var HTML_Width = $("#topic-article").width();
-    var HTML_Height = $("#topic-article").height();
+    var htmlWidth = $("#topic-article").width();
+    var htmlHeight = $("#topic-article").height();
 
-    var top_left_margin = 15;
-    var PDF_Width = HTML_Width + (top_left_margin * 2);
-    var PDF_Height = (PDF_Width * 1.5) + (top_left_margin * 2);
-    var canvas_image_width = HTML_Width;
-    var canvas_image_height = HTML_Height;
+    var topLeftMargin = 15;
+    var pdfWidth = htmlWidth + (topLeftMargin * 2);
+    var pdfHeight = (pdfWidth * 1.5) + (topLeftMargin * 2);
+    var canvasImageWidth = htmlWidth;
+    var canvasImageHeight = htmlHeight;
 
-    var totalPDFPages = Math.ceil(HTML_Height / PDF_Height) - 1;
+    var totalPDFPages = Math.ceil(htmlHeight / pdfHeight) - 1;
 
     var topicName = document.getElementsByClassName("title topictitle1")[0].textContent;
 
@@ -56,36 +49,18 @@ function getPDF() {
 
     html2canvas(idTopicArticle, {allowTaint: true}).then(function (canvas) {
         canvas.getContext('2d');
-
-        console.log(canvas.height + "  " + canvas.width);
-
-
-    var totalPDFPages = Math.ceil(htmlHeight / pdfHeight) - 1;
-
-
-        var imgData = canvas.toDataURL("image/jpeg", 1.0);
-        var pdf = new jsPDF('p', 'pt', [PDF_Width, PDF_Height]);
-        pdf.addImage(imgData, 'JPG', top_left_margin, top_left_margin, canvas_image_width, canvas_image_height);
-
-
-    html2canvas(idTopicArticle, {allowTaint: true}).then(function (canvas) {
-        canvas.getContext('2d');
-
-        console.log(canvas.height + "  " + canvas.width);
-
         var imgData = canvas.toDataURL("image/jpeg", 1.0);
         var pdf = new jsPDF('p', 'pt', [pdfWidth, pdfHeight]);
         pdf.addImage(imgData, 'JPG', topLeftMargin, topLeftMargin, canvasImageWidth, canvasImageHeight);
 
         for (var i = 1; i <= totalPDFPages; i++) {
-
-            pdf.addPage(PDF_Width, PDF_Height);
-            pdf.addImage(imgData, 'JPG', top_left_margin, -(PDF_Height * i) + (top_left_margin * 4), canvas_image_width, canvas_image_height);
+            pdf.addPage(pdfWidth, pdfHeight);
+            pdf.addImage(imgData, 'JPG', topLeftMargin, -(pdfHeight * i) + (topLeftMargin * 4), canvasImageWidth, canvasImageHeight);
         }
 
         pdf.save(topicName + ".pdf");
     });
-
+    // Append 'related-links' to the page after downloading current topic
     idTopicArticle.appendChild(removedChild);
 };
 
@@ -119,9 +94,7 @@ function DownloadFile(fileName) {
     req.send();
 };
 
-
 // Function for dropdown menu for 'download' button
-
 function dropdownDownload() {
     document.getElementById("menu-dropdown-download").classList.toggle("show");
 }
@@ -140,9 +113,7 @@ window.onclick = function (event) {
     }
 };
 
-
 // Function for dropdown menu for 'save to Google Drive' button
-
 function dropdownGoogleDrive() {
     document.getElementById("menu-dropdown-google-drive").classList.toggle("show");
 }
@@ -198,7 +169,7 @@ function getDynamicTopicData(href, listItemID) {
 }
 
 // This function expands topics in TOC
-function applyExpandedClass(id) {
+function applyExpandedClass(id){
     if ($(id).parent().hasClass('expanded')) {
         // remove .expanded from current TOC topic
         $(id).parent().removeClass('expanded');
@@ -224,7 +195,7 @@ function applyExpandedClass(id) {
 }
 
 // This function reveals active topic in TOC when the page reloads
-$(document).ready(function () {
+$(document).ready(function() {
     // expand all parent li's
     $('.active').parents('nav li').addClass('expanded');
 
