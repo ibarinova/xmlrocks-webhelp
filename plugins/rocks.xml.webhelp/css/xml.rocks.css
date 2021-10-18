@@ -361,3 +361,23 @@ button, input, optgroup, select, textarea {
     }
 }
 
+
+.tooltip-logo {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    opacity: 50%;
+    border-radius: 3px;
+    font-size: 10px;
+    color: #eee;
+    padding: 0em 2em;
+    word-wrap: break-word;
+    width: 120px;
+    top: 110%;
+    left: 20%;
+    margin-left: -60px;
+}
+
+.logo-header:hover > .tooltip-logo {
+    display: block;
+}
