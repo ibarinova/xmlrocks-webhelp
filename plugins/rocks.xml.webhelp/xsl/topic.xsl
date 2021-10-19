@@ -110,35 +110,36 @@
             <main role="main">
                 <xsl:attribute name="class" select="'container max-width'"/>
                 <xsl:call-template name="generateBreadcrumbs"/>
-                <div class="dropdown-download">
-                    <button onclick="dropdownDownload()" class="drop-button-download">
-                        <span class="tooltip-download">Click here to download page</span>
-                    </button>
+                <div class="button-bar">
+                    <div class="dropdown-download">
+                        <button onclick="dropdownDownload()" class="drop-button-download">
+                            <span class="tooltip-download">Click here to download page</span>
+                        </button>
 
-                    <div id="menu-dropdown-download" class="dropdown-content-download">
-                        <input type="button" id="downloadbtn" value="Download this page as PDF" onclick="getPDF()"/>
-                        <input type="button" value="Download PDF output" onclick="DownloadFile('bm_dude.pdf')"/>
-                    </div>
-                </div>
-
-                <div class="button-print">
-                    <button onclick="window.print()" id="printbtn" class="print-button">
-                        <span class="tooltip-print">Click here to print page</span>
-                    </button>
-                </div>
-
-                <div class="dropdown-google-drive">
-                    <button onclick="dropdownGoogleDrive()" class="drop-button-google-drive">
-                        <span class="tooltip-google-drive">Click here to save to Google Drive</span>
-                    </button>
-                    <div id="menu-dropdown-google-drive" class="dropdown-content-google-drive">
-                        <input type="button" class="g-savetodrive"
-                               data-src="pdf/bm_dude.pdf"
-                               data-filename="bm_dude.pdf"
-                               data-sitename="PDF output">
-                        </input>
+                        <div id="menu-dropdown-download" class="dropdown-content-download">
+                            <input type="button" id="downloadbtn" value="Download this page as PDF" onclick="getPDF()"/>
+                            <input type="button" value="Download PDF output" onclick="DownloadFile('bm_dude.pdf')"/>
+                        </div>
                     </div>
 
+                    <div class="button-print">
+                        <button onclick="window.print()" id="printbtn" class="print-button">
+                            <span class="tooltip-print">Click here to print page</span>
+                        </button>
+                    </div>
+
+                    <div class="dropdown-google-drive">
+                        <button onclick="dropdownGoogleDrive()" class="drop-button-google-drive">
+                            <span class="tooltip-google-drive">Click here to save to Google Drive</span>
+                        </button>
+                        <div id="menu-dropdown-google-drive" class="dropdown-content-google-drive">
+                            <input type="button" class="g-savetodrive"
+                                   data-src="pdf/bm_dude.pdf"
+                                   data-filename="bm_dude.pdf"
+                                   data-sitename="PDF output">
+                            </input>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="row row-cols-1 row-cols-md-3 mb-3 text-left">
