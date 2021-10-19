@@ -297,8 +297,9 @@ button, input, optgroup, select, textarea {
     padding-bottom: 0.5rem;
     margin: 1.5em;
 }
+
 .button-bar .dropdown-download {
-        width: 8%;
+    width: 8%;
 }
 
 .button-bar .button-print {
@@ -399,8 +400,8 @@ nav li.active > a {
 }
 
 /* Tooltip for 'Print' button */
-.tooltip-print{
-     display: none;
+.tooltip-print {
+    display: none;
     position: absolute;
     background-color: #333;
     opacity: 50%;
