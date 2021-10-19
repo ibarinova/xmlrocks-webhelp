@@ -163,10 +163,14 @@
     <xsl:template match="/|node()|@*" mode="gen-user-header">
         <div class="d-flex flex-column flex-md-row align-items-center mb-4 main-header max-width">
             <!--       TODO: use text-dark for white background -->
-            <a href="{$PATH2PROJ}index.html"
-               class="d-flex align-items-center text-light text-decoration-none header-logo">
-                <img src="{$PATH2PROJ}img/logo.svg"/>
-            </a>
+            <div class="logo-header">
+                <a href="{$PATH2PROJ}index.html"
+                   class="d-flex align-items-center text-light text-decoration-none header-logo">
+                    <img src="{$PATH2PROJ}img/logo.svg"/>
+                </a>
+                <span class="tooltip-logo">Click here to go to the main page</span>
+
+            </div>
             <!--       TODO: use text-dark for white background -->
             <span class="fs-4 text-light">
                 <xsl:choose>
