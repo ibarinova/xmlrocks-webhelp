@@ -166,7 +166,6 @@ a:hover, a:visited, a:link, a:active {
     padding: 16px;
     font-size: 16px;
     border: none;
-    position: relative;
     left: 45em;
     cursor: pointer;
     top: 1.7em;
@@ -185,8 +184,8 @@ a:hover, a:visited, a:link, a:active {
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
-    left: 39.6em;
-    top: 2.2em;
+    right: 1.6em;
+    top: 2.4em;
 }
 
 /* Links inside the dropdown */
@@ -223,10 +222,91 @@ button, input, optgroup, select, textarea {
     padding: 16px;
     font-size: 16px;
     border: none;
-    position: relative;
     left: 49em;
     cursor: pointer;
     bottom: 0.4em;
+}
+
+.drop-button-google-drive {
+    background-image: url(../img/google-drive-brands.svg);
+    background-repeat: no-repeat;
+    background-color: #FFFFFF;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    position: relative;
+    cursor: pointer;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown-google-drive {
+    position: relative;
+    display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content-google-drive {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    max-width: 5px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    right: 1.6em;
+    top: 2.4em;
+}
+
+
+/* Links inside the dropdown */
+.dropdown-content-google-drive div {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+button, input, optgroup, select, textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    border: none;
+    padding-bottom: 0.4em;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content-google-drive a:hover {
+    background-color: #ddd
+}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {
+    display: block;
+}
+
+.related-links {
+    display: block;
+}
+
+
+.button-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    padding-top: 0em;
+    padding-bottom: 0.5rem;
+    margin: 1.5em;
+}
+.button-bar .dropdown-download {
+        width: 8%;
+}
+
+.button-bar .button-print {
+    width: 8%;
+}
+
+.button-bar .dropdown-google-drive {
+    width: 1%;
 }
 
 /* TOC style */
@@ -262,70 +342,6 @@ nav li.active > a {
     padding: 0.6em;
 }
 
-.drop-button-google-drive {
-    background-image: url(../img/google-drive-brands.svg);
-    background-repeat: no-repeat;
-    background-color: #FFFFFF;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    position: relative;
-    left: 53em;
-    cursor: pointer;
-    bottom: 2.5em;
-}
-
-/* The container <div> - needed to position the dropdown content */
-.dropdown-google-drive {
-    position: relative;
-    display: inline-block;
-}
-
-/* Dropdown Content (Hidden by Default) */
-.dropdown-content-google-drive {
-    display: none;
-    position: absolute;
-    background-color: #f1f1f1;
-    max-width: 5px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-    z-index: 1;
-    left: 51.5em;
-    top: 0.2em;
-}
-
-
-/* Links inside the dropdown */
-.dropdown-content-google-drive div {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-button, input, optgroup, select, textarea {
-    margin: 0;
-    font-family: inherit;
-    font-size: inherit;
-    line-height: inherit;
-    border: none;
-    padding-bottom: 0.4em;
-}
-
-/* Change color of dropdown links on hover */
-.dropdown-content-google-drive a:hover {
-    background-color: #ddd
-}
-
-/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
-.show {
-    display: block;
-}
-
-.related-links {
-    display: block;
-}
-
-/*end style for dropdown buttons*/
 
 @media print {
     .rocks-header {
@@ -372,7 +388,6 @@ button, input, optgroup, select, textarea {
     font-size: 10px;
     color: #eee;
     padding: 0em 2em;
-    word-wrap: break-word;
     width: 120px;
     top: 130%;
     left: 50%;
@@ -384,8 +399,8 @@ button, input, optgroup, select, textarea {
 }
 
 /* Tooltip for 'Print' button */
-.tooltip-print {
-    display: none;
+.tooltip-print{
+     display: none;
     position: absolute;
     background-color: #333;
     opacity: 50%;
@@ -393,10 +408,8 @@ button, input, optgroup, select, textarea {
     font-size: 10px;
     color: #eee;
     padding: 0em 2em;
-    word-wrap: break-word;
     width: 120px;
-    top: 130%;
-    left: 50%;
+    top: 18.5em;
     margin-left: -60px;
 }
 
@@ -414,7 +427,6 @@ button, input, optgroup, select, textarea {
     font-size: 10px;
     color: #eee;
     padding: 0em 2em;
-    word-wrap: break-word;
     width: 120px;
     top: 130%;
     left: 50%;
@@ -434,7 +446,6 @@ button, input, optgroup, select, textarea {
     font-size: 10px;
     color: #eee;
     padding: 0em 2em;
-    word-wrap: break-word;
     width: 120px;
     top: 110%;
     left: 20%;
