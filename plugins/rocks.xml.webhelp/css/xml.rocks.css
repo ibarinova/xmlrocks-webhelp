@@ -167,9 +167,9 @@ a:hover, a:visited, a:link, a:active {
     font-size: 16px;
     border: none;
     position: relative;
-    left: 49em;
+    left: 45em;
     cursor: pointer;
-    bottom: 2.5em;
+    top: 1.7em;
 }
 
 .dropdown-download {
@@ -216,7 +216,7 @@ button, input, optgroup, select, textarea {
     display: block;
 }
 
-#printbtn {
+.print-button {
     background-image: url(../img/print-solid.svg);
     background-repeat: no-repeat;
     background-color: #FFFFFF;
@@ -224,9 +224,9 @@ button, input, optgroup, select, textarea {
     font-size: 16px;
     border: none;
     position: relative;
-    left: 51em;
+    left: 49em;
     cursor: pointer;
-    bottom: 0em;
+    bottom: 0.4em;
 }
 
 /* TOC style */
@@ -361,3 +361,66 @@ button, input, optgroup, select, textarea {
     }
 }
 
+
+/*tooltip for 'Download' button*/
+.tooltip-download {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    opacity: 50%;
+    border-radius: 3px;
+    font-size: 10px;
+    color: #eee;
+    padding: 0em 2em;
+    word-wrap: break-word;
+    width: 120px;
+    top: 130%;
+    left: 50%;
+    margin-left: -60px;
+}
+
+.drop-button-download:hover > .tooltip-download {
+    display: block;
+}
+
+/* Tooltip for 'Print' button */
+.tooltip-print {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    opacity: 50%;
+    border-radius: 3px;
+    font-size: 10px;
+    color: #eee;
+    padding: 0em 2em;
+    word-wrap: break-word;
+    width: 120px;
+    top: 130%;
+    left: 50%;
+    margin-left: -60px;
+}
+
+.print-button:hover > .tooltip-print {
+    display: block;
+}
+
+/* Tooltip for 'Save to Google Drive' button*/
+.tooltip-google-drive {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    opacity: 50%;
+    border-radius: 3px;
+    font-size: 10px;
+    color: #eee;
+    padding: 0em 2em;
+    word-wrap: break-word;
+    width: 120px;
+    top: 130%;
+    left: 50%;
+    margin-left: -60px;
+}
+
+.drop-button-google-drive:hover > .tooltip-google-drive {
+    display: block;
+}
