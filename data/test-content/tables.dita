@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
+<reference id="tables">
+
+    <title>Test content with different table attributes</title>
+
+    <shortdesc>For creating good table layout need to change table attributes (f.e. 'frame' and 'colsep').
+        With different values of this attributes we'll have different result
+    </shortdesc>
+
+    <refbody>
+        <p>Lorem ipsum dolor sit amet. Cum fugit beatae hic laborum qui incidunt ipsa? Eum consequatur praesentium ut
+            quia accusantium eum dolorum dolor et quod magnam. Et debitis quidem eos laboriosam iste eum laudantium
+            nihil est officia assumenda sed quasi provident.
+        </p>
+        <section>
+            <table outputclass="table-hover" frame="sides" colsep="0" rowsep="1">
+                <title>outputclass="table-hover" frame="sides" colsep="0" rowsep="1"</title>
+                <tgroup cols="2">
+                    <colspec colwidth="1*"/>
+                    <colspec colwidth="1*"/>
+                    <thead>
+                        <row>
+                            <entry>Plug-in</entry>
+                            <entry>Source code location</entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>DocBook</entry>
+                            <entry>
+                                <xref href="https://github.com/dita-ot/org.dita.docbook" format="html"
+                                      scope="external"/>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>Eclipse Content</entry>
+                            <entry>
+                                <xref href="https://github.com/dita-ot/org.dita.eclipsecontent" format="html"
+                                      scope="external"/>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>OpenDocument Text</entry>
+                            <entry>
+                                <xref href="https://github.com/dita-ot/org.dita.odt" format="odt" scope="external"/>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>Word RTF</entry>
+                            <entry>
+                                <xref href="https://github.com/dita-ot/org.dita.wordrtf" format="html"
+                                      scope="external"/>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+
+            <table outputclass="table-hover" frame="sides" colsep="0" rowsep="0">
+                <title>outputclass="table-hover" frame="sides" colsep="0" rowsep="0"</title>
+                <tgroup cols="2">
+                    <colspec colwidth="1*"/>
+                    <colspec colwidth="1*"/>
+                    <thead>
+                        <row>
+                            <entry>Plug-in</entry>
+                            <entry>Source code location</entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>DocBook</entry>
+                            <entry>
+                                <xref href="https://github.com/dita-ot/org.dita.docbook" format="html"
+                                      scope="external"/>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>Eclipse Content</entry>
+                            <entry>
+                                <xref href="https://github.com/dita-ot/org.dita.eclipsecontent" format="html"
+                                      scope="external"/>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>OpenDocument Text</entry>
+                            <entry>
+                                <xref href="https://github.com/dita-ot/org.dita.odt" format="odt" scope="external"/>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>Word RTF</entry>
+                            <entry>
+                                <xref href="https://github.com/dita-ot/org.dita.wordrtf" format="html"
+                                      scope="external"/>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+
+            <table outputclass="table-hover" frame="sides" colsep="1" rowsep="1">
+                <title>outputclass="table-hover" frame="sides" colsep="1" rowsep="1"</title>
+                <tgroup cols="2">
+                    <colspec colwidth="1*"/>
+                    <colspec colwidth="1*"/>
+                    <thead>
+                        <row>
+                            <entry>Plug-in</entry>
+                            <entry>Source code location</entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>DocBook</entry>
+                            <entry>
+                                <xref href="https://github.com/dita-ot/org.dita.docbook" format="html"
+                                      scope="external"/>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>Eclipse Content</entry>
+                            <entry>
+                                <xref href="https://github.com/dita-ot/org.dita.eclipsecontent" format="html"
+                                      scope="external"/>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>OpenDocument Text</entry>
+                            <entry>
+                                <xref href="https://github.com/dita-ot/org.dita.odt" format="odt" scope="external"/>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>Word RTF</entry>
+                            <entry>
+                                <xref href="https://github.com/dita-ot/org.dita.wordrtf" format="html"
+                                      scope="external"/>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+
+            <table outputclass="table-hover" frame="sides" colsep="1" rowsep="0">
+                <title>outputclass="table-hover" frame="sides" colsep="1" rowsep="0"</title>
+                <tgroup cols="2">
+                    <colspec colwidth="1*"/>
+                    <colspec colwidth="1*"/>
+                    <thead>
+                        <row>
+                            <entry>Plug-in</entry>
+                            <entry>Source code location</entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>DocBook</entry>
+                            <entry>
+                                <xref href="https://github.com/dita-ot/org.dita.docbook" format="html"
+                                      scope="external"/>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>Eclipse Content</entry>
+                            <entry>
+                                <xref href="https://github.com/dita-ot/org.dita.eclipsecontent" format="html"
+                                      scope="external"/>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>OpenDocument Text</entry>
+                            <entry>
+                                <xref href="https://github.com/dita-ot/org.dita.odt" format="odt" scope="external"/>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>Word RTF</entry>
+                            <entry>
+                                <xref href="https://github.com/dita-ot/org.dita.wordrtf" format="html"
+                                      scope="external"/>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+
+            <p>
+                Lorem ipsum dolor sit amet. Cum fugit beatae hic laborum qui incidunt ipsa? Eum consequatur praesentium
+                ut quia accusantium eum dolorum dolor et quod magnam. Et debitis quidem eos laboriosam iste eum
+                laudantium nihil est officia assumenda sed quasi provident.
+
+                Est nostrum voluptatem ab odio galisum est fuga quia. Et suscipit voluptas quo quia eaque et galisum
+                quasi eos minima tempora et repudiandae alias qui earum porro. Sit omnis quia nam animi temporibus et
+                eligendi animi. Quo numquam excepturi qui molestiae earum et explicabo iure aut obcaecati architecto.
+            </p>
+
+            <table outputclass="table-hover" frame="all" colsep="0" rowsep="1">
+
+                <title>outputclass="table-hover" frame="all" colsep="0" rowsep="1"</title>
+                <tgroup cols="2">
+                    <colspec colwidth="1*"/>
+                    <colspec colwidth="1*"/>
+                    <thead>
+                        <row>
+                            <entry>Plug-in</entry>
+                            <entry>Source code location</entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>DocBook</entry>
+                            <entry>
+                                <xref href="https://github.com/dita-ot/org.dita.docbook" format="html"
+                                      scope="external"/>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>Eclipse Content</entry>
+                            <entry>
+                                <xref href="https://github.com/dita-ot/org.dita.eclipsecontent" format="html"
+                                      scope="external"/>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>OpenDocument Text</entry>
+                            <entry>
+                                <xref href="https://github.com/dita-ot/org.dita.odt" format="odt" scope="external"/>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>Word RTF</entry>
+                            <entry>
+                                <xref href="https://github.com/dita-ot/org.dita.wordrtf" format="html"
+                                      scope="external"/>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+
+            <table outputclass="table-hover" frame="all" colsep="0" rowsep="0">
+                <title>outputclass="table-hover" frame="all" colsep="0" rowsep="0"</title>
+                <tgroup cols="2">
+                    <colspec colwidth="1*"/>
+                    <colspec colwidth="1*"/>
+                    <thead>
+                        <row>
+                            <entry>Plug-in</entry>
+                            <entry>Source code location</entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>DocBook</entry>
+                            <entry>
+                                <xref href="https://github.com/dita-ot/org.dita.docbook" format="html"
+                                      scope="external"/>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>Eclipse Content</entry>
+                            <entry>
+                                <xref href="https://github.com/dita-ot/org.dita.eclipsecontent" format="html"
+                                      scope="external"/>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>OpenDocument Text</entry>
+                            <entry>
+                                <xref href="https://github.com/dita-ot/org.dita.odt" format="odt" scope="external"/>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>Word RTF</entry>
+                            <entry>
+                                <xref href="https://github.com/dita-ot/org.dita.wordrtf" format="html"
+                                      scope="external"/>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+
+            <table outputclass="table-hover" frame="all" colsep="1" rowsep="1">
+                <title>outputclass="table-hover" frame="all" colsep="1" rowsep="1"</title>
+                <tgroup cols="2">
+                    <colspec colwidth="1*"/>
+                    <colspec colwidth="1*"/>
+                    <thead>
+                        <row>
+                            <entry>Plug-in</entry>
+                            <entry>Source code location</entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>DocBook</entry>
+                            <entry>
+                                <xref href="https://github.com/dita-ot/org.dita.docbook" format="html"
+                                      scope="external"/>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>Eclipse Content</entry>
+                            <entry>
+                                <xref href="https://github.com/dita-ot/org.dita.eclipsecontent" format="html"
+                                      scope="external"/>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>OpenDocument Text</entry>
+                            <entry>
+                                <xref href="https://github.com/dita-ot/org.dita.odt" format="odt" scope="external"/>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>Word RTF</entry>
+                            <entry>
+                                <xref href="https://github.com/dita-ot/org.dita.wordrtf" format="html"
+                                      scope="external"/>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+
+            <table outputclass="table-hover" frame="all" colsep="1" rowsep="0">
+                <title>outputclass="table-hover" frame="all" colsep="1" rowsep="0"</title>
+                <tgroup cols="2">
+                    <colspec colwidth="1*"/>
+                    <colspec colwidth="1*"/>
+                    <thead>
+                        <row>
+                            <entry>Plug-in</entry>
+                            <entry>Source code location</entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>DocBook</entry>
+                            <entry>
+                                <xref href="https://github.com/dita-ot/org.dita.docbook" format="html"
+                                      scope="external"/>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>Eclipse Content</entry>
+                            <entry>
+                                <xref href="https://github.com/dita-ot/org.dita.eclipsecontent" format="html"
+                                      scope="external"/>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>OpenDocument Text</entry>
+                            <entry>
+                                <xref href="https://github.com/dita-ot/org.dita.odt" format="odt" scope="external"/>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>Word RTF</entry>
+                            <entry>
+                                <xref href="https://github.com/dita-ot/org.dita.wordrtf" format="html"
+                                      scope="external"/>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+
+            <p>
+                Lorem ipsum dolor sit amet. Cum fugit beatae hic laborum qui incidunt ipsa? Eum consequatur praesentium
+                ut quia accusantium eum dolorum dolor et quod magnam. Et debitis quidem eos laboriosam iste eum
+                laudantium nihil est officia assumenda sed quasi provident.
+
+                Est nostrum voluptatem ab odio galisum est fuga quia. Et suscipit voluptas quo quia eaque et galisum
+                quasi eos minima tempora et repudiandae alias qui earum porro. Sit omnis quia nam animi temporibus et
+                eligendi animi. Quo numquam excepturi qui molestiae earum et explicabo iure aut obcaecati architecto.
+
+                Hic itaque quia ut voluptatem laborum aut nihil nihil ea atque voluptatem est molestiae repellendus quo
+                molestiae voluptatem. Et consequatur fuga eum ducimus nostrum et dolorum veniam eum beatae soluta non
+                aliquam iusto est sapiente quibusdam. Sit eligendi harum quo recusandae doloremque quo molestiae
+                dolores. Nam dolor similique sit velit reiciendis aut accusantium dolorem ad aspernatur quae.
+            </p>
+            <table outputclass="table-bordered" frame="all" colsep="0" rowsep="1">
+                <title>outputclass="table-bordered" frame="all" colsep="0" rowsep="1"</title>
+                <tgroup cols="2">
+                    <colspec colwidth="1*"/>
+                    <colspec colwidth="1*"/>
+                    <thead>
+                        <row>
+                            <entry>Plug-in</entry>
+                            <entry>Source code location</entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>DocBook</entry>
+                            <entry>
+                                <xref href="https://github.com/dita-ot/org.dita.docbook" format="html"
+                                      scope="external"/>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>Eclipse Content</entry>
+                            <entry>
+                                <xref href="https://github.com/dita-ot/org.dita.eclipsecontent" format="html"
+                                      scope="external"/>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>OpenDocument Text</entry>
+                            <entry>
+                                <xref href="https://github.com/dita-ot/org.dita.odt" format="odt" scope="external"/>
+                            </entry>
+                        </row>
+                        <row>
+                            <entry>Word RTF</entry>
+                            <entry>
+                                <xref href="https://github.com/dita-ot/org.dita.wordrtf" format="html"
+                                      scope="external"/>
+                            </entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </section>
+    </refbody>
+</reference>
