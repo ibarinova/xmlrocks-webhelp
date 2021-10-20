@@ -473,23 +473,5 @@ tbody, td, tfoot, th, thead, tr {
 .table>thead {
     vertical-align: bottom;
     text-align: center;
-    background-color: lightgrey;
-}
-
-/*Codeblock*/
-
-code {
-    font-size: .895em;
-    color: #d63384;
-    word-wrap: break-word;
-    background-color: lightgrey;
-    border-radius: 3px;
-    font-family: monospace;
-}
-
-pre code {
-    font-size: inherit;
-    color: #d63384;
-    background-color: lightgrey;
-    word-break: normal;
+    background-color: #ebebed;
 }
