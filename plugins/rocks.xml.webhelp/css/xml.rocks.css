@@ -457,15 +457,39 @@ nav li.active > a {
     display: block;
 }
 
+/*Tables*/
 
-/* Tables*/
+.table-hover{
+    border: none;
+}
 
-.row {
-    --bs-gutter-x: 1.5rem;
-    --bs-gutter-y: 0;
-    display: flex;
-    flex-wrap: nowrap;
-    margin-top: calc(var(--bs-gutter-y) * -1);
-    margin-right: calc(var(--bs-gutter-x) * -.5);
-    margin-left: calc(var(--bs-gutter-x) * -.5);
+tbody, td, tfoot, th, thead, tr {
+    border-color: inherit;
+    border-style: solid;
+    border-width: 0;
+    border: 1px solid;
+}
+
+.table>thead {
+    vertical-align: bottom;
+    text-align: center;
+    background-color: lightgrey;
+}
+
+/*Codeblock*/
+
+code {
+    font-size: .895em;
+    color: #d63384;
+    word-wrap: break-word;
+    background-color: lightgrey;
+    border-radius: 3px;
+    font-family: monospace;
+}
+
+pre code {
+    font-size: inherit;
+    color: #d63384;
+    background-color: lightgrey;
+    word-break: normal;
 }

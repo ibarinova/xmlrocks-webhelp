@@ -393,7 +393,7 @@
                       tokenize($outputclass-attribute, '\s+'),
                       $flag-outputclass"/>
         <xsl:choose>
-            <xsl:when test="@class, ' topic/row '">
+            <xsl:when test="contains(@class, ' topic/row ')">
                 <xsl:attribute name="class" select="distinct-values($no-default-values-classes)" separator=" "/>
             </xsl:when>
             <xsl:otherwise>
