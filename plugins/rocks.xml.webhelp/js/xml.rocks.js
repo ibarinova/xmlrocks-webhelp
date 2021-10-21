@@ -196,6 +196,4 @@ $(document).ready(function() {
 
     // update expanded symbol
     $('.active').parents('nav li').children('.expand-collapse-button').html('- ');
-
-    $('[data-toggle="tooltip"]').tooltip();
 });
