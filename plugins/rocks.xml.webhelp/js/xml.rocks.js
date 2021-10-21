@@ -102,35 +102,30 @@ function dropdownDownload() {
 // Close the dropdown menu if the user clicks outside of it
 window.onclick = function (event) {
     if (!event.target.matches('.drop-button-download')) {
-        var dropdowns = document.getElementsByClassName("dropdown-content-download");
-        var i;
-        for (i = 0; i < dropdowns.length; i++) {
-            var openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains('show')) {
-                openDropdown.classList.remove('show');
-            }
-        }
+        closeDropDown("dropdown-content-download");
+    }
+
+    if (!event.target.matches('.drop-button-google-drive')) {
+        closeDropDown("dropdown-content-google-drive");
     }
 };
+
+function closeDropDown(className){
+    var dropdowns = document.getElementsByClassName(className);
+    for (var i = 0; i < dropdowns.length; i++) {
+        var openDropdown = dropdowns[i];
+        if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+        }
+    }
+}
+
 
 // Function for dropdown menu for 'save to Google Drive' button
 function dropdownGoogleDrive() {
     document.getElementById("menu-dropdown-google-drive").classList.toggle("show");
 }
 
-// Close the dropdown menu if the user clicks outside of it
-window.onclick = function (event) {
-    if (!event.target.matches('.drop-button-google-drive')) {
-        var dropdowns = document.getElementsByClassName("dropdown-content-google-drive");
-        var i;
-        for (i = 0; i < dropdowns.length; i++) {
-            var openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains('show')) {
-                openDropdown.classList.remove('show');
-            }
-        }
-    }
-};
 
 // The function dynamically updates parts of a web page, without reloading the whole page.
 function getDynamicTopicData(href, listItemID) {
