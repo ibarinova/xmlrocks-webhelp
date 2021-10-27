@@ -272,6 +272,7 @@ button, input, optgroup, select, textarea {
     line-height: inherit;
     border: none;
     padding-bottom: 0.4em;
+    background: none;
 }
 
 /* Change color of dropdown links on hover */
@@ -493,4 +494,20 @@ pre code {
     color: #d63384;
     background-color: lightgrey;
     word-break: normal;
+}
+
+/* Ul links*/
+.ullinks {
+    list-style-type: none;
+    padding: 0;
+}
+
+/*
+
+.ullinks .link >strong > a{
+    padding-left: 2em;
+}*/
+
+.ullink-ahref{
+    padding-left: 2em;
 }
