@@ -494,3 +494,13 @@ pre code {
     background-color: lightgrey;
     word-break: normal;
 }
+
+/* Ul links*/
+.ullinks {
+    list-style-type: none;
+    padding: 0;
+}
+
+.ullink-ahref{
+    padding-left: 2em;
+}
