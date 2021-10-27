@@ -272,7 +272,6 @@ button, input, optgroup, select, textarea {
     line-height: inherit;
     border: none;
     padding-bottom: 0.4em;
-    background: none;
 }
 
 /* Change color of dropdown links on hover */
