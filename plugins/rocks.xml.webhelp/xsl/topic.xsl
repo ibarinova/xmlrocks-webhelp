@@ -110,7 +110,7 @@
             <xsl:apply-templates select="." mode="addHeaderToHtmlBodyElement"/>
             <main role="main">
                 <xsl:attribute name="class" select="'container max-width'"/>
-                <xsl:call-template name="generateBreadcrumbs"/>
+                <xsl:call-template name="generate-custom-breadcrumbs"/>
                 <div class="button-bar">
                     <div class="dropdown-download">
                         <button onclick="dropdownDownload()" class="drop-button-download">
@@ -207,7 +207,6 @@
             <xsl:apply-templates/>
             <xsl:call-template name="gen-endnotes"/>
             <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-endprop ')]" mode="out-of-line"/>
-            <xsl:apply-templates select="*[contains(@class, ' topic/related-links ')]" mode="breadcrumb"/>
         </article>
     </xsl:template>
 
@@ -254,56 +253,22 @@
         <xsl:value-of select="year-from-date($currentDate)"/>
     </xsl:template>
 
-    <xsl:template match="*" mode="breadcrumb1" priority="-1">
-        <xsl:apply-templates select="node()" mode="breadcrumb1"/>
-    </xsl:template>
 
-    <xsl:template match="*[contains(@class, ' topic/related-links ')]" mode="breadcrumb">
+    <xsl:template match="*[contains(@class, ' topic/related-links ')]" mode="custom-breadcrumb">
         <xsl:for-each
                 select="descendant-or-self::*[contains(@class, ' topic/related-links ') or contains(@class, ' topic/linkpool ')][*[@role = 'ancestor']]">
 
-                <xsl:if test="$include.roles = 'previous'">
-                    <!--output previous link first, if it exists-->
-                    <xsl:if test="*[@href][@role = 'previous']">
-                        <xsl:apply-templates select="*[@href][@role = 'previous'][1]" mode="breadcrumb"/>
-                    </xsl:if>
-                </xsl:if>
-                <!--if both previous and next links exist, output a separator bar-->
-                <xsl:if test="$include.roles = 'previous' and $include.roles = 'next'">
-                    <xsl:if test="*[@href][@role = 'next'] and *[@href][@role = 'previous']">
-                        <xsl:text> | </xsl:text>
-                    </xsl:if>
-                </xsl:if>
-                <xsl:if test="$include.roles = 'next'">
-                    <!--output next link, if it exists-->
-                    <xsl:if test="*[@href][@role = 'next']">
-                        <xsl:apply-templates select="*[@href][@role = 'next'][1]" mode="breadcrumb"/>
-                    </xsl:if>
-                </xsl:if>
-                <xsl:if test="$include.roles = 'previous' and $include.roles = 'next' and $include.roles = 'ancestor'">
-                    <!--if we have either next or previous, plus ancestors, separate the next/prev from the ancestors with a vertical bar-->
-                    <xsl:if test="(*[@href][@role = 'next'] or *[@href][@role = 'previous']) and *[@href][@role = 'ancestor']">
-                        <xsl:text> | </xsl:text>
-                    </xsl:if>
-                </xsl:if>
-                <xsl:if test="$include.roles = 'ancestor'">
-                    <!--if ancestors exist, output them, and include a greater-than symbol after each one, including a trailing one-->
-                    <xsl:for-each select="*[@href][@role = 'ancestor']">
-                        <xsl:apply-templates select="."/>
-                        <xsl:text> &gt; </xsl:text>
-                    </xsl:for-each>
-                </xsl:if>
+            <xsl:if test="$include.roles = 'ancestor'">
+                <!--if ancestors exist, output them, and include a greater-than symbol after each one, including a trailing one-->
+                <xsl:for-each select="*[@href][@role = 'ancestor']">
+                    <xsl:apply-templates select="."/>
+                    <xsl:text> &gt; </xsl:text>
+                </xsl:for-each>
+            </xsl:if>
         </xsl:for-each>
     </xsl:template>
 
     <!--create breadcrumbs for each grouping of ancestor links; include previous, next, and ancestor links, sorted by linkpool/related-links parent. If there is more than one linkpool that contains ancestors, multiple breadcrumb trails will be generated-->
-    <xsl:template match="*[contains(@class, ' topic/related-links ')]" mode="breadcrumb1">
-        <xsl:for-each select="ancestor-or-self::*[contains(@class, ' topic/related-links ')]">
-            <xsl:apply-templates select="*[@href][@role = 'parent'][1]" mode="breadcrumb"/>
-        </xsl:for-each>
-
-        <xsl:value-of select="ancestor::*[contains(@class, ' topic/topic ')][1]/*[contains(@class, ' topic/title ')][1]"/>
-    </xsl:template>
 
     <xsl:template match="*" mode="addHeaderToHtmlBodyElement">
         <xsl:variable name="header-content">
@@ -323,8 +288,8 @@
         </xsl:if>
     </xsl:template>
 
-    <xsl:template name="generateBreadcrumbs">
-        <div class="breadcrumb">
+    <xsl:template name="generate-custom-breadcrumbs">
+        <div class="head-breadcrumb">
             <span class="home">
                 <a href="{concat($PATH2PROJ, 'index', $OUTEXT)}">
                     <xsl:text>Home</xsl:text>
@@ -333,8 +298,9 @@
             </span>
 
             <!-- Insert previous/next/ancestor breadcrumbs links at the top of the html5. -->
-            <xsl:apply-templates select="*[contains(@class, ' topic/related-links ')]" mode="breadcrumb"/>
-            <xsl:apply-templates select="*[contains(@class, ' topic/related-links ')]" mode="breadcrumb1"/>
+            <xsl:apply-templates select="*[contains(@class, ' topic/related-links ')]" mode="custom-breadcrumb"/>
+            <xsl:value-of
+                    select="descendant-or-self::*[contains(@class, ' topic/topic ')][1]/*[contains(@class, ' topic/title ')][1]"/>
         </div>
     </xsl:template>
 
@@ -403,6 +369,7 @@
         </xsl:choose>
     </xsl:template>
 
+    <!--template for adding custom classname to a element-->
     <!--basic child processing-->
     <xsl:template match="*[contains(@class, ' topic/link ')][@role = ('child', 'descendant')]" priority="2" name="topic.link_child">
         <li class="ulchildlink">
