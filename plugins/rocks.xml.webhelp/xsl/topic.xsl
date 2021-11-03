@@ -407,36 +407,4 @@
         </li>
     </xsl:template>
 
-
-    <!-- adding all borders to choicetables  -->
-    <xsl:template match="*[contains(@class,' task/choicetable ')]" name="topic.task.choicetable">
-        <xsl:apply-templates select="*[contains(@class,' ditaot-d/ditaval-startprop ')]" mode="out-of-line"/>
-        <xsl:call-template name="setaname"/>
-        <table border="1" frame="all" rules="rows" cellpadding="4" cellspacing="0" summary="" class="choicetableborder">
-            <xsl:call-template name="commonattributes"/>
-            <xsl:apply-templates select="." mode="generate-table-summary-attribute"/>
-            <xsl:call-template name="setid"/>
-            <xsl:call-template name="dita2html:simpletable-cols"/>
-            <!--If the choicetable has no header - output a default one-->
-            <xsl:variable name="chhead" as="element()?">
-                <xsl:choose>
-                    <xsl:when test="exists(*[contains(@class,' task/chhead ')])">
-                        <xsl:sequence select="*[contains(@class,' task/chhead ')]"/>
-                    </xsl:when>
-                    <xsl:otherwise>
-                        <xsl:variable name="gen" as="element(gen)?">
-                            <xsl:call-template name="gen-chhead"/>
-                        </xsl:variable>
-                        <xsl:sequence select="$gen/*"/>
-                    </xsl:otherwise>
-                </xsl:choose>
-            </xsl:variable>
-            <xsl:apply-templates select="$chhead"/>
-            <tbody>
-                <xsl:apply-templates select="*[contains(@class, ' task/chrow ')]"/>
-            </tbody>
-        </table>
-        <xsl:apply-templates select="*[contains(@class,' ditaot-d/ditaval-endprop ')]" mode="out-of-line"/>
-    </xsl:template>
-
 </xsl:stylesheet>
