@@ -1,5 +1,5 @@
-//Get the button
-var backToTopButton = document.getElementById("button-back-to-top");
+var backToTopButton = document.getElementById("button-back-to-top"),
+    state = null;
 
 // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function () {
@@ -126,40 +126,23 @@ function dropdownGoogleDrive() {
     document.getElementById("menu-dropdown-google-drive").classList.toggle("show");
 }
 
+//prevent default TOC links
+$('div.toc-container nav li a').click(function(event) {
+    event.preventDefault();
+});
 
 // The function dynamically updates parts of a web page, without reloading the whole page.
-function getDynamicTopicData(href, listItemID) {
+function getDynamicTopicData(href) {
     switch (window.location.protocol) {
         case 'file:':
             // go to href if HTML is opened as file:
             window.location = href;
             break;
         default:
-            // update required elements if HTML is opened on server
-            jQuery.post(href, function (content) {
-                var htmlContent = $.parseHTML(content),
-                    articleContent = $(htmlContent).find('article').contents(),
-                    breadcrumbsContent = $(htmlContent).find('.head-breadcrumb').contents(),
-                    titleContent = $(htmlContent).filter('title').contents();
+            // update address bar
+            window.history.pushState(href, "", href);
 
-                // update address bar
-                history.pushState("", "", href);
-
-                // update head title
-                $('title').html(titleContent);
-
-                // update breadcrumbs
-                $('.head-breadcrumb').html(breadcrumbsContent);
-
-                // update article
-                $('article').html(articleContent);
-
-                // reset .active
-                $('.toc-container').find('.active').removeClass('active');
-
-                // add .active to recent TOC li
-                $('.toc-container').find(listItemID).addClass('active');
-            }, 'html')
+            reloadDynamically(href);
     }
 }
 
@@ -196,4 +179,37 @@ $(document).ready(function() {
 
     // update expanded symbol
     $('.active').parents('nav li').children('.expand-collapse-button').html('- ');
+
+    window.addEventListener('popstate', function(event) {
+        state = event.state;
+        if(state != null && state != "null"){
+            reloadDynamically(state);
+        }
+    });
 });
+
+function reloadDynamically(href){
+    var currentHref = href;
+    jQuery.post(href, function (content) {
+        var htmlContent = $.parseHTML(content),
+            articleContent = $(htmlContent).find('article').contents(),
+            breadcrumbsContent = $(htmlContent).find('.head-breadcrumb').contents(),
+            titleContent = $(htmlContent).filter('title').contents(),
+            listItemID = $(htmlContent).find('.toc-container .active').attr('id');
+
+        // update head title
+        $('title').html(titleContent);
+
+        // update breadcrumbs
+        $('.head-breadcrumb').html(breadcrumbsContent);
+
+        // update article
+        $('article').html(articleContent);
+
+        // reset .active
+        $('.toc-container').find('.active').removeClass('active');
+
+        // add .active to recent TOC li
+        $('.toc-container').find('#' + listItemID).addClass('active');
+    }, 'html')
+}
