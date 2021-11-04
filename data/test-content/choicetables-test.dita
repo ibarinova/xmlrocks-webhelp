@@ -39,51 +39,29 @@
                     </chrow>
                 </choicetable>
             </step>
-
-<!--
-            <p>And Simpletable</p>
--->
-<!--
-            <step>
-                <simpletable outputclass="table-hover" frame="all" relcolwidth="2* 3*">
-                    <sthead>
-                        <stentry>File name</stentry>
-                        <stentry>Description</stentry>
-                    </sthead>
-                    <strow>
-                        <stentry>
-                            <filepath>plugin.xml</filepath>
-                        </stentry>
-                        <stentry>Control file for the Eclipse plug-in</stentry>
-                    </strow>
-                    <strow>
-                        <stentry>
-                            <filepath><varname>mapname</varname>.xml
-                            </filepath>
-                        </stentry>
-                        <stentry>Table of contents</stentry>
-                    </strow>
-                    <strow>
-                        <stentry>
-                            <filepath>index.xml</filepath>
-                        </stentry>
-                        <stentry>Index file</stentry>
-                    </strow>
-                    <strow>
-                        <stentry>
-                            <filepath>plugin.properties</filepath>
-                        </stentry>
-                        <stentry/>
-                    </strow>
-                    <strow>
-                        <stentry>
-                            <filepath>META-INF/MANIFEST.MF</filepath>
-                        </stentry>
-                        <stentry/>
-                    </strow>
-                </simpletable>
-            </step>
--->
         </steps>
     </taskbody>
 </task>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
