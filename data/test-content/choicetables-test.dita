@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN" "task.dtd">
+<task id="choicetables-test">
+    <title>Task with choicetable</title>
+    <taskbody>
+        <context>This task is created to test choicetables
+        </context>
+        <steps>
+            <step>
+                <cmd>Open...</cmd>
+                <choicetable>
+                    <chhead>
+                        <choptionhd>Do something</choptionhd>
+                        <chdeschd>Or Else this</chdeschd>
+                    </chhead>
+                    <chrow>
+                        <choption>Do this</choption>
+                        <chdesc>and this will happen</chdesc>
+                    </chrow>
+                    <chrow>
+                        <choption>Do that</choption>
+                        <chdesc>and that will happen</chdesc>
+                    </chrow>
+                </choicetable>
+            </step>
+
+            <step>
+                <cmd>Open a terminal window by typing the following in the search bar:</cmd>
+                <choicetable frame="topbot" relcolwidth="1* 3*" outputclass="multi-platform">
+                    <chrow platform="linux mac">
+                        <choption>Linux or macOS&#xA0;</choption>
+                        <chdesc>Type <userinput>Terminal</userinput>.
+                        </chdesc>
+                    </chrow>
+                    <chrow platform="windows">
+                        <choption>Windows</choption>
+                        <chdesc>Type <userinput>Command Prompt</userinput>.
+                        </chdesc>
+                    </chrow>
+                </choicetable>
+            </step>
+        </steps>
+    </taskbody>
+</task>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
