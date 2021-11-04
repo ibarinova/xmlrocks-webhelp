@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
-<reference id="tables">
+<reference id="tables1">
 
     <title>Test content with different table attributes</title>
 
@@ -9,11 +9,11 @@
     </shortdesc>
 
     <refbody>
-        <p>Lorem ipsum dolor sit amet. Cum fugit beatae hic laborum qui incidunt ipsa? Eum consequatur praesentium ut
-            quia accusantium eum dolorum dolor et quod magnam. Et debitis quidem eos laboriosam iste eum laudantium
-            nihil est officia assumenda sed quasi provident.
-        </p>
         <section>
+            <p>Lorem ipsum dolor sit amet. Cum fugit beatae hic laborum qui incidunt ipsa? Eum consequatur praesentium ut
+                quia accusantium eum dolorum dolor et quod magnam. Et debitis quidem eos laboriosam iste eum laudantium
+                nihil est officia assumenda sed quasi provident.
+            </p>
             <table outputclass="table-hover" frame="sides" colsep="0" rowsep="1">
                 <title>outputclass="table-hover" frame="sides" colsep="0" rowsep="1"</title>
                 <tgroup cols="2">
