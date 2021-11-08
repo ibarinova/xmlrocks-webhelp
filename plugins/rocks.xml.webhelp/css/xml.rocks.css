@@ -41,6 +41,10 @@
     box-shadow: 0 0 5px #bbbbbb;
 }
 
+main {
+    min-height: calc(100vh - 150px);
+}
+
 .rounded-card-rocks {
     border-radius: 8px;
     background-color: #fbfbfb;
