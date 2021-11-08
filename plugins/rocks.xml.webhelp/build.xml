@@ -3,11 +3,16 @@
     <target name="dita2xmlrocks-webhelp.init">
         <property name="nav-toc" value="full"/>
         <property name="args.csspath" value="css"/>
+
+        <condition property="generate-pdf">
+            <equals arg1="${includes-pdf}" arg2="yes" trim="true"/>
+        </condition>
     </target>
 
     <target name="dita2xmlrocks-webhelp" depends="dita2xmlrocks-webhelp.init,
                                                 dita2html5,
-                                                dita2xmlrocks-webhelp.copy-resources"/>
+                                                dita2xmlrocks-webhelp.copy-resources,
+                                                dita2xmlrocks-generate-pdf"/>
 
     <target name="dita2xmlrocks-webhelp.copy-resources">
         <copy todir="${output.dir}/${args.csspath}">
@@ -33,5 +38,9 @@
                 <include name="**/*.*"/>
             </fileset>
         </copy>
+    </target>
+
+    <target name="dita2xmlrocks-generate-pdf" if="generate-pdf">
+        <antcall target="dita2pdf"/>
     </target>
 </project>

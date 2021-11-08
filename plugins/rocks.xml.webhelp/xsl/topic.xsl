@@ -5,6 +5,19 @@
                 xmlns:dita2html="http://dita-ot.sourceforge.net/ns/200801/dita2html"
                 exclude-result-prefixes="#all"
                 version="2.0">
+
+    <xsl:param name="using-input"/>
+
+    <xsl:variable name="input-string" select="$using-input"/>
+    <xsl:variable name="map-name"
+                  select="tokenize($using-input, '/')[last()]"/>
+    <xsl:variable name="publication-name"
+                  select="substring-before($map-name, '.ditamap')"/>
+    <xsl:variable name="output-pdf" select="concat($PATH2PROJ, $publication-name, '.pdf')"/>
+<!--
+    <xsl:variable name="output-pdf" select="concat($PATH2PROJ, 'pdf/',$publication-name, '.pdf')"/> if output will be in pdf folder into output
+-->
+
     <!--Param & variable for creating breadcrumbs-->
     <xsl:param name="include.rellinks"
                select="'#default parent child sibling friend next previous cousin ancestor descendant sample external other'"
@@ -120,7 +133,7 @@
 
                         <div id="menu-dropdown-download" class="dropdown-content-download">
                             <input type="button" id="downloadbtn" value="Download this page as PDF" onclick="getPDF()"/>
-                            <input type="button" value="Download PDF output" onclick="DownloadFile('bm_dude.pdf')"/>
+                            <a href="{$output-pdf}" target="_blank"> Download PDF output</a>
                         </div>
                     </div>
 
