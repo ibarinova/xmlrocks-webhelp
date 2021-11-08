@@ -14,9 +14,6 @@
     <xsl:variable name="publication-name"
                   select="substring-before($map-name, '.ditamap')"/>
     <xsl:variable name="output-pdf" select="concat($PATH2PROJ, $publication-name, '.pdf')"/>
-<!--
-    <xsl:variable name="output-pdf" select="concat($PATH2PROJ, 'pdf/',$publication-name, '.pdf')"/> if output will be in pdf folder into output
--->
 
     <!--Param & variable for creating breadcrumbs-->
     <xsl:param name="include.rellinks"
