@@ -12,3 +12,6 @@ ____
 ```
 $ dita --install rocks.xml.webhelp
 ```
+----
+## Parameters
+1. There is ```'includes-pdf'``` parameter for creating output in pdf format and adding 'Download PDF output ' button.
