@@ -7,13 +7,14 @@
                 version="2.0">
 
     <xsl:param name="using-input"/>
+    <xsl:param name="includes-pdf"/>
 
     <xsl:variable name="input-string" select="$using-input"/>
     <xsl:variable name="map-name"
                   select="tokenize($using-input, '/')[last()]"/>
     <xsl:variable name="publication-name"
                   select="substring-before($map-name, '.ditamap')"/>
-    <xsl:variable name="output-pdf" select="concat($PATH2PROJ, $publication-name, '.pdf')"/>
+    <xsl:variable name="output-pdf" select="concat($PATH2PROJ, 'pdf/',$publication-name, '.pdf')"/>
 
     <!--Param & variable for creating breadcrumbs-->
     <xsl:param name="include.rellinks"
@@ -130,7 +131,14 @@
 
                         <div id="menu-dropdown-download" class="dropdown-content-download">
                             <input type="button" id="downloadbtn" value="Download this page as PDF" onclick="getPDF()"/>
-                            <a href="{$output-pdf}" target="_blank"> Download PDF output</a>
+                            <xsl:choose>
+                                <xsl:when test="$includes-pdf = 'yes'">
+                                    <a href="{$output-pdf}" target="_blank">Download PDF output</a>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <xsl:next-match/>
+                                </xsl:otherwise>
+                            </xsl:choose>
                         </div>
                     </div>
 

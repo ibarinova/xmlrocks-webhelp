@@ -42,5 +42,18 @@
 
     <target name="dita2xmlrocks-generate-pdf" if="generate-pdf">
         <antcall target="dita2pdf"/>
+        <basename property="name-of-input" file="${args.input}"/>
+        <loadresource property="name-of-map">
+            <propertyresource name="name-of-input"/>
+            <filterchain>
+                <tokenfilter>
+                    <filetokenizer/>
+                    <replacestring from=".ditamap" to=""/>
+                    <replacestring from=".dita" to=""/>
+                    <replacestring from=".xml" to=""/>
+                </tokenfilter>
+            </filterchain>
+        </loadresource>
+        <move file="${output.dir}/${name-of-map}.pdf" todir="${output.dir}/pdf"/>
     </target>
 </project>
