@@ -177,11 +177,6 @@
             <!--       TODO: use text-dark for white background -->
             <span class="fs-4 text-light">
                 <xsl:choose>
-                    <!--TODO: it's not work-->
-                    <!--<xsl:when test="ancestor-or-self::*[contains(@class, ' map/map ')]">
-                        <xsl:value-of
-                                select="ancestor-or-self::*[contains(@class, ' map/map ')][1]/*[contains(@class, ' topic/title ')][1]"/>
-                    </xsl:when>-->
                     <xsl:when
                             test="$input.map/*[contains(@class, ' map/map ')][1]/*[contains(@class, ' topic/title ')][1]">
                         <xsl:value-of
