@@ -3,11 +3,32 @@
     <target name="dita2xmlrocks-webhelp.init">
         <property name="nav-toc" value="full"/>
         <property name="args.csspath" value="css"/>
+
+        <condition property="generate-pdf">
+            <or>
+                <equals arg1="${includes-pdf}" arg2="yes" trim="true"/>
+                <equals arg1="${includes-pdf}" arg2="true" trim="true"/>
+            </or>
+        </condition>
+
+        <basename property="args.input-basename" file="${args.input}"/>
+        <loadresource property="name-of-map">
+            <propertyresource name="args.input-basename"/>
+            <filterchain>
+                <tokenfilter>
+                    <filetokenizer/>
+                    <replacestring from=".ditamap" to=""/>
+                    <replacestring from=".dita" to=""/>
+                    <replacestring from=".xml" to=""/>
+                </tokenfilter>
+            </filterchain>
+        </loadresource>
     </target>
 
     <target name="dita2xmlrocks-webhelp" depends="dita2xmlrocks-webhelp.init,
                                                 dita2html5,
-                                                dita2xmlrocks-webhelp.copy-resources"/>
+                                                dita2xmlrocks-webhelp.copy-resources,
+                                                dita2xmlrocks-generate-pdf"/>
 
     <target name="dita2xmlrocks-webhelp.copy-resources">
         <copy todir="${output.dir}/${args.csspath}">
@@ -33,5 +54,10 @@
                 <include name="**/*.*"/>
             </fileset>
         </copy>
+    </target>
+
+    <target name="dita2xmlrocks-generate-pdf" if="generate-pdf">
+        <antcall target="dita2pdf"/>
+        <move file="${output.dir}/${name-of-map}.pdf" todir="${output.dir}/pdf"/>
     </target>
 </project>
