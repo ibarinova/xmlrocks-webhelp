@@ -8,6 +8,7 @@
 
     <xsl:param name="using-input"/>
     <xsl:param name="includes-pdf"/>
+    <xsl:param name="organization-name"/>
     <xsl:param name="name-of-map"/>
     <xsl:param name="include.rellinks"
                select="'#default parent child sibling friend next previous cousin ancestor descendant sample external other'"
@@ -184,10 +185,6 @@
             <!--       TODO: use text-dark for white background -->
             <span class="fs-4 text-light">
                 <xsl:choose>
-                    <xsl:when test="ancestor-or-self::*[contains(@class, ' map/map ')]">
-                        <xsl:value-of
-                                select="ancestor-or-self::*[contains(@class, ' map/map ')][1]/*[contains(@class, ' topic/title ')][1]"/>
-                    </xsl:when>
                     <xsl:when
                             test="$input.map/*[contains(@class, ' map/map ')][1]/*[contains(@class, ' topic/title ')][1]">
                         <xsl:value-of
@@ -219,10 +216,23 @@
     </xsl:template>
 
     <xsl:template match="*" mode="addFooterToHtmlBodyElement">
+        <xsl:variable name="organization-name">
+            <xsl:choose>
+                <xsl:when test="$organization-name != '${organization-name}'">
+                    <xsl:value-of select="$organization-name"/>
+                </xsl:when>
+                <xsl:when
+                        test="$input.map/descendant::*[contains(@class, ' bookmap/organization ')][1]">
+                    <xsl:value-of
+                            select="$input.map/descendant::*[contains(@class, ' bookmap/organization ')][1]"/>
+                </xsl:when>
+            </xsl:choose>
+        </xsl:variable>
+
         <footer class="footer-container">
             <div class="d-flex flex-column footer-div max-width">
-                <!-- FIXME 'Organization name ©' is HARDCODED! -->
-                <a class="footer-text d-inline-flex mt-2 mt-md-0 ms-md-auto" href="#">Organization name ©
+                <a class="footer-text d-inline-flex mt-2 mt-md-0 ms-md-auto" href="#">
+                    <xsl:value-of select="$organization-name"/>
                     <xsl:call-template name="insertCurrentYear"/>
                 </a>
             </div>

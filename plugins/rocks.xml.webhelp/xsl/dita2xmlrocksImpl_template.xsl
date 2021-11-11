@@ -3,4 +3,8 @@
 
   <xsl:import href="plugin:rocks.xml.webhelp:xsl/topic.xsl"/>
   <xsl:import href="plugin:rocks.xml.webhelp:xsl/nav.xsl"/>
+
+  <dita:extension id="rocks.xsl.html5"
+                  behavior="org.dita.dost.platform.ImportXSLAction"
+                  xmlns:dita="http://dita-ot.sourceforge.net"/>
 </xsl:stylesheet>
