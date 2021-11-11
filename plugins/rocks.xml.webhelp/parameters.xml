@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<dummy>
+    <param name="using-input" expression="${args.input}"/>
+    <param name="includes-pdf" expression="${includes-pdf}"/>
+    <param name="organization-name" expression="${organization-name}"/>
+    <param name="name-of-map" expression="${name-of-map}"/>
+</dummy>

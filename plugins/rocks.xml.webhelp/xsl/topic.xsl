@@ -5,7 +5,11 @@
                 xmlns:dita2html="http://dita-ot.sourceforge.net/ns/200801/dita2html"
                 exclude-result-prefixes="#all"
                 version="2.0">
-    <!--Param & variable for creating breadcrumbs-->
+
+    <xsl:param name="using-input"/>
+    <xsl:param name="includes-pdf"/>
+    <xsl:param name="organization-name"/>
+    <xsl:param name="name-of-map"/>
     <xsl:param name="include.rellinks"
                select="'#default parent child sibling friend next previous cousin ancestor descendant sample external other'"
                as="xs:string"/>
@@ -210,20 +214,19 @@
     <xsl:template match="*" mode="addFooterToHtmlBodyElement">
         <xsl:variable name="organization-name">
             <xsl:choose>
-                <xsl:when
-                        test="$input.map/descendant::*[contains(@class, ' bookmap/bookowner ')]/child::*[contains(@class, ' bookmap/organization ')]">
-                    <xsl:value-of
-                            select="$input.map/descendant::*[contains(@class, ' bookmap/bookowner ')]/child::*[contains(@class, ' bookmap/organization ')][1]"/>
+                <xsl:when test="$organization-name != '${organization-name}'">
+                    <xsl:value-of select="$organization-name"/>
                 </xsl:when>
-                <xsl:otherwise>
-                    <xsl:text>Organization name ©</xsl:text>
-                </xsl:otherwise>
+                <xsl:when
+                        test="$input.map/descendant::*[contains(@class, ' bookmap/organization ')][1]">
+                    <xsl:value-of
+                            select="$input.map/descendant::*[contains(@class, ' bookmap/organization ')][1]"/>
+                </xsl:when>
             </xsl:choose>
         </xsl:variable>
 
         <footer class="footer-container">
             <div class="d-flex flex-column footer-div max-width">
-                <!-- FIXME 'Organization name ©' is HARDCODED! -->
                 <a class="footer-text d-inline-flex mt-2 mt-md-0 ms-md-auto" href="#">
                     <xsl:value-of select="$organization-name"/>
                     <xsl:call-template name="insertCurrentYear"/>
