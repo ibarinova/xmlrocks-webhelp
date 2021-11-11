@@ -8,18 +8,12 @@
 
     <xsl:param name="using-input"/>
     <xsl:param name="includes-pdf"/>
-
-    <xsl:variable name="input-string" select="$using-input"/>
-    <xsl:variable name="map-name"
-                  select="tokenize($using-input, '/')[last()]"/>
-    <xsl:variable name="publication-name"
-                  select="substring-before($map-name, '.ditamap')"/>
-    <xsl:variable name="output-pdf" select="concat($PATH2PROJ, 'pdf/',$publication-name, '.pdf')"/>
-
-    <!--Param & variable for creating breadcrumbs-->
+    <xsl:param name="name-of-map"/>
     <xsl:param name="include.rellinks"
                select="'#default parent child sibling friend next previous cousin ancestor descendant sample external other'"
                as="xs:string"/>
+
+    <xsl:variable name="output-pdf" select="concat($PATH2PROJ, 'pdf/',$name-of-map, '.pdf')"/>
     <xsl:variable name="include.roles" select="tokenize(normalize-space($include.rellinks), '\s+')" as="xs:string*"/>
 
     <xsl:attribute-set name="banner">
@@ -131,7 +125,7 @@
 
                         <div id="menu-dropdown-download" class="dropdown-content-download">
                             <input type="button" id="downloadbtn" value="Download this page as PDF" onclick="getPDF()"/>
-                            <xsl:if test="$includes-pdf = 'yes'">
+                            <xsl:if test="($includes-pdf = 'yes') or ($includes-pdf = 'true')">
                                 <a href="{$output-pdf}" target="_blank">Download PDF output</a>
                             </xsl:if>
                         </div>

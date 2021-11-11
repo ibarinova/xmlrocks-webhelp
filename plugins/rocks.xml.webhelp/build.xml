@@ -5,8 +5,24 @@
         <property name="args.csspath" value="css"/>
 
         <condition property="generate-pdf">
-            <equals arg1="${includes-pdf}" arg2="yes" trim="true"/>
+            <or>
+                <equals arg1="${includes-pdf}" arg2="yes" trim="true"/>
+                <equals arg1="${includes-pdf}" arg2="true" trim="true"/>
+            </or>
         </condition>
+
+        <basename property="args.input-basename" file="${args.input}"/>
+        <loadresource property="name-of-map">
+            <propertyresource name="args.input-basename"/>
+            <filterchain>
+                <tokenfilter>
+                    <filetokenizer/>
+                    <replacestring from=".ditamap" to=""/>
+                    <replacestring from=".dita" to=""/>
+                    <replacestring from=".xml" to=""/>
+                </tokenfilter>
+            </filterchain>
+        </loadresource>
     </target>
 
     <target name="dita2xmlrocks-webhelp" depends="dita2xmlrocks-webhelp.init,
@@ -42,18 +58,6 @@
 
     <target name="dita2xmlrocks-generate-pdf" if="generate-pdf">
         <antcall target="dita2pdf"/>
-        <basename property="name-of-input" file="${args.input}"/>
-        <loadresource property="name-of-map">
-            <propertyresource name="name-of-input"/>
-            <filterchain>
-                <tokenfilter>
-                    <filetokenizer/>
-                    <replacestring from=".ditamap" to=""/>
-                    <replacestring from=".dita" to=""/>
-                    <replacestring from=".xml" to=""/>
-                </tokenfilter>
-            </filterchain>
-        </loadresource>
         <move file="${output.dir}/${name-of-map}.pdf" todir="${output.dir}/pdf"/>
     </target>
 </project>
