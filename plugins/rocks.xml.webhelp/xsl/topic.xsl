@@ -139,7 +139,7 @@
                         </button>
                     </div>
 
-                    <xsl:if test="($includes-pdf = 'yes') or ($includes-pdf = 'true')">
+                    <xsl:if test="$includes-pdf = ('yes', 'true')">
                         <div class="dropdown-google-drive">
                             <button onclick="dropdownGoogleDrive()" class="drop-button-google-drive">
                                 <span class="tooltip-google-drive">Click here to save to Google Drive</span>
