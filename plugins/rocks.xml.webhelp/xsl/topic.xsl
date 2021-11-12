@@ -127,7 +127,7 @@
 
                         <div id="menu-dropdown-download" class="dropdown-content-download">
                             <input type="button" id="downloadbtn" value="Download this page as PDF" onclick="getPDF()"/>
-                            <xsl:if test="($includes-pdf = 'yes') or ($includes-pdf = 'true')">
+                            <xsl:if test="$includes-pdf = ('yes', 'true')">
                                 <a href="{$output-pdf-full-path}" target="_blank">Download PDF output</a>
                             </xsl:if>
                         </div>
