@@ -139,18 +139,20 @@
                         </button>
                     </div>
 
-                    <div class="dropdown-google-drive">
-                        <button onclick="dropdownGoogleDrive()" class="drop-button-google-drive">
-                            <span class="tooltip-google-drive">Click here to save to Google Drive</span>
-                        </button>
-                        <div id="menu-dropdown-google-drive" class="dropdown-content-google-drive">
-                            <input type="button" class="g-savetodrive"
-                                   data-src="{$output-pdf-full-path}"
-                                   data-filename="{$output-pdf}"
-                                   data-sitename="PDF output">
-                            </input>
+                    <xsl:if test="($includes-pdf = 'yes') or ($includes-pdf = 'true')">
+                        <div class="dropdown-google-drive">
+                            <button onclick="dropdownGoogleDrive()" class="drop-button-google-drive">
+                                <span class="tooltip-google-drive">Click here to save to Google Drive</span>
+                            </button>
+                            <div id="menu-dropdown-google-drive" class="dropdown-content-google-drive">
+                                <input type="button" class="g-savetodrive"
+                                       data-src="{$output-pdf-full-path}"
+                                       data-filename="{$output-pdf}"
+                                       data-sitename="PDF output">
+                                </input>
+                            </div>
                         </div>
-                    </div>
+                    </xsl:if>
                 </div>
 
                 <div class="row row-cols-1 row-cols-md-3 mb-3 text-left">
