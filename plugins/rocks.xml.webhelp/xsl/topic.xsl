@@ -14,7 +14,8 @@
                select="'#default parent child sibling friend next previous cousin ancestor descendant sample external other'"
                as="xs:string"/>
 
-    <xsl:variable name="output-pdf" select="concat($PATH2PROJ, 'pdf/',$name-of-map, '.pdf')"/>
+    <xsl:variable name="output-pdf" select="concat($name-of-map, '.pdf')"/>
+    <xsl:variable name="output-pdf-full-path" select="concat($PATH2PROJ, 'pdf/',$name-of-map, '.pdf')"/>
     <xsl:variable name="include.roles" select="tokenize(normalize-space($include.rellinks), '\s+')" as="xs:string*"/>
 
     <xsl:attribute-set name="banner">
@@ -127,7 +128,7 @@
                         <div id="menu-dropdown-download" class="dropdown-content-download">
                             <input type="button" id="downloadbtn" value="Download this page as PDF" onclick="getPDF()"/>
                             <xsl:if test="($includes-pdf = 'yes') or ($includes-pdf = 'true')">
-                                <a href="{$output-pdf}" target="_blank">Download PDF output</a>
+                                <a href="{$output-pdf-full-path}" target="_blank">Download PDF output</a>
                             </xsl:if>
                         </div>
                     </div>
@@ -144,8 +145,8 @@
                         </button>
                         <div id="menu-dropdown-google-drive" class="dropdown-content-google-drive">
                             <input type="button" class="g-savetodrive"
-                                   data-src="pdf/bm_dude.pdf"
-                                   data-filename="bm_dude.pdf"
+                                   data-src="{$output-pdf-full-path}"
+                                   data-filename="{$output-pdf}"
                                    data-sitename="PDF output">
                             </input>
                         </div>
