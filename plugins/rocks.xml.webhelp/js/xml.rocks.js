@@ -101,6 +101,17 @@ $('div.toc-container nav li a').click(function(event) {
     event.preventDefault();
 });
 
+//Dynamically update page from the breadcrumbs links
+$('main').on('click', '.head-breadcrumb a.link', function (event) {
+    var currentHref = $(this).attr('href');
+
+    event.preventDefault();
+
+    window.history.pushState(currentHref, "", currentHref);
+
+    reloadDynamically(currentHref);
+});
+
 // The function dynamically updates parts of a web page, without reloading the whole page.
 function getDynamicTopicData(href) {
     switch (window.location.protocol) {
