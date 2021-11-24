@@ -2,9 +2,10 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
                 xmlns:related-links="http://dita-ot.sourceforge.net/ns/200709/related-links"
-                xmlns:dita2html="http://dita-ot.sourceforge.net/ns/200801/dita2html"
                 exclude-result-prefixes="#all"
                 version="2.0">
+
+    <xsl:import href="rel-links.xsl"/>
 
     <xsl:param name="using-input"/>
     <xsl:param name="includes-pdf"/>
@@ -119,18 +120,8 @@
                 <xsl:attribute name="class" select="'container max-width'"/>
                 <xsl:call-template name="generate-custom-breadcrumbs"/>
                 <div class="button-bar">
-                    <div class="button-next">
-                        <button class="next-button">
-                            <xsl:call-template name="next-prev-parent-links"/>
-                        </button>
-                    </div>
-
-                    <div class="button-prev">
-                        <button class="prev-button"/>
-                    </div>
-
                     <div class="dropdown-download">
-                        <button onclick="dropdownDownload()" class="drop-button-download">
+                        <button onclick="dropdownDownload()" class="button-dropdown-download">
                             <span class="tooltip-download">Click here to download page</span>
                         </button>
 
@@ -152,14 +143,14 @@
 
                     <xsl:if test="$includes-pdf = ('yes', 'true')">
                         <div class="dropdown-google-drive">
-                            <button onclick="dropdownGoogleDrxive()" class="drop-button-google-drive">
+                            <button onclick="dropdownGoogleDrive()" class="button-dropdown-share-google-drive">
                                 <span class="tooltip-google-drive">Click here to save to Google Drive</span>
                             </button>
 
                             <div id="menu-dropdown-google-drive" class="dropdown-content-google-drive">
                                 <input type="button" class="g-savetodrive"
                                        data-src="{$output-pdf-full-path}"
-                                       data-filename="local/{$output-pdf}"
+                                       data-filename="{$output-pdf}"
                                        data-sitename="PDF output">
                                 </input>
                             </div>
@@ -287,18 +278,6 @@
         <xsl:value-of select="year-from-date($currentDate)"/>
     </xsl:template>
 
-    <xsl:template match="*[contains(@class, ' topic/related-links ')]" mode="custom-breadcrumb">
-        <xsl:for-each
-                select="descendant-or-self::*[contains(@class, ' topic/related-links ') or contains(@class, ' topic/linkpool ')][*[@role = 'ancestor']]">
-
-            <xsl:if test="$include.roles = 'ancestor'">
-                <xsl:for-each select="*[@href][@role = 'ancestor']">
-                    <xsl:apply-templates select="."/>
-                    <xsl:text> &gt; </xsl:text>
-                </xsl:for-each>
-            </xsl:if>
-        </xsl:for-each>
-    </xsl:template>
 
     <xsl:template match="*" mode="addHeaderToHtmlBodyElement">
         <xsl:variable name="header-content">
@@ -316,21 +295,6 @@
                 <xsl:sequence select="$header-content"/>
             </header>
         </xsl:if>
-    </xsl:template>
-
-    <xsl:template name="generate-custom-breadcrumbs">
-        <div class="head-breadcrumb">
-            <span class="home">
-                <a href="{concat($PATH2PROJ, 'index', $OUTEXT)}">
-                    <xsl:text>Home</xsl:text>
-                </a>
-                <xsl:text> > </xsl:text>
-            </span>
-
-            <xsl:apply-templates select="*[contains(@class, ' topic/related-links ')]" mode="custom-breadcrumb"/>
-            <xsl:value-of
-                    select="descendant-or-self::*[contains(@class, ' topic/topic ')][1]/*[contains(@class, ' topic/title ')][1]"/>
-        </div>
     </xsl:template>
 
     <xsl:template match="*[contains(@class, ' topic/row ')]"

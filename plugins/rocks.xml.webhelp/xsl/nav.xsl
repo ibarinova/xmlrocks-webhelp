@@ -27,7 +27,7 @@
                     </xsl:if>
                     <!-- Added span with + symbol to expand child topics in TOC  -->
                     <xsl:if test="child::*[contains(@class, ' map/topicref ')][not(contains(@class, ' ditavalref-d/ditavalref '))]">
-                        <span id="{$testId}" class="expand-collapse-button" onclick="applyExpandedClass('#{$testId}')">+ </span>
+                        <span id="{$testId}" class="button-toc-expand-collapse" onclick="applyExpandedClass('#{$testId}')">+ </span>
                     </xsl:if>
                     <xsl:choose>
                         <xsl:when test="normalize-space(@href)">
