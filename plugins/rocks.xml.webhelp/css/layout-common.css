@@ -1,0 +1,57 @@
+.accent-background-color {
+    background-color: #000000b9;
+}
+
+.max-width {
+    max-width: 960px;
+}
+
+main {
+    min-height: calc(100vh - 150px);
+}
+
+/* --- Main bar START --- */
+.rocks-header {
+    position: sticky;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 5px #bbbbbb;
+}
+
+.main-header {
+    padding: 1rem;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.header-logo {
+    margin-right: 0.5em;
+}
+
+.search {
+    border: none;
+    border-radius: 30px;
+    box-shadow: 0 0 5px #bbbbbb;
+}
+/* --- Main bar END --- */
+
+/* --- Footer START --- */
+.footer-container {
+    background-color: #ebebeb;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+.footer-div {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.footer-text {
+    padding: 1rem;
+    text-decoration: none;
+    color: #1a1e21;
+}
+/* --- Footer END --- */

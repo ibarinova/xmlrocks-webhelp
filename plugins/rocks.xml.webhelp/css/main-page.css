@@ -1,0 +1,19 @@
+/* --- Main page tiles START --- */
+.main-page-container > .title {
+    font-size: 35px;
+    font-weight: 200;
+    margin: 0.7em 0;
+}
+
+.main-page-tile {
+    min-height: 100px;
+    padding: 0.6em;
+}
+
+.main-page-tile > a:hover,
+.main-page-tile > a:visited,
+.main-page-tile > a:link,
+.main-page-tile > a:active {
+    text-decoration: none;
+}
+/* --- Main page tiles END --- */
