@@ -129,7 +129,7 @@
                                     onclick="getPDF()"/>
 
                             <xsl:if test="$includes-pdf = ('yes', 'true')">
-                                <a href="{$output-pdf-full-path}" target="_blank">Download PDF output</a>
+                                <a href="{$output-pdf-full-path}" target="_blank" download="{$output-pdf-name}">Download PDF output</a>
                             </xsl:if>
                         </div>
                     </div>
@@ -190,6 +190,10 @@
 
             <span class="fs-4 text-light">
                 <xsl:choose>
+                    <xsl:when test="ancestor-or-self::*[contains(@class, ' map/map ')]">
+                        <xsl:value-of
+                                select="ancestor-or-self::*[contains(@class, ' map/map ')][1]/*[contains(@class, ' topic/title ')][1]"/>
+                    </xsl:when>
                     <xsl:when
                             test="$input.map/*[contains(@class, ' map/map ')][1]/*[contains(@class, ' topic/title ')][1]">
                         <xsl:value-of
@@ -239,6 +243,7 @@
             <div class="d-flex flex-column footer-div max-width">
                 <a class="footer-text d-inline-flex" href="#">
                     <xsl:value-of select="$organization-name"/>
+                    <xsl:text> </xsl:text>
                     <xsl:call-template name="insertCurrentYear"/>
                 </a>
             </div>
