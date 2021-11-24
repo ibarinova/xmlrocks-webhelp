@@ -2,7 +2,6 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
                 xmlns:related-links="http://dita-ot.sourceforge.net/ns/200709/related-links"
-                xmlns:dita2html="http://dita-ot.sourceforge.net/ns/200801/dita2html"
                 exclude-result-prefixes="#all"
                 version="2.0">
 
@@ -14,8 +13,9 @@
                select="'#default parent child sibling friend next previous cousin ancestor descendant sample external other'"
                as="xs:string"/>
 
-    <xsl:variable name="output-pdf" select="concat($name-of-map, '.pdf')"/>
-    <xsl:variable name="output-pdf-full-path" select="concat($PATH2PROJ, 'pdf/',$name-of-map, '.pdf')"/>
+    <xsl:variable name="output-pdf-name" select="concat($name-of-map, '.pdf')"/>
+    <xsl:variable name="output-pdf-full-path" select="concat($PATH2PROJ, 'pdf/',$output-pdf-name)"/>
+
     <xsl:variable name="include.roles" select="tokenize(normalize-space($include.rellinks), '\s+')" as="xs:string*"/>
 
     <xsl:attribute-set name="banner">
@@ -41,8 +41,6 @@
     </xsl:template>
 
     <xsl:template name="generateCssLinks">
-        <!-- When user pass empty string in args.csspath parameter then $CSSPATH='/' -->
-        <!-- so we need to remove slash symbol to use css files in root directory -->
         <xsl:variable name="css-path-normalized" select="if($CSSPATH = '/') then('') else($CSSPATH)"/>
 
         <xsl:variable name="childlang" as="xs:string">
@@ -88,8 +86,8 @@
             </xsl:otherwise>
         </xsl:choose>
 
-        <link rel="stylesheet" type="text/css" href="{$PATH2PROJ}{$css-path-normalized}bootstrap.min.css" />
-        <link rel="stylesheet" type="text/css" href="{$PATH2PROJ}{$css-path-normalized}xml.rocks.css" />
+        <link rel="stylesheet" type="text/css" href="{$PATH2PROJ}{$css-path-normalized}bootstrap.min.css"/>
+        <link rel="stylesheet" type="text/css" href="{$PATH2PROJ}{$css-path-normalized}xml.rocks.css"/>
 
         <xsl:if test="string-length($CSS) > 0">
             <xsl:choose>
@@ -116,38 +114,43 @@
             <xsl:apply-templates select="." mode="addAttributesToHtmlBodyElement"/>
             <xsl:call-template name="setaname"/>
             <xsl:apply-templates select="." mode="addHeaderToHtmlBodyElement"/>
+
             <main role="main">
                 <xsl:attribute name="class" select="'container max-width'"/>
                 <xsl:call-template name="generate-custom-breadcrumbs"/>
                 <div class="button-bar">
                     <div class="dropdown-download">
-                        <button onclick="dropdownDownload()" class="drop-button-download">
+                        <button onclick="dropdownDownload()" class="button-dropdown-download">
                             <span class="tooltip-download">Click here to download page</span>
                         </button>
 
                         <div id="menu-dropdown-download" class="dropdown-content-download">
-                            <input type="button" id="downloadbtn" value="Download this page as PDF" onclick="getPDF()"/>
+                            <button type="button" id="downloadbtn" value="Download this page as PDF"
+                                    onclick="getPDF()"/>
+
                             <xsl:if test="$includes-pdf = ('yes', 'true')">
                                 <a href="{$output-pdf-full-path}" target="_blank">Download PDF output</a>
                             </xsl:if>
                         </div>
                     </div>
 
-                    <div class="button-print">
-                        <button onclick="window.print()" id="printbtn" class="print-button">
+                    <div class="button-print-container">
+                        <button onclick="window.print()" id="printbtn" class="button-print">
                             <span class="tooltip-print">Click here to print page</span>
                         </button>
                     </div>
 
                     <xsl:if test="$includes-pdf = ('yes', 'true')">
                         <div class="dropdown-google-drive">
-                            <button onclick="dropdownGoogleDrive()" class="drop-button-google-drive">
+                            <button onclick="dropdownGoogleDrive()" class="button-dropdown-share-google-drive">
                                 <span class="tooltip-google-drive">Click here to save to Google Drive</span>
                             </button>
+
                             <div id="menu-dropdown-google-drive" class="dropdown-content-google-drive">
+                                <xsl:text disable-output-escaping="yes">&lt;script src="https://apis.google.com/js/platform.js" async defer&gt;&lt;/script&gt;</xsl:text>
                                 <input type="button" class="g-savetodrive"
                                        data-src="{$output-pdf-full-path}"
-                                       data-filename="{$output-pdf}"
+                                       data-filename="{$output-pdf-name}"
                                        data-sitename="PDF output">
                                 </input>
                             </div>
@@ -156,13 +159,14 @@
                 </div>
 
                 <div class="row row-cols-1 row-cols-md-3 mb-3 text-left">
-                    <div class="col col-sm-4">
+                    <div class="col col-sm-4" id="toc-wrapper">
                         <div class="card mb-4 rounded-card-rocks">
                             <div class="toc-container">
                                 <xsl:call-template name="gen-user-sidetoc"/>
                             </div>
                         </div>
                     </div>
+
                     <div class="col col-sm-8">
                         <xsl:apply-templates select="." mode="addContentToHtmlBodyElement"/>
                     </div>
@@ -176,16 +180,14 @@
 
     <xsl:template match="/|node()|@*" mode="gen-user-header">
         <div class="d-flex flex-column flex-md-row align-items-center mb-4 main-header max-width">
-            <!--       TODO: use text-dark for white background -->
             <div class="logo-header">
                 <a href="{$PATH2PROJ}index.html"
                    class="d-flex align-items-center text-light text-decoration-none header-logo">
                     <img src="{$PATH2PROJ}img/logo.svg"/>
                 </a>
                 <span class="tooltip-logo">Click here to go to the main page</span>
-
             </div>
-            <!--       TODO: use text-dark for white background -->
+
             <span class="fs-4 text-light">
                 <xsl:choose>
                     <xsl:when
@@ -198,6 +200,7 @@
                     </xsl:otherwise>
                 </xsl:choose>
             </span>
+
             <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
                 <input class="form-control search" type="search" placeholder="Search" aria-label="Search"/>
             </nav>
@@ -234,7 +237,7 @@
 
         <footer class="footer-container">
             <div class="d-flex flex-column footer-div max-width">
-                <a class="footer-text d-inline-flex mt-2 mt-md-0 ms-md-auto" href="#">
+                <a class="footer-text d-inline-flex" href="#">
                     <xsl:value-of select="$organization-name"/>
                     <xsl:call-template name="insertCurrentYear"/>
                 </a>
@@ -247,12 +250,13 @@
                 class="go-to-top accent-background-color"
                 id="button-back-to-top">
             <a href="#">
-                <!--       TODO: use stroke="#000" for white background-->
                 <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
                     <g id="Layer_1">
-                        <line stroke="#fff" id="svg_7" y2="17.66667" x2="26.33332" y1="30.33333" x1="13.66667" stroke-width="4"
+                        <line stroke="#fff" id="svg_7" y2="17.66667" x2="26.33332" y1="30.33333" x1="13.66667"
+                              stroke-width="4"
                               fill="none"/>
-                        <line transform="rotate(90.1903 29.9999 24)" stroke="#fff" id="svg_10" y2="17.66667" x2="36.33323"
+                        <line transform="rotate(90.1903 29.9999 24)" stroke="#fff" id="svg_10" y2="17.66667"
+                              x2="36.33323"
                               y1="30.33333" x1="23.66658" stroke-width="4" fill="none"/>
                     </g>
                 </svg>
@@ -275,22 +279,6 @@
     </xsl:template>
 
 
-    <xsl:template match="*[contains(@class, ' topic/related-links ')]" mode="custom-breadcrumb">
-        <xsl:for-each
-                select="descendant-or-self::*[contains(@class, ' topic/related-links ') or contains(@class, ' topic/linkpool ')][*[@role = 'ancestor']]">
-
-            <xsl:if test="$include.roles = 'ancestor'">
-                <!--if ancestors exist, output them, and include a greater-than symbol after each one, including a trailing one-->
-                <xsl:for-each select="*[@href][@role = 'ancestor']">
-                    <xsl:apply-templates select="."/>
-                    <xsl:text> &gt; </xsl:text>
-                </xsl:for-each>
-            </xsl:if>
-        </xsl:for-each>
-    </xsl:template>
-
-    <!--create breadcrumbs for each grouping of ancestor links; include previous, next, and ancestor links, sorted by linkpool/related-links parent. If there is more than one linkpool that contains ancestors, multiple breadcrumb trails will be generated-->
-
     <xsl:template match="*" mode="addHeaderToHtmlBodyElement">
         <xsl:variable name="header-content">
             <xsl:call-template name="gen-user-header"/>
@@ -309,42 +297,26 @@
         </xsl:if>
     </xsl:template>
 
-    <xsl:template name="generate-custom-breadcrumbs">
-        <div class="head-breadcrumb">
-            <span class="home">
-                <a href="{concat($PATH2PROJ, 'index', $OUTEXT)}">
-                    <xsl:text>Home</xsl:text>
-                </a>
-                <xsl:text> > </xsl:text>
-            </span>
-
-            <!-- Insert previous/next/ancestor breadcrumbs links at the top of the html5. -->
-            <xsl:apply-templates select="*[contains(@class, ' topic/related-links ')]" mode="custom-breadcrumb"/>
-            <xsl:value-of
-                    select="descendant-or-self::*[contains(@class, ' topic/topic ')][1]/*[contains(@class, ' topic/title ')][1]"/>
-        </div>
-    </xsl:template>
-
-    <!--Template for setting custom output class for rows-->
     <xsl:template match="*[contains(@class, ' topic/row ')]"
                   mode="get-output-class">table-row
     </xsl:template>
 
-    <!-- Template for setting default value of output classes or applying custom classnames for different elements-->
     <xsl:template match="*" mode="set-output-class">
         <xsl:param name="default"/>
+
         <xsl:variable name="output-class">
             <xsl:apply-templates select="." mode="get-output-class"/>
         </xsl:variable>
+
         <xsl:variable name="draft-revs" as="xs:string*">
-            <!-- If draft is on, add revisions to default class. Simplifies processing in DITA-OT 1.6 and earlier
-                 that created an extra div or span around revised content, just to hold @class with revs. -->
             <xsl:if test="$DRAFT = 'yes'">
                 <xsl:sequence select="*[contains(@class, ' ditaot-d/ditaval-startprop ')]/revprop/@val"/>
             </xsl:if>
         </xsl:variable>
+
         <xsl:variable name="flag-outputclass" as="xs:string*"
                       select="tokenize(normalize-space(*[contains(@class, ' ditaot-d/ditaval-startprop ')]/@outputclass), '\s+')"/>
+
         <xsl:variable name="using-output-class" as="xs:string*">
             <xsl:choose>
                 <xsl:when test="string-length(normalize-space($output-class)) > 0">
@@ -355,6 +327,7 @@
                 </xsl:when>
             </xsl:choose>
         </xsl:variable>
+
         <xsl:variable name="ancestry" as="xs:string?">
             <xsl:if test="$PRESERVE-DITA-CLASS = 'yes'">
                 <xsl:value-of>
@@ -362,24 +335,26 @@
                 </xsl:value-of>
             </xsl:if>
         </xsl:variable>
+
         <xsl:variable name="outputclass-attribute" as="xs:string">
             <xsl:value-of>
                 <xsl:apply-templates select="@outputclass" mode="get-value-for-class"/>
             </xsl:value-of>
         </xsl:variable>
-        <!-- Revised design with DITA-OT 1.5: include class ancestry if requested;
-             combine user output class with element default, giving priority to the user value. -->
+
         <xsl:variable name="classes" as="xs:string*"
                       select="tokenize($ancestry, '\s+'),
                           $using-output-class,
                           $draft-revs,
                           tokenize($outputclass-attribute, '\s+'),
                           $flag-outputclass"/>
+
         <xsl:variable name="no-default-values-classes" as="xs:string*"
                       select="$using-output-class,
                       $draft-revs,
                       tokenize($outputclass-attribute, '\s+'),
                       $flag-outputclass"/>
+
         <xsl:choose>
             <xsl:when test="contains(@class, ' topic/row ')">
                 <xsl:attribute name="class" select="distinct-values($no-default-values-classes)" separator=" "/>
@@ -390,30 +365,27 @@
         </xsl:choose>
     </xsl:template>
 
-    <!--template for adding custom classname to a element-->
-    <!--basic child processing-->
-    <xsl:template match="*[contains(@class, ' topic/link ')][@role = ('child', 'descendant')]" priority="2" name="topic.link_child">
+    <xsl:template match="*[contains(@class, ' topic/link ')][@role = ('child', 'descendant')]" priority="2"
+                  name="topic.link_child">
         <li class="ulchildlink">
             <xsl:call-template name="commonattributes">
                 <xsl:with-param name="default-output-class" select="'ulchildlink'"/>
             </xsl:call-template>
-            <!-- Allow for unknown metadata (future-proofing) -->
             <xsl:apply-templates select="*[contains(@class, ' topic/data ') or contains(@class, ' topic/foreign ')]"/>
             <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-startprop ')]" mode="out-of-line"/>
+
             <strong>
                 <xsl:apply-templates select="." mode="related-links:unordered.child.prefix"/>
                 <xsl:apply-templates select="." mode="add-link-highlight-at-start"/>
+
                 <a class="ullink-ahref">
                     <xsl:apply-templates select="." mode="add-linking-attributes"/>
                     <xsl:apply-templates select="." mode="add-hoverhelp-to-child-links"/>
-
-                    <!--use linktext as linktext if it exists, otherwise use href as linktext-->
                     <xsl:choose>
                         <xsl:when test="*[contains(@class, ' topic/linktext ')]">
                             <xsl:apply-templates select="*[contains(@class, ' topic/linktext ')]"/>
                         </xsl:when>
                         <xsl:otherwise>
-                            <!--use href-->
                             <xsl:call-template name="href"/>
                         </xsl:otherwise>
                     </xsl:choose>
@@ -422,9 +394,7 @@
             </strong>
             <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-endprop ')]" mode="out-of-line"/>
             <br/>
-            <!--add the description on the next line, like a summary-->
             <xsl:apply-templates select="*[contains(@class, ' topic/desc ')]"/>
         </li>
     </xsl:template>
-
 </xsl:stylesheet>
