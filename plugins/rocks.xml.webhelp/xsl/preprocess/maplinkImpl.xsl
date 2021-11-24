@@ -3,8 +3,7 @@
 <xsl:stylesheet version="2.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
-                xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot"
-                exclude-result-prefixes="xs dita-ot">
+                exclude-result-prefixes="#all">
 
     <xsl:template match="*[contains(@class, ' map/topicref ')]" mode="link-from">
         <xsl:if test="$include.roles = 'parent'">

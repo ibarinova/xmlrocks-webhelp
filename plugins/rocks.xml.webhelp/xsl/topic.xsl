@@ -5,8 +5,6 @@
                 exclude-result-prefixes="#all"
                 version="2.0">
 
-    <xsl:import href="rel-links.xsl"/>
-
     <xsl:param name="using-input"/>
     <xsl:param name="includes-pdf"/>
     <xsl:param name="organization-name"/>
@@ -15,8 +13,9 @@
                select="'#default parent child sibling friend next previous cousin ancestor descendant sample external other'"
                as="xs:string"/>
 
-    <xsl:variable name="output-pdf" select="concat($name-of-map, '.pdf')"/>
-    <xsl:variable name="output-pdf-full-path" select="concat($PATH2PROJ, 'pdf/',$name-of-map, '.pdf')"/>
+    <xsl:variable name="output-pdf-name" select="concat($name-of-map, '.pdf')"/>
+    <xsl:variable name="output-pdf-full-path" select="concat($PATH2PROJ, 'pdf/',$output-pdf-name)"/>
+
     <xsl:variable name="include.roles" select="tokenize(normalize-space($include.rellinks), '\s+')" as="xs:string*"/>
 
     <xsl:attribute-set name="banner">
@@ -148,9 +147,10 @@
                             </button>
 
                             <div id="menu-dropdown-google-drive" class="dropdown-content-google-drive">
+                                <xsl:text disable-output-escaping="yes">&lt;script src="https://apis.google.com/js/platform.js" async defer&gt;&lt;/script&gt;</xsl:text>
                                 <input type="button" class="g-savetodrive"
                                        data-src="{$output-pdf-full-path}"
-                                       data-filename="{$output-pdf}"
+                                       data-filename="{$output-pdf-name}"
                                        data-sitename="PDF output">
                                 </input>
                             </div>
