@@ -135,8 +135,8 @@
                         </div>
                     </div>
 
-                    <div class="button-print">
-                        <button onclick="window.print()" id="printbtn" class="print-button">
+                    <div class="button-print-container">
+                        <button onclick="window.print()" id="printbtn" class="button-print">
                             <span class="tooltip-print">Click here to print page</span>
                         </button>
                     </div>
@@ -397,5 +397,4 @@
             <xsl:apply-templates select="*[contains(@class, ' topic/desc ')]"/>
         </li>
     </xsl:template>
-
 </xsl:stylesheet>
