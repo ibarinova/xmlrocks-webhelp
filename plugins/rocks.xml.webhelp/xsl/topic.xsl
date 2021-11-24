@@ -125,7 +125,7 @@
                         </button>
 
                         <div id="menu-dropdown-download" class="dropdown-content-download">
-                            <button type="button" id="downloadbtn" value="Download this page as PDF"
+                            <input type="button" id="downloadbtn" value="Download this page as PDF"
                                     onclick="getPDF()"/>
 
                             <xsl:if test="$includes-pdf = ('yes', 'true')">
