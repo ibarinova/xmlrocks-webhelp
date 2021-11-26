@@ -1,5 +1,5 @@
 # Dita-OT xmlrocks-webhelp plug-in
-The xmlRocks webHelp extends default DITA-OT HTML5 output with a Bootstrap template.
+XMLRocks WebHelp plugin extends default DITA-OT HTML5 output with a Bootstrap template.
 ____
 ## Using
 Use *xmlrocks-webhelp* transtype to generate xmlRocks webHelp output.

@@ -1,7 +1,6 @@
 var backToTopButton = document.getElementById("button-back-to-top"),
     state = null;
 
-// When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function () {
     scrollFunction();
 };
@@ -17,7 +16,6 @@ function scrollFunction() {
     }
 }
 
-// When the user clicks on the button, scroll to the top of the document
 backToTopButton.addEventListener("click", backToTop);
 
 function backToTop() {
@@ -25,7 +23,7 @@ function backToTop() {
     document.documentElement.scrollTop = 0;
 }
 
-//Create PDF from HTML...
+//Create PDF from HTML topic content
 function getPDF() {
     var idTopicArticle = document.getElementById("topic-article");
     var removedChild = idTopicArticle.querySelector('.related-links');
@@ -69,13 +67,13 @@ function dropdownDownload() {
     document.getElementById("menu-dropdown-download").classList.toggle("show");
 }
 
-// Close the dropdown menu if the user clicks outside of it
+// Close the dropdown menu if the user clicks outside
 window.onclick = function (event) {
-    if (!event.target.matches('.drop-button-download')) {
+    if (!event.target.matches('.button-dropdown-download')) {
         closeDropDown("dropdown-content-download");
     }
 
-    if (!event.target.matches('.drop-button-google-drive')) {
+    if (!event.target.matches('.button-dropdown-share-google-drive')) {
         closeDropDown("dropdown-content-google-drive");
     }
 };
@@ -90,13 +88,11 @@ function closeDropDown(className){
     }
 }
 
-
 // Function for dropdown menu for 'save to Google Drive' button
 function dropdownGoogleDrive() {
     document.getElementById("menu-dropdown-google-drive").classList.toggle("show");
 }
 
-//prevent default TOC links
 $('div.toc-container nav li a').click(function(event) {
     event.preventDefault();
 });
@@ -112,7 +108,7 @@ $('main').on('click', '.head-breadcrumb a.link', function (event) {
     reloadDynamically(currentHref);
 });
 
-// The function dynamically updates parts of a web page, without reloading the whole page.
+// Dynamically update parts of a web page, without reloading the whole page.
 function getDynamicTopicData(href) {
     switch (window.location.protocol) {
         case 'file:':
@@ -127,7 +123,7 @@ function getDynamicTopicData(href) {
     }
 }
 
-// This function expands topics in TOC
+// Expand topics in the TOC
 function applyExpandedClass(id){
     if ($(id).parent().hasClass('expanded')) {
         // remove .expanded from current TOC topic
@@ -146,20 +142,20 @@ function applyExpandedClass(id){
         $(id).parent().siblings().removeClass('expanded');
 
         // remove .expanded for all descendants of siblings
-        $(id).parent().siblings().find('.expand-collapse-button').parent().removeClass('expanded');
+        $(id).parent().siblings().find('.button-toc-expand-collapse ').parent().removeClass('expanded');
 
         // change - to + for all closed siblings
-        $(id).parent().siblings().find('.expand-collapse-button').html('+ ');
+        $(id).parent().siblings().find('.button-toc-expand-collapse ').html('+ ');
     }
 }
 
-// This function reveals active topic in TOC when the page reloads
+// This function reveals active topic in the TOC when page reloads
 $(document).ready(function() {
     // expand all parent li's
     $('.active').parents('nav li').addClass('expanded');
 
     // update expanded symbol
-    $('.active').parents('nav li').children('.expand-collapse-button').html('- ');
+    $('.active').parents('nav li').children('.button-toc-expand-collapse ').html('- ');
 
     window.addEventListener('popstate', function(event) {
         state = event.state;
@@ -170,7 +166,6 @@ $(document).ready(function() {
 });
 
 function reloadDynamically(href){
-    var currentHref = href;
     jQuery.post(href, function (content) {
         var htmlContent = $.parseHTML(content),
             articleContent = $(htmlContent).find('article').contents(),
@@ -178,19 +173,14 @@ function reloadDynamically(href){
             titleContent = $(htmlContent).filter('title').contents(),
             listItemID = $(htmlContent).find('.toc-container .active').attr('id');
 
-        // update head title
         $('title').html(titleContent);
 
-        // update breadcrumbs
         $('.head-breadcrumb').html(breadcrumbsContent);
 
-        // update article
         $('article').html(articleContent);
 
-        // reset .active
         $('.toc-container').find('.active').removeClass('active');
 
-        // add .active to recent TOC li
         $('.toc-container').find('#' + listItemID).addClass('active');
     }, 'html')
 }

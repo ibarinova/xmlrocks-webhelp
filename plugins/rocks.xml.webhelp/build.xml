@@ -3,6 +3,7 @@
     <target name="dita2xmlrocks-webhelp.init">
         <property name="nav-toc" value="full"/>
         <property name="args.csspath" value="css"/>
+        <basename property="args.input-basename" file="${args.input}"/>
 
         <condition property="generate-pdf">
             <or>
@@ -11,7 +12,6 @@
             </or>
         </condition>
 
-        <basename property="args.input-basename" file="${args.input}"/>
         <loadresource property="name-of-map">
             <propertyresource name="args.input-basename"/>
             <filterchain>

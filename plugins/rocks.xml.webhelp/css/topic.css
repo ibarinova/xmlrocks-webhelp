@@ -1,0 +1,375 @@
+/* --- Tooltips START --- */
+.tooltip-logo {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    opacity: 50%;
+    border-radius: 3px;
+    font-size: 10px;
+    color: #eee;
+    padding: 0em 2em;
+    width: 120px;
+    top: 110%;
+    left: 20%;
+    margin-left: -60px;
+}
+
+.logo-header:hover > .tooltip-logo {
+    display: block;
+}
+
+.tooltip-download {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    opacity: 50%;
+    border-radius: 3px;
+    font-size: 10px;
+    color: #eee;
+    padding: 0em 2em;
+    width: 120px;
+    bottom: 120%;
+    left: 50%;
+    margin-left: -80px;
+}
+
+.button-dropdown-download:hover > .tooltip-download {
+    display: block;
+}
+
+.tooltip-print {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    opacity: 50%;
+    border-radius: 3px;
+    font-size: 10px;
+    color: #eee;
+    padding: 0em 2em;
+    width: 120px;
+    top: 10.4em;
+    margin-left: -60px;
+}
+
+.button-print:hover > .tooltip-print {
+    display: block;
+}
+
+.tooltip-google-drive {
+    display: none;
+    position: absolute;
+    background-color: #333;
+    opacity: 50%;
+    border-radius: 3px;
+    font-size: 10px;
+    color: #eee;
+    padding: 0em 2em;
+    width: 130px;
+    bottom: 127%;
+    left: 50%;
+    margin-left: -60px;
+}
+/* --- Tooltips END --- */
+
+/* --- Breadcrumbs START --- */
+.head-breadcrumb a:hover,
+.head-breadcrumb a:visited,
+.head-breadcrumb a:link,
+.head-breadcrumb a:active {
+    text-decoration: none;
+}
+/* --- Breadcrumbs END --- */
+
+/* --- Button bar START --- */
+.button-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    padding-top: 0em;
+    padding-bottom: 0.5rem;
+    margin: 1.5em;
+}
+
+.button-bar .dropdown-download {
+    width: 8%;
+}
+
+.button-bar .button-print-container {
+    width: 8%;
+}
+
+.button-bar .dropdown-google-drive {
+    width: 1%;
+}
+
+.dropdown-download {
+    position: relative;
+    display: inline-block;
+}
+
+.download-pdf-output {
+    color: green;
+    position: fixed;
+    top: 6em;
+    right: 2.5em;
+}
+
+.button-dropdown-download {
+    background-image: url(../img/download-icon.svg);
+    background-repeat: no-repeat;
+    background-color: #FFFFFF;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    left: 45em;
+    cursor: pointer;
+    top: 1.7em;
+}
+
+.dropdown-content-download {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    right: 1.6em;
+    top: 2.4em;
+}
+
+.dropdown-content-download div {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content-download a:hover {
+    background-color: #ddd
+}
+
+.button-print {
+    background-image: url(../img/print-solid.svg);
+    background-repeat: no-repeat;
+    background-color: #FFFFFF;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    left: 49em;
+    cursor: pointer;
+    bottom: 0.4em;
+}
+
+.button-dropdown-share-google-drive {
+    background-image: url(../img/google-drive-brands.svg);
+    background-repeat: no-repeat;
+    background-color: #FFFFFF;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    position: relative;
+    cursor: pointer;
+}
+
+.button-dropdown-share-google-drive:hover > .tooltip-google-drive {
+    display: block;
+}
+
+.dropdown-google-drive {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content-google-drive {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    max-width: 5px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    right: 1.6em;
+    top: 2.4em;
+}
+
+.dropdown-content-google-drive div {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content-google-drive a:hover {
+    background-color: #ddd
+}
+
+/* Show the dropdown menu (use JS to add this class to the .dropdown-content container when the user clicks on the dropdown button) */
+.show {
+    display: block;
+}
+/* --- Button bar END --- */
+
+/* --- Table of contents (TOC) START --- */
+.toc-container li {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    word-wrap: break-word;
+    padding-top: 0.5em;
+    text-decoration: none;
+}
+
+.button-toc-expand-collapse {
+    color: #bbbbbb;
+    cursor: pointer;
+}
+
+.button-toc-expand-collapse:hover {
+    color: #000000;
+}
+
+.toc-container a:hover,
+.toc-container a:visited,
+.toc-container a:link,
+.toc-container a:active {
+    text-decoration: none;
+}
+
+.toc-container li ul {
+    display: none;
+}
+
+.toc-container li.expanded > ul {
+    display: block;
+}
+
+.toc-container li.active > a {
+    color: #6610f2;
+}
+/* --- Table of contents (TOC) END --- */
+
+.rounded-card-rocks {
+    border-radius: 8px;
+    background-color: #fbfbfb;
+    border-color: #fbfbfb;
+}
+
+button, input, optgroup, select, textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    border: none;
+    padding-bottom: 0.4em;
+    background: none;
+}
+
+/* --- Tables START --- */
+.table-hover {
+    border: none;
+}
+
+.table > thead {
+    vertical-align: bottom;
+    text-align: center;
+    background-color: #ebebed;
+}
+
+.sthead {
+    background-color: #ebebed;
+}
+
+.table > thead {
+    vertical-align: bottom;
+    text-align: center;
+    background-color: #ebebed;
+}
+
+.choicetableborder {
+    border: 1px solid;
+}
+
+tbody, td, tfoot, th, thead, tr {
+    border: 1px solid;
+}
+/* --- Tables END --- */
+
+/* --- Codeblock START --- */
+code {
+    font-size: .895em;
+    color: #d63384;
+    word-wrap: break-word;
+    background-color: lightgrey;
+    border-radius: 3px;
+    font-family: monospace;
+}
+
+pre code {
+    font-size: inherit;
+    color: #d63384;
+    background-color: lightgrey;
+    word-break: normal;
+}
+/* --- Codeblock END --- */
+
+/* --- Related links START --- */
+.related-links {
+    display: block;
+}
+
+.ullinks {
+    list-style-type: none;
+    padding: 0;
+}
+
+.ullink-ahref {
+    padding-left: 2em;
+}
+/* --- Related links END --- */
+
+#button-back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: none;
+    color: #ffffff;
+    border-radius: 10px;
+    padding: 0;
+    border: none;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 5px #bbbbbb;
+}
+
+@media print {
+    .rocks-header {
+        display: none;
+    }
+
+    .header-logo {
+        display: none;
+    }
+
+    .breadcrumb {
+        display: none;
+    }
+
+    .dropdown-download {
+        display: none;
+    }
+
+    #toc-wrapper {
+        display: none;
+    }
+
+    #button-back-to-top {
+        display: none;
+    }
+
+    .related-links {
+        display: none;
+    }
+
+    .footer-container {
+        display: none;
+    }
+}
