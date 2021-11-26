@@ -169,11 +169,11 @@
 
                     <div class="col col-sm-8">
                         <xsl:apply-templates select="." mode="addContentToHtmlBodyElement"/>
+                        <xsl:call-template name="insertBackToTopButton"/>
                     </div>
                 </div>
             </main>
             <xsl:apply-templates select="." mode="addFooterToHtmlBodyElement"/>
-            <xsl:call-template name="insertBackToTopButton"/>
             <xsl:call-template name="insertJavaScript"/>
         </body>
     </xsl:template>
