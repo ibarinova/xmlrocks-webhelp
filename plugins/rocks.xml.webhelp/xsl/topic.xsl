@@ -212,7 +212,7 @@
     </xsl:template>
 
     <xsl:template match="*" mode="addContentToHtmlBodyElement">
-        <article xsl:use-attribute-sets="article" id="topic-article" class="topic-article">
+        <article xsl:use-attribute-sets="article" id="topic-article">
             <xsl:attribute name="aria-labelledby">
                 <xsl:apply-templates select="*[contains(@class,' topic/title ')] |
                                        self::dita/*[1]/*[contains(@class,' topic/title ')]"
