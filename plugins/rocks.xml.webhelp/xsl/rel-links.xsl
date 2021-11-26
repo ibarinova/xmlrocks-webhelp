@@ -19,6 +19,7 @@
 
     <xsl:template name="generate-custom-breadcrumbs">
         <div class="head-breadcrumb">
+            <div class="row">
             <span class="home">
                 <a href="{concat($PATH2PROJ, 'index', $OUTEXT)}">
                     <xsl:text>Home</xsl:text>
@@ -29,6 +30,7 @@
             <xsl:apply-templates select="*[contains(@class, ' topic/related-links ')]" mode="custom-breadcrumb"/>
             <xsl:value-of
                     select="descendant-or-self::*[contains(@class, ' topic/topic ')][1]/*[contains(@class, ' topic/title ')][1]"/>
+        </div>
         </div>
     </xsl:template>
 </xsl:stylesheet>
