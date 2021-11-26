@@ -4,18 +4,22 @@
                 exclude-result-prefixes="#all"
                 version="2.0">
 
-    <xsl:template match="*[contains(@class, ' map/topicref ')]
-                        [not(@toc = 'no')]
-                        [not(@processing-role = 'resource-only')]"
-                  mode="toc" priority="10">
+    <xsl:template match="*[contains(@class, ' map/topicref ')]" mode="normalize-map">
+        <data name="topicref-id" value="{generate-id()}"/>
+        <xsl:next-match/>
+    </xsl:template>
+
+    <xsl:template match="*[contains(@class, ' map/topicref ')][not(@toc = 'no')][not(@processing-role = 'resource-only')]"
+                    mode="toc" priority="10">
         <xsl:param name="pathFromMaplist" as="xs:string"/>
         <xsl:param name="children" select="if ($nav-toc = 'full') then *[contains(@class, ' map/topicref ')] else ()"
                    as="element()*"/>
+
         <xsl:variable name="title">
             <xsl:apply-templates select="." mode="get-navtitle"/>
         </xsl:variable>
 
-        <xsl:variable name="testId" select="count(preceding::*[contains(@class, ' map/topicref ')]) + count(ancestor-or-self::*[contains(@class, ' map/topicref ')])"/>
+        <xsl:variable name="testId" select="preceding-sibling::data[@name = 'topicref-id'][1]/@value"/>
 
         <xsl:choose>
             <xsl:when test="normalize-space($title)">
