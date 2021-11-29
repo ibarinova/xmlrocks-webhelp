@@ -114,14 +114,29 @@
             <xsl:apply-templates select="." mode="addAttributesToHtmlBodyElement"/>
             <xsl:call-template name="setaname"/>
             <xsl:apply-templates select="." mode="addHeaderToHtmlBodyElement"/>
-          <div class="breadcrumb-container max-width">
+
+            <div class="breadcrumb-container max-width">
                 <xsl:call-template name="generate-custom-breadcrumbs"/>
             </div>
 
-            <div class="top-nav-buttons-container max-width">
-                <!-- TODO: Replace with working prev/next buttons -->
-                <a class="prev-button" href="#"><pre class="button-prev-nav"/> PREV</a>
-                <a class="next-button" href="#">NEXT <pre class="button-next-nav"/></a>
+            <div class="top-nav-buttons-container-wrapper">
+                <div class="top-nav-buttons-container max-width">
+                    <!-- TODO: Replace with working prev/next buttons -->
+                    <a class="prev-button" href="#">
+                        <pre class="button-prev-nav"/>
+                        <xsl:text> </xsl:text>
+                        <xsl:call-template name="getVariable">
+                            <xsl:with-param name="id" select="'Previous topic'"/>
+                        </xsl:call-template>
+                    </a>
+                    <a class="next-button" href="#">
+                        <xsl:call-template name="getVariable">
+                            <xsl:with-param name="id" select="'Next topic'"/>
+                        </xsl:call-template>
+                        <xsl:text> </xsl:text>
+                        <pre class="button-next-nav"/>
+                    </a>
+                </div>
             </div>
 
             <div class="main-button-container max-width">
@@ -181,8 +196,20 @@
                         <xsl:call-template name="insertBackToTopButton"/>
                         <div class="bottom-nav-buttons-container">
                             <!-- TODO: Replace with working prev/next buttons -->
-                            <a class="prev-button" href="#"><pre class="button-prev-nav"/> PREV</a>
-                            <a class="next-button" href="#">NEXT <pre class="button-next-nav"/></a>
+                            <a class="prev-button" href="#">
+                                <pre class="button-prev-nav"/>
+                                <xsl:text> </xsl:text>
+                                <xsl:call-template name="getVariable">
+                                    <xsl:with-param name="id" select="'Previous topic'"/>
+                                </xsl:call-template>
+                            </a>
+                            <a class="next-button" href="#">
+                                <xsl:call-template name="getVariable">
+                                    <xsl:with-param name="id" select="'Next topic'"/>
+                                </xsl:call-template>
+                                <xsl:text> </xsl:text>
+                                <pre class="button-next-nav"/>
+                            </a>
                         </div>
                     </div>
                 </div>
