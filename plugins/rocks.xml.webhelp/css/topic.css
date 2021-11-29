@@ -80,7 +80,7 @@
 }
 /* --- Breadcrumbs END --- */
 
-/* --- Prev-Next buttons START*/
+/* --- Prev-Next buttons START --- */
 .top-nav-buttons-container {
     display: flex;
     justify-content: space-between;
@@ -90,7 +90,7 @@
     padding-left: 1rem;
 }
 
-/* --- Prev-Next buttons END*/
+/* --- Prev-Next buttons END --- */
 
 /* --- Button bar START --- */
 .button-bar {
