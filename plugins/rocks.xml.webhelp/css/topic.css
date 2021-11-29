@@ -78,27 +78,52 @@
 .head-breadcrumb a:active {
     text-decoration: none;
 }
+
+.breadcrumb-container {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+}
 /* --- Breadcrumbs END --- */
 
-/* --- Button bar START --- */
-.button-bar {
+/* --- Prev-Next buttons START --- */
+.top-nav-buttons-container {
     display: flex;
-    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+    padding-left: 1rem;
+}
+
+.bottom-nav-buttons-container {
+    display: flex;
+    justify-content: space-between;
+
+}
+/* --- Prev-Next buttons END --- */
+
+/* --- Button bar START --- */
+.main-button-container {
+    display: flex;
     justify-content: flex-end;
-    padding-top: 0em;
-    padding-bottom: 0.5rem;
-    margin: 1.5em;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-left: 1rem;
 }
 
-.button-bar .dropdown-download {
+.main-button-container .dropdown-download {
     width: 8%;
 }
 
-.button-bar .button-print-container {
+.main-button-container .button-print-container {
     width: 8%;
 }
 
-.button-bar .dropdown-google-drive {
+.main-button-container .dropdown-google-drive {
     width: 1%;
 }
 
@@ -327,9 +352,9 @@ pre code {
 /* --- Related links END --- */
 
 #button-back-to-top {
-    position: fixed;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
     bottom: 20px;
-    right: 20px;
     display: none;
     color: #ffffff;
     border-radius: 10px;
@@ -338,6 +363,7 @@ pre code {
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     box-shadow: 0 2px 5px #bbbbbb;
+    margin-left: auto;
 }
 
 @media print {

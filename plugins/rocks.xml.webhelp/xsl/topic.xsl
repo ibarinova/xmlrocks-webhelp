@@ -114,49 +114,58 @@
             <xsl:apply-templates select="." mode="addAttributesToHtmlBodyElement"/>
             <xsl:call-template name="setaname"/>
             <xsl:apply-templates select="." mode="addHeaderToHtmlBodyElement"/>
+          <div class="breadcrumb-container max-width">
+                <xsl:call-template name="generate-custom-breadcrumbs"/>
+            </div>
+          
+            <div class="top-nav-buttons-container max-width">
+                <a class="prev-button" href="#">&#8592; PREV</a>
+                <a class="next-button" href="#">NEXT &#8594;</a>
+            </div>
 
+            <div class="main-button-container max-width">
+                <div class="dropdown-download">
+                    <button onclick="dropdownDownload()" class="button-dropdown-download">
+                        <span class="tooltip-download">Click here to download page</span>
+                    </button>
+
+                    <div id="menu-dropdown-download" class="dropdown-content-download">
+                        <input type="button" id="downloadbtn" value="Download this page as PDF"
+                               onclick="getPDF()"/>
+
+                        <xsl:if test="$includes-pdf = ('yes', 'true')">
+                            <a href="{$output-pdf-full-path}" target="_blank">Download PDF output</a>
+                        </xsl:if>
+                      </div>
+                </div>
+
+                <div class="button-print-container">
+                    <button onclick="window.print()" id="printbtn" class="button-print">
+                        <span class="tooltip-print">Click here to print page</span>
+                    </button>
+                </div>
+
+                <xsl:if test="$includes-pdf = ('yes', 'true')">
+                    <div class="dropdown-google-drive">
+                        <button onclick="dropdownGoogleDrive()" class="button-dropdown-share-google-drive">
+                            <span class="tooltip-google-drive">Click here to save to Google Drive</span>
+                        </button>
+
+                        <div id="menu-dropdown-google-drive" class="dropdown-content-google-drive">
+                            <xsl:text disable-output-escaping="yes">&lt;script src="https://apis.google.com/js/platform.js" async defer&gt;&lt;/script&gt;</xsl:text>
+                            <input type="button" class="g-savetodrive"
+                                   data-src="{$output-pdf-full-path}"
+                                   data-filename="{$output-pdf-name}"
+                                   data-sitename="PDF output">
+                            </input>
+                        </div>
+                    </div>
+                </xsl:if>
+            </div>
+                   
             <main role="main">
                 <xsl:attribute name="class" select="'container max-width'"/>
                 <xsl:call-template name="generate-custom-breadcrumbs"/>
-                <div class="button-bar">
-                    <div class="dropdown-download">
-                        <button onclick="dropdownDownload()" class="button-dropdown-download">
-                            <span class="tooltip-download">Click here to download page</span>
-                        </button>
-
-                        <div id="menu-dropdown-download" class="dropdown-content-download">
-                            <input type="button" id="downloadbtn" value="Download this page as PDF"
-                                    onclick="getPDF()"/>
-
-                            <xsl:if test="$includes-pdf = ('yes', 'true')">
-                                <a href="{$output-pdf-full-path}" target="_blank" download="{$output-pdf-name}">Download PDF output</a>
-                            </xsl:if>
-                        </div>
-                    </div>
-
-                    <div class="button-print-container">
-                        <button onclick="window.print()" id="printbtn" class="button-print">
-                            <span class="tooltip-print">Click here to print page</span>
-                        </button>
-                    </div>
-
-                    <xsl:if test="$includes-pdf = ('yes', 'true')">
-                        <div class="dropdown-google-drive">
-                            <button onclick="dropdownGoogleDrive()" class="button-dropdown-share-google-drive">
-                                <span class="tooltip-google-drive">Click here to save to Google Drive</span>
-                            </button>
-
-                            <div id="menu-dropdown-google-drive" class="dropdown-content-google-drive">
-                                <xsl:text disable-output-escaping="yes">&lt;script src="https://apis.google.com/js/platform.js" async defer&gt;&lt;/script&gt;</xsl:text>
-                                <input type="button" class="g-savetodrive"
-                                       data-src="{$output-pdf-full-path}"
-                                       data-filename="{$output-pdf-name}"
-                                       data-sitename="PDF output">
-                                </input>
-                            </div>
-                        </div>
-                    </xsl:if>
-                </div>
 
                 <div class="row row-cols-1 row-cols-md-3 mb-3 text-left">
                     <div class="col col-sm-4" id="toc-wrapper">
@@ -169,11 +178,16 @@
 
                     <div class="col col-sm-8">
                         <xsl:apply-templates select="." mode="addContentToHtmlBodyElement"/>
+                        <xsl:call-template name="insertBackToTopButton"/>
+                        <div class="bottom-nav-buttons-container">
+                            <!-- TODO: Replace with working prev/next buttons -->
+                            <a class="prev-button" href="#">&#8592; PREV</a>
+                            <a class="next-button" href="#">NEXT &#8594;</a>
+                        </div>
                     </div>
                 </div>
             </main>
             <xsl:apply-templates select="." mode="addFooterToHtmlBodyElement"/>
-            <xsl:call-template name="insertBackToTopButton"/>
             <xsl:call-template name="insertJavaScript"/>
         </body>
     </xsl:template>
@@ -212,7 +226,7 @@
     </xsl:template>
 
     <xsl:template match="*" mode="addContentToHtmlBodyElement">
-        <article xsl:use-attribute-sets="article" id="topic-article" class="topic-article">
+        <article xsl:use-attribute-sets="article" id="topic-article">
             <xsl:attribute name="aria-labelledby">
                 <xsl:apply-templates select="*[contains(@class,' topic/title ')] |
                                        self::dita/*[1]/*[contains(@class,' topic/title ')]"
