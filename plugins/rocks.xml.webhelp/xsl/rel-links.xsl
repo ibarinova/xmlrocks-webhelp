@@ -18,7 +18,7 @@
     </xsl:template>
 
     <xsl:template name="generate-custom-breadcrumbs">
-        <div class="head-breadcrumb">
+        <div class="head-breadcrumb max-width">
             <span class="home">
                 <a href="{concat($PATH2PROJ, 'index', $OUTEXT)}">
                     <xsl:text>Home</xsl:text>

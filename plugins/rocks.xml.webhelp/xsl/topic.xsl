@@ -114,6 +114,14 @@
             <xsl:apply-templates select="." mode="addAttributesToHtmlBodyElement"/>
             <xsl:call-template name="setaname"/>
             <xsl:apply-templates select="." mode="addHeaderToHtmlBodyElement"/>
+          <div class="breadcrumb-container max-width">
+                <xsl:call-template name="generate-custom-breadcrumbs"/>
+            </div>
+          
+            <div class="top-nav-buttons-container max-width">
+                <a class="prev-button" href="#">&#8592; PREV</a>
+                <a class="next-button" href="#">NEXT &#8594;</a>
+            </div>
 
             <div class="main-button-container max-width">
                 <div class="dropdown-download">
@@ -128,7 +136,7 @@
                         <xsl:if test="$includes-pdf = ('yes', 'true')">
                             <a href="{$output-pdf-full-path}" target="_blank">Download PDF output</a>
                         </xsl:if>
-                    </div>
+                      </div>
                 </div>
 
                 <div class="button-print-container">
@@ -154,6 +162,7 @@
                     </div>
                 </xsl:if>
             </div>
+                   
             <main role="main">
                 <xsl:attribute name="class" select="'container max-width'"/>
                 <xsl:call-template name="generate-custom-breadcrumbs"/>
