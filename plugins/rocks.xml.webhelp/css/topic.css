@@ -85,6 +85,12 @@
     margin-right: auto;
     padding-left: 1rem;
 }
+
+.bredcrubs-separator {
+    content: url("../img/breadcrumbs-separator.svg");
+    display: inline;
+    margin-bottom: 2px;
+}
 /* --- Breadcrumbs END --- */
 
 /* --- Prev-Next buttons START --- */
@@ -102,6 +108,47 @@
     justify-content: space-between;
 
 }
+
+.top-nav-buttons-container > .prev-button,
+.top-nav-buttons-container > .next-button,
+.bottom-nav-buttons-container > .prev-button,
+.bottom-nav-buttons-container > .next-button {
+    color: #333333;
+    text-decoration: none;
+    border-bottom: 1px solid #ffffff;
+    height: fit-content;
+}
+
+.prev-button:hover {
+    color: #2c74eb;
+    border-bottom: 1px solid #2c74eb;
+}
+
+.button-prev-nav {
+    content: url("../img/prev-button.svg");
+    display: inline;
+    margin-bottom: 2px;
+}
+
+.prev-button:hover > .button-prev-nav {
+    content: url("../img/prev-button-blue.svg");
+}
+
+.next-button:hover {
+    color: #2c74eb;
+    border-bottom: 1px solid #2c74eb;
+}
+
+.button-next-nav {
+    content: url("../img/next-button.svg");
+    display: inline;
+    margin-bottom: 2px;
+}
+
+.next-button:hover > .button-next-nav {
+    content: url("../img/next-button-blue.svg");
+}
+
 /* --- Prev-Next buttons END --- */
 
 /* --- Button bar START --- */
@@ -116,11 +163,11 @@
 }
 
 .main-button-container .dropdown-download {
-    width: 8%;
+    width: 6%;
 }
 
 .main-button-container .button-print-container {
-    width: 8%;
+    width: 6%;
 }
 
 .main-button-container .dropdown-google-drive {
@@ -140,15 +187,23 @@
 }
 
 .button-dropdown-download {
-    background-image: url(../img/download-icon.svg);
+    background-image: url(../img/download.svg);
     background-repeat: no-repeat;
+    background-position: center;
     background-color: #FFFFFF;
-    padding: 16px;
+    padding: 20px;
     font-size: 16px;
     border: none;
     left: 45em;
     cursor: pointer;
     top: 1.7em;
+    border-radius: 50%;
+}
+
+.button-dropdown-download:hover,
+.button-dropdown-download:focus {
+    background-image: url(../img/download-white.svg);
+    background-color: #2c74eb;
 }
 
 .dropdown-content-download {
@@ -174,26 +229,41 @@
 }
 
 .button-print {
-    background-image: url(../img/print-solid.svg);
+    background-image: url(../img/print.svg);
     background-repeat: no-repeat;
+    background-position: center;
     background-color: #FFFFFF;
-    padding: 16px;
+    padding: 20px;
     font-size: 16px;
     border: none;
     left: 49em;
     cursor: pointer;
     bottom: 0.4em;
+    border-radius: 50%;
+}
+
+.button-print:hover {
+    background-image: url(../img/print-white.svg);
+    background-color: #2c74eb;
 }
 
 .button-dropdown-share-google-drive {
-    background-image: url(../img/google-drive-brands.svg);
+    background-image: url(../img/save-to-drive.svg);
     background-repeat: no-repeat;
+    background-position: center;
     background-color: #FFFFFF;
-    padding: 16px;
+    border-radius: 50%;
+    padding: 20px;
     font-size: 16px;
     border: none;
     position: relative;
     cursor: pointer;
+}
+
+.button-dropdown-share-google-drive:hover,
+.button-dropdown-share-google-drive:focus {
+    background-image: url(../img/save-to-drive-white.svg);
+    background-color: #2c74eb;
 }
 
 .button-dropdown-share-google-drive:hover > .tooltip-google-drive {
@@ -356,14 +426,12 @@ pre code {
     position: sticky;
     bottom: 20px;
     display: none;
-    color: #ffffff;
-    border-radius: 10px;
-    padding: 0;
+    background-color: #2c74eb;
     border: none;
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
     box-shadow: 0 2px 5px #bbbbbb;
     margin-left: auto;
+    padding: 13px 18px 13px 18px;
+    border-radius: 50%;
 }
 
 @media print {
