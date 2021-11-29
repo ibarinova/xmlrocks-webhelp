@@ -80,6 +80,14 @@
 }
 /* --- Breadcrumbs END --- */
 
+/* --- Prev-Next buttons START --- */
+.bottom-nav-buttons-container {
+    display: flex;
+    justify-content: space-between;
+
+}
+/* --- Prev-Next buttons END --- */
+
 /* --- Button bar START --- */
 .button-bar {
     display: flex;

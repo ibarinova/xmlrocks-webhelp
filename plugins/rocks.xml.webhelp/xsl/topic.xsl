@@ -170,6 +170,11 @@
                     <div class="col col-sm-8">
                         <xsl:apply-templates select="." mode="addContentToHtmlBodyElement"/>
                         <xsl:call-template name="insertBackToTopButton"/>
+                        <div class="bottom-nav-buttons-container">
+                            <!-- TODO: Replace with working prev/next buttons -->
+                            <a class="prev-button" href="#">&#8592; PREV</a>
+                            <a class="next-button" href="#">NEXT &#8594;</a>
+                        </div>
                     </div>
                 </div>
             </main>
