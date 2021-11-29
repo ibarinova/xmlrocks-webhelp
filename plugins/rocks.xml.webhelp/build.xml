@@ -54,6 +54,10 @@
                 <include name="**/*.*"/>
             </fileset>
         </copy>
+
+        <copy todir="${output.dir}/fonts">
+            <fileset dir="${dita.plugin.rocks.xml.webhelp.dir}/fonts"/>
+        </copy>
     </target>
 
     <target name="dita2xmlrocks-generate-pdf" if="generate-pdf">
