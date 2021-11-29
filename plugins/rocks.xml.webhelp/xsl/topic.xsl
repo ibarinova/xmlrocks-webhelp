@@ -114,8 +114,13 @@
             <xsl:apply-templates select="." mode="addAttributesToHtmlBodyElement"/>
             <xsl:call-template name="setaname"/>
             <xsl:apply-templates select="." mode="addHeaderToHtmlBodyElement"/>
-            <div class="breadcrumb-container max-width">
+          <div class="breadcrumb-container max-width">
                 <xsl:call-template name="generate-custom-breadcrumbs"/>
+            </div>
+          
+            <div class="top-nav-buttons-container max-width">
+                <a class="prev-button" href="#">&#8592; PREV</a>
+                <a class="next-button" href="#">NEXT &#8594;</a>
             </div>
 
             <main role="main">

@@ -87,6 +87,18 @@
 }
 /* --- Breadcrumbs END --- */
 
+/* --- Prev-Next buttons START --- */
+.top-nav-buttons-container {
+    display: flex;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 1rem;
+    padding-left: 1rem;
+}
+
+/* --- Prev-Next buttons END --- */
+
 /* --- Button bar START --- */
 .button-bar {
     display: flex;
