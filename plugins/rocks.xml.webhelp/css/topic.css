@@ -78,6 +78,13 @@
 .head-breadcrumb a:active {
     text-decoration: none;
 }
+
+.breadcrumb-container {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+}
 /* --- Breadcrumbs END --- */
 
 /* --- Prev-Next buttons START --- */
@@ -299,6 +306,10 @@ button, input, optgroup, select, textarea {
 .choicetableborder {
     border: 1px solid;
 }
+
+tbody, td, tfoot, th, thead, tr {
+    border: 1px solid;
+}
 /* --- Tables END --- */
 
 /* --- Codeblock START --- */
@@ -335,9 +346,9 @@ pre code {
 /* --- Related links END --- */
 
 #button-back-to-top {
-    position: fixed;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
     bottom: 20px;
-    right: 20px;
     display: none;
     color: #ffffff;
     border-radius: 10px;
@@ -346,6 +357,7 @@ pre code {
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     box-shadow: 0 2px 5px #bbbbbb;
+    margin-left: auto;
 }
 
 @media print {
