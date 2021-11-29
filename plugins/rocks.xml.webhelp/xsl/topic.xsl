@@ -114,10 +114,12 @@
             <xsl:apply-templates select="." mode="addAttributesToHtmlBodyElement"/>
             <xsl:call-template name="setaname"/>
             <xsl:apply-templates select="." mode="addHeaderToHtmlBodyElement"/>
+            <div class="breadcrumb-container max-width">
+                <xsl:call-template name="generate-custom-breadcrumbs"/>
+            </div>
 
             <main role="main">
                 <xsl:attribute name="class" select="'container max-width'"/>
-                <xsl:call-template name="generate-custom-breadcrumbs"/>
                 <div class="button-bar">
                     <div class="dropdown-download">
                         <button onclick="dropdownDownload()" class="button-dropdown-download">
