@@ -97,6 +97,11 @@
     padding-left: 1rem;
 }
 
+.bottom-nav-buttons-container {
+    display: flex;
+    justify-content: space-between;
+
+}
 /* --- Prev-Next buttons END --- */
 
 /* --- Button bar START --- */
