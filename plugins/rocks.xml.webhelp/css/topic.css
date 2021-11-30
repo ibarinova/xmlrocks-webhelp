@@ -34,6 +34,20 @@
 
 :root {
     --bs-font-sans-serif: 'Montserrat', sans-serif;
+    color: #404040;
+}
+
+article {
+    font-weight: 100;
+}
+
+a {
+    color: #2c74eb;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 /* --- Body END --- */
 
@@ -113,6 +127,15 @@
 /* --- Breadcrumbs START --- */
 .head-breadcrumb {
     font-weight: 100;
+    color: #9D9D9D;
+}
+
+.head-breadcrumb a {
+    color: #404040;
+}
+
+.head-breadcrumb a:hover {
+    color: #2c74eb;
 }
 
 .head-breadcrumb a:hover,
