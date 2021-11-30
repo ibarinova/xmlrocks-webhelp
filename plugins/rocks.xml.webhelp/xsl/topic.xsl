@@ -460,31 +460,36 @@
         </xsl:variable>
 
         <table class="admonition-table">
-            <tr>
-                <td>
-                    <img src="../img/{$image-name}.svg" class="admonition-icon"/>
-                </td>
-                <td>
-                    <div>
-                        <xsl:call-template name="commonattributes">
-                            <xsl:with-param name="default-output-class"
-                                            select="string-join(($type, concat('note_', $type)), ' ')"/>
-                        </xsl:call-template>
-                        <xsl:call-template name="setidaname"/>
-                        <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-startprop ')]/prop" mode="ditaval-outputflag"/>
-                        <span class="note__title">
-                            <xsl:copy-of select="$title"/>
-                            <xsl:call-template name="getVariable">
-                                <xsl:with-param name="id" select="'ColonSymbol'"/>
+            <tbody>
+                <tr>
+                    <td>
+                        <img src="../img/{$image-name}.svg" class="admonition-icon"/>
+                    </td>
+                    <td>
+                        <div>
+                            <xsl:call-template name="commonattributes">
+                                <xsl:with-param name="default-output-class"
+                                                select="string-join(($type, concat('note_', $type)), ' ')"/>
                             </xsl:call-template>
-                        </span>
-                        <xsl:text> </xsl:text>
-                        <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-startprop ')]/revprop" mode="ditaval-outputflag"/>
-                        <xsl:apply-templates/>
-                        <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-endprop ')]" mode="out-of-line"/>
-                    </div>
-                </td>
-            </tr>
+                            <xsl:call-template name="setidaname"/>
+                            <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-startprop ')]/prop"
+                                                 mode="ditaval-outputflag"/>
+                            <span class="note__title">
+                                <xsl:copy-of select="$title"/>
+                                <xsl:call-template name="getVariable">
+                                    <xsl:with-param name="id" select="'ColonSymbol'"/>
+                                </xsl:call-template>
+                            </span>
+                            <xsl:text> </xsl:text>
+                            <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-startprop ')]/revprop"
+                                                 mode="ditaval-outputflag"/>
+                            <xsl:apply-templates/>
+                            <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-endprop ')]"
+                                                 mode="out-of-line"/>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
         </table>
     </xsl:template>
 </xsl:stylesheet>
