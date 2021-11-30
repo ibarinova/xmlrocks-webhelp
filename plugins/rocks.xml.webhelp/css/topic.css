@@ -457,6 +457,14 @@ pre code {
 .ullink-ahref {
     padding-left: 2em;
 }
+
+div.linklist {
+    margin-top: 2em;
+}
+
+li.linklist {
+    margin: 0.5em 0;
+}
 /* --- Related links END --- */
 
 #button-back-to-top {
