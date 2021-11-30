@@ -42,7 +42,6 @@ main {
 }
 
 #search-button:after{
-    font-family: "oXygen WebHelp", serif;
     content: url(../img/search.svg);;
     font-size: 18pt;
     position: absolute;
