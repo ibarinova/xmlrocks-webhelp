@@ -506,3 +506,22 @@ pre code {
         display: none;
     }
 }
+
+/* --- TODO change nested HTML elements (some elements are wrapped into p elements
+         but some not wrapped (just text) so we can't use the same styles to all HTML elements)  --- */
+section > ul > li::before{
+    content: url(../img/li-first-level.svg);
+    list-style-type: lower-greek;
+    /*margin-left: -20px;
+    margin-right: 10px;*/
+}
+
+ul li ul li::before{
+    content: url(../img/li-second-level.svg);
+    list-style-type: lower-greek;
+}
+
+li{
+    list-style-type: none;
+}
+
