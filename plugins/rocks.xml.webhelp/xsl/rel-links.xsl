@@ -11,7 +11,9 @@
             <xsl:if test="$include.roles = 'ancestor'">
                 <xsl:for-each select="*[@href][@role = 'ancestor']">
                     <xsl:apply-templates select="."/>
-                    <xsl:text> &gt; </xsl:text>
+                    <xsl:text> </xsl:text>
+                    <pre class="bredcrubs-separator">&gt;</pre>
+                    <xsl:text> </xsl:text>
                 </xsl:for-each>
             </xsl:if>
         </xsl:for-each>
@@ -23,7 +25,9 @@
                 <a href="{concat($PATH2PROJ, 'index', $OUTEXT)}">
                     <xsl:text>Home</xsl:text>
                 </a>
-                <xsl:text> > </xsl:text>
+                <xsl:text> </xsl:text>
+                <pre class="bredcrubs-separator">&gt;</pre>
+                <xsl:text> </xsl:text>
             </span>
 
             <xsl:apply-templates select="*[contains(@class, ' topic/related-links ')]" mode="custom-breadcrumb"/>
