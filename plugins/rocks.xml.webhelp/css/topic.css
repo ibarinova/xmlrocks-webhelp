@@ -35,6 +35,13 @@
 :root {
     --bs-font-sans-serif: 'Montserrat', sans-serif;
 }
+
+h1.title {
+    font-size: 1.34em;
+    margin-bottom: 1em;
+    margin-top: 0;
+    font-weight: 600;
+}
 /* --- Body END --- */
 
 /* --- Tooltips START --- */
