@@ -420,6 +420,15 @@ button, input, optgroup, select, textarea {
 }
 
 /* --- Tables START --- */
+table {
+    caption-side: top;
+}
+
+table > caption {
+    color: #333333;
+    font-style: italic;
+}
+
 .table-hover {
     border: none;
 }
