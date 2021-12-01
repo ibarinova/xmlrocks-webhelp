@@ -476,6 +476,18 @@ pre code {
 }
 /* --- Codeblock END --- */
 
+/* --- Figures START --- */
+figure {
+    display: table;
+}
+
+figcaption {
+    display: table-caption;
+    caption-side: bottom;
+    font-style: italic;
+}
+/* --- Figures END --- */
+
 /* --- Admonitions START --- */
 .admonition-table,
 .admonition-table > tbody,
