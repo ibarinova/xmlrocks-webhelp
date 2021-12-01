@@ -49,6 +49,11 @@ a {
 a:hover {
     text-decoration: underline;
 }
+
+body{
+    color: #5E5E5E;
+}
+
 /* --- Body END --- */
 
 /* --- Tooltips START --- */
@@ -576,3 +581,13 @@ li.linklist {
         display: none;
     }
 }
+
+/*--- Unordered Lists START---*/
+ul li::marker{
+    color: #5E5E5E;
+}
+
+li li{
+    padding: 0.5rem;
+}
+/*--- Unordered Lists END---*/
