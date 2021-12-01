@@ -35,6 +35,11 @@
 :root {
     --bs-font-sans-serif: 'Montserrat', sans-serif;
 }
+
+body{
+    color: #5E5E5E;
+}
+
 /* --- Body END --- */
 
 /* --- Tooltips START --- */
@@ -507,21 +512,12 @@ pre code {
     }
 }
 
-/* --- TODO change nested HTML elements (some elements are wrapped into p elements
-         but some not wrapped (just text) so we can't use the same styles to all HTML elements)  --- */
-section > ul > li::before{
-    content: url(../img/li-first-level.svg);
-    list-style-type: lower-greek;
-    /*margin-left: -20px;
-    margin-right: 10px;*/
+/*--- Unordered Lists START---*/
+ul li::marker{
+    color: #5E5E5E;
 }
 
-ul li ul li::before{
-    content: url(../img/li-second-level.svg);
-    list-style-type: lower-greek;
+li li{
+    padding: 0.5rem;
 }
-
-li{
-    list-style-type: none;
-}
-
+/*--- Unordered Lists END---*/
