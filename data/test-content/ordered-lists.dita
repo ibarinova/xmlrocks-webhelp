@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
+<reference id="tables1">
+
+    <title>Test content with ordered lists</title>
+
+    <shortdesc>This test content for OL including nested lists
+    </shortdesc>
+
+    <taskbody>
+        <prereq>
+            <ol>
+                <li>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed purus et nisi eleifend
+                        semper. Quisque vel quam sem. Fusce commodo arcu non nibh porta, sollicitudin blandit dolor
+                        congue.
+                    </p>
+                </li>
+
+                <li>
+                    <p>
+                        Quisque vel quam sem. Fusce commodo arcu non nibh porta.
+                    </p>
+                    <ul>
+                        <li>
+                            <p>Quisque.</p>
+                        </li>
+                        <li>
+                            <p>Vel.</p>
+                        </li>
+                        <li>
+                            <p>Quam sem. Fusce commodo arcu non nibh porta.</p>
+                            <ol>
+                                <li>
+                                    <p>Pellentesque</p>
+                                </li>
+                                <li>
+                                    <p>Habitant morbi</p>
+                                </li>
+                                <li>
+                                    <p>Habitant morbi</p>
+                                    <ul>
+                                        <li>
+                                            <p>Suspendisse potenti</p>
+                                        </li>
+                                        <li>
+                                            <p>Quisque vel quam sem</p>
+                                        </li>
+
+                                    </ul>
+                                </li>
+                            </ol>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sed purus et nisi eleifend
+                        semper. Quisque vel quam sem. Fusce commodo arcu non nibh porta, sollicitudin blandit dolor
+                        congue.
+                    </p>
+                </li>
+            </ol>
+        </prereq>
+    </taskbody>
+</reference>
