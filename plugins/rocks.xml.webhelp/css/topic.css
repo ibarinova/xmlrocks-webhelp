@@ -393,6 +393,15 @@ button, input, optgroup, select, textarea {
 }
 
 /* --- Tables START --- */
+table {
+    caption-side: top;
+}
+
+table > caption {
+    color: #333333;
+    font-style: italic;
+}
+
 .table-hover {
     border: none;
 }
@@ -433,6 +442,10 @@ tbody, td, tfoot, th, thead, tr {
 code, kbd, pre, samp {
     font-family: 'PT_Mono';
     color: #333333;
+}
+
+kbd {
+    background-color: #f5f5f5;
 }
 /* --- Codeblock END --- */
 
