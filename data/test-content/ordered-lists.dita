@@ -17,6 +17,9 @@
                     </p>
                 </li>
 
+                <li importance="optional" platform="windows"> This text isn't wrapped into 'p' element.
+                </li>
+
                 <li>
                     <p>
                         Quisque vel quam sem. Fusce commodo arcu non nibh porta.
