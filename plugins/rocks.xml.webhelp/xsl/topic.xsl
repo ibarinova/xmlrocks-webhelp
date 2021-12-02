@@ -142,7 +142,7 @@
             <div class="main-button-container max-width">
                 <div class="dropdown-download">
                     <button onclick="dropdownDownload()" class="button-dropdown-download">
-                        <span class="tooltip-download">Click here to download page</span>
+                        <span class="tooltip-download">Download PDF</span>
                     </button>
 
                     <div id="menu-dropdown-download" class="dropdown-content-download">
@@ -157,14 +157,14 @@
 
                 <div class="button-print-container">
                     <button onclick="window.print()" id="printbtn" class="button-print">
-                        <span class="tooltip-print">Click here to print page</span>
+                        <span class="tooltip-print">Print this page</span>
                     </button>
                 </div>
 
                 <xsl:if test="$includes-pdf = ('yes', 'true')">
                     <div class="dropdown-google-drive">
                         <button onclick="dropdownGoogleDrive()" class="button-dropdown-share-google-drive">
-                            <span class="tooltip-google-drive">Click here to save to Google Drive</span>
+                            <span class="tooltip-google-drive">Save to Google Drive</span>
                         </button>
 
                         <div id="menu-dropdown-google-drive" class="dropdown-content-google-drive">
@@ -226,7 +226,7 @@
                    class="d-flex align-items-center text-light text-decoration-none header-logo">
                     <img src="{$PATH2PROJ}img/logo.svg"/>
                 </a>
-                <span class="tooltip-logo">Click here to go to the main page</span>
+                <span class="tooltip-logo">Back to the main page</span>
             </div>
 
             <span class="fs-4 text-light">

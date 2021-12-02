@@ -20,17 +20,17 @@ body{
 
 /* --- Tooltips START --- */
 .tooltip-logo {
-    display: none;
+    /*display: none;*/
     position: absolute;
-    background-color: #333;
-    opacity: 50%;
-    border-radius: 3px;
-    font-size: 10px;
-    color: #eee;
-    padding: 0em 2em;
-    width: 120px;
-    top: 110%;
-    left: 20%;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 5px #bbbbbb;
+    text-align: center;
+    font-size: 11px;
+    color: #5e5e5e;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    width: 9rem;
+    top: 5em;
     margin-left: -60px;
 }
 
@@ -39,17 +39,16 @@ body{
 }
 
 .tooltip-download {
-    display: none;
+    /*display: none;*/
     position: absolute;
-    background-color: #333;
-    opacity: 50%;
-    border-radius: 3px;
-    font-size: 10px;
-    color: #eee;
-    padding: 0em 2em;
-    width: 120px;
-    bottom: 120%;
-    left: 50%;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 5px #bbbbbb;
+    font-size: 11px;
+    color: #5e5e5e;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    width: 6rem;
+    bottom: 97%;
     margin-left: -80px;
 }
 
@@ -58,17 +57,17 @@ body{
 }
 
 .tooltip-print {
-    display: none;
+    /*display: none;*/
     position: absolute;
-    background-color: #333;
-    opacity: 50%;
-    border-radius: 3px;
-    font-size: 10px;
-    color: #eee;
-    padding: 0em 2em;
-    width: 120px;
-    top: 10.4em;
-    margin-left: -60px;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 5px #bbbbbb;
+    font-size: 11px;
+    color: #5e5e5e;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    width: 6rem;
+    bottom: 3.9em;
+    margin-left: -3.5%;
 }
 
 .button-print:hover > .tooltip-print {
@@ -76,17 +75,16 @@ body{
 }
 
 .tooltip-google-drive {
-    display: none;
+    /*display: none;*/
     position: absolute;
-    background-color: #333;
-    opacity: 50%;
-    border-radius: 3px;
-    font-size: 10px;
-    color: #eee;
-    padding: 0em 2em;
-    width: 130px;
-    bottom: 127%;
-    left: 50%;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 5px #bbbbbb;
+    font-size: 11px;
+    color: #5e5e5e;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    width: 8rem;
+    bottom: 97%;
     margin-left: -60px;
 }
 /* --- Tooltips END --- */
