@@ -16,6 +16,27 @@ body{
     color: #5E5E5E;
 }
 
+h1.title {
+    font-size: 1.34em;
+    margin-bottom: 1em;
+    margin-top: 0;
+    font-weight: 600;
+}
+
+h2.title {
+    font-size: 1.14em;
+    margin: 1em 0 0.6em 0;
+    font-weight: 500;
+}
+
+h3.title,
+h4.title,
+h5.title,
+h6.title {
+    font-size: 1.04em;
+    margin: 1em 0 0.6em 0;
+    font-weight: 500;
+}
 /* --- Body END --- */
 
 /* --- Tooltips START --- */
@@ -436,6 +457,10 @@ tbody, td, tfoot, th, thead, tr {
 code, kbd, pre, samp {
     font-family: 'PT_Mono';
     color: #333333;
+}
+
+kbd {
+    background-color: #f5f5f5;
 }
 /* --- Codeblock END --- */
 
