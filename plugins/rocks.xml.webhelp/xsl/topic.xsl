@@ -247,7 +247,9 @@
             </span>
 
             <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
-                <input class="form-control search" type="search" placeholder="Search" aria-label="Search"/>
+                <input class="form-control search" type="search" placeholder="Search" aria-label="Search">
+                    <div id="search-button"/>
+                </input>
             </nav>
         </div>
     </xsl:template>
@@ -433,5 +435,63 @@
             <br/>
             <xsl:apply-templates select="*[contains(@class, ' topic/desc ')]"/>
         </li>
+    </xsl:template>
+
+    <xsl:template match="*" mode="process.note.common-processing">
+        <xsl:param name="type" select="@type"/>
+        <xsl:param name="othertype" select="@othertype"/>
+
+        <xsl:param name="title">
+            <xsl:call-template name="getVariable">
+                <xsl:with-param name="id" select="concat(upper-case(substring($type, 1, 1)), substring($type, 2))"/>
+            </xsl:call-template>
+        </xsl:param>
+
+        <xsl:variable name="image-name">
+            <xsl:choose>
+                <xsl:when test="lower-case(normalize-space($othertype)) = 'info'">
+                    <xsl:value-of select="lower-case(normalize-space($othertype))"/>
+                </xsl:when>
+                <xsl:when test="lower-case(normalize-space($type)) = ('caution', 'danger', 'note', 'tip', 'warning')">
+                    <xsl:value-of select="lower-case(normalize-space($type))"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:value-of select="'note'"/>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
+
+        <table class="admonition-table">
+            <tbody>
+                <tr>
+                    <td>
+                        <img src="../img/{$image-name}.svg" class="admonition-icon"/>
+                    </td>
+                    <td>
+                        <div>
+                            <xsl:call-template name="commonattributes">
+                                <xsl:with-param name="default-output-class"
+                                                select="string-join(($type, concat('note_', $type)), ' ')"/>
+                            </xsl:call-template>
+                            <xsl:call-template name="setidaname"/>
+                            <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-startprop ')]/prop"
+                                                 mode="ditaval-outputflag"/>
+                            <span class="note__title">
+                                <xsl:copy-of select="$title"/>
+                                <xsl:call-template name="getVariable">
+                                    <xsl:with-param name="id" select="'ColonSymbol'"/>
+                                </xsl:call-template>
+                            </span>
+                            <xsl:text> </xsl:text>
+                            <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-startprop ')]/revprop"
+                                                 mode="ditaval-outputflag"/>
+                            <xsl:apply-templates/>
+                            <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-endprop ')]"
+                                                 mode="out-of-line"/>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </xsl:template>
 </xsl:stylesheet>
