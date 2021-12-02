@@ -1,42 +1,4 @@
 /* --- Body START --- */
-
-@font-face {
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 300;
-    src: local(''),
-    url('../fonts/Montserrat-Light.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 400;
-    src: local(''),
-    url('../fonts/Montserrat/Montserrat-Medium.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 500;
-    src: local(''),
-    url('../fonts/Montserrat/Montserrat-Medium.ttf') format('truetype');
-}
-
-@font-face {
-    font-family: 'Montserrat';
-    font-style: normal;
-    font-weight: 600;
-    src: local(''),
-    url('../fonts/Montserrat/Montserrat-Bold.ttf') format('truetype');
-}
-
-:root {
-    --bs-font-sans-serif: 'Montserrat', sans-serif;
-    color: #404040;
-}
-
 article {
     font-weight: 100;
 }
@@ -48,6 +10,10 @@ a {
 
 a:hover {
     text-decoration: underline;
+}
+
+body{
+    color: #5E5E5E;
 }
 
 h1.title {
@@ -457,22 +423,30 @@ tbody, td, tfoot, th, thead, tr {
 /* --- Tables END --- */
 
 /* --- Codeblock START --- */
-code {
-    font-size: .895em;
-    color: #d63384;
-    word-wrap: break-word;
-    background-color: lightgrey;
-    border-radius: 3px;
-    font-family: monospace;
+.codeblock {
+    font-family: 'PT_Mono';
+    background-color: #f5f5f5;
+    color: #333333;
+    padding: 0.75em;
 }
 
-pre code {
-    font-size: inherit;
-    color: #d63384;
-    background-color: lightgrey;
-    word-break: normal;
+code, kbd, pre, samp {
+    font-family: 'PT_Mono';
+    color: #333333;
 }
 /* --- Codeblock END --- */
+
+/* --- Figures START --- */
+figure {
+    display: table;
+}
+
+figcaption {
+    display: table-caption;
+    caption-side: bottom;
+    font-style: italic;
+}
+/* --- Figures END --- */
 
 /* --- Admonitions START --- */
 .admonition-table,
@@ -562,3 +536,13 @@ li.linklist {
         display: none;
     }
 }
+
+/*--- Unordered Lists START---*/
+ul li::marker{
+    color: #5E5E5E;
+}
+
+li li{
+    padding: 0.5rem;
+}
+/*--- Unordered Lists END---*/
