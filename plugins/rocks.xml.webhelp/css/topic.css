@@ -20,7 +20,7 @@ body{
 
 /* --- Tooltips START --- */
 .tooltip-logo {
-    /*display: none;*/
+    display: none;
     position: absolute;
     background-color: #FFFFFF;
     box-shadow: 0 2px 5px #bbbbbb;
@@ -39,7 +39,7 @@ body{
 }
 
 .tooltip-download {
-    /*display: none;*/
+    display: none;
     position: absolute;
     background-color: #FFFFFF;
     box-shadow: 0 2px 5px #bbbbbb;
@@ -56,8 +56,12 @@ body{
     display: block;
 }
 
+.button-print-container{
+    position: relative;
+}
+
 .tooltip-print {
-    /*display: none;*/
+    display: none;
     position: absolute;
     background-color: #FFFFFF;
     box-shadow: 0 2px 5px #bbbbbb;
@@ -66,8 +70,8 @@ body{
     padding-top: 0.5em;
     padding-bottom: 0.5em;
     width: 6rem;
-    bottom: 3.9em;
-    margin-left: -3.5%;
+    bottom: 3.55em;
+    margin-left: -70px;
 }
 
 .button-print:hover > .tooltip-print {
@@ -75,7 +79,7 @@ body{
 }
 
 .tooltip-google-drive {
-    /*display: none;*/
+    display: none;
     position: absolute;
     background-color: #FFFFFF;
     box-shadow: 0 2px 5px #bbbbbb;
