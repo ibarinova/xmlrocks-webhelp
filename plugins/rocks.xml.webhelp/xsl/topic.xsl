@@ -298,7 +298,7 @@
                 class="go-to-top accent-background-color"
                 id="button-back-to-top">
             <a href="#">
-                <img src="../img/go-to-top.svg"/>
+                <img src="{$PATH2PROJ}img/go-to-top.svg"/>
             </a>
         </button>
     </xsl:template>
@@ -465,7 +465,7 @@
             <tbody>
                 <tr>
                     <td>
-                        <img src="../img/{$image-name}.svg" class="admonition-icon"/>
+                        <img src="{concat($PATH2PROJ, 'img/', $image-name)}.svg" class="admonition-icon"/>
                     </td>
                     <td>
                         <div>
