@@ -114,13 +114,29 @@
             <xsl:apply-templates select="." mode="addAttributesToHtmlBodyElement"/>
             <xsl:call-template name="setaname"/>
             <xsl:apply-templates select="." mode="addHeaderToHtmlBodyElement"/>
-          <div class="breadcrumb-container max-width">
+
+            <div class="breadcrumb-container max-width">
                 <xsl:call-template name="generate-custom-breadcrumbs"/>
             </div>
-          
-            <div class="top-nav-buttons-container max-width">
-                <a class="prev-button" href="#">&#8592; PREV</a>
-                <a class="next-button" href="#">NEXT &#8594;</a>
+
+            <div class="top-nav-buttons-container-wrapper">
+                <div class="top-nav-buttons-container max-width">
+                    <!-- TODO: Replace with working prev/next buttons -->
+                    <a class="prev-button" href="#">
+                        <pre class="button-prev-nav"/>
+                        <xsl:text> </xsl:text>
+                        <xsl:call-template name="getVariable">
+                            <xsl:with-param name="id" select="'Previous topic'"/>
+                        </xsl:call-template>
+                    </a>
+                    <a class="next-button" href="#">
+                        <xsl:call-template name="getVariable">
+                            <xsl:with-param name="id" select="'Next topic'"/>
+                        </xsl:call-template>
+                        <xsl:text> </xsl:text>
+                        <pre class="button-next-nav"/>
+                    </a>
+                </div>
             </div>
 
             <div class="main-button-container max-width">
@@ -162,10 +178,9 @@
                     </div>
                 </xsl:if>
             </div>
-                   
+
             <main role="main">
                 <xsl:attribute name="class" select="'container max-width'"/>
-                <xsl:call-template name="generate-custom-breadcrumbs"/>
 
                 <div class="row row-cols-1 row-cols-md-3 mb-3 text-left">
                     <div class="col col-sm-4" id="toc-wrapper">
@@ -181,8 +196,20 @@
                         <xsl:call-template name="insertBackToTopButton"/>
                         <div class="bottom-nav-buttons-container">
                             <!-- TODO: Replace with working prev/next buttons -->
-                            <a class="prev-button" href="#">&#8592; PREV</a>
-                            <a class="next-button" href="#">NEXT &#8594;</a>
+                            <a class="prev-button" href="#">
+                                <pre class="button-prev-nav"/>
+                                <xsl:text> </xsl:text>
+                                <xsl:call-template name="getVariable">
+                                    <xsl:with-param name="id" select="'Previous topic'"/>
+                                </xsl:call-template>
+                            </a>
+                            <a class="next-button" href="#">
+                                <xsl:call-template name="getVariable">
+                                    <xsl:with-param name="id" select="'Next topic'"/>
+                                </xsl:call-template>
+                                <xsl:text> </xsl:text>
+                                <pre class="button-next-nav"/>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -220,7 +247,9 @@
             </span>
 
             <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
-                <input class="form-control search" type="search" placeholder="Search" aria-label="Search"/>
+                <input class="form-control search" type="search" placeholder="Search" aria-label="Search">
+                    <div id="search-button"/>
+                </input>
             </nav>
         </div>
     </xsl:template>
@@ -269,16 +298,7 @@
                 class="go-to-top accent-background-color"
                 id="button-back-to-top">
             <a href="#">
-                <svg width="50" height="50" xmlns="http://www.w3.org/2000/svg">
-                    <g id="Layer_1">
-                        <line stroke="#fff" id="svg_7" y2="17.66667" x2="26.33332" y1="30.33333" x1="13.66667"
-                              stroke-width="4"
-                              fill="none"/>
-                        <line transform="rotate(90.1903 29.9999 24)" stroke="#fff" id="svg_10" y2="17.66667"
-                              x2="36.33323"
-                              y1="30.33333" x1="23.66658" stroke-width="4" fill="none"/>
-                    </g>
-                </svg>
+                <img src="{$PATH2PROJ}img/go-to-top.svg"/>
             </a>
         </button>
     </xsl:template>
@@ -415,5 +435,63 @@
             <br/>
             <xsl:apply-templates select="*[contains(@class, ' topic/desc ')]"/>
         </li>
+    </xsl:template>
+
+    <xsl:template match="*" mode="process.note.common-processing">
+        <xsl:param name="type" select="@type"/>
+        <xsl:param name="othertype" select="@othertype"/>
+
+        <xsl:param name="title">
+            <xsl:call-template name="getVariable">
+                <xsl:with-param name="id" select="concat(upper-case(substring($type, 1, 1)), substring($type, 2))"/>
+            </xsl:call-template>
+        </xsl:param>
+
+        <xsl:variable name="image-name">
+            <xsl:choose>
+                <xsl:when test="lower-case(normalize-space($othertype)) = 'info'">
+                    <xsl:value-of select="lower-case(normalize-space($othertype))"/>
+                </xsl:when>
+                <xsl:when test="lower-case(normalize-space($type)) = ('caution', 'danger', 'note', 'tip', 'warning')">
+                    <xsl:value-of select="lower-case(normalize-space($type))"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:value-of select="'note'"/>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
+
+        <table class="admonition-table">
+            <tbody>
+                <tr>
+                    <td>
+                        <img src="{concat($PATH2PROJ, 'img/', $image-name)}.svg" class="admonition-icon"/>
+                    </td>
+                    <td>
+                        <div>
+                            <xsl:call-template name="commonattributes">
+                                <xsl:with-param name="default-output-class"
+                                                select="string-join(($type, concat('note_', $type)), ' ')"/>
+                            </xsl:call-template>
+                            <xsl:call-template name="setidaname"/>
+                            <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-startprop ')]/prop"
+                                                 mode="ditaval-outputflag"/>
+                            <span class="note__title">
+                                <xsl:copy-of select="$title"/>
+                                <xsl:call-template name="getVariable">
+                                    <xsl:with-param name="id" select="'ColonSymbol'"/>
+                                </xsl:call-template>
+                            </span>
+                            <xsl:text> </xsl:text>
+                            <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-startprop ')]/revprop"
+                                                 mode="ditaval-outputflag"/>
+                            <xsl:apply-templates/>
+                            <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-endprop ')]"
+                                                 mode="out-of-line"/>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </xsl:template>
 </xsl:stylesheet>

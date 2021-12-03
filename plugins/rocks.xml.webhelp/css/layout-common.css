@@ -1,5 +1,49 @@
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 300;
+    src: local(''),
+    url('../fonts/Montserrat-Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 400;
+    src: local(''),
+    url('../fonts/Montserrat/Montserrat-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 500;
+    src: local(''),
+    url('../fonts/Montserrat/Montserrat-Medium.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    font-style: normal;
+    font-weight: 600;
+    src: local(''),
+    url('../fonts/Montserrat/Montserrat-Bold.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'PT_Mono';
+    font-style: normal;
+    src: local(''),
+    url('../fonts/PT_Mono/PTMono-Regular.ttf') format('truetype');
+}
+
+:root {
+    --bs-font-sans-serif: 'Montserrat', sans-serif;
+    color: #404040;
+}
+
 .accent-background-color {
-    background-color: #000000b9;
+    background-color: #0d213a;
 }
 
 .max-width {
@@ -32,6 +76,20 @@ main {
     border: none;
     border-radius: 30px;
     box-shadow: 0 0 5px #bbbbbb;
+    width: 304px;
+}
+
+#search-button{
+    background-image: url(../img/search.svg);
+    background-position: no-repeat;
+    position: relative;
+}
+
+#search-button:after{
+    content: url(../img/search.svg);;
+    font-size: 18pt;
+    position: absolute;
+    right: 1rem;
 }
 /* --- Main bar END --- */
 
