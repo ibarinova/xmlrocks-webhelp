@@ -475,6 +475,7 @@ figcaption {
     display: table-caption;
     caption-side: bottom;
     font-style: italic;
+    padding-top: 1rem;
 }
 /* --- Figures END --- */
 
@@ -568,6 +569,10 @@ li.linklist {
 }
 
 /*--- Unordered Lists START---*/
+ul.simple {
+    margin-bottom: 0;
+}
+
 ul li::marker{
     color: #5E5E5E;
 }
