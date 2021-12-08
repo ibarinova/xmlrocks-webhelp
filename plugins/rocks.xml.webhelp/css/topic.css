@@ -637,3 +637,9 @@ li > .p{
     border-top: 1px solid #bbbbbb;
 }
 /*--- Footnotes END---*/
+
+/*--- Keyword START ---*/
+.keyword{
+    color: #5e5e5e;
+}
+/*--- Keyword END ---*/
