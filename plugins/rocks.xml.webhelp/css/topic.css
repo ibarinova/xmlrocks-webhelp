@@ -446,6 +446,10 @@ table > caption {
 tbody, td, tfoot, th, thead, tr {
     border: 1px solid;
 }
+
+.stentry{
+    padding: 0.5rem;
+}
 /* --- Tables END --- */
 
 /* --- Codeblock START --- */
