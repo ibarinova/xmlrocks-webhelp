@@ -69,8 +69,8 @@ h6.title {
     padding-top: 0.5em;
     padding-bottom: 0.5em;
     width: 6rem;
-    bottom: 97%;
-    margin-left: -80px;
+    bottom: 111%;
+    margin-left: -50px;
 }
 
 .button-dropdown-download:hover > .tooltip-download {
@@ -91,8 +91,8 @@ h6.title {
     padding-top: 0.5em;
     padding-bottom: 0.5em;
     width: 6rem;
-    bottom: 3.55em;
-    margin-left: -70px;
+    bottom: 4.0em;
+    margin-left: -50px;
 }
 
 .button-print:hover > .tooltip-print {
@@ -109,7 +109,7 @@ h6.title {
     padding-top: 0.5em;
     padding-bottom: 0.5em;
     width: 8rem;
-    bottom: 97%;
+    bottom: 111%;
     margin-left: -60px;
 }
 /* --- Tooltips END --- */
