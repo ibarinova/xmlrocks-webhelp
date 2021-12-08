@@ -146,11 +146,16 @@
                     </button>
 
                     <div id="menu-dropdown-download" class="dropdown-content-download">
-                        <input type="button" id="downloadbtn" value="Download this page as PDF"
-                               onclick="getPDF()"/>
+                        <button id="download-page-btn" onclick="getPDF()">
+                            <div class="download-page">Download this page as PDF</div>
+                        </button>
 
                         <xsl:if test="$includes-pdf = ('yes', 'true')">
-                            <a href="{$output-pdf-full-path}" target="_blank">Download PDF output</a>
+                            <button id="download-output-btn">
+                                <a href="{$output-pdf-full-path}" target="_blank">
+                                    <div class="download-output">Download PDF output</div>
+                                </a>
+                            </button>
                         </xsl:if>
                       </div>
                 </div>

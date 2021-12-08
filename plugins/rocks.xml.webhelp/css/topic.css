@@ -230,11 +230,43 @@ h6.title {
     display: inline-block;
 }
 
-.download-pdf-output {
-    color: green;
-    position: fixed;
-    top: 6em;
-    right: 2.5em;
+#download-output-btn{
+    color: #5e5e5e;
+    padding-left: 6px;
+    font-size: 16px;
+    font-weight: 100;
+    width: 100%;
+}
+
+#download-output-btn:hover{
+    display: block;
+    background-color: #2c74eb;
+    width: 100%;
+}
+
+.download-output:hover {
+    color: #bbbbbb;
+}
+
+a:hover{
+    text-decoration: none;
+}
+
+#download-page-btn{
+    color: #5e5e5e;
+    font-size: 16px;
+    font-weight: 100;
+    width: 100%;
+}
+
+.download-page:hover {
+    color: #bbbbbb;
+}
+
+#download-page-btn:hover {
+    display: block;
+    background-color: #2c74eb;
+    width: 100%;
 }
 
 .button-dropdown-download {
@@ -264,14 +296,16 @@ h6.title {
     min-width: 160px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
-    right: 1.6em;
-    top: 2.4em;
+    right: 10%;
+    top: 2.7em;
+    width: 16rem;
 }
 
 .dropdown-content-download div {
     color: black;
-    padding: 12px 16px;
+    padding-left: 0.5rem;
     text-decoration: none;
+    text-align: left;
     display: block;
 }
 
