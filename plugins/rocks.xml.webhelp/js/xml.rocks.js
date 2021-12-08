@@ -138,7 +138,7 @@ function applyExpandedClass(id){
 // This function reveals active topic in the TOC when page reloads
 $(document).ready(function() {
     // expand all parent li's
-    $('.active').parents('nav li').addClass('expanded');
+    $('.active').parents('nav li').addClass('expanded ancestor-of-active');
 
     window.addEventListener('popstate', function(event) {
         state = event.state;
@@ -162,8 +162,10 @@ function reloadDynamically(href){
 
         $('article').html(articleContent);
 
+        $('.toc-container').find('.active').parents('nav li').removeClass('ancestor-of-active');
         $('.toc-container').find('.active').removeClass('active');
 
         $('.toc-container').find('#' + listItemID).addClass('active');
+        $('.toc-container').find('#' + listItemID).parents('nav li').addClass('expanded ancestor-of-active');
     }, 'html')
 }
