@@ -496,15 +496,10 @@ li.ancestor-of-active > .toc-element-row > a {
     color: #2c74eb;
 }
 
-.toc-element-row:hover > a {
-    color: #fff;
-}
-
-.toc-container li.active > .toc-element-row:hover > a {
-    color: #fff;
-}
-
-.toc-container li.level1 > .toc-element-row:hover > a {
+.toc-element-row:hover > a,
+.toc-container li.active > .toc-element-row:hover > a,
+.toc-container li.level1 > .toc-element-row:hover > a,
+.toc-container li.ancestor-of-active > .toc-element-row:hover > a {
     color: #fff;
 }
 
