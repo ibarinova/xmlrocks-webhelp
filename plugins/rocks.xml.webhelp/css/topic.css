@@ -631,3 +631,9 @@ li > .p{
     border-top: 1px solid #bbbbbb;
 }
 /*--- Footnotes END---*/
+
+/*--- Parmname START ---*/
+.parmname{
+    font-weight: 400;
+}
+/*--- Parmname END ---*/
