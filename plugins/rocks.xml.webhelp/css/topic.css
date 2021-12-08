@@ -389,42 +389,174 @@ a:hover{
 /* --- Button bar END --- */
 
 /* --- Table of contents (TOC) START --- */
+/* level 1 */
+.toc-container li.level1 {
+    background-color: #f8f8f8;
+    border-top: 1px #eeeeee solid;
+}
+
+.toc-container li.level1 > .toc-element-row {
+    color:#333333;
+}
+
+.toc-container li.level1 > .toc-element-row > a {
+    padding-left: 1.5em;
+}
+
+/* level 2 */
+.toc-container li.level2 {
+    background-color: #f2f2f2;
+}
+
+.toc-container li.level2 > .toc-element-row > a {
+    padding-left: 2em;
+}
+
+/* level 3 */
+.toc-container li.level3 {
+    background-color: #eaeaea;
+}
+
+.toc-container li.level3 > .toc-element-row > a {
+    padding-left: 2.5em;
+}
+
+/* level 4 */
+.toc-container li.level4 > .toc-element-row > a {
+    padding-left: 3em;
+}
+
+/* level 5 */
+.toc-container li.level5 > .toc-element-row > a {
+    padding-left: 3.5em;
+}
+
+/* level 6 */
+.toc-container li.level6 > .toc-element-row > a {
+    padding-left: 4em;
+}
+
+/* level is higher than 6 */
+.toc-container li.level-extra > .toc-element-row > a {
+    padding-left: 4em;
+}
+
+.toc-container li.level1:last-child {
+    border-bottom: 1px #eeeeee solid;
+}
+
+.toc-container ul {
+    padding: 0;
+}
+
 .toc-container li {
     list-style: none;
     margin: 0;
     padding: 0;
     word-wrap: break-word;
-    padding-top: 0.5em;
     text-decoration: none;
+}
+
+.toc-container a {
+    width: calc(100% - 2.705em);
 }
 
 .button-toc-expand-collapse {
     color: #bbbbbb;
     cursor: pointer;
+    float: right;
 }
 
-.button-toc-expand-collapse:hover {
-    color: #000000;
-}
-
-.toc-container a:hover,
 .toc-container a:visited,
 .toc-container a:link,
 .toc-container a:active {
     text-decoration: none;
+    display: inline-block;
+    font-weight: 100;
+    color: #9b9b9b;
+    padding-top: 0.4em;
+    padding-bottom: 0.4em;
+}
+
+li.level1 > .toc-element-row > a:visited,
+li.level1 > .toc-element-row > a:link,
+li.level1 > .toc-element-row > a:active {
+    color:#333333;
+}
+
+.toc-element-row:hover {
+    background-color: #2c74eb;
+}
+
+.toc-container li.active > .toc-element-row > a {
+    color: #2c74eb;
+}
+
+.toc-element-row:hover > a {
+    color: #fff;
+}
+
+.toc-container li.active > .toc-element-row:hover > a {
+    color: #fff;
+}
+
+.toc-container li.level1 > .toc-element-row:hover > a {
+    color: #fff;
+}
+
+.toc-container .button-toc-expand-collapse {
+    width: 2.27em;
+    height: 2.27em;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-image: url('data:image/svg+xml;utf8,<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="10px" height="6px" viewBox="0 0 10 6" style="enable-background:new 0 0 10 6;" xml:space="preserve"> <style type="text/css"> .st0{fill:%239b9b9b;} </style> <g> <path class="st0" d="M9.9,1.1L5.2,5.8C5.2,5.9,5.1,5.9,5,5.9s-0.2,0-0.2-0.1L0.1,1.1C0,1.1,0,1,0,0.9s0-0.2,0.1-0.2l0.5-0.5  c0.1-0.1,0.1-0.1,0.2-0.1c0.1,0,0.2,0,0.2,0.1L5,4.1l3.9-3.9C9,0.1,9.1,0.1,9.2,0.1c0.1,0,0.2,0,0.2,0.1l0.5,0.5  C10,0.7,10,0.8,10,0.9S10,1.1,9.9,1.1z"/>  </g>  </svg>');
+}
+
+.toc-container li.level1 > .toc-element-row > .button-toc-expand-collapse {
+    background-image: url('data:image/svg+xml;utf8,<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="10px" height="6px" viewBox="0 0 10 6" style="enable-background:new 0 0 10 6;" xml:space="preserve"> <style type="text/css"> .st0{fill:%23333333;} </style> <g> <path class="st0" d="M9.9,1.1L5.2,5.8C5.2,5.9,5.1,5.9,5,5.9s-0.2,0-0.2-0.1L0.1,1.1C0,1.1,0,1,0,0.9s0-0.2,0.1-0.2l0.5-0.5  c0.1-0.1,0.1-0.1,0.2-0.1c0.1,0,0.2,0,0.2,0.1L5,4.1l3.9-3.9C9,0.1,9.1,0.1,9.2,0.1c0.1,0,0.2,0,0.2,0.1l0.5,0.5  C10,0.7,10,0.8,10,0.9S10,1.1,9.9,1.1z"/>  </g>  </svg>');
+}
+
+.toc-container li.expanded > .toc-element-row > .button-toc-expand-collapse {
+    background-image: url('data:image/svg+xml;utf8,<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="10px" height="6px" viewBox="0 0 10 6" style="enable-background:new 0 0 10 6;" xml:space="preserve"> <style type="text/css"> .st0{fill:%239b9b9b;} </style> <g> <path class="st0" d="M9.9,5.3L9.4,5.8C9.3,5.9,9.3,5.9,9.2,5.9c-0.1,0-0.2,0-0.2-0.1L5,1.9L1.1,5.8C1,5.9,0.9,5.9,0.8,5.9 s-0.2,0-0.2-0.1L0.1,5.3C0,5.3,0,5.2,0,5.1C0,5,0,4.9,0.1,4.9l4.7-4.7C4.8,0.1,4.9,0.1,5,0.1s0.2,0,0.2,0.1l4.7,4.7 C10,4.9,10,5,10,5.1C10,5.2,10,5.3,9.9,5.3z"/> </g> </svg>');
+}
+
+.toc-container li.expanded.level1 > .toc-element-row > .button-toc-expand-collapse {
+    background-image: url('data:image/svg+xml;utf8,<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="10px" height="6px" viewBox="0 0 10 6" style="enable-background:new 0 0 10 6;" xml:space="preserve"> <style type="text/css"> .st0{fill:%23333333;} </style> <g> <path class="st0" d="M9.9,5.3L9.4,5.8C9.3,5.9,9.3,5.9,9.2,5.9c-0.1,0-0.2,0-0.2-0.1L5,1.9L1.1,5.8C1,5.9,0.9,5.9,0.8,5.9 s-0.2,0-0.2-0.1L0.1,5.3C0,5.3,0,5.2,0,5.1C0,5,0,4.9,0.1,4.9l4.7-4.7C4.8,0.1,4.9,0.1,5,0.1s0.2,0,0.2,0.1l4.7,4.7 C10,4.9,10,5,10,5.1C10,5.2,10,5.3,9.9,5.3z"/> </g> </svg>');
+}
+
+.toc-container li.active > .toc-element-row > .button-toc-expand-collapse {
+    background-image: url('data:image/svg+xml;utf8,<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="10px" height="6px" viewBox="0 0 10 6" style="enable-background:new 0 0 10 6;" xml:space="preserve"> <style type="text/css"> .st0{fill:%232c74eb;} </style> <g> <path class="st0" d="M9.9,1.1L5.2,5.8C5.2,5.9,5.1,5.9,5,5.9s-0.2,0-0.2-0.1L0.1,1.1C0,1.1,0,1,0,0.9s0-0.2,0.1-0.2l0.5-0.5  c0.1-0.1,0.1-0.1,0.2-0.1c0.1,0,0.2,0,0.2,0.1L5,4.1l3.9-3.9C9,0.1,9.1,0.1,9.2,0.1c0.1,0,0.2,0,0.2,0.1l0.5,0.5  C10,0.7,10,0.8,10,0.9S10,1.1,9.9,1.1z"/>  </g>  </svg>');
+}
+
+.toc-container li.active.expanded > .toc-element-row > .button-toc-expand-collapse {
+    background-image: url('data:image/svg+xml;utf8,<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="10px" height="6px" viewBox="0 0 10 6" style="enable-background:new 0 0 10 6;" xml:space="preserve"> <style type="text/css"> .st0{fill:%232c74eb;} </style> <g> <path class="st0" d="M9.9,5.3L9.4,5.8C9.3,5.9,9.3,5.9,9.2,5.9c-0.1,0-0.2,0-0.2-0.1L5,1.9L1.1,5.8C1,5.9,0.9,5.9,0.8,5.9 s-0.2,0-0.2-0.1L0.1,5.3C0,5.3,0,5.2,0,5.1C0,5,0,4.9,0.1,4.9l4.7-4.7C4.8,0.1,4.9,0.1,5,0.1s0.2,0,0.2,0.1l4.7,4.7 C10,4.9,10,5,10,5.1C10,5.2,10,5.3,9.9,5.3z"/> </g> </svg>');
+}
+
+.toc-container li > .toc-element-row:hover > .button-toc-expand-collapse {
+    background-image: url('data:image/svg+xml;utf8,<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="10px" height="6px" viewBox="0 0 10 6" style="enable-background:new 0 0 10 6;" xml:space="preserve"> <style type="text/css"> .st0{fill:%23ffffff;} </style> <g> <path class="st0" d="M9.9,1.1L5.2,5.8C5.2,5.9,5.1,5.9,5,5.9s-0.2,0-0.2-0.1L0.1,1.1C0,1.1,0,1,0,0.9s0-0.2,0.1-0.2l0.5-0.5  c0.1-0.1,0.1-0.1,0.2-0.1c0.1,0,0.2,0,0.2,0.1L5,4.1l3.9-3.9C9,0.1,9.1,0.1,9.2,0.1c0.1,0,0.2,0,0.2,0.1l0.5,0.5  C10,0.7,10,0.8,10,0.9S10,1.1,9.9,1.1z"/>  </g>  </svg>');
+}
+
+.toc-container li.expanded > .toc-element-row:hover > .button-toc-expand-collapse {
+    background-image: url('data:image/svg+xml;utf8,<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="10px" height="6px" viewBox="0 0 10 6" style="enable-background:new 0 0 10 6;" xml:space="preserve"> <style type="text/css"> .st0{fill:%23ffffff;} </style> <g> <path class="st0" d="M9.9,5.3L9.4,5.8C9.3,5.9,9.3,5.9,9.2,5.9c-0.1,0-0.2,0-0.2-0.1L5,1.9L1.1,5.8C1,5.9,0.9,5.9,0.8,5.9 s-0.2,0-0.2-0.1L0.1,5.3C0,5.3,0,5.2,0,5.1C0,5,0,4.9,0.1,4.9l4.7-4.7C4.8,0.1,4.9,0.1,5,0.1s0.2,0,0.2,0.1l4.7,4.7 C10,4.9,10,5,10,5.1C10,5.2,10,5.3,9.9,5.3z"/> </g> </svg>');
+}
+
+/* Smooth scroll */
+.toc-container {
+    overflow:hidden;
 }
 
 .toc-container li ul {
-    display: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease-in-out;
 }
 
 .toc-container li.expanded > ul {
-    display: block;
+    transition: max-height 0.6s ease-in-out;
+    height: auto;
+    max-height: 2000px;
 }
 
-.toc-container li.active > a {
-    color: #6610f2;
-}
 /* --- Table of contents (TOC) END --- */
 
 .rounded-card-rocks {
@@ -611,13 +743,15 @@ ul.simple {
     margin-bottom: 0;
 }
 
-ul li::marker{
+ul li::marker {
     color: #5E5E5E;
 }
-li li{
+
+li li {
     padding: 0.5rem;
 }
-li > .p{
+
+li > .p {
     padding: 0;
     margin:0;
 }

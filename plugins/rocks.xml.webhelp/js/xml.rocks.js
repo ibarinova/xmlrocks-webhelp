@@ -125,27 +125,13 @@ function getDynamicTopicData(href) {
 
 // Expand topics in the TOC
 function applyExpandedClass(id){
-    if ($(id).parent().hasClass('expanded')) {
+    if ($(id).parent().parent().hasClass('expanded')) {
         // remove .expanded from current TOC topic
-        $(id).parent().removeClass('expanded');
+        $(id).parent().parent().removeClass('expanded');
 
-        // change symbol to +
-        $(id).html('+ ');
     } else {
         // add .expanded to current TOC topic
-        $(id).parent().addClass('expanded');
-
-        // change symbol to -
-        $(id).html('- ');
-
-        // remove .expanded for all siblings
-        $(id).parent().siblings().removeClass('expanded');
-
-        // remove .expanded for all descendants of siblings
-        $(id).parent().siblings().find('.button-toc-expand-collapse ').parent().removeClass('expanded');
-
-        // change - to + for all closed siblings
-        $(id).parent().siblings().find('.button-toc-expand-collapse ').html('+ ');
+        $(id).parent().parent().addClass('expanded');
     }
 }
 
@@ -153,9 +139,6 @@ function applyExpandedClass(id){
 $(document).ready(function() {
     // expand all parent li's
     $('.active').parents('nav li').addClass('expanded');
-
-    // update expanded symbol
-    $('.active').parents('nav li').children('.button-toc-expand-collapse ').html('- ');
 
     window.addEventListener('popstate', function(event) {
         state = event.state;
