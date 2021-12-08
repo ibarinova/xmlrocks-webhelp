@@ -452,10 +452,7 @@
 
         <xsl:variable name="image-name">
             <xsl:choose>
-                <xsl:when test="lower-case(normalize-space($othertype)) = 'info'">
-                    <xsl:value-of select="lower-case(normalize-space($othertype))"/>
-                </xsl:when>
-                <xsl:when test="lower-case(normalize-space($type)) = ('caution', 'danger', 'note', 'tip', 'warning')">
+                <xsl:when test="lower-case(normalize-space($type)) = ('caution', 'danger', 'note', 'tip', 'warning', 'important')">
                     <xsl:value-of select="lower-case(normalize-space($type))"/>
                 </xsl:when>
                 <xsl:otherwise>
