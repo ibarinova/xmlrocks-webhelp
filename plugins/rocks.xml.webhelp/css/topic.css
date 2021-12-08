@@ -623,3 +623,11 @@ li > .p{
 }
 
 /*--- Unordered Lists END---*/
+
+/*--- Footnotes START---*/
+.endnotes {
+    margin-top: 1em;
+    padding-top: 0.75em;
+    border-top: 1px solid #bbbbbb;
+}
+/*--- Footnotes END---*/
