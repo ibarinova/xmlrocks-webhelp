@@ -20,7 +20,8 @@ Use ```xmlrocks-webhelp``` transtype to generate xmlRocks webHelp output.
 ## Parameters
 1. ```'includes-pdf'``` parameter is used for creating output in pdf format and adding 'Download PDF output ' button. Possible values to use this parameter are ```yes``` or ```true```.
 2. Use```'organization-name'``` to pass organization name which will be shown in footer. Otherwise first bookmap/organization element will be used.
-3. Also ```'args.csspath'``` can be applied to define CSS output directory. Default value is ```css```. Possible value - any string (for example ```styles```, ```resources``` etc.). If an empty string is passed, then CSS files will be located directly in the output directory. 
+3. `two-col-fig-callouts` - specifies if figure callouts (ordered list items) should be separated into two columns. Allowable values `true` or `yes`. If parameter wasn't specified or any other value was selected - figure ordered list will be processed using default transformation.
+4. Also ```'args.csspath'``` can be applied to define CSS output directory. Default value is ```css```. Possible value - any string (for example ```styles```, ```resources``` etc.). If an empty string is passed, then CSS files will be located directly in the output directory. 
 ____
 ## Extension points
 There are two extension points to override plugin templates:
