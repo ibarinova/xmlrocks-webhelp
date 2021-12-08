@@ -502,6 +502,12 @@ code, kbd, pre, samp {
 kbd {
     background-color: #f5f5f5;
 }
+
+.codeph{
+    font-family: monospace;
+    font-size: 0.875em;
+    color: #5e5e5e;
+}
 /* --- Codeblock END --- */
 
 /* --- Figures START --- */
