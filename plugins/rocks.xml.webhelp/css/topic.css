@@ -783,6 +783,13 @@ li > .p {
 }
 /*--- Footnotes END---*/
 
+
+/*--- Keyword START ---*/
+.keyword{
+    color: #5e5e5e;
+}
+/*--- Keyword END ---*/
+
 /*--- Parmname START ---*/
 .parmname{
     font-weight: 400;
