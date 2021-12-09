@@ -765,6 +765,16 @@ li > .p {
 
 /*--- Unordered Lists END---*/
 
+/*--- Parameter Lists START---*/
+dd.pd {
+    padding-left: 2em;
+}
+
+dt.pt {
+    font-weight: bolder;
+}
+/*--- Parameter Lists END---*/
+
 /*--- Footnotes START---*/
 .endnotes {
     margin-top: 1em;
