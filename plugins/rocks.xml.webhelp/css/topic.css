@@ -786,3 +786,9 @@ dt.pt {
     padding-left: 2em;
 }
 /*--- Lines END---*/
+
+/*--- Substepexpand START---*/
+.substepexpand {
+    margin: 0;
+}
+/*--- Substepexpand END---*/
