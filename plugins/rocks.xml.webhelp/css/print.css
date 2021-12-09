@@ -1,0 +1,33 @@
+@media print {
+    .rocks-header {
+        display: none;
+    }
+
+    .header-logo {
+        display: none;
+    }
+
+    .breadcrumb {
+        display: none;
+    }
+
+    .dropdown-download {
+        display: none;
+    }
+
+    #toc-wrapper {
+        display: none;
+    }
+
+    #button-back-to-top {
+        display: none;
+    }
+
+    .related-links {
+        display: none;
+    }
+
+    .footer-container {
+        display: none;
+    }
+}

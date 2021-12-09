@@ -654,6 +654,16 @@ figcaption {
     font-style: italic;
     padding-top: 1rem;
 }
+
+figure .table-callouts tbody,
+figure .table-callouts tr {
+    border: none;
+}
+
+figure .table-callouts td {
+    padding: 0 0.25rem 0 1em;
+    border: none;
+}
 /* --- Figures END --- */
 
 /* --- Admonitions START --- */
@@ -711,40 +721,6 @@ li.linklist {
     margin-bottom: 1.2rem;
 }
 
-@media print {
-    .rocks-header {
-        display: none;
-    }
-
-    .header-logo {
-        display: none;
-    }
-
-    .breadcrumb {
-        display: none;
-    }
-
-    .dropdown-download {
-        display: none;
-    }
-
-    #toc-wrapper {
-        display: none;
-    }
-
-    #button-back-to-top {
-        display: none;
-    }
-
-    .related-links {
-        display: none;
-    }
-
-    .footer-container {
-        display: none;
-    }
-}
-
 /*--- Unordered Lists START---*/
 ul.simple {
     margin-bottom: 0;
@@ -790,8 +766,8 @@ dt.pt {
     padding-top: 0.75em;
     border-top: 1px solid #bbbbbb;
 }
-/*--- Footnotes END---*/
 
+/*--- Footnotes END---*/
 
 /*--- Keyword START ---*/
 .keyword{
@@ -804,7 +780,6 @@ dt.pt {
     font-weight: 400;
 }
 /*--- Parmname END ---*/
-
 
 /*--- Lines START---*/
 .lines {

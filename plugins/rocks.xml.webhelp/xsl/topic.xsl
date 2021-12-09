@@ -8,6 +8,7 @@
     <xsl:param name="using-input"/>
     <xsl:param name="includes-pdf"/>
     <xsl:param name="organization-name"/>
+    <xsl:param name="two-col-fig-callouts" select="'false'"/>
     <xsl:param name="name-of-map"/>
     <xsl:param name="include.rellinks"
                select="'#default parent child sibling friend next previous cousin ancestor descendant sample external other'"
@@ -17,6 +18,8 @@
     <xsl:variable name="output-pdf-full-path" select="concat($PATH2PROJ, 'pdf/',$output-pdf-name)"/>
 
     <xsl:variable name="include.roles" select="tokenize(normalize-space($include.rellinks), '\s+')" as="xs:string*"/>
+
+    <xsl:variable name="separate-fig-callouts" select="$two-col-fig-callouts = ('yes', 'true')"/>
 
     <xsl:attribute-set name="banner">
         <xsl:attribute name="class">rocks-header sticky-top accent-background-color</xsl:attribute>
@@ -493,6 +496,50 @@
                 </tr>
             </tbody>
         </table>
+    </xsl:template>
+
+    <xsl:template match="*[contains(@class,' topic/fig ')]/*[contains(@class,' topic/ol ')] | *[contains(@class,' topic/fig ')]/*[contains(@class,' topic/sl ')]">
+        <xsl:variable name="isOl" select="self::*[contains(@class,' topic/ol ')]"/>
+        <xsl:choose>
+            <xsl:when test="$separate-fig-callouts and (count(*) &gt; 3)">
+                <xsl:variable name="odd-callouts">
+                    <xsl:for-each select="*[(count(preceding-sibling::*) mod 2) = 0]">
+                        <xsl:copy-of select="."/>
+                    </xsl:for-each>
+                </xsl:variable>
+                <xsl:variable name="even-callouts">
+                    <xsl:for-each select="*[(count(preceding-sibling::*) mod 2) != 0]">
+                        <xsl:copy-of select="."/>
+                    </xsl:for-each>
+                </xsl:variable>
+                <table class="table-callouts">
+                    <tbody>
+                        <xsl:for-each select="$odd-callouts/*">
+                            <xsl:variable name="odd-callout-pos" select="position()"/>
+                            <tr>
+                                <td>
+                                    <xsl:if test="$isOl">
+                                        <xsl:value-of select="$odd-callout-pos + count(preceding-sibling::*)"/>
+                                        <xsl:text>. </xsl:text>
+                                    </xsl:if>
+                                    <xsl:apply-templates select="node()"/>
+                                </td>
+                                <td>
+                                    <xsl:if test="$even-callouts/*[position() = $odd-callout-pos] and $isOl">
+                                        <xsl:value-of select="$odd-callout-pos + count(preceding-sibling::*) + 1"/>
+                                        <xsl:text>. </xsl:text>
+                                    </xsl:if>
+                                    <xsl:apply-templates select="$even-callouts/*[position() = $odd-callout-pos]/node()"/>
+                                </td>
+                            </tr>
+                        </xsl:for-each>
+                    </tbody>
+                </table>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:next-match/>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
 
     <xsl:template match="*[contains(@class, ' topic/lines ')]//text()">
