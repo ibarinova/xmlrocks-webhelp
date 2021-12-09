@@ -685,7 +685,7 @@ figcaption {
 }
 
 .ullink-ahref {
-    padding-left: 2em;
+    padding-left: 0;
 }
 
 div.linklist {
@@ -775,6 +775,15 @@ dt.pt {
 }
 /*--- Parameter Lists END---*/
 
+/*--- Sectiontitle START ---*/
+.sectiontitle {
+    color: #5E5E5E;
+    font-size: 1.17em;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+/*--- Sectiontitle END ---*/
+
 /*--- Footnotes START---*/
 .endnotes {
     margin-top: 1em;
@@ -783,8 +792,22 @@ dt.pt {
 }
 /*--- Footnotes END---*/
 
+
+/*--- Keyword START ---*/
+.keyword{
+    color: #5e5e5e;
+}
+/*--- Keyword END ---*/
+
 /*--- Parmname START ---*/
 .parmname{
     font-weight: 400;
 }
 /*--- Parmname END ---*/
+
+
+/*--- Lines START---*/
+.lines {
+    padding-left: 2em;
+}
+/*--- Lines END---*/

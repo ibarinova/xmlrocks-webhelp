@@ -452,10 +452,7 @@
 
         <xsl:variable name="image-name">
             <xsl:choose>
-                <xsl:when test="lower-case(normalize-space($othertype)) = 'info'">
-                    <xsl:value-of select="lower-case(normalize-space($othertype))"/>
-                </xsl:when>
-                <xsl:when test="lower-case(normalize-space($type)) = ('caution', 'danger', 'note', 'tip', 'warning')">
+                <xsl:when test="lower-case(normalize-space($type)) = ('caution', 'danger', 'note', 'tip', 'warning', 'important')">
                     <xsl:value-of select="lower-case(normalize-space($type))"/>
                 </xsl:when>
                 <xsl:otherwise>
@@ -497,4 +494,16 @@
             </tbody>
         </table>
     </xsl:template>
+
+    <xsl:template match="*[contains(@class, ' topic/lines ')]//text()">
+        <xsl:analyze-string select="replace(., '  ', '')" regex="&#xA;">
+            <xsl:matching-substring>
+                <br/>
+            </xsl:matching-substring>
+            <xsl:non-matching-substring>
+                <xsl:value-of select="."/>
+            </xsl:non-matching-substring>
+        </xsl:analyze-string>
+    </xsl:template>
+
 </xsl:stylesheet>
