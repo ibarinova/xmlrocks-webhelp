@@ -685,7 +685,7 @@ figcaption {
 }
 
 .ullink-ahref {
-    padding-left: 2em;
+    padding-left: 0;
 }
 
 div.linklist {
@@ -765,6 +765,16 @@ li > .p {
 
 /*--- Unordered Lists END---*/
 
+/*--- Sectiontitle START ---*/
+.sectiontitle {
+    color: #5E5E5E;
+    font-size: 1.17em;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+/*--- Sectiontitle END ---*/
+
 /*--- Footnotes START---*/
 .endnotes {
     margin-top: 1em;
@@ -772,6 +782,13 @@ li > .p {
     border-top: 1px solid #bbbbbb;
 }
 /*--- Footnotes END---*/
+
+
+/*--- Keyword START ---*/
+.keyword{
+    color: #5e5e5e;
+}
+/*--- Keyword END ---*/
 
 /*--- Parmname START ---*/
 .parmname{
