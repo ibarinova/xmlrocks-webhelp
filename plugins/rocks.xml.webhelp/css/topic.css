@@ -55,8 +55,30 @@ h6.title {
     margin-left: -60px;
 }
 
-.logo-header:hover > .tooltip-logo {
-    display: block;
+.tooltip-hide-toc {
+    display: none;
+    position: absolute;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 5px #bbbbbb;
+    font-size: 11px;
+    color: #5e5e5e;
+    padding: 0.5em;
+    bottom: 4.0em;
+    width: max-content;
+    left: 0;
+}
+
+.tooltip-show-toc {
+    display: none;
+    position: absolute;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 5px #bbbbbb;
+    font-size: 11px;
+    color: #5e5e5e;
+    padding: 0.5em;
+    bottom: 4.0em;
+    width: max-content;
+    left: 0;
 }
 
 .tooltip-download {
@@ -73,11 +95,8 @@ h6.title {
     margin-left: -50px;
 }
 
-.button-dropdown-download:hover > .tooltip-download {
-    display: block;
-}
-
-.button-print-container{
+.button-print-container {
+    display: inline-block;
     position: relative;
 }
 
@@ -95,10 +114,6 @@ h6.title {
     margin-left: -50px;
 }
 
-.button-print:hover > .tooltip-print {
-    display: block;
-}
-
 .tooltip-google-drive {
     display: none;
     position: absolute;
@@ -111,6 +126,14 @@ h6.title {
     width: 8rem;
     bottom: 111%;
     margin-left: -60px;
+}
+
+.logo-header:hover > .tooltip-logo,
+#button-hide-show-toc:not(.hidden):hover > .tooltip-hide-toc,
+#button-hide-show-toc.hidden:hover > .tooltip-show-toc,
+.button-dropdown-download:hover > .tooltip-download,
+.button-print:hover > .tooltip-print {
+    display: block;
 }
 /* --- Tooltips END --- */
 
@@ -211,9 +234,21 @@ h6.title {
 /* --- Button bar START --- */
 .main-button-container {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     margin: 1rem auto;
     padding: 0 1rem;
+}
+
+.left-buttons-container {
+    height: 40px;
+}
+
+.right-buttons-container {
+    height: 40px;
+}
+
+.button-hide-show-toc-container {
+    position: relative;
 }
 
 .main-button-container .dropdown-download {
@@ -267,6 +302,65 @@ a:hover{
     display: block;
     background-color: #2c74eb;
     width: 100%;
+}
+
+.button-hide-show-toc-container {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+#button-hide-show-toc {
+    background-image: url(../img/toc-hide.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #FFFFFF;
+    padding: 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+#button-hide-show-toc:hover {
+    background-image: url(../img/toc-hide-white.svg);
+    background-color: #2c74eb;
+}
+
+#button-hide-show-toc.hidden {
+    background-image: url(../img/toc-show.svg);
+}
+
+#button-hide-show-toc.hidden:hover {
+    background-image: url(../img/toc-show-white.svg);
+}
+
+.button-expand-collapse-container {
+    display: inline-block;
+}
+
+#button-expand-collapse {
+    background-image: url(../img/toc-expand-all.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #FFFFFF;
+    padding: 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+#button-expand-collapse:hover {
+    background-image: url(../img/toc-expand-all-white.svg);
+    background-color: #2c74eb;
+}
+
+#button-expand-collapse.inactive {
+    background-image: url(../img/toc-expand-all-light.svg);
+}
+
+#button-expand-collapse.inactive:hover {
+    background-color: inherit;
 }
 
 .button-dropdown-download {
@@ -389,6 +483,42 @@ a:hover{
 /* --- Button bar END --- */
 
 /* --- Table of contents (TOC) START --- */
+.container.max-width {
+    overflow: hidden;
+}
+
+#toc-wrapper {
+    width: 33.33333333%;
+    display: inline-block;
+    transform: translateX(0%);
+    transition: all 1s ease-in-out;
+    height: auto;
+    opacity: 100%;
+}
+
+#article-wrapper {
+    width: 66%;
+    display: inline-block;
+}
+
+#toc-wrapper.hidden {
+    transform: translateX(-500%);
+    transition: all 1s ease-in-out;
+    width: 0;
+    height: 0;
+    opacity: 0%;
+}
+
+#toc-wrapper + .col-sm-8 {
+    width: 66.66666667%;
+    transition: width 1s;
+}
+
+#toc-wrapper.hidden + .col-sm-8 {
+    width: 100%;
+    transition: width 1s ease-in;
+}
+
 /* level 1 */
 .toc-container li.level1 {
     background-color: #f8f8f8;

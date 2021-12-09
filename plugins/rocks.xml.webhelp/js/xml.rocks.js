@@ -23,6 +23,19 @@ function backToTop() {
     document.documentElement.scrollTop = 0;
 }
 
+function hideOrShowTOC() {
+    if($('#toc-wrapper').hasClass('hidden')) {
+        $('#toc-wrapper').removeClass('hidden');
+        $('#button-hide-show-toc').removeClass('hidden');
+        $('#button-expand-collapse').removeClass('inactive');
+        $('#button-show-active').removeClass('inactive');
+    } else {
+        $('#toc-wrapper').addClass('hidden');
+        $('#button-hide-show-toc').addClass('hidden');
+        $('#button-expand-collapse').addClass('inactive');
+        $('#button-show-active').addClass('inactive');
+    }
+}
 //Create PDF from HTML topic content
 function getPDF() {
     var idTopicArticle = document.getElementById("topic-article");

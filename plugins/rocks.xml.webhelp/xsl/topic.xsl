@@ -143,48 +143,71 @@
             </div>
 
             <div class="main-button-container max-width">
-                <div class="dropdown-download">
-                    <button onclick="dropdownDownload()" class="button-dropdown-download">
-                        <span class="tooltip-download">Download PDF</span>
-                    </button>
+                <div class="left-buttons-container">
+                    <div class="button-hide-show-toc-container">
+                        <button onclick="hideOrShowTOC()" id="button-hide-show-toc">
+                            <span class="tooltip-hide-toc">Hide TOC</span>
+                            <span class="tooltip-show-toc">Show TOC</span>
+                        </button>
+                    </div>
 
-                    <div id="menu-dropdown-download" class="dropdown-content-download">
-                        <button id="download-page-btn" onclick="getPDF()">
-                            <div class="download-page">Download this page as PDF</div>
+                    <div class="button-expand-collapse-container">
+                        <button onclick="javascript:void(0)" id="button-expand-collapse">
+                            <!-- TODO implement expand-collapse button -->
+                        </button>
+                    </div>
+
+                    <div class="button-show-active-container">
+                        <button onclick="javascript:void(0)" id="button-show-active">
+                            <!-- TODO implement show-active button -->
+                        </button>
+                    </div>
+                </div>
+
+                <div class="right-buttons-container">
+                    <div class="dropdown-download">
+                        <button onclick="dropdownDownload()" class="button-dropdown-download">
+                            <span class="tooltip-download">Download PDF</span>
                         </button>
 
-                        <xsl:if test="$includes-pdf = ('yes', 'true')">
-                            <button id="download-output-btn">
-                                <a href="{$output-pdf-full-path}" target="_blank">
-                                    <div class="download-output">Download PDF output</div>
-                                </a>
+                        <div id="menu-dropdown-download" class="dropdown-content-download">
+                            <button id="download-page-btn" onclick="getPDF()">
+                                <div class="download-page">Download this page as PDF</div>
                             </button>
-                        </xsl:if>
-                      </div>
-                </div>
 
-                <div class="button-print-container">
-                    <button onclick="window.print()" id="printbtn" class="button-print">
-                        <span class="tooltip-print">Print this page</span>
-                    </button>
-                </div>
-
-                <xsl:if test="$includes-pdf = ('yes', 'true')">
-                    <div class="dropdown-google-drive">
-                        <button onclick="dropdownGoogleDrive()" class="button-dropdown-share-google-drive">
-                            <span class="tooltip-google-drive">Save to Google Drive</span>
-                        </button>
-
-                        <div id="menu-dropdown-google-drive" class="dropdown-content-google-drive">
-                            <xsl:text disable-output-escaping="yes">&lt;script src="https://apis.google.com/js/platform.js" async defer&gt;&lt;/script&gt;</xsl:text>
-                            <input type="button" class="g-savetodrive"
-                                   data-src="{$output-pdf-full-path}"
-                                   data-filename="{$output-pdf-name}"
-                                   data-sitename="PDF output">
-                            </input>
+                            <xsl:if test="$includes-pdf = ('yes', 'true')">
+                                <button id="download-output-btn">
+                                    <a href="{$output-pdf-full-path}" target="_blank">
+                                        <div class="download-output">Download PDF output</div>
+                                    </a>
+                                </button>
+                            </xsl:if>
                         </div>
                     </div>
-                </xsl:if>
+
+                    <div class="button-print-container">
+                        <button onclick="window.print()" id="printbtn" class="button-print">
+                            <span class="tooltip-print">Print this page</span>
+                        </button>
+                    </div>
+
+                    <xsl:if test="$includes-pdf = ('yes', 'true')">
+                        <div class="dropdown-google-drive">
+                            <button onclick="dropdownGoogleDrive()" class="button-dropdown-share-google-drive">
+                                <span class="tooltip-google-drive">Save to Google Drive</span>
+                            </button>
+
+                            <div id="menu-dropdown-google-drive" class="dropdown-content-google-drive">
+                                <xsl:text disable-output-escaping="yes">&lt;script src="https://apis.google.com/js/platform.js" async defer&gt;&lt;/script&gt;</xsl:text>
+                                <input type="button" class="g-savetodrive"
+                                       data-src="{$output-pdf-full-path}"
+                                       data-filename="{$output-pdf-name}"
+                                       data-sitename="PDF output">
+                                </input>
+                            </div>
+                        </div>
+                    </xsl:if>
+                </div>
             </div>
 
             <main role="main">
