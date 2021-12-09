@@ -765,6 +765,16 @@ li > .p {
 
 /*--- Unordered Lists END---*/
 
+/*--- Parameter Lists START---*/
+dd.pd {
+    padding-left: 2em;
+}
+
+dt.pt {
+    font-weight: bolder;
+}
+/*--- Parameter Lists END---*/
+
 /*--- Sectiontitle START ---*/
 .sectiontitle {
     color: #5E5E5E;
@@ -772,7 +782,6 @@ li > .p {
     font-weight: bold;
     margin-bottom: 0;
 }
-
 /*--- Sectiontitle END ---*/
 
 /*--- Footnotes START---*/
