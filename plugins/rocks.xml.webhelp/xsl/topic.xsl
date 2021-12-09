@@ -501,7 +501,8 @@
         </table>
     </xsl:template>
 
-    <xsl:template match="*[contains(@class,' topic/fig ')]/*[contains(@class,' topic/ol ')]">
+    <xsl:template match="*[contains(@class,' topic/fig ')]/*[contains(@class,' topic/ol ')] | *[contains(@class,' topic/fig ')]/*[contains(@class,' topic/sl ')]">
+        <xsl:variable name="isOl" select="self::*[contains(@class,' topic/ol ')]"/>
         <xsl:choose>
             <xsl:when test="$separate-fig-callouts and (count(*) &gt; 3)">
                 <xsl:variable name="odd-callouts">
@@ -520,12 +521,14 @@
                             <xsl:variable name="odd-callout-pos" select="position()"/>
                             <tr>
                                 <td>
-                                    <xsl:value-of select="$odd-callout-pos + count(preceding-sibling::*)"/>
-                                    <xsl:text>. </xsl:text>
+                                    <xsl:if test="$isOl">
+                                        <xsl:value-of select="$odd-callout-pos + count(preceding-sibling::*)"/>
+                                        <xsl:text>. </xsl:text>
+                                    </xsl:if>
                                     <xsl:apply-templates select="node()"/>
                                 </td>
                                 <td>
-                                    <xsl:if test="$even-callouts/*[position() = $odd-callout-pos]">
+                                    <xsl:if test="$even-callouts/*[position() = $odd-callout-pos] and $isOl">
                                         <xsl:value-of select="$odd-callout-pos + count(preceding-sibling::*) + 1"/>
                                         <xsl:text>. </xsl:text>
                                     </xsl:if>
