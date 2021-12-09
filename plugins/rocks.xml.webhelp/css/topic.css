@@ -685,7 +685,7 @@ figcaption {
 }
 
 .ullink-ahref {
-    padding-left: 2em;
+    padding-left: 0;
 }
 
 div.linklist {
@@ -765,6 +765,16 @@ li > .p {
 
 /*--- Unordered Lists END---*/
 
+/*--- Sectiontitle START ---*/
+.sectiontitle {
+    color: #5E5E5E;
+    font-size: 1.17em;
+    font-weight: bold;
+    margin-bottom: 0;
+}
+
+/*--- Sectiontitle END ---*/
+
 /*--- Footnotes START---*/
 .endnotes {
     margin-top: 1em;
@@ -778,3 +788,4 @@ li > .p {
     font-weight: 400;
 }
 /*--- Parmname END ---*/
+
