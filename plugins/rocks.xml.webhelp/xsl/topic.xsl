@@ -189,10 +189,8 @@
 
                 <div class="row row-cols-1 row-cols-md-3 mb-3 text-left">
                     <div class="col col-sm-4" id="toc-wrapper">
-                        <div class="card mb-4 rounded-card-rocks">
-                            <div class="toc-container">
-                                <xsl:call-template name="gen-user-sidetoc"/>
-                            </div>
+                        <div class="toc-container">
+                            <xsl:call-template name="gen-user-sidetoc"/>
                         </div>
                     </div>
 
