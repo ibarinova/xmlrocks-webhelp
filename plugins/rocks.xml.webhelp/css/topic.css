@@ -621,14 +621,14 @@ tbody, td, tfoot, th, thead, tr {
 
 /* --- Codeblock START --- */
 .codeblock {
-    font-family: 'PT_Mono';
+    font-family: monospace;
     background-color: #f5f5f5;
     color: #333333;
     padding: 0.75em;
 }
 
 code, kbd, pre, samp {
-    font-family: 'PT_Mono';
+    font-family: monospace;
     color: #333333;
 }
 
@@ -786,3 +786,101 @@ dt.pt {
     padding-left: 2em;
 }
 /*--- Lines END---*/
+
+/*--- q/lq START---*/
+.q{
+    font-style: italic;
+}
+
+.lq{
+    font-style: italic;
+    padding-left: 30px;
+}
+/*--- q/lq END---*/
+
+/*--- Command name START---*/
+.cmdname{
+    font-family: monospace;
+    font-weight: bold;
+}
+/*--- Command name END---*/
+
+
+/*--- Message phrase  START---*/
+.msgph{
+    font-family: monospace;
+    font-size: 0.875em;
+}
+/*--- Message phrase  END---*/
+
+/*--- System output  START---*/
+.systemoutput{
+    font-family: monospace;
+    font-size: 0.875em;
+    background-color: #F5F5F5;
+}
+/*--- System output  END---*/
+
+/*--- Menucascade  START---*/
+abbr[title] {
+    text-decoration: none;
+    font-weight: bold;
+    cursor: help;
+    text-decoration-skip-ink: none;
+}
+
+.uicontrol {
+    font-weight: bold;
+    cursor: help;
+}
+/*--- Menucascade  END---*/
+
+/*--- Option  START---*/
+.option{
+    font-family: monospace;
+    font-size: 0.875em;
+}
+/*--- Option  END---*/
+
+/*--- Parameter name  START---*/
+.parmname{
+    font-family: monospace;
+    font-size: 0.875em;
+}
+/*--- Parameter name  END---*/
+
+/*--- Syntax phrase  START---*/
+.synph{
+    font-family: monospace;
+    font-size: 0.875em;
+}
+/*--- Syntax phrase  END---*/
+
+/*--- Apiname  START---*/
+.apiname{
+    font-family: monospace;
+    font-size: 0.875em;
+}
+/*--- Apiname  END---*/
+
+/*--- Message block  START---*/
+.msgblock{
+    font-family: monospace;
+    font-size: 0.875em;
+}
+/*--- Message block  END---*/
+
+/*--- Preformatted text  START---*/
+.pre{
+    font-family: monospace;
+    font-size: 0.875em;
+}
+/*--- Preformatted text  END---*/
+
+/*--- Screen  START---*/
+.screen{
+    font-family: monospace;
+    font-size: 0.875em;
+    background-color: #F5F5F5;
+}
+/*--- Screen  END---*/
