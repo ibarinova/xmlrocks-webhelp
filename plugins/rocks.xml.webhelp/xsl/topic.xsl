@@ -497,4 +497,16 @@
             </tbody>
         </table>
     </xsl:template>
+
+    <xsl:template match="*[contains(@class, ' topic/lines ')]//text()">
+        <xsl:analyze-string select="replace(., '  ', '')" regex="&#xA;">
+            <xsl:matching-substring>
+                <br/>
+            </xsl:matching-substring>
+            <xsl:non-matching-substring>
+                <xsl:value-of select="."/>
+            </xsl:non-matching-substring>
+        </xsl:analyze-string>
+    </xsl:template>
+
 </xsl:stylesheet>

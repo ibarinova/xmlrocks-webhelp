@@ -778,3 +778,10 @@ li > .p {
     font-weight: 400;
 }
 /*--- Parmname END ---*/
+
+
+/*--- Lines START---*/
+.lines {
+    padding-left: 2em;
+}
+/*--- Lines END---*/
