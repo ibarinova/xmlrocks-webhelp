@@ -152,14 +152,15 @@
                     </div>
 
                     <div class="button-expand-collapse-container">
-                        <button onclick="javascript:void(0)" id="button-expand-collapse">
-                            <!-- TODO implement expand-collapse button -->
+                        <button onclick="expandCollapseAll()" id="button-expand-collapse">
+                            <span class="tooltip-expand-all">Expand All</span>
+                            <span class="tooltip-collapse-all">Collapse All</span>
                         </button>
                     </div>
 
                     <div class="button-show-active-container">
-                        <button onclick="javascript:void(0)" id="button-show-active">
-                            <!-- TODO implement show-active button -->
+                        <button onclick="showActive()" id="button-show-active">
+                            <span class="tooltip-show-active">Show active topic</span>
                         </button>
                     </div>
                 </div>

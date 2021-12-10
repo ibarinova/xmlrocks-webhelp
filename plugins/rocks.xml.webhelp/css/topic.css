@@ -81,6 +81,45 @@ h6.title {
     left: 0;
 }
 
+.tooltip-expand-all {
+    display: none;
+    position: absolute;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 5px #bbbbbb;
+    font-size: 11px;
+    color: #5e5e5e;
+    padding: 0.5em;
+    bottom: 4.0em;
+    width: max-content;
+    left: -40%;
+}
+
+.tooltip-collapse-all {
+    display: none;
+    position: absolute;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 5px #bbbbbb;
+    font-size: 11px;
+    color: #5e5e5e;
+    padding: 0.5em;
+    bottom: 4.0em;
+    width: max-content;
+    left: -40%;
+}
+
+.tooltip-show-active {
+    display: none;
+    position: absolute;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 5px #bbbbbb;
+    font-size: 11px;
+    color: #5e5e5e;
+    padding: 0.5em;
+    bottom: 4.0em;
+    width: max-content;
+    left: -40%;
+}
+
 .tooltip-download {
     display: none;
     position: absolute;
@@ -131,6 +170,9 @@ h6.title {
 .logo-header:hover > .tooltip-logo,
 #button-hide-show-toc:not(.hidden):hover > .tooltip-hide-toc,
 #button-hide-show-toc.hidden:hover > .tooltip-show-toc,
+#button-expand-collapse:not(.inactive):not(.expanded):hover > .tooltip-expand-all,
+#button-expand-collapse:not(.inactive).expanded:hover > .tooltip-collapse-all,
+#button-show-active:not(.inactive):hover > .tooltip-show-active,
 .button-dropdown-download:hover > .tooltip-download,
 .button-print:hover > .tooltip-print {
     display: block;
@@ -247,10 +289,6 @@ h6.title {
     height: 40px;
 }
 
-.button-hide-show-toc-container {
-    position: relative;
-}
-
 .main-button-container .dropdown-download {
     margin-right: 15px;
 }
@@ -305,6 +343,7 @@ a:hover{
 }
 
 .button-hide-show-toc-container {
+    position: relative;
     display: inline-block;
     margin-right: 15px;
 }
@@ -336,7 +375,13 @@ a:hover{
 
 .button-expand-collapse-container {
     display: inline-block;
+    position: relative;
     margin-right: 15px;
+}
+
+.button-show-active-container {
+    display: inline-block;
+    position: relative;
 }
 
 #button-expand-collapse {
@@ -351,8 +396,17 @@ a:hover{
     border-radius: 50%;
 }
 
-#button-expand-collapse:hover {
+#button-expand-collapse.expanded {
+    background-image: url(../img/toc-collapse-all.svg);
+}
+
+#button-expand-collapse:not(.inactive):not(.expanded):hover {
     background-image: url(../img/toc-expand-all-white.svg);
+    background-color: #2c74eb;
+}
+
+#button-expand-collapse:not(.inactive).expanded:hover {
+    background-image: url(../img/toc-collapse-all-white.svg);
     background-color: #2c74eb;
 }
 
@@ -360,7 +414,12 @@ a:hover{
     background-image: url(../img/toc-expand-all-light.svg);
 }
 
-#button-expand-collapse.inactive:hover {
+#button-expand-collapse.expanded.inactive {
+    background-image: url(../img/toc-collapse-all-light.svg);
+}
+
+#button-expand-collapse.inactive:hover,
+#button-expand-collapse.expanded.inactive:hover{
     background-color: inherit;
 }
 

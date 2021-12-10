@@ -36,6 +36,26 @@ function hideOrShowTOC() {
         $('#button-show-active').addClass('inactive');
     }
 }
+
+function showActive() {
+    if (!($('#button-show-active').hasClass('inactive'))){
+        $('.toc-container nav li.expanded').removeClass('expanded');
+        $('.active').parents('nav li').addClass('expanded').addClass('ancestor-of-active');
+    }
+}
+
+function expandCollapseAll() {
+    if (!($('#button-expand-collapse').hasClass('inactive'))) {
+        if ($('#button-expand-collapse').hasClass('expanded')) {
+            $('.toc-container nav li.expanded').removeClass('expanded');
+            $('#button-expand-collapse').removeClass('expanded');
+        } else {
+            $('.toc-container nav li').addClass('expanded');
+            $('#button-expand-collapse').addClass('expanded');
+        }
+    }
+}
+
 //Create PDF from HTML topic content
 function getPDF() {
     var idTopicArticle = document.getElementById("topic-article");
