@@ -213,14 +213,14 @@
             <main role="main">
                 <xsl:attribute name="class" select="'container max-width'"/>
 
-                <div class="row row-cols-1 row-cols-md-3 mb-3 text-left">
+                <div class="row row-cols-1 row-cols-md-3 mb-3 text-left" id="main-wrapper">
                     <div class="col col-sm-4" id="toc-wrapper">
                         <div class="toc-container">
                             <xsl:call-template name="gen-user-sidetoc"/>
                         </div>
                     </div>
 
-                    <div class="col col-sm-8">
+                    <div class="col col-sm-8" id="article-wrapper">
                         <xsl:apply-templates select="." mode="addContentToHtmlBodyElement"/>
                         <xsl:call-template name="insertBackToTopButton"/>
                         <div class="bottom-nav-buttons-container">
