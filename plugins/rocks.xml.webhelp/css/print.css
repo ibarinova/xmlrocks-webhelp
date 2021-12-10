@@ -15,6 +15,10 @@
         display: none;
     }
 
+    .top-nav-buttons-container-wrapper{
+        display: none;
+    }
+
     #toc-wrapper {
         display: none;
     }
@@ -24,6 +28,10 @@
     }
 
     .related-links {
+        display: none;
+    }
+
+    .bottom-nav-buttons-container{
         display: none;
     }
 
