@@ -111,7 +111,7 @@ $('div.toc-container nav li a').click(function(event) {
 });
 
 //Dynamically update page from the breadcrumbs links
-$('main').on('click', '.head-breadcrumb a.link', function (event) {
+$('body').on('click', '.head-breadcrumb a.link', function (event) {
     var currentHref = $(this).attr('href');
 
     event.preventDefault();
