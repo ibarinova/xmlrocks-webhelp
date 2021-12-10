@@ -884,3 +884,9 @@ abbr[title] {
     background-color: #F5F5F5;
 }
 /*--- Screen  END---*/
+
+/*--- Substepexpand START---*/
+.substepexpand {
+    margin: 0;
+}
+/*--- Substepexpand END---*/
