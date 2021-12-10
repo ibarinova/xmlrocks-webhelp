@@ -15,6 +15,10 @@
         display: none;
     }
 
+    .main-button-container{
+        display: none;
+    }
+
     #toc-wrapper {
         display: none;
     }
