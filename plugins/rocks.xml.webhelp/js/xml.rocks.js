@@ -23,6 +23,39 @@ function backToTop() {
     document.documentElement.scrollTop = 0;
 }
 
+function hideOrShowTOC() {
+    if($('#toc-wrapper').hasClass('hidden')) {
+        $('#toc-wrapper').removeClass('hidden');
+        $('#button-hide-show-toc').removeClass('hidden');
+        $('#button-expand-collapse').removeClass('inactive');
+        $('#button-show-active').removeClass('inactive');
+    } else {
+        $('#toc-wrapper').addClass('hidden');
+        $('#button-hide-show-toc').addClass('hidden');
+        $('#button-expand-collapse').addClass('inactive');
+        $('#button-show-active').addClass('inactive');
+    }
+}
+
+function showActive() {
+    if (!($('#button-show-active').hasClass('inactive'))){
+        $('.toc-container nav li.expanded').removeClass('expanded');
+        $('.active').parents('nav li').addClass('expanded').addClass('ancestor-of-active');
+    }
+}
+
+function expandCollapseAll() {
+    if (!($('#button-expand-collapse').hasClass('inactive'))) {
+        if ($('#button-expand-collapse').hasClass('expanded')) {
+            $('.toc-container nav li.expanded').removeClass('expanded');
+            $('#button-expand-collapse').removeClass('expanded');
+        } else {
+            $('.toc-container nav li').addClass('expanded');
+            $('#button-expand-collapse').addClass('expanded');
+        }
+    }
+}
+
 //Create PDF from HTML topic content
 function getPDF() {
     var idTopicArticle = document.getElementById("topic-article");
@@ -98,7 +131,7 @@ $('div.toc-container nav li a').click(function(event) {
 });
 
 //Dynamically update page from the breadcrumbs links
-$('main').on('click', '.head-breadcrumb a.link', function (event) {
+$('body').on('click', '.head-breadcrumb a.link', function (event) {
     var currentHref = $(this).attr('href');
 
     event.preventDefault();
