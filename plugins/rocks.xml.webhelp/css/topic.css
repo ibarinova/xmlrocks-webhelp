@@ -921,7 +921,8 @@ figure .table-callouts td {
     padding-left: 0;
 }
 
-div.linklist {
+div.linklist,
+div.familylinks {
     margin-top: 2em;
 }
 
