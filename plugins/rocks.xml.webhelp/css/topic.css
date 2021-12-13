@@ -55,6 +55,32 @@ h6.title {
     margin-left: -60px;
 }
 
+.prev-button-tooltip,
+.next-button-tooltip {
+    display: none;
+    position: absolute;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 5px #bbbbbb;
+    font-size: 11px;
+    color: #5e5e5e;
+    padding: 0.5em;
+    bottom: 2.5em;
+    width: max-content;
+}
+
+.prev-button-tooltip {
+    left: 0;
+}
+
+.next-button-tooltip {
+    right: 0;
+}
+
+.prev-button:hover > .prev-button-tooltip,
+.next-button:hover > .next-button-tooltip {
+    display: block;
+}
+
 .tooltip-hide-toc {
     display: none;
     position: absolute;
@@ -206,10 +232,11 @@ h6.title {
     margin: 20px auto;
 }
 
-.bredcrubs-separator {
+.bredcrumbs-separator {
     content: url("../img/breadcrumbs-separator.svg");
     display: inline;
     margin: 2px 4px;
+    width: 0.5em;
 }
 /* --- Breadcrumbs END --- */
 
@@ -232,6 +259,16 @@ h6.title {
     justify-content: space-between;
     font-size: 11pt;
 
+}
+
+.prev-button {
+    margin-right: auto;
+    position: relative;
+}
+
+.next-button {
+    margin-left: auto;
+    position: relative;
 }
 
 .top-nav-buttons-container > .prev-button,

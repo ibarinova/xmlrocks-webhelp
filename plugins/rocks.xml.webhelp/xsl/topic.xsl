@@ -21,6 +21,12 @@
 
     <xsl:variable name="separate-fig-callouts" select="$two-col-fig-callouts = ('yes', 'true')"/>
 
+    <xsl:variable name="preceding-sibling-topicref" select="$current-topicref/preceding-sibling::*[not(@toc = 'no')][not(@processing-role = 'resource-only')][@href][1]"/>
+    <xsl:variable name="preceding-topicref" select="$current-topicref/preceding::*[not(@toc = 'no')][not(@processing-role = 'resource-only')][@href][1]"/>
+    <xsl:variable name="ancestor-topicref" select="$current-topicref/ancestor::*[not(@toc = 'no')][not(@processing-role = 'resource-only')][@href][1]"/>
+    <xsl:variable name="child-topicref" select="$current-topicref/child::*[not(@toc = 'no')][not(@processing-role = 'resource-only')][@href][1]"/>
+    <xsl:variable name="following-topicref" select="$current-topicref/following::*[not(@toc = 'no')][not(@processing-role = 'resource-only')][@href][1]"/>
+
     <xsl:attribute-set name="banner">
         <xsl:attribute name="class">rocks-header sticky-top accent-background-color</xsl:attribute>
     </xsl:attribute-set>
@@ -124,21 +130,31 @@
 
             <div class="top-nav-buttons-container-wrapper">
                 <div class="top-nav-buttons-container max-width">
-                    <!-- TODO: Replace with working prev/next buttons -->
-                    <a class="prev-button" href="#">
-                        <pre class="button-prev-nav"/>
-                        <xsl:text> </xsl:text>
-                        <xsl:call-template name="getVariable">
-                            <xsl:with-param name="id" select="'Previous topic'"/>
-                        </xsl:call-template>
-                    </a>
-                    <a class="next-button" href="#">
-                        <xsl:call-template name="getVariable">
-                            <xsl:with-param name="id" select="'Next topic'"/>
-                        </xsl:call-template>
-                        <xsl:text> </xsl:text>
-                        <pre class="button-next-nav"/>
-                    </a>
+                    <xsl:choose>
+                        <xsl:when test="$preceding-sibling-topicref/@href">
+                            <xsl:call-template name="insertNavPrevButton">
+                                <xsl:with-param name="prev-topicref" select="$preceding-topicref"/>
+                            </xsl:call-template>
+                        </xsl:when>
+                        <xsl:when test="$ancestor-topicref/@href">
+                            <xsl:call-template name="insertNavPrevButton">
+                                <xsl:with-param name="prev-topicref" select="$ancestor-topicref"/>
+                            </xsl:call-template>
+                        </xsl:when>
+                    </xsl:choose>
+
+                    <xsl:choose>
+                        <xsl:when test="$child-topicref/@href">
+                            <xsl:call-template name="insertNavNextButton">
+                                <xsl:with-param name="next-topicref" select="$child-topicref"/>
+                            </xsl:call-template>
+                        </xsl:when>
+                        <xsl:when test="$following-topicref/@href">
+                            <xsl:call-template name="insertNavNextButton">
+                                <xsl:with-param name="next-topicref" select="$following-topicref"/>
+                            </xsl:call-template>
+                        </xsl:when>
+                    </xsl:choose>
                 </div>
             </div>
 
@@ -225,21 +241,31 @@
                         <xsl:apply-templates select="." mode="addContentToHtmlBodyElement"/>
                         <xsl:call-template name="insertBackToTopButton"/>
                         <div class="bottom-nav-buttons-container">
-                            <!-- TODO: Replace with working prev/next buttons -->
-                            <a class="prev-button" href="#">
-                                <pre class="button-prev-nav"/>
-                                <xsl:text> </xsl:text>
-                                <xsl:call-template name="getVariable">
-                                    <xsl:with-param name="id" select="'Previous topic'"/>
-                                </xsl:call-template>
-                            </a>
-                            <a class="next-button" href="#">
-                                <xsl:call-template name="getVariable">
-                                    <xsl:with-param name="id" select="'Next topic'"/>
-                                </xsl:call-template>
-                                <xsl:text> </xsl:text>
-                                <pre class="button-next-nav"/>
-                            </a>
+                            <xsl:choose>
+                                <xsl:when test="$preceding-sibling-topicref/@href">
+                                    <xsl:call-template name="insertNavPrevButton">
+                                        <xsl:with-param name="prev-topicref" select="$preceding-topicref"/>
+                                    </xsl:call-template>
+                                </xsl:when>
+                                <xsl:when test="$ancestor-topicref/@href">
+                                    <xsl:call-template name="insertNavPrevButton">
+                                        <xsl:with-param name="prev-topicref" select="$ancestor-topicref"/>
+                                    </xsl:call-template>
+                                </xsl:when>
+                            </xsl:choose>
+
+                            <xsl:choose>
+                                <xsl:when test="$child-topicref/@href">
+                                    <xsl:call-template name="insertNavNextButton">
+                                        <xsl:with-param name="next-topicref" select="$child-topicref"/>
+                                    </xsl:call-template>
+                                </xsl:when>
+                                <xsl:when test="$following-topicref/@href">
+                                    <xsl:call-template name="insertNavNextButton">
+                                        <xsl:with-param name="next-topicref" select="$following-topicref"/>
+                                    </xsl:call-template>
+                                </xsl:when>
+                            </xsl:choose>
                         </div>
                     </div>
                 </div>
@@ -347,6 +373,52 @@
         <xsl:value-of select="year-from-date($currentDate)"/>
     </xsl:template>
 
+    <xsl:template name="insertNavPrevButton">
+        <xsl:param name="prev-topicref"/>
+
+        <a class="prev-button">
+            <xsl:attribute name="href">
+                <xsl:call-template name="replace-extension">
+                    <xsl:with-param name="filename" select="$prev-topicref/@href"/>
+                    <xsl:with-param name="extension" select="$OUTEXT"/>
+                </xsl:call-template>
+            </xsl:attribute>
+
+            <pre class="button-prev-nav"/>
+            <xsl:text> </xsl:text>
+
+            <xsl:call-template name="getVariable">
+                <xsl:with-param name="id" select="'Previous topic'"/>
+            </xsl:call-template>
+
+            <span class="prev-button-tooltip">
+                <xsl:apply-templates select="$prev-topicref" mode="get-navtitle"/>
+            </span>
+        </a>
+    </xsl:template>
+
+    <xsl:template name="insertNavNextButton">
+        <xsl:param name="next-topicref"/>
+        <a class="next-button">
+            <xsl:attribute name="href">
+                <xsl:call-template name="replace-extension">
+                    <xsl:with-param name="filename" select="$next-topicref/@href"/>
+                    <xsl:with-param name="extension" select="$OUTEXT"/>
+                </xsl:call-template>
+            </xsl:attribute>
+
+            <xsl:call-template name="getVariable">
+                <xsl:with-param name="id" select="'Next topic'"/>
+            </xsl:call-template>
+
+            <xsl:text> </xsl:text>
+            <pre class="button-next-nav"/>
+
+            <span class="next-button-tooltip">
+                <xsl:apply-templates select="$next-topicref" mode="get-navtitle"/>
+            </span>
+        </a>
+    </xsl:template>
 
     <xsl:template match="*" mode="addHeaderToHtmlBodyElement">
         <xsl:variable name="header-content">
