@@ -961,8 +961,11 @@ ul li::marker {
     color: #5E5E5E;
 }
 
-li li {
-    padding: 0.5rem;
+.ol li,
+.ul li {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding: 0;
 }
 
 li > .p {
