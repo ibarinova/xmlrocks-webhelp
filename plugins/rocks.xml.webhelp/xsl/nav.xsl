@@ -9,11 +9,9 @@
         <xsl:next-match/>
     </xsl:template>
 
-    <xsl:template match="*[contains(@class, ' map/topicref ')][not(@toc = 'no')][not(@processing-role = 'resource-only')]"
-                    mode="toc" priority="10">
+    <xsl:template match="*[contains(@class, ' map/topicref ')][not(@toc = 'no')][not(@processing-role = 'resource-only')]" mode="toc" priority="1">
         <xsl:param name="pathFromMaplist" as="xs:string"/>
-        <xsl:param name="children" select="if ($nav-toc = 'full') then *[contains(@class, ' map/topicref ')] else ()"
-                   as="element()*"/>
+        <xsl:param name="children" select="if ($nav-toc = 'full') then *[contains(@class, ' map/topicref ')] else ()" as="element()*"/>
 
         <xsl:variable name="title">
             <xsl:apply-templates select="." mode="get-navtitle"/>
@@ -44,8 +42,7 @@
                                     <xsl:value-of select="$pathFromMaplist"/>
                                 </xsl:if>
                                 <xsl:choose>
-                                    <xsl:when test="@copy-to and not(contains(@chunk, 'to-content')) and
-                                    (not(@format) or @format = 'dita' or @format = 'ditamap') ">
+                                    <xsl:when test="@copy-to and not(contains(@chunk, 'to-content')) and (not(@format) or @format = 'dita' or @format = 'ditamap') ">
                                         <xsl:call-template name="replace-extension">
                                             <xsl:with-param name="filename" select="@copy-to"/>
                                             <xsl:with-param name="extension" select="$OUTEXT"/>
@@ -55,8 +52,7 @@
                                             <xsl:value-of select="concat('#', substring-after(@href, '#'))"/>
                                         </xsl:if>
                                     </xsl:when>
-                                    <xsl:when
-                                            test="not(@scope = 'external') and (not(@format) or @format = 'dita' or @format = 'ditamap')">
+                                    <xsl:when test="not(@scope = 'external') and (not(@format) or @format = 'dita' or @format = 'ditamap')">
                                         <xsl:call-template name="replace-extension">
                                             <xsl:with-param name="filename" select="@href"/>
                                             <xsl:with-param name="extension" select="$OUTEXT"/>
@@ -67,10 +63,20 @@
                                     </xsl:otherwise>
                                 </xsl:choose>
                             </xsl:variable>
+                            <xsl:variable name="current-href-fixed">
+                                <xsl:choose>
+                                    <xsl:when test="(@chunk = 'to-content') and contains($current-href, '#')">
+                                        <xsl:value-of select="substring-before($current-href, '#')"/>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:value-of select="$current-href"/>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </xsl:variable>
                             <a>
-                                <xsl:attribute name="href" select="$current-href"/>
+                                <xsl:attribute name="href" select="$current-href-fixed"/>
                                 <xsl:attribute name="onclick"
-                                               select="concat('getDynamicTopicData(''', $current-href, ''')')"/>
+                                               select="concat('getDynamicTopicData(''', $current-href-fixed, ''')')"/>
                                 <xsl:value-of select="$title"/>
                             </a>
                         </xsl:when>
@@ -81,14 +87,14 @@
                         </xsl:otherwise>
                     </xsl:choose>
 
-                    <xsl:if test="child::*[contains(@class, ' map/topicref ')][not(contains(@class, ' ditavalref-d/ditavalref '))]">
+                    <xsl:if test="child::*[contains(@class, ' map/topicref ')][not(@toc = 'no')][not(@processing-role = 'resource-only')][not(contains(@class, ' ditavalref-d/ditavalref '))] and not(@chunk = 'to-content')">
                         <span id="{$testId}" class="button-toc-expand-collapse"
                               onclick="applyExpandedClass('#{$testId}')">
                         </span>
                     </xsl:if>
                 </div>
 
-                <xsl:if test="exists($children)">
+                <xsl:if test="exists($children) and not(@chunk = 'to-content')">
                     <ul>
                         <xsl:apply-templates select="$children" mode="#current">
                             <xsl:with-param name="pathFromMaplist" select="$pathFromMaplist"/>
@@ -98,4 +104,5 @@
             </li>
         </xsl:if>
     </xsl:template>
+
 </xsl:stylesheet>
