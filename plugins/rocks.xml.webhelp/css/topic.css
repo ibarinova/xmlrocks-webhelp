@@ -897,8 +897,13 @@ figure .table-callouts td {
     border: none;
 }
 
+.admonition-table > tbody > tr > td:first-child {
+    vertical-align: top;
+}
+
 .admonition-icon {
     padding-right: 1.2rem;
+    padding-top: 1.2rem;
 }
 
 .note {
