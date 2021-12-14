@@ -360,7 +360,7 @@
             </xsl:attribute>
 
             <pre class="button-prev-nav"/>
-            <xsl:text></xsl:text>
+            <xsl:text>&#32;</xsl:text>
 
             <xsl:call-template name="getVariable">
                 <xsl:with-param name="id" select="'Previous topic'"/>
@@ -386,7 +386,7 @@
                 <xsl:with-param name="id" select="'Next topic'"/>
             </xsl:call-template>
 
-            <xsl:text></xsl:text>
+            <xsl:text>&#32;</xsl:text>
             <pre class="button-next-nav"/>
 
             <span class="next-button-tooltip">
