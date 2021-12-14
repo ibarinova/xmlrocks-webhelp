@@ -7,10 +7,6 @@
     <xsl:template match="*" mode="addFooterToHtmlBodyElement">
         <xsl:param name="map" select="$input.map"/>
 
-        <xsl:message>@@@@@@@@@@@@@@@@</xsl:message>
-        <xsl:message>
-            <xsl:copy-of select="$map"/>
-        </xsl:message>
         <xsl:variable name="organization">
             <xsl:choose>
                 <xsl:when test="$organization-name != ''">
@@ -37,10 +33,7 @@
 
     <xsl:template name="insertCurrentYear">
         <xsl:param name="map"/>
-        <xsl:message>!!!!!!!!!!!</xsl:message>
-        <xsl:message>
-            <xsl:value-of select="$map"/>
-        </xsl:message>
+
         <xsl:choose>
             <xsl:when
                     test="$map/descendant::*[contains(@class, ' bookmap/copyrfirst ')] and $map/descendant::*[contains(@class, ' bookmap/copyrlast ')]">
