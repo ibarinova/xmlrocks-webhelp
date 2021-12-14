@@ -187,6 +187,8 @@
                 </div>
 
                 <div class="right-buttons-container">
+                    <xsl:choose>
+                        <xsl:when test="$includes-pdf = ('yes', 'true')">
                     <div class="dropdown-download">
                         <button onclick="dropdownDownload()" class="button-dropdown-download">
                             <span class="tooltip-download">Download PDF</span>
@@ -196,16 +198,23 @@
                             <button id="download-page-btn" onclick="getPDF()">
                                 <div class="download-page">Download this page as PDF</div>
                             </button>
-
-                            <xsl:if test="$includes-pdf = ('yes', 'true')">
                                 <button id="download-output-btn">
                                     <a href="{$output-pdf-full-path}" target="_blank">
                                         <div class="download-output">Download PDF output</div>
                                     </a>
                                 </button>
-                            </xsl:if>
                         </div>
                     </div>
+                        </xsl:when>
+
+                        <xsl:otherwise>
+                            <div class="dropdown-download">
+                                <button onclick="getPDF()" class="button-dropdown-download">
+                                    <span class="tooltip-download">Download current page PDF</span>
+                                </button>
+                            </div>
+                        </xsl:otherwise>
+                    </xsl:choose>
 
                     <div class="button-print-container">
                         <button onclick="window.print()" id="printbtn" class="button-print">
