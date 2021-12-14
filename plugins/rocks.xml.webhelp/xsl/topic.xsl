@@ -332,31 +332,6 @@
         </article>
     </xsl:template>
 
-    <xsl:template match="*" mode="addFooterToHtmlBodyElement">
-        <xsl:variable name="organization-name">
-            <xsl:choose>
-                <xsl:when test="$organization-name != '${organization-name}'">
-                    <xsl:value-of select="$organization-name"/>
-                </xsl:when>
-                <xsl:when
-                        test="$input.map/descendant::*[contains(@class, ' bookmap/organization ')][1]">
-                    <xsl:value-of
-                            select="$input.map/descendant::*[contains(@class, ' bookmap/organization ')][1]"/>
-                </xsl:when>
-            </xsl:choose>
-        </xsl:variable>
-
-        <footer class="footer-container">
-            <div class="d-flex flex-column footer-div max-width">
-                <a class="footer-text d-inline-flex" href="#">
-                    <xsl:value-of select="$organization-name"/>
-                    <xsl:text> </xsl:text>
-                    <xsl:call-template name="insertCurrentYear"/>
-                </a>
-            </div>
-        </footer>
-    </xsl:template>
-
     <xsl:template name="insertBackToTopButton">
         <button type="button" class="go-to-top accent-background-color" id="button-back-to-top" onclick="backToTop()">
             <img src="{$PATH2PROJ}img/go-to-top.svg"/>
@@ -372,11 +347,6 @@
         <script src="{$PATH2PROJ}lib/xml.rocks.js"></script>
     </xsl:template>
 
-    <xsl:template name="insertCurrentYear">
-        <xsl:variable name="currentDate" as="xs:date" select="current-date()"/>
-        <xsl:value-of select="year-from-date($currentDate)"/>
-    </xsl:template>
-
     <xsl:template name="insertNavPrevButton">
         <xsl:param name="prev-topicref"/>
 
@@ -389,7 +359,7 @@
             </xsl:attribute>
 
             <pre class="button-prev-nav"/>
-            <xsl:text> </xsl:text>
+            <xsl:text>&#32;</xsl:text>
 
             <xsl:call-template name="getVariable">
                 <xsl:with-param name="id" select="'Previous topic'"/>
@@ -415,7 +385,7 @@
                 <xsl:with-param name="id" select="'Next topic'"/>
             </xsl:call-template>
 
-            <xsl:text> </xsl:text>
+            <xsl:text>&#32;</xsl:text>
             <pre class="button-next-nav"/>
 
             <span class="next-button-tooltip">
