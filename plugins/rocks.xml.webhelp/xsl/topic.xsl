@@ -244,7 +244,7 @@
 
                     <div class="col col-sm-8" id="article-wrapper">
                         <xsl:apply-templates select="." mode="addContentToHtmlBodyElement"/>
-                        <xsl:call-template name="insertBackToTopButton"/>
+
                         <div class="bottom-nav-buttons-container">
                             <xsl:choose>
                                 <xsl:when test="$preceding-sibling-topicref/@href">
@@ -275,6 +275,9 @@
                     </div>
                 </div>
             </main>
+            <div id="back-to-top-button-container" class="max-width">
+                <xsl:call-template name="insertBackToTopButton"/>
+            </div>
             <xsl:apply-templates select="." mode="addFooterToHtmlBodyElement"/>
             <xsl:call-template name="insertJavaScript"/>
         </body>
@@ -355,12 +358,8 @@
     </xsl:template>
 
     <xsl:template name="insertBackToTopButton">
-        <button type="button"
-                class="go-to-top accent-background-color"
-                id="button-back-to-top">
-            <a href="#">
-                <img src="{$PATH2PROJ}img/go-to-top.svg"/>
-            </a>
+        <button type="button" class="go-to-top accent-background-color" id="button-back-to-top" onclick="backToTop()">
+            <img src="{$PATH2PROJ}img/go-to-top.svg"/>
         </button>
     </xsl:template>
 
