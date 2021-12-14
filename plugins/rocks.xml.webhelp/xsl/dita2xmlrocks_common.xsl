@@ -40,7 +40,6 @@
                 <xsl:value-of select="$map/descendant::*[contains(@class, ' bookmap/copyrfirst ')][1]"/>
                 <xsl:text>&#32;-&#32;</xsl:text>
                 <xsl:value-of select="$map/descendant::*[contains(@class, ' bookmap/copyrlast ')][1]"/>
-
             </xsl:when>
 
             <xsl:when test="$map/descendant::*[contains(@class, ' bookmap/copyrlast ')]">
@@ -49,6 +48,7 @@
 
             <xsl:when test="$map/descendant::*[contains(@class, ' topic/copyryear ')]">
                 <xsl:value-of select="$map/descendant::*[contains(@class, ' topic/copyryear ')][1]"/>
+
             </xsl:when>
 
             <xsl:otherwise>

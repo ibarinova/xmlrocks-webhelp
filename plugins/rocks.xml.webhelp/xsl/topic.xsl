@@ -187,6 +187,8 @@
                 </div>
 
                 <div class="right-buttons-container">
+                    <xsl:choose>
+                        <xsl:when test="$includes-pdf = ('yes', 'true')">
                     <div class="dropdown-download">
                         <button onclick="dropdownDownload()" class="button-dropdown-download">
                             <span class="tooltip-download">Download PDF</span>
@@ -196,16 +198,23 @@
                             <button id="download-page-btn" onclick="getPDF()">
                                 <div class="download-page">Download this page as PDF</div>
                             </button>
-
-                            <xsl:if test="$includes-pdf = ('yes', 'true')">
                                 <button id="download-output-btn">
                                     <a href="{$output-pdf-full-path}" target="_blank">
                                         <div class="download-output">Download PDF output</div>
                                     </a>
                                 </button>
-                            </xsl:if>
                         </div>
                     </div>
+                        </xsl:when>
+
+                        <xsl:otherwise>
+                            <div class="dropdown-download">
+                                <button onclick="getPDF()" class="button-dropdown-download">
+                                    <span class="tooltip-download">Download current page PDF</span>
+                                </button>
+                            </div>
+                        </xsl:otherwise>
+                    </xsl:choose>
 
                     <div class="button-print-container">
                         <button onclick="window.print()" id="printbtn" class="button-print">
@@ -244,7 +253,7 @@
 
                     <div class="col col-sm-8" id="article-wrapper">
                         <xsl:apply-templates select="." mode="addContentToHtmlBodyElement"/>
-                        <xsl:call-template name="insertBackToTopButton"/>
+
                         <div class="bottom-nav-buttons-container">
                             <xsl:choose>
                                 <xsl:when test="$preceding-sibling-topicref/@href">
@@ -275,6 +284,9 @@
                     </div>
                 </div>
             </main>
+            <div id="back-to-top-button-container" class="max-width">
+                <xsl:call-template name="insertBackToTopButton"/>
+            </div>
             <xsl:apply-templates select="." mode="addFooterToHtmlBodyElement"/>
             <xsl:call-template name="insertJavaScript"/>
         </body>
@@ -330,12 +342,8 @@
     </xsl:template>
 
     <xsl:template name="insertBackToTopButton">
-        <button type="button"
-                class="go-to-top accent-background-color"
-                id="button-back-to-top">
-            <a href="#">
-                <img src="{$PATH2PROJ}img/go-to-top.svg"/>
-            </a>
+        <button type="button" class="go-to-top accent-background-color" id="button-back-to-top" onclick="backToTop()">
+            <img src="{$PATH2PROJ}img/go-to-top.svg"/>
         </button>
     </xsl:template>
 

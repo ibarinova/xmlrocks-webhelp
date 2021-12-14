@@ -6,21 +6,15 @@ window.onscroll = function () {
 };
 
 function scrollFunction() {
-    if (
-        document.body.scrollTop > 20 ||
-        document.documentElement.scrollTop > 20
-    ) {
+    if (document.documentElement.scrollTop > 20) {
         backToTopButton.style.display = "block";
     } else {
         backToTopButton.style.display = "none";
     }
 }
 
-backToTopButton.addEventListener("click", backToTop);
-
 function backToTop() {
-    document.body.scrollTop = 0;
-    document.documentElement.scrollTop = 0;
+    document.documentElement.scrollTo({top: 0, behavior: 'smooth'});
 }
 
 function hideOrShowTOC() {
@@ -196,12 +190,25 @@ $(document).ready(function() {
     // expand all parent li's
     $('.active').parents('nav li').addClass('expanded ancestor-of-active');
 
+    var height = $(window).height() - ($("header").outerHeight() + $('div.breadcrumb-container').outerHeight() + $('div.top-nav-buttons-container-wrapper').outerHeight() + $('div.main-button-container').outerHeight() + $("footer").outerHeight() + 150);
+    $("main.container").css("min-height", height+"px");
+
     window.addEventListener('popstate', function(event) {
         state = event.state;
         if(state != null && state != "null"){
             reloadDynamically(state);
         }
     });
+
+    // count header padding for references on element inside topic
+    if (window.location.href.indexOf("#") > -1) {
+        var url = window.location.href,
+            currentId = url.substring(url.lastIndexOf('#') + 1),
+            $currentElem = $('#' + currentId),
+            headerHeight = $('header').outerHeight();
+
+        $("html, body").animate({ scrollTop: $currentElem.offset().top - headerHeight}, 0);
+    }
 });
 
 function reloadDynamically(href){

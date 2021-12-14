@@ -40,6 +40,7 @@
 :root {
     --bs-font-sans-serif: 'Montserrat', sans-serif;
     color: #404040;
+    scroll-behavior: auto;
 }
 
 .accent-background-color {
@@ -50,9 +51,6 @@
     max-width: 1100px;
 }
 
-main {
-    min-height: calc(100vh - 150px);
-}
 
 /* --- Main bar START --- */
 .rocks-header {
