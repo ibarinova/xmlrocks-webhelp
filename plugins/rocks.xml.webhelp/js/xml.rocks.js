@@ -199,6 +199,16 @@ $(document).ready(function() {
             reloadDynamically(state);
         }
     });
+
+    // count header padding for references on element inside topic
+    if (window.location.href.indexOf("#") > -1) {
+        var url = window.location.href,
+            currentId = url.substring(url.lastIndexOf('#') + 1),
+            $currentElem = $('#' + currentId),
+            headerHeight = $('header').outerHeight();
+
+        $("html, body").animate({ scrollTop: $currentElem.offset().top - headerHeight}, 0);
+    }
 });
 
 function reloadDynamically(href){
