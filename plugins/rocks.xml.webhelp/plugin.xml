@@ -9,6 +9,7 @@
     <feature extension="dita.xsl.maplink" value="xsl/preprocess/maplinkImpl.xsl" type="file"/>
     <feature extension="dita.xsl.topicpull" value="xsl/preprocess/topicpullImpl.xsl" type="file"/>
     <feature extension="dita.conductor.html5.param" file="parameters.xml"/>
+    <feature extension="dita.conductor.html5.toc.param" file="parameters.xml"/>
 
     <transtype name="xmlrocks-webhelp" desc="rocks.xml.webhelp plugin" extends="html5"/>
 

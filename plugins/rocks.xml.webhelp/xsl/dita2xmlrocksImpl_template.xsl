@@ -5,6 +5,7 @@
   <xsl:import href="plugin:rocks.xml.webhelp:xsl/nav.xsl"/>
   <xsl:import href="plugin:rocks.xml.webhelp:xsl/rel-links.xsl"/>
   <xsl:import href="plugin:rocks.xml.webhelp:xsl/footnotes.xsl"/>
+  <xsl:import href="plugin:rocks.xml.webhelp:xsl/dita2xmlrocks_common.xsl"/>
 
   <dita:extension id="rocks.xsl.html5"
                   behavior="org.dita.dost.platform.ImportXSLAction"

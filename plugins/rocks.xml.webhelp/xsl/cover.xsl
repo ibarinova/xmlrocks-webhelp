@@ -3,6 +3,8 @@
                 exclude-result-prefixes="#all"
                 version="2.0">
 
+    <xsl:param name="organization-name"/>
+
     <xsl:template match="*[contains(@class, ' map/map ')]" mode="chapterBody">
         <body>
             <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-startprop ')]/@style" mode="add-ditaval-style"/>
@@ -54,7 +56,9 @@
                 <xsl:call-template name="processFTR"/>
                 <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-endprop ')]" mode="out-of-line"/>
             </main>
-            <xsl:apply-templates select="." mode="addFooterToHtmlBodyElement"/>
+            <xsl:apply-templates select="." mode="addFooterToHtmlBodyElement">
+                <xsl:with-param name="map" select="/*"/>
+            </xsl:apply-templates>
         </body>
     </xsl:template>
 

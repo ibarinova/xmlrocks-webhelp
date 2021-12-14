@@ -329,31 +329,6 @@
         </article>
     </xsl:template>
 
-    <xsl:template match="*" mode="addFooterToHtmlBodyElement">
-        <xsl:variable name="organization-name">
-            <xsl:choose>
-                <xsl:when test="$organization-name != '${organization-name}'">
-                    <xsl:value-of select="$organization-name"/>
-                </xsl:when>
-                <xsl:when
-                        test="$input.map/descendant::*[contains(@class, ' bookmap/organization ')][1]">
-                    <xsl:value-of
-                            select="$input.map/descendant::*[contains(@class, ' bookmap/organization ')][1]"/>
-                </xsl:when>
-            </xsl:choose>
-        </xsl:variable>
-
-        <footer class="footer-container">
-            <div class="d-flex flex-column footer-div max-width">
-                <a class="footer-text d-inline-flex" href="#">
-                    <xsl:value-of select="$organization-name"/>
-                    <xsl:text> </xsl:text>
-                    <xsl:call-template name="insertCurrentYear"/>
-                </a>
-            </div>
-        </footer>
-    </xsl:template>
-
     <xsl:template name="insertBackToTopButton">
         <button type="button"
                 class="go-to-top accent-background-color"
@@ -371,58 +346,6 @@
         <script src="{$PATH2PROJ}lib/popper.min.js"></script>
         <script src="{$PATH2PROJ}lib/platform.js"></script>
         <script src="{$PATH2PROJ}lib/xml.rocks.js"></script>
-    </xsl:template>
-
-    <xsl:template name="insertCurrentYear">
-        <xsl:variable name="currentDate" as="xs:date" select="current-date()"/>
-        <xsl:value-of select="year-from-date($currentDate)"/>
-    </xsl:template>
-
-    <xsl:template name="insertNavPrevButton">
-        <xsl:param name="prev-topicref"/>
-
-        <a class="prev-button">
-            <xsl:attribute name="href">
-                <xsl:call-template name="replace-extension">
-                    <xsl:with-param name="filename" select="$prev-topicref/@href"/>
-                    <xsl:with-param name="extension" select="$OUTEXT"/>
-                </xsl:call-template>
-            </xsl:attribute>
-
-            <pre class="button-prev-nav"/>
-            <xsl:text> </xsl:text>
-
-            <xsl:call-template name="getVariable">
-                <xsl:with-param name="id" select="'Previous topic'"/>
-            </xsl:call-template>
-
-            <span class="prev-button-tooltip">
-                <xsl:apply-templates select="$prev-topicref" mode="get-navtitle"/>
-            </span>
-        </a>
-    </xsl:template>
-
-    <xsl:template name="insertNavNextButton">
-        <xsl:param name="next-topicref"/>
-        <a class="next-button">
-            <xsl:attribute name="href">
-                <xsl:call-template name="replace-extension">
-                    <xsl:with-param name="filename" select="$next-topicref/@href"/>
-                    <xsl:with-param name="extension" select="$OUTEXT"/>
-                </xsl:call-template>
-            </xsl:attribute>
-
-            <xsl:call-template name="getVariable">
-                <xsl:with-param name="id" select="'Next topic'"/>
-            </xsl:call-template>
-
-            <xsl:text> </xsl:text>
-            <pre class="button-next-nav"/>
-
-            <span class="next-button-tooltip">
-                <xsl:apply-templates select="$next-topicref" mode="get-navtitle"/>
-            </span>
-        </a>
     </xsl:template>
 
     <xsl:template match="*" mode="addHeaderToHtmlBodyElement">
