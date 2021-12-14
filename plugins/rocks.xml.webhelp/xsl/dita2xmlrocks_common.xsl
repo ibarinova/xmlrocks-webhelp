@@ -8,7 +8,9 @@
         <xsl:param name="map" select="$input.map"/>
 
         <xsl:message>@@@@@@@@@@@@@@@@</xsl:message>
-        <xsl:message><xsl:copy-of select="$map"/></xsl:message>
+        <xsl:message>
+            <xsl:copy-of select="$map"/>
+        </xsl:message>
         <xsl:variable name="organization">
             <xsl:choose>
                 <xsl:when test="$organization-name != ''">
@@ -36,37 +38,9 @@
     <xsl:template name="insertCurrentYear">
         <xsl:param name="map"/>
         <xsl:message>!!!!!!!!!!!</xsl:message>
-        <xsl:message><xsl:value-of select="$map"/></xsl:message>
-
-<!--
-        <xsl:choose>
-            <xsl:when
-                    test="$input.map/descendant::*[contains(@class, ' bookmap/copyrfirst ')] and $input.map/descendant::*[contains(@class, ' bookmap/copyrlast ')]">
-                <span class="copyright_years">&#xa9;<xsl:value-of
-                        select="$input.map/descendant::*[contains(@class, ' bookmap/copyrfirst ')][1]"/> -<xsl:value-of
-                        select="$input.map/descendant::*[contains(@class, ' bookmap/copyrlast ')][1]"/>
-                </span>
-            </xsl:when>
-
-            <xsl:when test="$input.map/descendant::*[contains(@class, ' bookmap/copyrlast ')]">
-                <span class="copyright_years">&#xa9;<xsl:value-of
-                        select="$input.map/descendant::*[contains(@class, ' bookmap/copyrlast ')]"/>
-                </span>
-            </xsl:when>
-
-            <xsl:when test="$input.map/descendant::*[contains(@class, ' topic/copyryear ')]">
-                <span class="copyright_years">&#xa9;<xsl:value-of
-                        select="$input.map/descendant::*[contains(@class, ' topic/copyryear ')][1]"/>
-                </span>
-            </xsl:when>
-
-            <xsl:otherwise>
-                <xsl:value-of select="year-from-date(current-date())"/>
-            </xsl:otherwise>
-
-        </xsl:choose>
--->
-
+        <xsl:message>
+            <xsl:value-of select="$map"/>
+        </xsl:message>
         <xsl:choose>
             <xsl:when
                     test="$map/descendant::*[contains(@class, ' bookmap/copyrfirst ')] and $map/descendant::*[contains(@class, ' bookmap/copyrlast ')]">
