@@ -12,7 +12,7 @@
                 <xsl:for-each select="*[@href][@role = 'ancestor']">
                     <xsl:apply-templates select="."/>
                     <xsl:text> </xsl:text>
-                    <pre class="bredcrubs-separator">&gt;</pre>
+                    <pre class="bredcrumbs-separator">&gt;</pre>
                     <xsl:text> </xsl:text>
                 </xsl:for-each>
             </xsl:if>
@@ -26,7 +26,7 @@
                     <xsl:text>Home</xsl:text>
                 </a>
                 <xsl:text> </xsl:text>
-                <pre class="bredcrubs-separator">&gt;</pre>
+                <pre class="bredcrumbs-separator">&gt;</pre>
                 <xsl:text> </xsl:text>
             </span>
 

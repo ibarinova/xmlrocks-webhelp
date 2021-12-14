@@ -141,6 +141,29 @@ $('body').on('click', '.head-breadcrumb a.link', function (event) {
     reloadDynamically(currentHref);
 });
 
+//Dynamically update page from the nav buttons links
+$('body').on('click', '.top-nav-buttons-container a', function (event) {
+    var currentHref = $(this).attr('href');
+
+    event.preventDefault();
+
+    window.history.pushState(currentHref, "", currentHref);
+
+    reloadDynamically(currentHref);
+    showActive();
+});
+
+$('body').on('click', '.bottom-nav-buttons-container a', function (event) {
+    var currentHref = $(this).attr('href');
+
+    event.preventDefault();
+
+    window.history.pushState(currentHref, "", currentHref);
+
+    reloadDynamically(currentHref);
+    showActive();
+});
+
 // Dynamically update parts of a web page, without reloading the whole page.
 function getDynamicTopicData(href) {
     switch (window.location.protocol) {
@@ -186,12 +209,17 @@ function reloadDynamically(href){
         var htmlContent = $.parseHTML(content),
             articleContent = $(htmlContent).find('article').contents(),
             breadcrumbsContent = $(htmlContent).find('.head-breadcrumb').contents(),
+            topNavButtonsContainerContent = $(htmlContent).find('.top-nav-buttons-container').contents(),
+            bottomNavButtonsContainerContent = $(htmlContent).find('.bottom-nav-buttons-container').contents(),
             titleContent = $(htmlContent).filter('title').contents(),
             listItemID = $(htmlContent).find('.toc-container .active').attr('id');
 
         $('title').html(titleContent);
 
         $('.head-breadcrumb').html(breadcrumbsContent);
+
+        $('.top-nav-buttons-container').html(topNavButtonsContainerContent);
+        $('.bottom-nav-buttons-container').html(bottomNavButtonsContainerContent);
 
         $('article').html(articleContent);
 
