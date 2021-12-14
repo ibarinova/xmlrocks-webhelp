@@ -348,6 +348,53 @@
         <script src="{$PATH2PROJ}lib/xml.rocks.js"></script>
     </xsl:template>
 
+    <xsl:template name="insertNavPrevButton">
+        <xsl:param name="prev-topicref"/>
+
+        <a class="prev-button">
+            <xsl:attribute name="href">
+                <xsl:call-template name="replace-extension">
+                    <xsl:with-param name="filename" select="$prev-topicref/@href"/>
+                    <xsl:with-param name="extension" select="$OUTEXT"/>
+                </xsl:call-template>
+            </xsl:attribute>
+
+            <pre class="button-prev-nav"/>
+            <xsl:text></xsl:text>
+
+            <xsl:call-template name="getVariable">
+                <xsl:with-param name="id" select="'Previous topic'"/>
+            </xsl:call-template>
+
+            <span class="prev-button-tooltip">
+                <xsl:apply-templates select="$prev-topicref" mode="get-navtitle"/>
+            </span>
+        </a>
+    </xsl:template>
+
+    <xsl:template name="insertNavNextButton">
+        <xsl:param name="next-topicref"/>
+        <a class="next-button">
+            <xsl:attribute name="href">
+                <xsl:call-template name="replace-extension">
+                    <xsl:with-param name="filename" select="$next-topicref/@href"/>
+                    <xsl:with-param name="extension" select="$OUTEXT"/>
+                </xsl:call-template>
+            </xsl:attribute>
+
+            <xsl:call-template name="getVariable">
+                <xsl:with-param name="id" select="'Next topic'"/>
+            </xsl:call-template>
+
+            <xsl:text></xsl:text>
+            <pre class="button-next-nav"/>
+
+            <span class="next-button-tooltip">
+                <xsl:apply-templates select="$next-topicref" mode="get-navtitle"/>
+            </span>
+        </a>
+    </xsl:template>
+
     <xsl:template match="*" mode="addHeaderToHtmlBodyElement">
         <xsl:variable name="header-content">
             <xsl:call-template name="gen-user-header"/>
