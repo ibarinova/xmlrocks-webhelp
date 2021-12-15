@@ -3,7 +3,7 @@
 
   <xsl:import href="plugin:rocks.xml.webhelp:xsl/cover.xsl"/>
   <xsl:import href="plugin:rocks.xml.webhelp:xsl/dita2xmlrocks_common.xsl"/>
-  <xsl:import href="plugin:rocks.xml.webhelp:xsl/dita2xmlrocks_tables.xsl"/>
+  <xsl:import href="plugin:rocks.xml.webhelp:xsl/tables.xsl"/>
 
   <dita:extension id="rocks.xsl.html5.cover"
                   behavior="org.dita.dost.platform.ImportXSLAction"

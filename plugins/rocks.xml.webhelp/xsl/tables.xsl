@@ -6,19 +6,11 @@
                 exclude-result-prefixes="#all"
                 version="2.0">
 
-    <xsl:param name="table-numbering"/>
-
-
     <xsl:template match="*[contains(@class, ' topic/table ')]/*[contains(@class, ' topic/title ')]" mode="title-number">
         <xsl:param name="number" as="xs:integer"/>
-        <xsl:choose>
-            <xsl:when test="not(normalize-space($table-numbering) = ('no', 'false'))">
-                <xsl:sequence select="concat(dita-ot:get-variable(., 'Table'), ' ', $number, '. ')"/>
-            </xsl:when>
-            <xsl:otherwise>
-                <xsl:sequence select="concat(dita-ot:get-variable(., 'Table'), '. ')"/>
-            </xsl:otherwise>
-        </xsl:choose>
+        <xsl:if test="not(normalize-space($table-numbering) = ('no', 'false'))">
+            <xsl:sequence select="concat(dita-ot:get-variable(., 'Table'), ' ', $number, '. ')"/>
+        </xsl:if>
     </xsl:template>
 
     <xsl:template mode="title-number" priority="1" match="*[contains(@class, ' topic/table ')][dita-ot:get-current-language(.) = ('hu', 'hu-hu')]/*[contains(@class, ' topic/title ')]">
