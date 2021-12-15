@@ -3,7 +3,7 @@
     font-style: normal;
     font-weight: 300;
     src: local(''),
-    url('../fonts/Montserrat-Light.ttf') format('truetype');
+    url('../fonts/Montserrat/Montserrat-Light.ttf') format('truetype');
 }
 
 @font-face {
