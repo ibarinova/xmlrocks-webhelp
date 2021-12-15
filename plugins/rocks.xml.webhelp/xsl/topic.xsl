@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot"
                 xmlns:related-links="http://dita-ot.sourceforge.net/ns/200709/related-links"
                 exclude-result-prefixes="#all"
                 version="2.0">
 
     <xsl:param name="using-input"/>
     <xsl:param name="includes-pdf"/>
+    <xsl:param name="table-numbering"/>
     <xsl:param name="organization-name"/>
     <xsl:param name="two-col-fig-callouts" select="'false'"/>
     <xsl:param name="name-of-map"/>

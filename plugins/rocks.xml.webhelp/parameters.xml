@@ -2,6 +2,7 @@
 <params xmlns:if="ant:if">
     <param name="using-input" expression="${args.input}"/>
     <param name="includes-pdf" expression="${includes-pdf}" if:set="includes-pdf"/>
+    <param name="table-numbering" expression="${table-numbering}" if:set="table-numbering"/>
     <param name="organization-name" expression="${organization-name}" if:set="organization-name"/>
     <param name="two-col-fig-callouts" expression="${two-col-fig-callouts}" if:set="two-col-fig-callouts"/>
     <param name="name-of-map" expression="${name-of-map}"/>
