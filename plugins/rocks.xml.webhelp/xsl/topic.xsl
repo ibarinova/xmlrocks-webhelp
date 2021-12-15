@@ -636,11 +636,7 @@
 
     <xsl:template name="place-fig-lbl">
         <xsl:param name="stringName"/>
-        <xsl:variable name="fig-count-actual">
-            <xsl:if test="not(normalize-space($figure-numbering) = ('no', 'false'))">
-                <xsl:value-of select="count(preceding::*[contains(@class, ' topic/fig ')]/*[contains(@class, ' topic/title ')])+1"/>
-            </xsl:if>
-        </xsl:variable>
+        <xsl:variable name="fig-count-actual" select="count(preceding::*[contains(@class, ' topic/fig ')]/*[contains(@class, ' topic/title ')])+1"/>
 
         <xsl:variable name="ancestorlang">
             <xsl:call-template name="getLowerCaseLang"/>
@@ -648,6 +644,7 @@
         <xsl:choose>
             <xsl:when test="*[contains(@class, ' topic/title ')]">
                 <figcaption>
+                    <xsl:if test="not(normalize-space($figure-numbering) = ('no', 'false'))">
                     <span class="fig--title-label">
                         <xsl:choose>      <!-- Hungarian: "1. Figure " -->
                             <xsl:when test="$ancestorlang = ('hu', 'hu-hu')">
@@ -667,6 +664,7 @@
                             </xsl:otherwise>
                         </xsl:choose>
                     </span>
+                    </xsl:if>
                     <xsl:apply-templates select="*[contains(@class, ' topic/title ')]" mode="figtitle"/>
                     <xsl:if test="*[contains(@class, ' topic/desc ')]">
                         <xsl:text>. </xsl:text>
