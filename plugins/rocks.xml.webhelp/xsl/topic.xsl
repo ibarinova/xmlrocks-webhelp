@@ -632,4 +632,10 @@
         </xsl:analyze-string>
     </xsl:template>
 
+    <xsl:template match="*[contains(@class, ' topic/object ')][child::param[@name = 'movie'][@value]]">
+        <embed>
+            <xsl:attribute name="src" select="child::param[@name = 'movie'][1]/@value"/>
+        </embed>
+    </xsl:template>
+
 </xsl:stylesheet>
