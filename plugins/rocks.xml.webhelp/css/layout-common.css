@@ -67,6 +67,8 @@
 }
 
 .header-logo {
+    content: url('../img/logo.svg');
+    max-height: 2em;
     margin-right: 1em;
 }
 
