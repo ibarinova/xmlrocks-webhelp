@@ -1,12 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot"
                 xmlns:related-links="http://dita-ot.sourceforge.net/ns/200709/related-links"
                 exclude-result-prefixes="#all"
                 version="2.0">
 
     <xsl:param name="using-input"/>
     <xsl:param name="includes-pdf"/>
+    <xsl:param name="figure-numbering"/>
     <xsl:param name="organization-name"/>
     <xsl:param name="two-col-fig-callouts" select="'false'"/>
     <xsl:param name="name-of-map"/>
@@ -636,6 +638,59 @@
         <embed>
             <xsl:attribute name="src" select="child::param[@name = 'movie'][1]/@value"/>
         </embed>
+
+    <xsl:template name="place-fig-lbl">
+        <xsl:param name="stringName"/>
+        <xsl:variable name="fig-count-actual" select="count(preceding::*[contains(@class, ' topic/fig ')]/*[contains(@class, ' topic/title ')])+1"/>
+
+        <xsl:variable name="ancestorlang">
+            <xsl:call-template name="getLowerCaseLang"/>
+        </xsl:variable>
+        <xsl:choose>
+            <xsl:when test="*[contains(@class, ' topic/title ')]">
+                <figcaption>
+                    <xsl:if test="not(normalize-space($figure-numbering) = ('no', 'false'))">
+                    <span class="fig--title-label">
+                        <xsl:choose>      <!-- Hungarian: "1. Figure " -->
+                            <xsl:when test="$ancestorlang = ('hu', 'hu-hu')">
+                                <xsl:value-of select="$fig-count-actual"/>
+                                <xsl:text>. </xsl:text>
+                                <xsl:call-template name="getVariable">
+                                    <xsl:with-param name="id" select="'Figure'"/>
+                                </xsl:call-template>
+                                <xsl:text> </xsl:text>
+                            </xsl:when>
+                            <xsl:otherwise>
+                                <xsl:call-template name="getVariable">
+                                    <xsl:with-param name="id" select="'Figure'"/>
+                                </xsl:call-template>
+                                <xsl:value-of select="$fig-count-actual"/>
+                                <xsl:text>.</xsl:text>
+                            </xsl:otherwise>
+                        </xsl:choose>
+                    </span>
+                    </xsl:if>
+                    <xsl:apply-templates select="*[contains(@class, ' topic/title ')]" mode="figtitle"/>
+                    <xsl:if test="*[contains(@class, ' topic/desc ')]">
+                        <xsl:text>. </xsl:text>
+                    </xsl:if>
+                    <xsl:for-each select="*[contains(@class, ' topic/desc ')]">
+                        <span class="figdesc">
+                            <xsl:call-template name="commonattributes"/>
+                            <xsl:apply-templates select="." mode="figdesc"/>
+                        </span>
+                    </xsl:for-each>
+                </figcaption>
+            </xsl:when>
+            <xsl:when test="*[contains(@class, ' topic/desc ')]">
+                <xsl:for-each select="*[contains(@class, ' topic/desc ')]">
+                    <figcaption>
+                        <xsl:call-template name="commonattributes"/>
+                        <xsl:apply-templates select="." mode="figdesc"/>
+                    </figcaption>
+                </xsl:for-each>
+            </xsl:when>
+        </xsl:choose>
     </xsl:template>
 
 </xsl:stylesheet>
