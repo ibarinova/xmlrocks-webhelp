@@ -638,6 +638,7 @@
         <embed>
             <xsl:attribute name="src" select="child::param[@name = 'movie'][1]/@value"/>
         </embed>
+    </xsl:template>
 
     <xsl:template name="place-fig-lbl">
         <xsl:param name="stringName"/>
