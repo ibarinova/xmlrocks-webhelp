@@ -634,6 +634,11 @@
         </xsl:analyze-string>
     </xsl:template>
 
+    <xsl:template match="*[contains(@class, ' topic/object ')][child::param[@name = 'movie'][@value]]">
+        <embed>
+            <xsl:attribute name="src" select="child::param[@name = 'movie'][1]/@value"/>
+        </embed>
+
     <xsl:template name="place-fig-lbl">
         <xsl:param name="stringName"/>
         <xsl:variable name="fig-count-actual" select="count(preceding::*[contains(@class, ' topic/fig ')]/*[contains(@class, ' topic/title ')])+1"/>
