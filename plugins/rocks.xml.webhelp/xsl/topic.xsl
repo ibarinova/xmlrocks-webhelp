@@ -8,6 +8,7 @@
 
     <xsl:param name="using-input"/>
     <xsl:param name="includes-pdf"/>
+    <xsl:param name="table-numbering"/>
     <xsl:param name="figure-numbering"/>
     <xsl:param name="organization-name"/>
     <xsl:param name="two-col-fig-callouts" select="'false'"/>
