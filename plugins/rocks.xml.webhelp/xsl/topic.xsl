@@ -299,7 +299,6 @@
             <div class="logo-header">
                 <a href="{$PATH2PROJ}index.html"
                    class="d-flex align-items-center text-light text-decoration-none header-logo">
-                    <img src="{$PATH2PROJ}img/logo.svg"/>
                 </a>
                 <span class="tooltip-logo">Click here to go to the main page</span>
             </div>
