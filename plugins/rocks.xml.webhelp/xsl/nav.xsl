@@ -75,8 +75,6 @@
                             </xsl:variable>
                             <a>
                                 <xsl:attribute name="href" select="$current-href-fixed"/>
-                                <xsl:attribute name="onclick"
-                                               select="concat('getDynamicTopicData(''', $current-href-fixed, ''')')"/>
                                 <xsl:value-of select="$title"/>
                             </a>
                         </xsl:when>
