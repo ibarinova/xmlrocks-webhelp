@@ -232,7 +232,7 @@ h6.title {
     margin: 20px auto;
 }
 
-.bredcrumbs-separator {
+.breadcrumbs-separator {
     content: url("../img/breadcrumbs-separator.svg");
     display: inline;
     margin: 2px 4px;

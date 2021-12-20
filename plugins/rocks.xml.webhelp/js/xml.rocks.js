@@ -1,11 +1,7 @@
 var backToTopButton = document.getElementById("button-back-to-top"),
     state = null;
 
-window.onscroll = function () {
-    scrollFunction();
-};
-
-function scrollFunction() {
+window.onscroll = function() {
     if (document.documentElement.scrollTop > 20) {
         backToTopButton.style.display = "block";
     } else {
@@ -107,6 +103,7 @@ window.onclick = function (event) {
 
 function closeDropDown(className){
     var dropdowns = document.getElementsByClassName(className);
+
     for (var i = 0; i < dropdowns.length; i++) {
         var openDropdown = dropdowns[i];
         if (openDropdown.classList.contains('show')) {
@@ -120,87 +117,49 @@ function dropdownGoogleDrive() {
     document.getElementById("menu-dropdown-google-drive").classList.toggle("show");
 }
 
-$('div.toc-container nav li a').click(function(event) {
-    event.preventDefault();
-});
+// Dynamically update page from the TOC
+$('body').on('click', 'div.toc-container nav li a', updatePageReloadingBehaviour);
 
-//Dynamically update page from the breadcrumbs links
-$('body').on('click', '.head-breadcrumb a.link', function (event) {
-    var currentHref = $(this).attr('href');
+// Dynamically update page from the breadcrumbs links
+$('body').on('click', '.head-breadcrumb a.link', updatePageReloadingBehaviour);
 
-    event.preventDefault();
+// Dynamically update page from the nav buttons links
+$('body').on('click', '.top-nav-buttons-container a', updatePageReloadingBehaviour);
+$('body').on('click', '.bottom-nav-buttons-container a', updatePageReloadingBehaviour);
 
-    window.history.pushState(currentHref, "", currentHref);
-
-    reloadDynamically(currentHref);
-});
-
-//Dynamically update page from the nav buttons links
-$('body').on('click', '.top-nav-buttons-container a', function (event) {
-    var currentHref = $(this).attr('href');
-
-    event.preventDefault();
-
-    window.history.pushState(currentHref, "", currentHref);
-
-    reloadDynamically(currentHref);
-    showActive();
-});
-
-$('body').on('click', '.bottom-nav-buttons-container a', function (event) {
-    var currentHref = $(this).attr('href');
-
-    event.preventDefault();
-
-    window.history.pushState(currentHref, "", currentHref);
-
-    reloadDynamically(currentHref);
-    showActive();
-});
-
-// Dynamically update parts of a web page, without reloading the whole page.
-function getDynamicTopicData(href) {
-    switch (window.location.protocol) {
-        case 'file:':
-            // go to href if HTML is opened as file:
-            window.location = href;
-            break;
-        default:
-            // update address bar
-            window.history.pushState(href, "", href);
-
-            reloadDynamically(href);
+// Update link transition event if page is not opened as file
+function updatePageReloadingBehaviour(event) {
+    if (window.location.protocol != 'file:') {
+        var currentHref = $(this).attr('href');
+        event.preventDefault();
+        window.history.pushState(currentHref, "", currentHref);
+        reloadDynamically(currentHref);
     }
 }
 
 // Expand topics in the TOC
 function applyExpandedClass(id){
     if ($(id).parent().parent().hasClass('expanded')) {
-        // remove .expanded from current TOC topic
+        // Remove .expanded from current TOC topic
         $(id).parent().parent().removeClass('expanded');
-
     } else {
-        // add .expanded to current TOC topic
+        // Add .expanded to current TOC topic
         $(id).parent().parent().addClass('expanded');
     }
 }
 
-// This function reveals active topic in the TOC when page reloads
 $(document).ready(function() {
-    // expand all parent li's
+    // Expand all parent li's
     $('.active').parents('nav li').addClass('expanded ancestor-of-active');
 
+    // Count main container min-height (needed for correct displaying of footer if the content is too short)
     var height = $(window).height() - ($("header").outerHeight() + $('div.breadcrumb-container').outerHeight() + $('div.top-nav-buttons-container-wrapper').outerHeight() + $('div.main-button-container').outerHeight() + $("footer").outerHeight() + 150);
-    $("main.container").css("min-height", height+"px");
+    $("main.container").css("min-height", height + "px");
 
-    window.addEventListener('popstate', function(event) {
-        state = event.state;
-        if(state != null && state != "null"){
-            reloadDynamically(state);
-        }
-    });
+    // Reveal active topic in the TOC when page reloads
+    showActive;
 
-    // count header padding for references on element inside topic
+    // Count header padding for references on element inside topic
     if (window.location.href.indexOf("#") > -1) {
         var url = window.location.href,
             currentId = url.substring(url.lastIndexOf('#') + 1),
