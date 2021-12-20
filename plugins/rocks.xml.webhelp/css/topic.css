@@ -1175,8 +1175,7 @@ abbr[title] {
 /*--- Substepexpand END---*/
 
 /*--- Image START---*/
-img, svg {
-    vertical-align: middle;
+article img {
     max-width: 100%;
 }
 /*--- Image END---*/
