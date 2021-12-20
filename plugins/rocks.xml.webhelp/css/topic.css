@@ -1173,3 +1173,10 @@ abbr[title] {
     margin: 0;
 }
 /*--- Substepexpand END---*/
+
+/*--- Image START---*/
+img, svg {
+    vertical-align: middle;
+    max-width: 100%;
+}
+/*--- Image END---*/
