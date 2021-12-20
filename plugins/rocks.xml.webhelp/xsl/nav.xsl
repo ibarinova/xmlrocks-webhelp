@@ -75,6 +75,12 @@
                             </xsl:variable>
                             <a>
                                 <xsl:attribute name="href" select="$current-href-fixed"/>
+
+                                <!-- Add left padding to TOC topics with levels greater than 6 (levels 1-6 are handled with CSS) -->
+                                <xsl:if test="$liLevel gt 6">
+                                    <xsl:attribute name="style" select="concat('padding-left: ', $liLevel + 0.5, 'em')"/>
+                                </xsl:if>
+
                                 <xsl:value-of select="$title"/>
                             </a>
                         </xsl:when>
