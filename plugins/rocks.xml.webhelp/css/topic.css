@@ -1173,3 +1173,9 @@ abbr[title] {
     margin: 0;
 }
 /*--- Substepexpand END---*/
+
+/*--- Image START---*/
+article img {
+    max-width: 100%;
+}
+/*--- Image END---*/
