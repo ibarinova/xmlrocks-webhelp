@@ -10,6 +10,7 @@
     <xsl:param name="includes-pdf"/>
     <xsl:param name="table-numbering"/>
     <xsl:param name="figure-numbering"/>
+    <xsl:param name="save-to-google-drive"/>
     <xsl:param name="organization-name"/>
     <xsl:param name="two-col-fig-callouts" select="'false'"/>
     <xsl:param name="name-of-map"/>
@@ -225,7 +226,7 @@
                         </button>
                     </div>
 
-                    <xsl:if test="$includes-pdf = ('yes', 'true')">
+                    <xsl:if test="$includes-pdf = ('yes', 'true') and $save-to-google-drive = ('yes', 'true')">
                         <div class="dropdown-google-drive">
                             <button onclick="dropdownGoogleDrive()" class="button-dropdown-share-google-drive">
                                 <span class="tooltip-google-drive">Save to Google Drive</span>
