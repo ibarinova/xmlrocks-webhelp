@@ -11,19 +11,19 @@
     <refbody>
         <p> Image inside fig element with align="left" </p>
         <fig id="FIG_5B0BABB66D21413C8D7DF574C47B8163">
-            <image href="GUID-69E15830-34CA-46BA-B429-A47530F9F089-low.png" align="left"
+            <image href="GUID-69E15830-34CA-46BA-B429-A47530F9F089-low.png" placement="break" align="left"
                    id="IMAGE_0C9FE623FB1140B4BDAE131DD7F7496D" />
         </fig>
 
         <p> Image inside fig element with align="center" </p>
         <fig id="FIG_5B0BABB66D21413C8D7DF574C47B8163">
-            <image href="GUID-69E15830-34CA-46BA-B429-A47530F9F089-low.png" align="center"
+            <image href="GUID-69E15830-34CA-46BA-B429-A47530F9F089-low.png" placement="break" align="center"
                    id="IMAGE_0C9FE623FB1140B4BDAE131DD7F7496D" />
         </fig>
 
         <p> Image inside fig element with align="right" </p>
         <fig id="FIG_5B0BABB66D21413C8D7DF574C47B8163">
-            <image href="GUID-69E15830-34CA-46BA-B429-A47530F9F089-low.png" align="right"
+            <image href="GUID-69E15830-34CA-46BA-B429-A47530F9F089-low.png" placement="break" align="right"
                    id="IMAGE_0C9FE623FB1140B4BDAE131DD7F7496D" />
         </fig>
 
