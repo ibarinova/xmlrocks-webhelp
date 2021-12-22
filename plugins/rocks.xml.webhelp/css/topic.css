@@ -1178,4 +1178,26 @@ abbr[title] {
 article img {
     max-width: 100%;
 }
+
+figure.fig {
+    display: block;
+    margin: 0;
+}
+
+figure.fig .image {
+    display: block;
+}
+
+.imageleft {
+    margin-right: auto;
+}
+
+.imagecenter {
+    margin: auto;
+}
+
+.imageright {
+    margin-left: auto;
+}
+
 /*--- Image END---*/
