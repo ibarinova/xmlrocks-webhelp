@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE reference PUBLIC "-//OASIS//DTD DITA Reference//EN" "reference.dtd">
+<reference id="figure1">
+
+    <title id="GUID-91564DD8-F89B-4955-AEF0-22036F141C99">Figure element</title>
+
+    <shortdesc>The figure (&lt;fig&gt;) element is a display context (sometimes called an "exhibit") with an
+        optional title for a wide variety of content.
+    </shortdesc>
+
+    <refbody>
+        <p> Image inside fig element with align="left" </p>
+        <fig id="FIG_5B0BABB66D21413C8D7DF574C47B8163">
+            <image href="GUID-69E15830-34CA-46BA-B429-A47530F9F089-low.png" placement="break" align="left"
+                   id="IMAGE_0C9FE623FB1140B4BDAE131DD7F7496D" />
+        </fig>
+
+        <p> Image inside fig element with align="center" </p>
+        <fig id="FIG_5B0BABB66D21413C8D7DF574C47B8163">
+            <image href="GUID-69E15830-34CA-46BA-B429-A47530F9F089-low.png" placement="break" align="center"
+                   id="IMAGE_0C9FE623FB1140B4BDAE131DD7F7496D" />
+        </fig>
+
+        <p> Image inside fig element with align="right" </p>
+        <fig id="FIG_5B0BABB66D21413C8D7DF574C47B8163">
+            <image href="GUID-69E15830-34CA-46BA-B429-A47530F9F089-low.png" placement="break" align="right"
+                   id="IMAGE_0C9FE623FB1140B4BDAE131DD7F7496D" />
+        </fig>
+
+        <p>
+            Image placement='break' without fig element
+        </p>
+        <image href="GUID-918064EF-7590-4CC9-8885-CA316447FD61-low.jpg" placement="break"
+               id="IMAGE_1FA8F905F3AE40C280DEA33D7640F049"/>
+    </refbody>
+</reference>
