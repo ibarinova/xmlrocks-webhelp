@@ -984,6 +984,7 @@ li.linklist {
     bottom: 1rem;
     padding: 0 0.75em;
     height: 5.5rem;
+    pointer-events: none;
 }
 
 #button-back-to-top {
