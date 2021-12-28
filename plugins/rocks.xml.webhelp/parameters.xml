@@ -4,6 +4,7 @@
     <param name="includes-pdf" expression="${includes-pdf}" if:set="includes-pdf"/>
     <param name="table-numbering" expression="${table-numbering}" if:set="table-numbering"/>
     <param name="figure-numbering" expression="${figure-numbering}" if:set="figure-numbering"/>
+    <param name="save-to-google-drive" expression="${save-to-google-drive}" if:set="save-to-google-drive"/>
     <param name="organization-name" expression="${organization-name}" if:set="organization-name"/>
     <param name="two-col-fig-callouts" expression="${two-col-fig-callouts}" if:set="two-col-fig-callouts"/>
     <param name="name-of-map" expression="${name-of-map}"/>
