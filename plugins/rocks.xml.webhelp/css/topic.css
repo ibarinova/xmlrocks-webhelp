@@ -14,6 +14,8 @@ a:hover {
 
 body{
     color: #5E5E5E;
+    font-size: 15px;
+    line-height: 22px;
 }
 
 h1.title {
@@ -654,7 +656,7 @@ a:hover{
 
 /* level 1 */
 .toc-container li.level1 {
-    background-color: #f8f8f8;
+    background-color: #f2f2f2;
     border-top: 1px #eeeeee solid;
 }
 
@@ -668,7 +670,7 @@ a:hover{
 
 /* level 2 */
 .toc-container li.level2 {
-    background-color: #f2f2f2;
+    background-color: #eaeaea;
 }
 
 .toc-container li.level2 > .toc-element-row > a {
@@ -736,7 +738,7 @@ a:hover{
     text-decoration: none;
     display: inline-block;
     font-weight: normal;
-    color: #9b9b9b;
+    color: #727272;
     padding-top: 0.4em;
     padding-bottom: 0.4em;
 }
