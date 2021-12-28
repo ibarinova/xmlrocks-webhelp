@@ -1202,3 +1202,10 @@ figure.fig .image {
 }
 
 /*--- Image END---*/
+
+/*--- Definition Lists START---*/
+dd {
+    padding-left: 2em;
+}
+
+/*--- Definition Lists END---*/
