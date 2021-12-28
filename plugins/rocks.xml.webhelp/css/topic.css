@@ -999,6 +999,7 @@ li.linklist {
     background-clip: padding-box;
     -webkit-backdrop-filter: blur(2px);
     backdrop-filter: blur(2px);
+    pointer-events: auto;
 }
 /*--- Back to top button END ---*/
 
