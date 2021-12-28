@@ -15,7 +15,6 @@ a:hover {
 body{
     color: #5E5E5E;
     font-size: 15px;
-    line-height: 22px;
 }
 
 h1.title {
@@ -647,6 +646,7 @@ a:hover{
     width: 66.66666667%;
     transition: all 1s ease-in-out .5s;
     justify-self: end;
+    max-width: 770px;
 }
 
 #toc-wrapper.hidden + #article-wrapper {
@@ -809,6 +809,9 @@ li.ancestor-of-active > .toc-element-row > a {
 /* Smooth scroll */
 .toc-container {
     overflow:hidden;
+    max-width: 370px;
+    width: 100%;
+    line-height: 22px;
 }
 
 .toc-container li ul {
