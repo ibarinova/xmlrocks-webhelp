@@ -149,7 +149,7 @@
 }
 
 .accent-background-color {
-    background-color: #0d213a;
+    background-color: #0c213a;
 }
 
 .max-width {
@@ -159,10 +159,9 @@
 
 /* --- Main bar START --- */
 .rocks-header {
-    position: sticky;
+    position: relative;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
-    box-shadow: 0 2px 5px #bbbbbb;
 }
 
 .main-header {
