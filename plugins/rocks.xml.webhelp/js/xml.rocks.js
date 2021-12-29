@@ -127,6 +127,14 @@ $('body').on('click', '.head-breadcrumb a.link', updatePageReloadingBehaviour);
 $('body').on('click', '.top-nav-buttons-container a', updatePageReloadingBehaviour);
 $('body').on('click', '.bottom-nav-buttons-container a', updatePageReloadingBehaviour);
 
+// Open search page when search button is pressed
+$('body').on('click', '#search-button', runSearch);
+
+function runSearch() {
+    var searchInputValue = $('input.search').val();
+    location.href = "search.html?key=" + searchInputValue;
+}
+
 // Update link transition event if page is not opened as file
 function updatePageReloadingBehaviour(event) {
     if (window.location.protocol != 'file:') {
@@ -168,6 +176,41 @@ $(document).ready(function() {
 
         $("html, body").animate({ scrollTop: $currentElem.offset().top - headerHeight}, 0);
     }
+
+    // Search page code
+    if ($('body#search-page')) {
+        var url_string = window.location.href,
+            url = new URL(url_string),
+            key = url.searchParams.get("key");
+
+        // If keyword exists show 'document(s) found for [keyword]' text
+        if(key !== '') {
+            $('#search-results-info').addClass('show');
+            $('#search-results').addClass('show');
+
+            // Insert search key value in #keyword-text element
+            $('#keyword-text').html(key);
+
+            // Insert search key value in search input
+            $('.search-input-container input.search-input').val(key);
+        } else {
+            // Show string 'Search keyword cannot be empty'
+            $('#empty-keyword').addClass('show');
+        }
+    }
+
+    // Press search button on enter
+    // Get the input field
+    var input = document.getElementById("header-search-input");
+
+    // Execute a function when the user releases a key on the keyboard
+    input.addEventListener("keyup", function(event) {
+        // Number 13 is the "Enter" key on the keyboard
+        if (event.keyCode === 13) {
+            // Trigger the button element with a click
+            document.getElementById("search-button").click();
+        }
+    });
 });
 
 function reloadDynamically(href){

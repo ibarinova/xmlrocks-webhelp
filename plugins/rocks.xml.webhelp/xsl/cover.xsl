@@ -59,7 +59,9 @@
             <xsl:apply-templates select="." mode="addFooterToHtmlBodyElement">
                 <xsl:with-param name="map" select="/*"/>
             </xsl:apply-templates>
+            <xsl:call-template name="insertJavaScript"/>
         </body>
+        <xsl:call-template name="addSearchPage"/>
     </xsl:template>
 
     <xsl:template match="*[contains(@class, ' map/map ')]" mode="tiles">

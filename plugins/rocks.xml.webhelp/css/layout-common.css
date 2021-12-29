@@ -184,17 +184,12 @@
 }
 
 #search-button{
-    background-image: url(../img/search.svg);
-    background-position: no-repeat;
+    background: url(../img/search.svg) center no-repeat;
     position: relative;
+    width: 40px;
+    right: 40px;
 }
 
-#search-button:after{
-    content: url(../img/search.svg);;
-    font-size: 18pt;
-    position: absolute;
-    right: 1rem;
-}
 /* --- Main bar END --- */
 
 /* --- Footer START --- */
