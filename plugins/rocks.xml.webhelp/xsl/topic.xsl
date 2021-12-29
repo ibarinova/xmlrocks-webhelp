@@ -323,9 +323,8 @@
             </span>
 
             <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
-                <input class="form-control search" type="search" placeholder="Search" aria-label="Search">
-                    <div id="search-button"/>
-                </input>
+                <input id="header-search-input" class="form-control search" type="search" placeholder="Search" aria-label="Search"/>
+                <button id="search-button"/>
             </nav>
         </div>
     </xsl:template>
