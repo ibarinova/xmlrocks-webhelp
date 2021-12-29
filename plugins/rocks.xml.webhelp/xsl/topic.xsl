@@ -214,7 +214,7 @@
                         <xsl:otherwise>
                             <div class="dropdown-download">
                                 <button onclick="getPDF()" class="button-dropdown-download">
-                                    <span class="tooltip-download">Download current page PDF</span>
+                                    <span class="tooltip-download-current-page">Download current page PDF</span>
                                 </button>
                             </div>
                         </xsl:otherwise>
@@ -302,7 +302,7 @@
                 <a href="{$PATH2PROJ}index.html"
                    class="d-flex align-items-center text-light text-decoration-none header-logo">
                 </a>
-                <span class="tooltip-logo">Click here to go to the main page</span>
+                <span class="tooltip-logo">Home</span>
             </div>
 
             <span class="fs-4 text-light">

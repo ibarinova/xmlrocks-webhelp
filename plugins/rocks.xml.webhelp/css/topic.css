@@ -51,7 +51,7 @@ h6.title {
     padding-top: 0.5em;
     padding-bottom: 0.5em;
     width: 9rem;
-    top: 5em;
+    bottom: 2em;
     margin-left: -60px;
 }
 
@@ -160,6 +160,20 @@ h6.title {
     margin-left: -50px;
 }
 
+.tooltip-download-current-page{
+    display: none;
+    position: absolute;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 5px #bbbbbb;
+    font-size: 11px;
+    color: #5e5e5e;
+    padding: 0.5em;
+    margin-left: -8em;
+    width: 11rem;
+    bottom: 111%;
+}
+
+
 .button-print-container {
     display: inline-block;
     position: relative;
@@ -200,7 +214,8 @@ h6.title {
 #button-expand-collapse:not(.inactive).expanded:hover > .tooltip-collapse-all,
 #button-show-active:not(.inactive):hover > .tooltip-show-active,
 .button-dropdown-download:hover > .tooltip-download,
-.button-print:hover > .tooltip-print {
+.button-print:hover > .tooltip-print,
+.button-dropdown-download:hover > .tooltip-download-current-page {
     display: block;
 }
 /* --- Tooltips END --- */
