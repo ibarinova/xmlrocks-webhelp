@@ -28,6 +28,10 @@
         display: none;
     }
 
+    #article-wrapper{
+        width: 100%;
+    }
+
     #button-back-to-top {
         display: none;
     }
