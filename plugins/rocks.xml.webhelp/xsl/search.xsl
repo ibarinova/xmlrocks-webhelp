@@ -46,13 +46,29 @@
                     </div>
 
                     <main role="main" class="container main-search-page max-width">
-                        <div id="main-wrapper">
-                            <div id="search-results">0 document(s) found for
+                        <div id="search-main-wrapper">
+
+                            <div id="empty-keyword">Search keyword cannot be empty</div>
+                            <div id="search-results-info">0 document(s) found for
                                 <b>
-                                    <p id="keyword-text"/>
+                                    <span id="keyword-text"/>
                                 </b>
                             </div>
-                            <div id="empty-keyword">Search keyword cannot be empty</div>
+                            <!-- FIXME Search results are temporary hardcoded -->
+                            <div id="search-results">
+                                <div class="search-result-block">
+                                    <p class="search-result-title"><a href="index.html">Dummy search result block</a></p>
+                                    <p class="search-result-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                                </div>
+                                <div class="search-result-block">
+                                    <p class="search-result-title"><a href="index.html">Dummy search result block2</a></p>
+                                    <p class="search-result-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                                </div>
+                                <div class="search-result-block">
+                                    <p class="search-result-title"><a href="index.html">Dummy search result block3</a></p>
+                                    <p class="search-result-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                                </div>
+                            </div>
                         </div>
                     </main>
 

@@ -25,22 +25,30 @@
     padding: 2rem 1rem;
 }
 
-#search-results {
-    display: none;
+#search-results-info {
+    padding-bottom: 1.5rem;
 }
 
-#search-results.show {
-    display: inline-block;
-}
-
-#keyword-text {
-    display: inline-block;
-}
-
+#search-results-info,
+#search-results,
 #empty-keyword {
     display: none;
 }
 
+.search-result-title {
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.search-result-body {
+    margin-bottom: 1.5rem;
+}
+
+#search-results-info.show,
 #empty-keyword.show {
     display: inline-block;
+}
+
+#search-results.show {
+    display: block;
 }

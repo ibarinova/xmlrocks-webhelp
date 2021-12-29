@@ -185,6 +185,7 @@ $(document).ready(function() {
 
         // If keyword exists show 'document(s) found for [keyword]' text
         if(key !== '') {
+            $('#search-results-info').addClass('show');
             $('#search-results').addClass('show');
 
             // Insert search key value in #keyword-text element
