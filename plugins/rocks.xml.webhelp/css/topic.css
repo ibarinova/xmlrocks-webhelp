@@ -14,6 +14,7 @@ a:hover {
 
 body{
     color: #5E5E5E;
+    font-size: 15px;
 }
 
 h1.title {
@@ -660,6 +661,7 @@ a:hover{
     width: 66.66666667%;
     transition: all 1s ease-in-out .5s;
     justify-self: end;
+    max-width: 770px;
 }
 
 #toc-wrapper.hidden + #article-wrapper {
@@ -669,7 +671,7 @@ a:hover{
 
 /* level 1 */
 .toc-container li.level1 {
-    background-color: #f8f8f8;
+    background-color: #f2f2f2;
     border-top: 1px #eeeeee solid;
 }
 
@@ -683,7 +685,7 @@ a:hover{
 
 /* level 2 */
 .toc-container li.level2 {
-    background-color: #f2f2f2;
+    background-color: #eaeaea;
 }
 
 .toc-container li.level2 > .toc-element-row > a {
@@ -751,7 +753,7 @@ a:hover{
     text-decoration: none;
     display: inline-block;
     font-weight: normal;
-    color: #9b9b9b;
+    color: #727272;
     padding-top: 0.4em;
     padding-bottom: 0.4em;
 }
@@ -760,6 +762,7 @@ li.level1 > .toc-element-row > a:visited,
 li.level1 > .toc-element-row > a:link,
 li.level1 > .toc-element-row > a:active {
     color:#333333;
+    min-height: 40px;
 }
 
 li.ancestor-of-active > .toc-element-row > a {
@@ -822,6 +825,9 @@ li.ancestor-of-active > .toc-element-row > a {
 /* Smooth scroll */
 .toc-container {
     overflow:hidden;
+    max-width: 370px;
+    width: 100%;
+    line-height: 22px;
 }
 
 .toc-container li ul {
