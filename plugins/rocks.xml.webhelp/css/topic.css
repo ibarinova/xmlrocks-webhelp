@@ -594,6 +594,7 @@ a:hover{
 .dropdown-google-drive {
     position: relative;
     display: inline-block;
+    margin-left: 1rem;
 }
 
 .dropdown-content-google-drive {
