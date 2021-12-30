@@ -285,6 +285,7 @@ h6.title {
 .next-button {
     margin-left: auto;
     position: relative;
+    margin-right: 4%;
 }
 
 .top-nav-buttons-container > .prev-button,
@@ -294,6 +295,8 @@ h6.title {
     color: #333333;
     text-decoration: none;
     height: fit-content;
+    font-height: 25px;
+    font-weight: 600;
 }
 
 .prev-button:hover {
