@@ -209,14 +209,14 @@ h6.title {
 }
 
 .logo-header:hover > .tooltip-logo,
-#button-hide-show-toc:not(.hidden):hover > .tooltip-hide-toc,
-#button-hide-show-toc.hidden:hover > .tooltip-show-toc,
-#button-expand-collapse:not(.inactive):not(.expanded):hover > .tooltip-expand-all,
-#button-expand-collapse:not(.inactive).expanded:hover > .tooltip-collapse-all,
-#button-show-active:not(.inactive):hover > .tooltip-show-active,
-.button-dropdown-download:hover > .tooltip-download,
-.button-print:hover > .tooltip-print,
-.button-dropdown-download:hover > .tooltip-download-current-page {
+.main-button-container-wrapper:not(.is-sticky) #button-hide-show-toc:not(.hidden):hover > .tooltip-hide-toc,
+.main-button-container-wrapper:not(.is-sticky) #button-hide-show-toc.hidden:hover > .tooltip-show-toc,
+.main-button-container-wrapper:not(.is-sticky) #button-expand-collapse:not(.inactive):not(.expanded):hover > .tooltip-expand-all,
+.main-button-container-wrapper:not(.is-sticky) #button-expand-collapse:not(.inactive).expanded:hover > .tooltip-collapse-all,
+.main-button-container-wrapper:not(.is-sticky) #button-show-active:not(.inactive):hover > .tooltip-show-active,
+.main-button-container-wrapper:not(.is-sticky) .button-dropdown-download:hover > .tooltip-download,
+.main-button-container-wrapper:not(.is-sticky) .button-print:hover > .tooltip-print,
+.main-button-container-wrapper:not(.is-sticky) .button-dropdown-download:hover > .tooltip-download-current-page {
     display: block;
 }
 /* --- Tooltips END --- */
@@ -335,7 +335,7 @@ h6.title {
 .main-button-container {
     display: flex;
     justify-content: space-between;
-    margin: 1rem auto;
+    margin: 10px auto;
     padding: 0 1rem;
 }
 
@@ -349,11 +349,6 @@ h6.title {
 
 .main-button-container .dropdown-download {
     margin-right: 15px;
-}
-
-.main-button-container .button-print-container {
-    margin-right: 15px;
-
 }
 
 .dropdown-download {
@@ -672,6 +667,13 @@ a:hover{
     transition: all 1s ease-in-out .5s;
 }
 
+#toc-wrapper a {
+    min-height: 40px;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 28px;
+}
+
 /* level 1 */
 .toc-container li.level1 {
     background-color: #f2f2f2;
@@ -789,10 +791,10 @@ li.ancestor-of-active > .toc-element-row > a {
 
 .toc-container .button-toc-expand-collapse {
     width: 2.27em;
-    height: 2.27em;
+    height: 40px;
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url("../img/toc-bottom-arrow.svg");
+    background-image: url(../img/toc-bottom-arrow.svg);
 }
 
 .toc-container li.level1 > .toc-element-row > .button-toc-expand-collapse,
