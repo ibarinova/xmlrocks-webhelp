@@ -149,7 +149,7 @@
 }
 
 .accent-background-color {
-    background-color: #0d213a;
+    background-color: #0c213a;
 }
 
 .max-width {
@@ -159,10 +159,9 @@
 
 /* --- Main bar START --- */
 .rocks-header {
-    position: sticky;
+    position: relative;
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
-    box-shadow: 0 2px 5px #bbbbbb;
 }
 
 .main-header {
@@ -185,17 +184,12 @@
 }
 
 #search-button{
-    background-image: url(../img/search.svg);
-    background-position: no-repeat;
+    background: url(../img/search.svg) center no-repeat;
     position: relative;
+    width: 40px;
+    right: 40px;
 }
 
-#search-button:after{
-    content: url(../img/search.svg);;
-    font-size: 18pt;
-    position: absolute;
-    right: 1rem;
-}
 /* --- Main bar END --- */
 
 /* --- Footer START --- */
