@@ -747,6 +747,7 @@ li.level1 > .toc-element-row > a:visited,
 li.level1 > .toc-element-row > a:link,
 li.level1 > .toc-element-row > a:active {
     color:#333333;
+    min-height: 40px;
 }
 
 li.ancestor-of-active > .toc-element-row > a {
