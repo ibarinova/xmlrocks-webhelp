@@ -672,6 +672,8 @@ a:hover{
     transition: all 1s ease-in-out .5s;
     justify-self: end;
     max-width: 770px;
+    padding-left: 18px;
+    padding-right: 15px;
 }
 
 #toc-wrapper.hidden + #article-wrapper {
