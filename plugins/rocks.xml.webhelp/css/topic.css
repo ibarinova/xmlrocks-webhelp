@@ -951,7 +951,7 @@ li.ancestor-of-active > .toc-element-row > a {
     background-color: #f8f8f8;
     border-radius: 0;
     border: none;
-    height: 100px;
+    height: 150px;
     width: 100%;
     padding: 0;
 }
@@ -959,8 +959,9 @@ li.ancestor-of-active > .toc-element-row > a {
 .rounded-card-rocks a{
     display: block;
     height: 100%;
-    padding: 0.6em;
+    padding: 1em;
     color: #333333;
+    font-weight: 500;
 }
 
 .rounded-card-rocks:hover {
