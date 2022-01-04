@@ -176,18 +176,26 @@
     margin-right: 1em;
 }
 
+.header-search-wrapper {
+    display: grid;
+}
+
 .search {
     border: none;
     border-radius: 30px;
-    box-shadow: 0 0 5px #bbbbbb;
     width: 304px;
+    grid-column-start: 1;
+    grid-column-end: -1;
+    grid-row-start: 1;
 }
 
 #search-button{
     background: url(../img/search.svg) center no-repeat;
-    position: relative;
     width: 40px;
-    right: 40px;
+    grid-column-start: 1;
+    grid-column-end: -1;
+    grid-row-start: 1;
+    justify-self: end;
 }
 
 /* --- Main bar END --- */
@@ -209,6 +217,7 @@
 .footer-text {
     padding: 1rem;
     text-decoration: none;
-    color: #b2b2b2;
+    color: #5e5e5e;
+    font-size: 15px;
 }
 /* --- Footer END --- */

@@ -22,12 +22,16 @@ h1.title {
     margin-bottom: 1em;
     margin-top: 0;
     font-weight: 600;
+    font-size: 20px;
+    color: #333333;
 }
 
 h2.title {
     font-size: 1.14em;
     margin: 1em 0 0.6em 0;
     font-weight: 500;
+    font-size: 18px;
+    color: #333333;
 }
 
 h3.title,
@@ -37,8 +41,16 @@ h6.title {
     font-size: 1.04em;
     margin: 1em 0 0.6em 0;
     font-weight: 500;
+    color: #333333;
 }
 /* --- Body END --- */
+
+/* --- Main Bar START --- */
+.header-title {
+    font-size: 20px;
+    color: #f8f8f8;
+}
+/* --- Main Bar END --- */
 
 /* --- Tooltips START --- */
 .tooltip-logo {
@@ -294,6 +306,8 @@ h6.title {
     color: #333333;
     text-decoration: none;
     height: fit-content;
+    font-height: 25px;
+    font-weight: 600;
 }
 
 .prev-button:hover {
@@ -764,12 +778,20 @@ a:hover{
     width: 66.66666667%;
     transition: all 1s ease-in-out .5s;
     justify-self: end;
-    max-width: 770px;
+    padding-left: 18px;
+    padding-right: 15px;
 }
 
 #toc-wrapper.hidden + #article-wrapper {
     width: 100%;
     transition: all 1s ease-in-out .5s;
+}
+
+#toc-wrapper a {
+    min-height: 40px;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 28px;
 }
 
 /* level 1 */
@@ -889,10 +911,10 @@ li.ancestor-of-active > .toc-element-row > a {
 
 .toc-container .button-toc-expand-collapse {
     width: 2.27em;
-    height: 2.27em;
+    height: 40px;
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url("../img/toc-bottom-arrow.svg");
+    background-image: url(../img/toc-bottom-arrow.svg);
 }
 
 .toc-container li.level1 > .toc-element-row > .button-toc-expand-collapse,
