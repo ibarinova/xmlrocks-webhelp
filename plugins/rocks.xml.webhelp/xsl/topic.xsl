@@ -320,7 +320,7 @@
                 <span class="tooltip-logo">Home</span>
             </div>
 
-            <span class="fs-4 text-light">
+            <span class="header-title">
                 <xsl:choose>
                     <xsl:when test="ancestor-or-self::*[contains(@class, ' map/map ')]">
                         <xsl:value-of
