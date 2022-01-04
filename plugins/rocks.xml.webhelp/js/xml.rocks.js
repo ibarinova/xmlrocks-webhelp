@@ -129,9 +129,15 @@ $('body').on('click', '.bottom-nav-buttons-container a', updatePageReloadingBeha
 
 // Open search page when search button is pressed
 $('body').on('click', '#search-button', runSearch);
+$('body').on('click', '#sticky-search-button', runStickySearch);
 
 function runSearch() {
     var searchInputValue = $('input.search').val();
+    location.href = "search.html?key=" + searchInputValue;
+}
+
+function runStickySearch() {
+    var searchInputValue = $('.topic-page-sticky-search-container.expanded .search-input').val();
     location.href = "search.html?key=" + searchInputValue;
 }
 
@@ -153,6 +159,18 @@ function applyExpandedClass(id){
     } else {
         // Add .expanded to current TOC topic
         $(id).parent().parent().addClass('expanded');
+    }
+}
+
+function expandCollapseSearch() {
+    if ($('.topic-page-sticky-search-container').hasClass('expanded')) {
+        // Remove .expanded from current TOC topic
+        $('.topic-page-sticky-search-container').removeClass('expanded');
+        $('.expand-collapse-search-container').removeClass('expanded');
+    } else {
+        // Add .expanded to current TOC topic
+        $('.topic-page-sticky-search-container').addClass('expanded');
+        $('.expand-collapse-search-container').addClass('expanded');
     }
 }
 
@@ -211,6 +229,16 @@ $(document).ready(function() {
             document.getElementById("search-button").click();
         }
     });
+
+    // Get the sticky element
+    const stickyElm = document.querySelector('.main-button-container-wrapper')
+
+    const observer = new IntersectionObserver(
+        ([e]) => e.target.classList.toggle('is-sticky', e.intersectionRatio < 1),
+        {threshold: [1]}
+    );
+
+    observer.observe(stickyElm)
 });
 
 function reloadDynamically(href){

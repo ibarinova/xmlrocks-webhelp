@@ -167,81 +167,96 @@
                 </div>
             </div>
 
-            <div class="main-button-container max-width">
-                <div class="left-buttons-container">
-                    <div class="button-hide-show-toc-container">
-                        <button onclick="hideOrShowTOC()" id="button-hide-show-toc">
-                            <span class="tooltip-hide-toc">Hide TOC</span>
-                            <span class="tooltip-show-toc">Show TOC</span>
-                        </button>
+            <div class="main-button-container-wrapper">
+                <div class="main-button-container max-width">
+                    <div class="left-buttons-container">
+                        <div class="button-hide-show-toc-container">
+                            <button onclick="hideOrShowTOC()" id="button-hide-show-toc">
+                                <span class="tooltip-hide-toc">Hide TOC</span>
+                                <span class="tooltip-show-toc">Show TOC</span>
+                            </button>
+                        </div>
+
+                        <div class="button-expand-collapse-container">
+                            <button onclick="expandCollapseAll()" id="button-expand-collapse">
+                                <span class="tooltip-expand-all">Expand All</span>
+                                <span class="tooltip-collapse-all">Collapse All</span>
+                            </button>
+                        </div>
+
+                        <div class="button-show-active-container">
+                            <button onclick="showActive()" id="button-show-active">
+                                <span class="tooltip-show-active">Show active topic</span>
+                            </button>
+                        </div>
                     </div>
 
-                    <div class="button-expand-collapse-container">
-                        <button onclick="expandCollapseAll()" id="button-expand-collapse">
-                            <span class="tooltip-expand-all">Expand All</span>
-                            <span class="tooltip-collapse-all">Collapse All</span>
-                        </button>
-                    </div>
+                    <div class="right-buttons-container">
+                        <xsl:choose>
+                            <xsl:when test="$includes-pdf = ('yes', 'true')">
+                                <div class="dropdown-download">
+                                    <button onclick="dropdownDownload()" class="button-dropdown-download">
+                                        <span class="tooltip-download">Download PDF</span>
+                                    </button>
 
-                    <div class="button-show-active-container">
-                        <button onclick="showActive()" id="button-show-active">
-                            <span class="tooltip-show-active">Show active topic</span>
-                        </button>
+                                    <div id="menu-dropdown-download" class="dropdown-content-download">
+                                        <button id="download-page-btn" onclick="getPDF()">
+                                            <div class="download-page">Download this page as PDF</div>
+                                        </button>
+                                        <button id="download-output-btn">
+                                            <a href="{$output-pdf-full-path}" target="_blank">
+                                                <div class="download-output">Download PDF output</div>
+                                            </a>
+                                        </button>
+                                    </div>
+                                </div>
+                            </xsl:when>
+
+                            <xsl:otherwise>
+                                <div class="dropdown-download">
+                                    <button onclick="getPDF()" class="button-dropdown-download">
+                                        <span class="tooltip-download-current-page">Download current page PDF</span>
+                                    </button>
+                                </div>
+                            </xsl:otherwise>
+                        </xsl:choose>
+
+                        <div class="button-print-container">
+                            <button onclick="window.print()" id="printbtn" class="button-print">
+                                <span class="tooltip-print">Print this page</span>
+                            </button>
+                        </div>
+
+                        <xsl:if test="$includes-pdf = ('yes', 'true') and $save-to-google-drive = ('yes', 'true')">
+                            <div class="dropdown-google-drive">
+                                <button onclick="dropdownGoogleDrive()" class="button-dropdown-share-google-drive">
+                                    <span class="tooltip-google-drive">Save to Google Drive</span>
+                                </button>
+
+                                <div id="menu-dropdown-google-drive" class="dropdown-content-google-drive">
+                                    <xsl:text disable-output-escaping="yes">&lt;script src="https://apis.google.com/js/platform.js" async defer&gt;&lt;/script&gt;</xsl:text>
+                                    <input type="button" class="g-savetodrive"
+                                           data-src="{$output-pdf-full-path}"
+                                           data-filename="{$output-pdf-name}"
+                                           data-sitename="PDF output">
+                                    </input>
+                                </div>
+                            </div>
+                        </xsl:if>
+
+                        <div class="expand-collapse-search-container">
+                            <div class="buttons-separator"></div>
+                            <button onclick="expandCollapseSearch()" class="expand-collapse-search"/>
+                        </div>
                     </div>
                 </div>
+            </div>
 
-                <div class="right-buttons-container">
-                    <xsl:choose>
-                        <xsl:when test="$includes-pdf = ('yes', 'true')">
-                    <div class="dropdown-download">
-                        <button onclick="dropdownDownload()" class="button-dropdown-download">
-                            <span class="tooltip-download">Download PDF</span>
-                        </button>
-
-                        <div id="menu-dropdown-download" class="dropdown-content-download">
-                            <button id="download-page-btn" onclick="getPDF()">
-                                <div class="download-page">Download this page as PDF</div>
-                            </button>
-                                <button id="download-output-btn">
-                                    <a href="{$output-pdf-full-path}" target="_blank">
-                                        <div class="download-output">Download PDF output</div>
-                                    </a>
-                                </button>
-                        </div>
-                    </div>
-                        </xsl:when>
-
-                        <xsl:otherwise>
-                            <div class="dropdown-download">
-                                <button onclick="getPDF()" class="button-dropdown-download">
-                                    <span class="tooltip-download-current-page">Download current page PDF</span>
-                                </button>
-                            </div>
-                        </xsl:otherwise>
-                    </xsl:choose>
-
-                    <div class="button-print-container">
-                        <button onclick="window.print()" id="printbtn" class="button-print">
-                            <span class="tooltip-print">Print this page</span>
-                        </button>
-                    </div>
-
-                    <xsl:if test="$includes-pdf = ('yes', 'true') and $save-to-google-drive = ('yes', 'true')">
-                        <div class="dropdown-google-drive">
-                            <button onclick="dropdownGoogleDrive()" class="button-dropdown-share-google-drive">
-                                <span class="tooltip-google-drive">Save to Google Drive</span>
-                            </button>
-
-                            <div id="menu-dropdown-google-drive" class="dropdown-content-google-drive">
-                                <xsl:text disable-output-escaping="yes">&lt;script src="https://apis.google.com/js/platform.js" async defer&gt;&lt;/script&gt;</xsl:text>
-                                <input type="button" class="g-savetodrive"
-                                       data-src="{$output-pdf-full-path}"
-                                       data-filename="{$output-pdf-name}"
-                                       data-sitename="PDF output">
-                                </input>
-                            </div>
-                        </div>
-                    </xsl:if>
+            <div class="topic-page-sticky-search-container">
+                <div class="search-input-container max-width">
+                    <input class="form-control search search-input" type="search" placeholder="Search"
+                           aria-label="Search"/>
+                    <button id="sticky-search-button"></button>
                 </div>
             </div>
 
@@ -323,7 +338,8 @@
             </span>
 
             <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
-                <input id="header-search-input" class="form-control search" type="search" placeholder="Search" aria-label="Search"/>
+                <input id="header-search-input" class="form-control search" type="search" placeholder="Search"
+                       aria-label="Search"/>
                 <button id="search-button"/>
             </nav>
         </div>
@@ -651,25 +667,25 @@
             <xsl:when test="*[contains(@class, ' topic/title ')]">
                 <figcaption>
                     <xsl:if test="not(normalize-space($figure-numbering) = ('no', 'false'))">
-                    <span class="fig--title-label">
-                        <xsl:choose>      <!-- Hungarian: "1. Figure " -->
-                            <xsl:when test="$ancestorlang = ('hu', 'hu-hu')">
-                                <xsl:value-of select="$fig-count-actual"/>
-                                <xsl:text>. </xsl:text>
-                                <xsl:call-template name="getVariable">
-                                    <xsl:with-param name="id" select="'Figure'"/>
-                                </xsl:call-template>
-                                <xsl:text> </xsl:text>
-                            </xsl:when>
-                            <xsl:otherwise>
-                                <xsl:call-template name="getVariable">
-                                    <xsl:with-param name="id" select="'Figure'"/>
-                                </xsl:call-template>
-                                <xsl:value-of select="$fig-count-actual"/>
-                                <xsl:text>.</xsl:text>
-                            </xsl:otherwise>
-                        </xsl:choose>
-                    </span>
+                        <span class="fig--title-label">
+                            <xsl:choose>      <!-- Hungarian: "1. Figure " -->
+                                <xsl:when test="$ancestorlang = ('hu', 'hu-hu')">
+                                    <xsl:value-of select="$fig-count-actual"/>
+                                    <xsl:text>. </xsl:text>
+                                    <xsl:call-template name="getVariable">
+                                        <xsl:with-param name="id" select="'Figure'"/>
+                                    </xsl:call-template>
+                                    <xsl:text> </xsl:text>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <xsl:call-template name="getVariable">
+                                        <xsl:with-param name="id" select="'Figure'"/>
+                                    </xsl:call-template>
+                                    <xsl:value-of select="$fig-count-actual"/>
+                                    <xsl:text>.</xsl:text>
+                                </xsl:otherwise>
+                            </xsl:choose>
+                        </span>
                     </xsl:if>
                     <xsl:apply-templates select="*[contains(@class, ' topic/title ')]" mode="figtitle"/>
                     <xsl:if test="*[contains(@class, ' topic/desc ')]">
