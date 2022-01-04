@@ -50,7 +50,7 @@
                 </xsl:variable>
 
                 <xsl:apply-templates select="$map" mode="tiles"/>
-                <xsl:apply-templates select="$map" mode="toc"/>
+
                 <xsl:call-template name="gen-endnotes"/>
                 <xsl:call-template name="gen-user-footer"/>
                 <xsl:call-template name="processFTR"/>
