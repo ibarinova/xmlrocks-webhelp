@@ -969,10 +969,29 @@ li.ancestor-of-active > .toc-element-row > a {
 
 /* --- Table of contents (TOC) END --- */
 
-.rounded-card-rocks {
-    border-radius: 8px;
-    background-color: #fbfbfb;
-    border-color: #fbfbfb;
+.card-rocks {
+    background-color: #f8f8f8;
+    border-radius: 0;
+    border: none;
+    height: 150px;
+    width: 100%;
+    padding: 0;
+}
+
+.card-rocks a{
+    display: block;
+    height: 100%;
+    padding: 1em;
+    color: #333333;
+    font-weight: 500;
+}
+
+.card-rocks:hover {
+    background-color: #f2f2f2;
+}
+
+.card-rocks:hover a{
+    color: #2c74eb;
 }
 
 button, input, optgroup, select, textarea {

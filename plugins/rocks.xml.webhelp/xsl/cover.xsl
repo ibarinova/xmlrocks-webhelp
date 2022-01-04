@@ -85,7 +85,7 @@
 
         <xsl:if test="normalize-space(@href)">
             <div class="col col-sm-4">
-                <div class="card mb-4 rounded-card-rocks main-page-tile">
+                <div class="card mb-4 card-rocks main-page-tile">
                     <a>
                         <xsl:attribute name="href">
                             <xsl:variable name="current-href">
