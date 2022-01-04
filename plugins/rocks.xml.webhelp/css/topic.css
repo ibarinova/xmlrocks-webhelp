@@ -947,7 +947,7 @@ li.ancestor-of-active > .toc-element-row > a {
 
 /* --- Table of contents (TOC) END --- */
 
-.rounded-card-rocks {
+.card-rocks {
     background-color: #f8f8f8;
     border-radius: 0;
     border: none;
@@ -956,7 +956,7 @@ li.ancestor-of-active > .toc-element-row > a {
     padding: 0;
 }
 
-.rounded-card-rocks a{
+.card-rocks a{
     display: block;
     height: 100%;
     padding: 1em;
@@ -964,11 +964,11 @@ li.ancestor-of-active > .toc-element-row > a {
     font-weight: 500;
 }
 
-.rounded-card-rocks:hover {
+.card-rocks:hover {
     background-color: #f2f2f2;
 }
 
-.rounded-card-rocks:hover a{
+.card-rocks:hover a{
     color: #2c74eb;
 }
 
