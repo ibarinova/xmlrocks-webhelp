@@ -778,7 +778,6 @@ a:hover{
     width: 66.66666667%;
     transition: all 1s ease-in-out .5s;
     justify-self: end;
-    max-width: 770px;
     padding-left: 18px;
     padding-right: 15px;
 }
