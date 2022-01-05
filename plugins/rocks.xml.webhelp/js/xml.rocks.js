@@ -231,14 +231,16 @@ $(document).ready(function() {
     });
 
     // Get the sticky element
-    const stickyElm = document.querySelector('.main-button-container-wrapper')
+    const stickyElm = document.querySelector('.main-button-container-wrapper');
 
     const observer = new IntersectionObserver(
         ([e]) => e.target.classList.toggle('is-sticky', e.intersectionRatio < 1),
         {threshold: [1]}
     );
 
-    observer.observe(stickyElm)
+    if(stickyElm !== null) {
+        observer.observe(stickyElm);
+    }
 });
 
 function reloadDynamically(href){
