@@ -56,6 +56,9 @@
                 <xsl:call-template name="processFTR"/>
                 <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-endprop ')]" mode="out-of-line"/>
             </main>
+            <div id="back-to-top-button-container" class="max-width">
+                <xsl:call-template name="insertBackToTopButton"/>
+            </div>
             <xsl:apply-templates select="." mode="addFooterToHtmlBodyElement">
                 <xsl:with-param name="map" select="/*"/>
             </xsl:apply-templates>
