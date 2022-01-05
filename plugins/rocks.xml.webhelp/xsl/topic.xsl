@@ -710,4 +710,26 @@
         </xsl:choose>
     </xsl:template>
 
+    <xsl:template name="gen-topic">
+        <xsl:param name="nestlevel" as="xs:integer">
+            <xsl:choose>
+                <xsl:when test="count(ancestor::*[contains(@class, ' topic/topic ')]) > 9">9</xsl:when>
+                <xsl:otherwise><xsl:sequence select="count(ancestor::*[contains(@class, ' topic/topic ')])"/></xsl:otherwise>
+            </xsl:choose>
+        </xsl:param>
+        <xsl:choose>
+            <xsl:when test="parent::dita and not(preceding-sibling::*)">
+                <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-startprop ')]/@style" mode="add-ditaval-style"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:call-template name="commonattributes">
+                    <xsl:with-param name="default-output-class" select="concat('nested', $nestlevel)"/>
+                </xsl:call-template>
+            </xsl:otherwise>
+        </xsl:choose>
+        <xsl:call-template name="gen-toc-id"/>
+        <xsl:call-template name="setidaname"/>
+        <xsl:apply-templates select="*[not(contains(@class, ' topic/related-links '))]"/>
+        <xsl:apply-templates select="*[contains(@class, ' topic/related-links ')]"/>
+    </xsl:template>
 </xsl:stylesheet>
