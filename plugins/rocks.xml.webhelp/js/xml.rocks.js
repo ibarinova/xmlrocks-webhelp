@@ -175,11 +175,19 @@ function expandCollapseSearch() {
 }
 
 $(document).ready(function() {
+    var height;
+
     // Expand all parent li's
     $('.active').parents('nav li').addClass('expanded ancestor-of-active');
 
     // Count main container min-height (needed for correct displaying of footer if the content is too short)
-    var height = $(window).height() - ($("header").outerHeight() + $('div.breadcrumb-container').outerHeight() + $('div.top-nav-buttons-container-wrapper').outerHeight() + $('div.main-button-container').outerHeight() + $("footer").outerHeight() + 150);
+    if($('div.breadcrumb-container').length && $('div.top-nav-buttons-container-wrapper').length && $('div.main-button-container').length) {
+        height = $(window).height() - ($("header").outerHeight() + $('div.breadcrumb-container').outerHeight() + $('div.top-nav-buttons-container-wrapper').outerHeight() + $('div.main-button-container').outerHeight() + $("footer").outerHeight() + 185);
+    } else {
+        height = $(window).height() - ($("header").outerHeight() + $('#back-to-top-button-container').outerHeight() + $("footer").outerHeight() + 23);
+    }
+
+    // Apply min-height value to the main element
     $("main.container").css("min-height", height + "px");
 
     // Reveal active topic in the TOC when page reloads
@@ -233,6 +241,7 @@ $(document).ready(function() {
     // Get the sticky element
     const stickyElm = document.querySelector('.main-button-container-wrapper');
 
+    // Add class 'is-sticky' if buttons bar reaches the top of the viewport
     const observer = new IntersectionObserver(
         ([e]) => e.target.classList.toggle('is-sticky', e.intersectionRatio < 1),
         {threshold: [1]}
