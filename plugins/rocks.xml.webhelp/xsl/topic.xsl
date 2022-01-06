@@ -221,14 +221,18 @@
                             </xsl:otherwise>
                         </xsl:choose>
 
-                        <div class="button-print-container">
+                        <div>
+                            <xsl:attribute name="class" select="if($includes-pdf = ('yes', 'true') and $save-to-google-drive = ('yes', 'true'))
+                                                                then('button-print-container')
+                                                                else('button-print-container last-right-container')"/>
+
                             <button onclick="window.print()" id="printbtn" class="button-print">
                                 <span class="tooltip-print">Print this page</span>
                             </button>
                         </div>
 
                         <xsl:if test="$includes-pdf = ('yes', 'true') and $save-to-google-drive = ('yes', 'true')">
-                            <div class="dropdown-google-drive">
+                            <div class="dropdown-google-drive last-right-container">
                                 <button onclick="dropdownGoogleDrive()" class="button-dropdown-share-google-drive">
                                     <span class="tooltip-google-drive">Save to Google Drive</span>
                                 </button>
