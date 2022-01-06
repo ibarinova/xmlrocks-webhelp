@@ -61,11 +61,8 @@ h6.title {
     text-align: center;
     font-size: 11px;
     color: #5e5e5e;
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
-    width: 9rem;
-    bottom: 2em;
-    margin-left: 0;
+    padding: 0.5em;
+    bottom: 1.2em;
 }
 
 .prev-button-tooltip,
