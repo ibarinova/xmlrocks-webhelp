@@ -17,13 +17,13 @@
         <xsl:variable name="navtitle">
             <xsl:apply-templates select="." mode="get-navtitle"/>
         </xsl:variable>
+
         <xsl:variable name="orig-navtitle">
             <xsl:value-of select="@dita-ot:orig-navtitle"/>
         </xsl:variable>
 
-        <xsl:variable name="title" select="if(normalize-space($navtitle)) then($navtitle) else($orig-navtitle)">
+        <xsl:variable name="title" select="if(normalize-space($navtitle)) then($navtitle) else($orig-navtitle)"/>
 
-        </xsl:variable>
         <xsl:variable name="testId" select="preceding-sibling::data[@name = 'topicref-id'][1]/@value"/>
         <xsl:variable name="liLevel" select="count(ancestor-or-self::*[contains(@class, ' map/topicref ')])"/>
         <xsl:variable name="liLevelCorrected" select="if($liLevel gt 6) then('-extra') else($liLevel)"/>
