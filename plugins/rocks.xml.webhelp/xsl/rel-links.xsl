@@ -30,9 +30,8 @@
                 <xsl:text> </xsl:text>
             </span>
 
-            <xsl:apply-templates select="*[contains(@class, ' topic/related-links ')]" mode="custom-breadcrumb"/>
-            <xsl:value-of
-                    select="descendant-or-self::*[contains(@class, ' topic/topic ')][1]/*[contains(@class, ' topic/title ')][1]"/>
+            <xsl:apply-templates select="descendant-or-self::*[contains(@class, ' topic/topic ')][1]/*[contains(@class, ' topic/related-links ')]" mode="custom-breadcrumb"/>
+            <xsl:apply-templates select="descendant-or-self::*[contains(@class, ' topic/topic ')][1]/*[contains(@class, ' topic/title ')][1]" mode="text-only"/>
         </div>
     </xsl:template>
 </xsl:stylesheet>
