@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot"
                 exclude-result-prefixes="#all"
                 version="2.0">
 
@@ -13,10 +14,16 @@
         <xsl:param name="pathFromMaplist" as="xs:string"/>
         <xsl:param name="children" select="if ($nav-toc = 'full') then *[contains(@class, ' map/topicref ')] else ()" as="element()*"/>
 
-        <xsl:variable name="title">
+        <xsl:variable name="navtitle">
             <xsl:apply-templates select="." mode="get-navtitle"/>
         </xsl:variable>
+        <xsl:variable name="orig-navtitle">
+            <xsl:value-of select="@dita-ot:orig-navtitle"/>
+        </xsl:variable>
 
+        <xsl:variable name="title" select="if(normalize-space($navtitle)) then($navtitle) else($orig-navtitle)">
+
+        </xsl:variable>
         <xsl:variable name="testId" select="preceding-sibling::data[@name = 'topicref-id'][1]/@value"/>
         <xsl:variable name="liLevel" select="count(ancestor-or-self::*[contains(@class, ' map/topicref ')])"/>
         <xsl:variable name="liLevelCorrected" select="if($liLevel gt 6) then('-extra') else($liLevel)"/>
