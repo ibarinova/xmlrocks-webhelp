@@ -62,7 +62,7 @@ h6.title {
     font-size: 11px;
     color: #5e5e5e;
     padding: 0.5em;
-    bottom: 1.2em;
+    bottom: -1.2em;
 }
 
 .prev-button-tooltip,
