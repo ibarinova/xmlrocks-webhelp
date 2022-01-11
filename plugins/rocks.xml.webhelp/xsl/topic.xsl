@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
-                xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot"
-                xmlns:related-links="http://dita-ot.sourceforge.net/ns/200709/related-links"
                 exclude-result-prefixes="#all"
                 version="2.0">
 
@@ -509,39 +507,6 @@
                 <xsl:attribute name="class" select="distinct-values($classes)" separator=" "/>
             </xsl:otherwise>
         </xsl:choose>
-    </xsl:template>
-
-    <xsl:template match="*[contains(@class, ' topic/link ')][@role = ('child', 'descendant')]" priority="2"
-                  name="topic.link_child">
-        <li class="ulchildlink">
-            <xsl:call-template name="commonattributes">
-                <xsl:with-param name="default-output-class" select="'ulchildlink'"/>
-            </xsl:call-template>
-            <xsl:apply-templates select="*[contains(@class, ' topic/data ') or contains(@class, ' topic/foreign ')]"/>
-            <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-startprop ')]" mode="out-of-line"/>
-
-            <strong>
-                <xsl:apply-templates select="." mode="related-links:unordered.child.prefix"/>
-                <xsl:apply-templates select="." mode="add-link-highlight-at-start"/>
-
-                <a class="ullink-ahref">
-                    <xsl:apply-templates select="." mode="add-linking-attributes"/>
-                    <xsl:apply-templates select="." mode="add-hoverhelp-to-child-links"/>
-                    <xsl:choose>
-                        <xsl:when test="*[contains(@class, ' topic/linktext ')]">
-                            <xsl:apply-templates select="*[contains(@class, ' topic/linktext ')]"/>
-                        </xsl:when>
-                        <xsl:otherwise>
-                            <xsl:call-template name="href"/>
-                        </xsl:otherwise>
-                    </xsl:choose>
-                </a>
-                <xsl:apply-templates select="." mode="add-link-highlight-at-end"/>
-            </strong>
-            <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-endprop ')]" mode="out-of-line"/>
-            <br/>
-            <xsl:apply-templates select="*[contains(@class, ' topic/desc ')]"/>
-        </li>
     </xsl:template>
 
     <xsl:template match="*" mode="process.note.common-processing">
