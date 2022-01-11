@@ -6,6 +6,7 @@
     <feature extension="dita.conductor.target.relative" value="build.xml" type="file"/>
     <feature extension="dita.xsl.html5" value="xsl/dita2xmlrocksImpl.xsl" type="file"/>
     <feature extension="dita.xsl.html5.cover" value="xsl/dita2xmlrocksCoverImpl.xsl" type="file"/>
+    <feature extension="dita.xsl.mapref" value="xsl/preprocess/maprefImpl.xsl" type="file"/>
     <feature extension="dita.xsl.maplink" value="xsl/preprocess/maplinkImpl.xsl" type="file"/>
     <feature extension="dita.xsl.topicpull" value="xsl/preprocess/topicpullImpl.xsl" type="file"/>
     <feature extension="dita.conductor.html5.param" file="parameters.xml"/>
