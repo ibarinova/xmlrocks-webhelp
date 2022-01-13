@@ -968,7 +968,7 @@ li.ancestor-of-active > .toc-element-row > a {
 
 /* --- Table of contents (TOC) END --- */
 .flip-card{
-    display: inline-block;
+    display: block;
     padding: 1em;
     perspective: 600px;
 }
@@ -992,11 +992,6 @@ li.ancestor-of-active > .toc-element-row > a {
 }
 
 .card.is-flipped .front-tile {
-    backface-visibility: hidden;
-    display: none;
-}
-
-.card.is-flipped .front-tile:hover {
     backface-visibility: hidden;
     display: none;
 }
