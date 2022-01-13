@@ -1076,7 +1076,6 @@ figure {
 }
 
 figcaption {
-    display: table-caption;
     caption-side: bottom;
     font-style: italic;
     padding-top: 1rem;
