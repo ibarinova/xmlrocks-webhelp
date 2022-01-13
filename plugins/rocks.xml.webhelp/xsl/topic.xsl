@@ -635,7 +635,7 @@
         </xsl:variable>
         <xsl:choose>
             <xsl:when test="*[contains(@class, ' topic/title ')]">
-                <figcaption>
+                <div>
                         <xsl:if test="not(normalize-space($figure-numbering) = ('no', 'false'))">
                             <span class="fig--title-label">
                                 <xsl:choose>      <!-- Hungarian: "1. Figure " -->
@@ -668,7 +668,7 @@
                                 <xsl:apply-templates select="." mode="figdesc"/>
                             </span>
                         </xsl:for-each>
-                </figcaption>
+                </div>
             </xsl:when>
             <xsl:when test="*[contains(@class, ' topic/desc ')]">
                 <xsl:for-each select="*[contains(@class, ' topic/desc ')]">
