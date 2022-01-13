@@ -269,3 +269,11 @@ function reloadDynamically(href){
         $('.toc-container').find('#' + listItemID).parents('nav li').addClass('expanded ancestor-of-active');
     }, 'html')
 }
+
+var flipButtons = document.querySelectorAll('.flip-button-container');
+
+[...flipButtons].forEach((flipButton)=>{
+    flipButton.addEventListener( 'click', function() {
+        flipButton.parentNode.classList.toggle('is-flipped');
+    });
+});

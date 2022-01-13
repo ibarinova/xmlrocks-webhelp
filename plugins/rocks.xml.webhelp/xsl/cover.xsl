@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot"
                 exclude-result-prefixes="#all"
                 version="2.0">
 
@@ -86,9 +87,17 @@
             <xsl:apply-templates select="." mode="get-navtitle"/>
         </xsl:variable>
 
+
+        <xsl:variable name="shortdesc">
+            <xsl:apply-templates select="*[contains(@class, ' map/topicmeta ')]/*[contains(@class, ' map/shortdesc ')]"
+                                 mode="text-only"/>
+        </xsl:variable>
+
         <xsl:if test="normalize-space(@href)">
-            <div class="col col-sm-4">
-                <div class="card mb-4 card-rocks main-page-tile">
+            <div class="flip-card card-rocks col col-sm-4">
+                <div class="card">
+                    <div class="front-tile">
+                        <div class="front-card mb-4 main-page-tile">
                     <a>
                         <xsl:attribute name="href">
                             <xsl:variable name="current-href">
@@ -142,6 +151,17 @@
 
                         <xsl:value-of select="$title"/>
                     </a>
+                        </div>
+                    </div>
+                    <xsl:if test="normalize-space($shortdesc)">
+                        <div class="shortdesc-container">
+                            <xsl:value-of select="$shortdesc"/>
+                        </div>
+                        <div class="flip-button-container">
+                            <!--<text style="padding:20px">O</text>-->
+                            <text>O</text>
+                        </div>
+                    </xsl:if>
                 </div>
             </div>
         </xsl:if>

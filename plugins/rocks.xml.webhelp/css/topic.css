@@ -967,8 +967,70 @@ li.ancestor-of-active > .toc-element-row > a {
 }
 
 /* --- Table of contents (TOC) END --- */
+.flip-card{
+    display: inline-block;
+    padding: 1em;
+    perspective: 600px;
+}
 
-.card-rocks {
+.card {
+    cursor: pointer;
+    max-height: 150px;
+    transform-style: preserve-3d;
+    transform-origin: center right;
+    transition: transform 1s;
+    border: none;
+    background-color: #f8f8f8;
+}
+
+.card:hover {
+    background-color: #f2f2f2;
+}
+
+.card.is-flipped {
+    transform: translateX(-100%) rotateY(-180deg);
+}
+
+.card.is-flipped .front-tile {
+    backface-visibility: hidden;
+    display: none;
+}
+
+.card.is-flipped .front-tile:hover {
+    backface-visibility: hidden;
+    display: none;
+}
+
+.card.is-flipped .shortdesc-container {
+    display: block;
+}
+
+.shortdesc-container{
+    transform: rotateY(180deg);
+    display: none;
+    min-height: 150px;
+    padding: 1em;
+}
+
+.flip-button-container{
+    color: #2c74eb;
+    margin-left: 80%;
+    font-size: 16px;
+    position: relative;
+}
+
+.card.is-flipped .flip-button-container {
+    display: block;
+    color: red;
+    margin-left: 80%;
+    font-size: 16px;
+}
+
+.flip-button{
+    position: relative;
+}
+
+.front-tile {
     background-color: #f8f8f8;
     border-radius: 0;
     border: none;
@@ -977,7 +1039,7 @@ li.ancestor-of-active > .toc-element-row > a {
     padding: 0;
 }
 
-.card-rocks a{
+.front-tile a{
     display: block;
     height: 100%;
     padding: 1em;
@@ -985,11 +1047,11 @@ li.ancestor-of-active > .toc-element-row > a {
     font-weight: 500;
 }
 
-.card-rocks:hover {
+.front-tile:hover {
     background-color: #f2f2f2;
 }
 
-.card-rocks:hover a{
+.front-tile:hover a{
     color: #2c74eb;
 }
 
