@@ -362,7 +362,7 @@ h6.title {
 }
 
 .main-button-container .dropdown-download {
-    margin-right: 15px;
+    margin-right: 8px;
 }
 
 .dropdown-download {
@@ -412,7 +412,7 @@ a:hover{
 .button-hide-show-toc-container {
     position: relative;
     display: inline-block;
-    margin-right: 15px;
+    margin-right: 8px;
 }
 
 #button-hide-show-toc {
@@ -443,7 +443,7 @@ a:hover{
 .button-expand-collapse-container {
     display: inline-block;
     position: relative;
-    margin-right: 15px;
+    margin-right: 8px;
 }
 
 .button-show-active-container {
@@ -683,7 +683,7 @@ a:hover{
 }
 
 .main-button-container-wrapper {
-    margin: 1rem auto;
+    margin: 15px auto;
     padding: 1px 1rem;
     position: sticky;
     top: -1px;
