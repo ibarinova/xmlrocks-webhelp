@@ -1075,7 +1075,7 @@ figure {
     display: table;
 }
 
-.figure-name {
+.figure-title {
     caption-side: bottom;
     font-style: italic;
     padding-top: 1rem;
