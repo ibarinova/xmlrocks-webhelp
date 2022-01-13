@@ -640,37 +640,38 @@
         <xsl:choose>
             <xsl:when test="*[contains(@class, ' topic/title ')]">
                 <figcaption>
-                    <xsl:if test="not(normalize-space($figure-numbering) = ('no', 'false'))">
-                        <span class="fig--title-label">
-                            <xsl:choose>      <!-- Hungarian: "1. Figure " -->
-                                <xsl:when test="$ancestorlang = ('hu', 'hu-hu')">
-                                    <xsl:value-of select="$fig-count-actual"/>
-                                    <xsl:text>. </xsl:text>
-                                    <xsl:call-template name="getVariable">
-                                        <xsl:with-param name="id" select="'Figure'"/>
-                                    </xsl:call-template>
-                                    <xsl:text> </xsl:text>
-                                </xsl:when>
-                                <xsl:otherwise>
-                                    <xsl:call-template name="getVariable">
-                                        <xsl:with-param name="id" select="'Figure'"/>
-                                    </xsl:call-template>
-                                    <xsl:value-of select="$fig-count-actual"/>
-                                    <xsl:text>.</xsl:text>
-                                </xsl:otherwise>
-                            </xsl:choose>
-                        </span>
-                    </xsl:if>
-                    <xsl:apply-templates select="*[contains(@class, ' topic/title ')]" mode="figtitle"/>
-                    <xsl:if test="*[contains(@class, ' topic/desc ')]">
-                        <xsl:text>. </xsl:text>
-                    </xsl:if>
-                    <xsl:for-each select="*[contains(@class, ' topic/desc ')]">
-                        <span class="figdesc">
-                            <xsl:call-template name="commonattributes"/>
-                            <xsl:apply-templates select="." mode="figdesc"/>
-                        </span>
-                    </xsl:for-each>
+                        <xsl:if test="not(normalize-space($figure-numbering) = ('no', 'false'))">
+                            <span class="fig--title-label">
+                                <xsl:choose>      <!-- Hungarian: "1. Figure " -->
+                                    <xsl:when test="$ancestorlang = ('hu', 'hu-hu')">
+                                        <xsl:value-of select="$fig-count-actual"/>
+                                        <xsl:text>.&#32;</xsl:text>
+                                        <xsl:call-template name="getVariable">
+                                            <xsl:with-param name="id" select="'Figure'"/>
+                                        </xsl:call-template>
+                                        <xsl:text>&#32;</xsl:text>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:call-template name="getVariable">
+                                            <xsl:with-param name="id" select="'Figure'"/>
+                                        </xsl:call-template>
+                                        <xsl:text>&#32;</xsl:text>
+                                        <xsl:value-of select="$fig-count-actual"/>
+                                        <xsl:text>.&#32;</xsl:text>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </span>
+                        </xsl:if>
+                        <xsl:apply-templates select="*[contains(@class, ' topic/title ')]" mode="figtitle"/>
+                        <xsl:if test="*[contains(@class, ' topic/desc ')]">
+                            <xsl:text>.&#32;</xsl:text>
+                        </xsl:if>
+                        <xsl:for-each select="*[contains(@class, ' topic/desc ')]">
+                            <span class="figdesc">
+                                <xsl:call-template name="commonattributes"/>
+                                <xsl:apply-templates select="." mode="figdesc"/>
+                            </span>
+                        </xsl:for-each>
                 </figcaption>
             </xsl:when>
             <xsl:when test="*[contains(@class, ' topic/desc ')]">
