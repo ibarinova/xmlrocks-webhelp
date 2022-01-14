@@ -270,10 +270,7 @@ function reloadDynamically(href){
     }, 'html')
 }
 
-var flipButtons = document.querySelectorAll('.flip-button-container');
-
-[...flipButtons].forEach((flipButton)=>{
-    flipButton.addEventListener( 'click', function() {
-        flipButton.parentNode.classList.toggle('is-flipped');
-    });
-});
+function flipCard(button) {
+    var card = button.closest('.card');
+    $(card).toggleClass('is-flipped');
+}

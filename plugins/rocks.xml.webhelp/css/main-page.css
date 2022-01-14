@@ -7,6 +7,7 @@
 
 .main-page-tile {
     min-height: 100px;
+    padding: 0.6em;
 }
 
 .main-page-tile > a:hover,

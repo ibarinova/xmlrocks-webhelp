@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-                xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot"
                 exclude-result-prefixes="#all"
                 version="2.0">
 
@@ -87,79 +86,83 @@
             <xsl:apply-templates select="." mode="get-navtitle"/>
         </xsl:variable>
 
-
         <xsl:variable name="shortdesc">
-            <xsl:apply-templates select="*[contains(@class, ' map/topicmeta ')]/*[contains(@class, ' map/shortdesc ')]"
-                                 mode="text-only"/>
+            <xsl:apply-templates select="*[contains(@class, ' map/topicmeta ')]/*[contains(@class, ' map/shortdesc ')]" mode="text-only"/>
         </xsl:variable>
 
         <xsl:if test="normalize-space(@href)">
-            <div class="flip-card card-rocks col col-sm-4">
+            <div class="card-container col col-sm-4">
                 <div class="card">
-                    <div class="front-tile">
-                        <div class="front-card mb-4 main-page-tile">
-                    <a>
-                        <xsl:attribute name="href">
-                            <xsl:variable name="current-href">
-                                <xsl:choose>
-                                    <xsl:when test="@copy-to and not(contains(@chunk, 'to-content')) and (not(@format) or @format = 'dita' or @format = 'ditamap') ">
-                                        <xsl:if test="not(@scope = 'external')">
-                                            <xsl:value-of select="$pathFromMaplist"/>
-                                        </xsl:if>
-                                        <xsl:call-template name="replace-extension">
-                                            <xsl:with-param name="filename" select="@copy-to"/>
-                                            <xsl:with-param name="extension" select="$OUTEXT"/>
-                                        </xsl:call-template>
-                                        <xsl:if test="not(contains(@copy-to, '#')) and contains(@href, '#')">
-                                            <xsl:value-of select="concat('#', substring-after(@href, '#'))"/>
-                                        </xsl:if>
-                                    </xsl:when>
-                                    <xsl:when
-                                            test="not(@scope = 'external') and (not(@format) or @format = 'dita' or @format = 'ditamap')">
-                                        <xsl:if test="not(@scope = 'external')">
-                                            <xsl:value-of select="$pathFromMaplist"/>
-                                        </xsl:if>
-                                        <xsl:call-template name="replace-extension">
-                                            <xsl:with-param name="filename" select="@href"/>
-                                            <xsl:with-param name="extension" select="$OUTEXT"/>
-                                        </xsl:call-template>
-                                    </xsl:when>
-                                    <xsl:otherwise>
-                                        <xsl:if test="not(@scope = 'external')">
-                                            <xsl:value-of select="$pathFromMaplist"/>
-                                        </xsl:if>
-                                        <xsl:value-of select="@href"/>
-                                    </xsl:otherwise>
-                                </xsl:choose>
-                            </xsl:variable>
-                            <xsl:variable name="current-href-fixed">
-                                <xsl:choose>
-                                    <xsl:when test="(@chunk = 'to-content') and contains($current-href, '#')">
-                                        <xsl:value-of select="substring-before($current-href, '#')"/>
-                                    </xsl:when>
-                                    <xsl:otherwise>
-                                        <xsl:value-of select="$current-href"/>
-                                    </xsl:otherwise>
-                                </xsl:choose>
-                            </xsl:variable>
-                            <xsl:value-of select="$current-href-fixed"/>
-                        </xsl:attribute>
+                    <div class="front face">
+                        <div class="chapter-title">
+                            <a>
+                                <xsl:attribute name="href">
+                                    <xsl:variable name="current-href">
+                                        <xsl:choose>
+                                            <xsl:when test="@copy-to and not(contains(@chunk, 'to-content')) and (not(@format) or @format = 'dita' or @format = 'ditamap') ">
+                                                <xsl:if test="not(@scope = 'external')">
+                                                    <xsl:value-of select="$pathFromMaplist"/>
+                                                </xsl:if>
+                                                <xsl:call-template name="replace-extension">
+                                                    <xsl:with-param name="filename" select="@copy-to"/>
+                                                    <xsl:with-param name="extension" select="$OUTEXT"/>
+                                                </xsl:call-template>
+                                                <xsl:if test="not(contains(@copy-to, '#')) and contains(@href, '#')">
+                                                    <xsl:value-of select="concat('#', substring-after(@href, '#'))"/>
+                                                </xsl:if>
+                                            </xsl:when>
+                                            <xsl:when
+                                                    test="not(@scope = 'external') and (not(@format) or @format = 'dita' or @format = 'ditamap')">
+                                                <xsl:if test="not(@scope = 'external')">
+                                                    <xsl:value-of select="$pathFromMaplist"/>
+                                                </xsl:if>
+                                                <xsl:call-template name="replace-extension">
+                                                    <xsl:with-param name="filename" select="@href"/>
+                                                    <xsl:with-param name="extension" select="$OUTEXT"/>
+                                                </xsl:call-template>
+                                            </xsl:when>
+                                            <xsl:otherwise>
+                                                <xsl:if test="not(@scope = 'external')">
+                                                    <xsl:value-of select="$pathFromMaplist"/>
+                                                </xsl:if>
+                                                <xsl:value-of select="@href"/>
+                                            </xsl:otherwise>
+                                        </xsl:choose>
+                                    </xsl:variable>
+                                    <xsl:variable name="current-href-fixed">
+                                        <xsl:choose>
+                                            <xsl:when test="(@chunk = 'to-content') and contains($current-href, '#')">
+                                                <xsl:value-of select="substring-before($current-href, '#')"/>
+                                            </xsl:when>
+                                            <xsl:otherwise>
+                                                <xsl:value-of select="$current-href"/>
+                                            </xsl:otherwise>
+                                        </xsl:choose>
+                                    </xsl:variable>
+                                    <xsl:value-of select="$current-href-fixed"/>
+                                </xsl:attribute>
 
-                        <xsl:if test="@scope = 'external' or not(not(@format) or @format = 'dita' or @format = 'ditamap')">
-                            <xsl:apply-templates select="." mode="external-link"/>
-                        </xsl:if>
+                                <xsl:if test="@scope = 'external' or not(not(@format) or @format = 'dita' or @format = 'ditamap')">
+                                    <xsl:apply-templates select="." mode="external-link"/>
+                                </xsl:if>
 
-                        <xsl:value-of select="$title"/>
-                    </a>
+                                <xsl:value-of select="$title"/>
+                            </a>
                         </div>
+                        <xsl:if test="normalize-space($shortdesc)">
+                            <div class="flip-card-button-container">
+                                <button onclick="flipCard(this)" class="button-flip-card"><span class="tooltip-flip-card">See topic short description</span></button>
+                            </div>
+                        </xsl:if>
                     </div>
                     <xsl:if test="normalize-space($shortdesc)">
-                        <div class="shortdesc-container">
-                            <xsl:value-of select="$shortdesc"/>
-                        </div>
-                        <div class="flip-button-container">
-                            <!--<text style="padding:20px">O</text>-->
-                            <text>O</text>
+                        <div class="back face">
+                            <div class="chapter-shortdesc">
+                                <xsl:value-of select="$shortdesc"/>
+                            </div>
+                            <div class="flip-card-button-container">
+                                <button onclick="flipCard(this)" class="button-flip-card"><span class="tooltip-flip-card">See topic title</span></button>
+                            </div>
                         </div>
                     </xsl:if>
                 </div>

@@ -222,7 +222,21 @@ h6.title {
     right: 0;
 }
 
+.tooltip-flip-card {
+    display: none;
+    position: absolute;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 5px #bbbbbb;
+    font-size: 11px;
+    color: #5e5e5e;
+    padding: 0.5em;
+    width: max-content;
+    right: 0;
+    bottom: 40px;
+}
+
 .logo-header:hover > .tooltip-logo,
+.button-flip-card:hover > .tooltip-flip-card,
 .main-button-container-wrapper:not(.is-sticky) #button-hide-show-toc:not(.hidden):hover > .tooltip-hide-toc,
 .main-button-container-wrapper:not(.is-sticky) #button-hide-show-toc.hidden:hover > .tooltip-show-toc,
 .main-button-container-wrapper:not(.is-sticky) #button-expand-collapse:not(.inactive):not(.expanded):hover > .tooltip-expand-all,
@@ -967,98 +981,6 @@ li.ancestor-of-active > .toc-element-row > a {
 }
 
 /* --- Table of contents (TOC) END --- */
-.flip-card{
-    display: block;
-    padding: 1em;
-    perspective: 600px;
-}
-
-.card {
-    cursor: pointer;
-    max-height: 150px;
-    transform-style: preserve-3d;
-    transform-origin: center right;
-    transition: transform 1s;
-    border: none;
-    background-color: #f8f8f8;
-}
-
-.card:hover {
-    background-color: #f2f2f2;
-}
-
-.card.is-flipped {
-    transform: translateX(-100%) rotateY(-180deg);
-}
-
-.card.is-flipped .front-tile {
-    backface-visibility: hidden;
-    display: none;
-}
-
-.card.is-flipped .shortdesc-container {
-    display: block;
-}
-
-.shortdesc-container{
-    transform: rotateY(180deg);
-    display: none;
-    min-height: 150px;
-    padding: 1em;
-}
-
-.flip-button-container{
-    color: #2c74eb;
-    margin-left: 80%;
-    font-size: 16px;
-    position: relative;
-}
-
-.card.is-flipped .flip-button-container {
-    display: block;
-    color: red;
-    margin-left: 80%;
-    font-size: 16px;
-}
-
-.flip-button{
-    position: relative;
-}
-
-.front-tile {
-    background-color: #f8f8f8;
-    border-radius: 0;
-    border: none;
-    height: 150px;
-    width: 100%;
-    padding: 0;
-}
-
-.front-tile a{
-    display: block;
-    height: 100%;
-    padding: 1em;
-    color: #333333;
-    font-weight: 500;
-}
-
-.front-tile:hover {
-    background-color: #f2f2f2;
-}
-
-.front-tile:hover a{
-    color: #2c74eb;
-}
-
-button, input, optgroup, select, textarea {
-    margin: 0;
-    font-family: inherit;
-    font-size: inherit;
-    line-height: inherit;
-    border: none;
-    padding-bottom: 0.4em;
-    background: none;
-}
 
 /* --- Tables START --- */
 table {
@@ -1431,3 +1353,99 @@ dd {
 }
 
 /*--- Definition Lists END---*/
+
+button, input, optgroup, select, textarea {
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    border: none;
+    padding-bottom: 0.4em;
+    background: none;
+}
+
+/*--- Index page cards START---*/
+.card-container {
+    padding: 1em;
+    perspective: 600px;
+    min-height: 180px;
+}
+
+.card {
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: all 1.0s linear;
+    background-color: #f8f8f8;
+    border: none;
+}
+
+.face {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+}
+
+.face.back {
+    transform: rotateY(180deg);
+    text-align: left;
+}
+
+.face:hover,
+.card:hover {
+    background-color: #f2f2f2;
+}
+
+.chapter-title,
+.chapter-shortdesc {
+    padding: 1em;
+    height: 100%;
+    color: #333333;
+}
+
+.card a{
+    display: block;
+    height: 100%;
+    color: #333333;
+    font-weight: 500;
+}
+
+.card:hover a{
+    color: #2c74eb;
+}
+
+.card.is-flipped {
+    transform: rotateY(180deg);
+}
+
+.card.is-flipped .front {
+    backface-visibility: hidden;
+    display: none;
+}
+
+.flip-card-button-container {
+    display: block;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+}
+
+.button-flip-card {
+    background-image: url("../img/flip-card.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+    bottom: 0.4em;
+    border-radius: 50%;
+}
+
+.button-flip-card:hover {
+    background-image: url(../img/flip-card-white.svg);
+    background-color: #2c74eb;
+}
+/*--- Index page cards END---*/
