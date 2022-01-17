@@ -182,9 +182,9 @@ $(document).ready(function() {
 
     // Count main container min-height (needed for correct displaying of footer if the content is too short)
     if($('div.breadcrumb-container').length && $('div.top-nav-buttons-container-wrapper').length && $('div.main-button-container').length) {
-        height = $(window).height() - ($("header").outerHeight() + $('div.breadcrumb-container').outerHeight() + $('div.top-nav-buttons-container-wrapper').outerHeight() + $('div.main-button-container').outerHeight() + $("footer").outerHeight() + 185);
+        height = $(window).height() - ($("header").outerHeight(true) + $('div.breadcrumb-container').outerHeight(true) + $('div.top-nav-buttons-container-wrapper').outerHeight(true) + $('div.main-button-container').outerHeight(true) + $('#back-to-top-button-container').outerHeight(true) + $("footer").outerHeight(true) + 36);
     } else {
-        height = $(window).height() - ($("header").outerHeight() + $('#back-to-top-button-container').outerHeight() + $("footer").outerHeight() + 23);
+        height = $(window).height() - ($("header").outerHeight(true) + $('#back-to-top-button-container').outerHeight(true) + $("footer").outerHeight(true) + 24);
     }
 
     // Apply min-height value to the main element
