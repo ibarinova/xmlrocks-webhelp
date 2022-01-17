@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
-                xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot"
-                xmlns:related-links="http://dita-ot.sourceforge.net/ns/200709/related-links"
+                xmlns:dita2html="http://dita-ot.sourceforge.net/ns/200801/dita2html"
                 exclude-result-prefixes="#all"
                 version="2.0">
 
@@ -511,39 +510,6 @@
         </xsl:choose>
     </xsl:template>
 
-    <xsl:template match="*[contains(@class, ' topic/link ')][@role = ('child', 'descendant')]" priority="2"
-                  name="topic.link_child">
-        <li class="ulchildlink">
-            <xsl:call-template name="commonattributes">
-                <xsl:with-param name="default-output-class" select="'ulchildlink'"/>
-            </xsl:call-template>
-            <xsl:apply-templates select="*[contains(@class, ' topic/data ') or contains(@class, ' topic/foreign ')]"/>
-            <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-startprop ')]" mode="out-of-line"/>
-
-            <strong>
-                <xsl:apply-templates select="." mode="related-links:unordered.child.prefix"/>
-                <xsl:apply-templates select="." mode="add-link-highlight-at-start"/>
-
-                <a class="ullink-ahref">
-                    <xsl:apply-templates select="." mode="add-linking-attributes"/>
-                    <xsl:apply-templates select="." mode="add-hoverhelp-to-child-links"/>
-                    <xsl:choose>
-                        <xsl:when test="*[contains(@class, ' topic/linktext ')]">
-                            <xsl:apply-templates select="*[contains(@class, ' topic/linktext ')]"/>
-                        </xsl:when>
-                        <xsl:otherwise>
-                            <xsl:call-template name="href"/>
-                        </xsl:otherwise>
-                    </xsl:choose>
-                </a>
-                <xsl:apply-templates select="." mode="add-link-highlight-at-end"/>
-            </strong>
-            <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-endprop ')]" mode="out-of-line"/>
-            <br/>
-            <xsl:apply-templates select="*[contains(@class, ' topic/desc ')]"/>
-        </li>
-    </xsl:template>
-
     <xsl:template match="*" mode="process.note.common-processing">
         <xsl:param name="type" select="@type"/>
         <xsl:param name="othertype" select="@othertype"/>
@@ -669,39 +635,40 @@
         </xsl:variable>
         <xsl:choose>
             <xsl:when test="*[contains(@class, ' topic/title ')]">
-                <figcaption>
-                    <xsl:if test="not(normalize-space($figure-numbering) = ('no', 'false'))">
-                        <span class="fig--title-label">
-                            <xsl:choose>      <!-- Hungarian: "1. Figure " -->
-                                <xsl:when test="$ancestorlang = ('hu', 'hu-hu')">
-                                    <xsl:value-of select="$fig-count-actual"/>
-                                    <xsl:text>. </xsl:text>
-                                    <xsl:call-template name="getVariable">
-                                        <xsl:with-param name="id" select="'Figure'"/>
-                                    </xsl:call-template>
-                                    <xsl:text> </xsl:text>
-                                </xsl:when>
-                                <xsl:otherwise>
-                                    <xsl:call-template name="getVariable">
-                                        <xsl:with-param name="id" select="'Figure'"/>
-                                    </xsl:call-template>
-                                    <xsl:value-of select="$fig-count-actual"/>
-                                    <xsl:text>.</xsl:text>
-                                </xsl:otherwise>
-                            </xsl:choose>
-                        </span>
-                    </xsl:if>
-                    <xsl:apply-templates select="*[contains(@class, ' topic/title ')]" mode="figtitle"/>
-                    <xsl:if test="*[contains(@class, ' topic/desc ')]">
-                        <xsl:text>. </xsl:text>
-                    </xsl:if>
-                    <xsl:for-each select="*[contains(@class, ' topic/desc ')]">
-                        <span class="figdesc">
-                            <xsl:call-template name="commonattributes"/>
-                            <xsl:apply-templates select="." mode="figdesc"/>
-                        </span>
-                    </xsl:for-each>
-                </figcaption>
+                <div class="figure-title">
+                        <xsl:if test="not(normalize-space($figure-numbering) = ('no', 'false'))">
+                            <span class="fig--title-label">
+                                <xsl:choose>      <!-- Hungarian: "1. Figure " -->
+                                    <xsl:when test="$ancestorlang = ('hu', 'hu-hu')">
+                                        <xsl:value-of select="$fig-count-actual"/>
+                                        <xsl:text>.&#32;</xsl:text>
+                                        <xsl:call-template name="getVariable">
+                                            <xsl:with-param name="id" select="'Figure'"/>
+                                        </xsl:call-template>
+                                        <xsl:text>&#32;</xsl:text>
+                                    </xsl:when>
+                                    <xsl:otherwise>
+                                        <xsl:call-template name="getVariable">
+                                            <xsl:with-param name="id" select="'Figure'"/>
+                                        </xsl:call-template>
+                                        <xsl:text>&#32;</xsl:text>
+                                        <xsl:value-of select="$fig-count-actual"/>
+                                        <xsl:text>.&#32;</xsl:text>
+                                    </xsl:otherwise>
+                                </xsl:choose>
+                            </span>
+                        </xsl:if>
+                        <xsl:apply-templates select="*[contains(@class, ' topic/title ')]" mode="figtitle"/>
+                        <xsl:if test="*[contains(@class, ' topic/desc ')]">
+                            <xsl:text>.&#32;</xsl:text>
+                        </xsl:if>
+                        <xsl:for-each select="*[contains(@class, ' topic/desc ')]">
+                            <span class="figdesc">
+                                <xsl:call-template name="commonattributes"/>
+                                <xsl:apply-templates select="." mode="figdesc"/>
+                            </span>
+                        </xsl:for-each>
+                </div>
             </xsl:when>
             <xsl:when test="*[contains(@class, ' topic/desc ')]">
                 <xsl:for-each select="*[contains(@class, ' topic/desc ')]">
@@ -735,5 +702,26 @@
         <xsl:call-template name="setidaname"/>
         <xsl:apply-templates select="*[not(contains(@class, ' topic/related-links '))]"/>
         <xsl:apply-templates select="*[contains(@class, ' topic/related-links ')]"/>
+    </xsl:template>
+
+    <xsl:template match="*[contains(@class, ' topic/fig ')]" name="topic.fig">
+        <xsl:variable name="default-fig-class">
+            <xsl:apply-templates select="." mode="dita2html:get-default-fig-class"/>
+        </xsl:variable>
+        <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-startprop ')]" mode="out-of-line"/>
+        <figure>
+            <xsl:if test="$default-fig-class != ''">
+                <xsl:attribute name="class" select="$default-fig-class"/>
+            </xsl:if>
+            <xsl:call-template name="commonattributes">
+                <xsl:with-param name="default-output-class" select="$default-fig-class"/>
+            </xsl:call-template>
+            <xsl:call-template name="setscale"/>
+            <xsl:call-template name="setidaname"/>
+            <xsl:apply-templates
+                    select="node() except *[contains(@class, ' topic/title ') or contains(@class, ' topic/desc ')]"/>
+        </figure>
+        <xsl:call-template name="place-fig-lbl"/>
+        <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-endprop ')]" mode="out-of-line"/>
     </xsl:template>
 </xsl:stylesheet>

@@ -278,3 +278,8 @@ function reloadDynamically(href){
         $('.toc-container').find('#' + listItemID).parents('nav li').addClass('expanded ancestor-of-active');
     }, 'html')
 }
+
+function flipCard(button) {
+    var card = button.closest('.card');
+    $(card).toggleClass('is-flipped');
+}
