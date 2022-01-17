@@ -636,28 +636,28 @@
         <xsl:choose>
             <xsl:when test="*[contains(@class, ' topic/title ')]">
                 <div class="figure-title">
-                        <xsl:if test="not(normalize-space($figure-numbering) = ('no', 'false'))">
-                            <span class="fig--title-label">
-                                <xsl:choose>      <!-- Hungarian: "1. Figure " -->
-                                    <xsl:when test="$ancestorlang = ('hu', 'hu-hu')">
-                                        <xsl:value-of select="$fig-count-actual"/>
-                                        <xsl:text>.&#32;</xsl:text>
-                                        <xsl:call-template name="getVariable">
-                                            <xsl:with-param name="id" select="'Figure'"/>
-                                        </xsl:call-template>
-                                        <xsl:text>&#32;</xsl:text>
-                                    </xsl:when>
-                                    <xsl:otherwise>
-                                        <xsl:call-template name="getVariable">
-                                            <xsl:with-param name="id" select="'Figure'"/>
-                                        </xsl:call-template>
-                                        <xsl:text>&#32;</xsl:text>
-                                        <xsl:value-of select="$fig-count-actual"/>
-                                        <xsl:text>.&#32;</xsl:text>
-                                    </xsl:otherwise>
-                                </xsl:choose>
-                            </span>
-                        </xsl:if>
+                    <xsl:if test="not(normalize-space($figure-numbering) = ('no', 'false'))">
+                        <span class="fig--title-label">
+                            <xsl:choose>      <!-- Hungarian: "1. Figure " -->
+                                <xsl:when test="$ancestorlang = ('hu', 'hu-hu')">
+                                    <xsl:value-of select="$fig-count-actual"/>
+                                    <xsl:text>.&#32;</xsl:text>
+                                    <xsl:call-template name="getVariable">
+                                        <xsl:with-param name="id" select="'Figure'"/>
+                                    </xsl:call-template>
+                                    <xsl:text>&#32;</xsl:text>
+                                </xsl:when>
+                                <xsl:otherwise>
+                                    <xsl:call-template name="getVariable">
+                                        <xsl:with-param name="id" select="'Figure'"/>
+                                    </xsl:call-template>
+                                    <xsl:text>&#32;</xsl:text>
+                                    <xsl:value-of select="$fig-count-actual"/>
+                                    <xsl:text>.&#32;</xsl:text>
+                                </xsl:otherwise>
+                            </xsl:choose>
+                        </span>
+                    </xsl:if>
                         <xsl:apply-templates select="*[contains(@class, ' topic/title ')]" mode="figtitle"/>
                         <xsl:if test="*[contains(@class, ' topic/desc ')]">
                             <xsl:text>.&#32;</xsl:text>
@@ -718,8 +718,7 @@
             </xsl:call-template>
             <xsl:call-template name="setscale"/>
             <xsl:call-template name="setidaname"/>
-            <xsl:apply-templates
-                    select="node() except *[contains(@class, ' topic/title ') or contains(@class, ' topic/desc ')]"/>
+            <xsl:apply-templates select="node() except *[contains(@class, ' topic/title ') or contains(@class, ' topic/desc ')]"/>
         </figure>
         <xsl:call-template name="place-fig-lbl"/>
         <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-endprop ')]" mode="out-of-line"/>
