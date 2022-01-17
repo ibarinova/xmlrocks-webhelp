@@ -199,7 +199,7 @@
                                     </button>
 
                                     <div id="menu-dropdown-download" class="dropdown-content-download">
-                                        <button id="download-page-btn" onclick="getPDF()">
+                                        <button id="download-page-btn">
                                             <div class="download-page">Download this page as PDF</div>
                                         </button>
                                         <button id="download-output-btn">
@@ -213,7 +213,7 @@
 
                             <xsl:otherwise>
                                 <div class="dropdown-download">
-                                    <button onclick="getPDF()" class="button-dropdown-download">
+                                    <button onclick="ExportPdf()" class="button-dropdown-download">
                                         <span class="tooltip-download-current-page">Download current page PDF</span>
                                     </button>
                                 </div>
@@ -375,6 +375,10 @@
         <script src="{$PATH2PROJ}lib/popper.min.js"></script>
         <script src="{$PATH2PROJ}lib/platform.js"></script>
         <script src="{$PATH2PROJ}lib/xml.rocks.js"></script>
+        <script src="{$PATH2PROJ}lib/angular.min.js"></script>
+        <script src="{$PATH2PROJ}lib/jszip.min.js"></script>
+        <script src="{$PATH2PROJ}lib/kendo.all.min.js"></script>
+
     </xsl:template>
 
     <xsl:template name="insertNavPrevButton">
