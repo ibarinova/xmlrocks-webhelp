@@ -240,7 +240,7 @@ $(document).ready(function() {
 function reloadDynamically(href){
     jQuery.post(href, function (content) {
         var htmlContent = $.parseHTML(content),
-            articleContent = $(htmlContent).find('article').contents(),
+            articleContent = $(htmlContent).find('#article-wrapper').contents(),
             breadcrumbsContent = $(htmlContent).find('.head-breadcrumb').contents(),
             topNavButtonsContainerContent = $(htmlContent).find('.top-nav-buttons-container').contents(),
             bottomNavButtonsContainerContent = $(htmlContent).find('.bottom-nav-buttons-container').contents(),
@@ -254,7 +254,7 @@ function reloadDynamically(href){
         $('.top-nav-buttons-container').html(topNavButtonsContainerContent);
         $('.bottom-nav-buttons-container').html(bottomNavButtonsContainerContent);
 
-        $('article').html(articleContent);
+        $('#article-wrapper').html(articleContent);
 
         $('.toc-container').find('.active').parents('nav li').removeClass('ancestor-of-active');
         $('.toc-container').find('.active').removeClass('active');
