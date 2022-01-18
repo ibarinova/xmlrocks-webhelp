@@ -372,10 +372,10 @@
         <script src="{$PATH2PROJ}lib/jquery-3.6.0.min.js"></script>
         <script src="{$PATH2PROJ}lib/popper.min.js"></script>
         <script src="{$PATH2PROJ}lib/platform.js"></script>
-        <script src="{$PATH2PROJ}lib/xml.rocks.js"></script>
         <script src="{$PATH2PROJ}lib/angular.min.js"></script>
         <script src="{$PATH2PROJ}lib/jszip.min.js"></script>
         <script src="{$PATH2PROJ}lib/kendo.all.min.js"></script>
+        <script src="{$PATH2PROJ}lib/xml.rocks.js"></script>
 
     </xsl:template>
 
