@@ -1448,3 +1448,18 @@ button, input, optgroup, select, textarea {
     background-color: #2c74eb;
 }
 /*--- Index page cards END---*/
+
+/*--- Download PDF START---*/
+.k-pdf-export h1.title {
+    color: #333333;
+}
+
+.k-pdf-export article {
+    color: #5E5E5E;
+    font-weight: normal;
+}
+
+.non-displayed {
+    display: none;
+}
+/*--- Download PDF END---*/

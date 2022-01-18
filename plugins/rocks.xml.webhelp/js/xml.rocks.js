@@ -47,43 +47,28 @@ function expandCollapseAll() {
 }
 
 //Create PDF from HTML topic content
-function getPDF() {
-    var idTopicArticle = document.getElementById("topic-article");
-    var removedChild = idTopicArticle.querySelector('.related-links');
-
-    idTopicArticle.removeChild(idTopicArticle.querySelector('.related-links'));
-
-    var htmlWidth = $("#topic-article").width();
-    var htmlHeight = $("#topic-article").height();
-
-    var topLeftMargin = 15;
-    var pdfWidth = htmlWidth + (topLeftMargin * 2);
-    var pdfHeight = (pdfWidth * 1.5) + (topLeftMargin * 2);
-    var canvasImageWidth = htmlWidth;
-    var canvasImageHeight = htmlHeight;
-
-    var totalPDFPages = Math.ceil(htmlHeight / pdfHeight) - 1;
-
-    var topicName = document.getElementsByClassName("title topictitle1")[0].textContent;
+function exportPdf() {
+    var idTopicArticle = document.getElementById("topic-article"),
+        topicName = document.getElementsByClassName("title topictitle1")[0].textContent;
 
     topicName = topicName.replace(/\s+/g, '-');
 
-    html2canvas(idTopicArticle, {allowTaint: true}).then(function (canvas) {
-        canvas.getContext('2d');
-        var imgData = canvas.toDataURL("image/jpeg", 1.0);
-        var pdf = new jsPDF('p', 'pt', [pdfWidth, pdfHeight]);
-        pdf.addImage(imgData, 'JPG', topLeftMargin, topLeftMargin, canvasImageWidth, canvasImageHeight);
+    // Hide related links from the PDF
+    $('.related-links').addClass('non-displayed');
 
-        for (var i = 1; i <= totalPDFPages; i++) {
-            pdf.addPage(pdfWidth, pdfHeight);
-            pdf.addImage(imgData, 'JPG', topLeftMargin, -(pdfHeight * i) + (topLeftMargin * 4), canvasImageWidth, canvasImageHeight);
-        }
-
-        pdf.save(topicName + ".pdf");
-    });
-    // Append 'related-links' to the page after downloading current topic
-    idTopicArticle.appendChild(removedChild);
-};
+    kendo.drawing
+        .drawDOM("#topic-article",
+            {
+                paperSize: "A4",
+                margin: {top: "1cm", bottom: "1cm", right: "1cm", left: "1cm"},
+                scale: 0.8,
+                height: 500
+            })
+        .then(function (group) {
+            kendo.drawing.pdf.saveAs(group, topicName + ".pdf");
+            $('.related-links.non-displayed').removeClass('non-displayed');
+        });
+}
 
 // Function for dropdown menu for 'download' button
 function dropdownDownload() {
