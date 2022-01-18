@@ -51,7 +51,7 @@ function exportPdf() {
     var idTopicArticle = document.getElementById("topic-article"),
         topicName = document.getElementsByClassName("title topictitle1")[0].textContent;
 
-topicName = topicName.replace(/\s+/g, '-');
+    topicName = topicName.replace(/\s+/g, '-');
 
     // Hide related links from the PDF
     $('.related-links').addClass('non-displayed');
