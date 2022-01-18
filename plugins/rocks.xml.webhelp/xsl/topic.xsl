@@ -199,7 +199,7 @@
                                     </button>
 
                                     <div id="menu-dropdown-download" class="dropdown-content-download">
-                                        <button id="download-page-btn">
+                                        <button id="download-page-btn" onclick="exportPdf()">
                                             <div class="download-page">Download this page as PDF</div>
                                         </button>
                                         <button id="download-output-btn">
@@ -213,7 +213,7 @@
 
                             <xsl:otherwise>
                                 <div class="dropdown-download">
-                                    <button onclick="ExportPdf()" class="button-dropdown-download">
+                                    <button onclick="exportPdf()" class="button-dropdown-download">
                                         <span class="tooltip-download-current-page">Download current page PDF</span>
                                     </button>
                                 </div>

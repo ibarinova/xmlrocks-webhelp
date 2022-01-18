@@ -57,7 +57,7 @@ var topicName = document.getElementsByClassName("title topictitle1")[0].textCont
 topicName = topicName.replace(/\s+/g, '-');
 
 
-function ExportPdf() {
+function exportPdf() {
     kendo.drawing
         .drawDOM("#topic-article",
             {
