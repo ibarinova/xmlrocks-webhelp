@@ -1459,4 +1459,7 @@ button, input, optgroup, select, textarea {
     font-weight: normal;
 }
 
+.non-displayed {
+    display: none;
+}
 /*--- Download PDF END---*/
