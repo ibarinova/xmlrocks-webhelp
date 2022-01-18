@@ -47,17 +47,15 @@ function expandCollapseAll() {
 }
 
 //Create PDF from HTML topic content
-var idTopicArticle = document.getElementById("topic-article");
-var removedChild = idTopicArticle.querySelector('.related-links');
-
-idTopicArticle.removeChild(idTopicArticle.querySelector('.related-links'));
-
-var topicName = document.getElementsByClassName("title topictitle1")[0].textContent;
+function exportPdf() {
+    var idTopicArticle = document.getElementById("topic-article"),
+        topicName = document.getElementsByClassName("title topictitle1")[0].textContent;
 
 topicName = topicName.replace(/\s+/g, '-');
 
+    // Hide related links from the PDF
+    $('.related-links').addClass('non-displayed');
 
-function exportPdf() {
     kendo.drawing
         .drawDOM("#topic-article",
             {
@@ -68,7 +66,7 @@ function exportPdf() {
             })
         .then(function (group) {
             kendo.drawing.pdf.saveAs(group, topicName + ".pdf");
-    idTopicArticle.appendChild(removedChild);
+            $('.related-links.non-displayed').removeClass('non-displayed');
         });
 }
 
