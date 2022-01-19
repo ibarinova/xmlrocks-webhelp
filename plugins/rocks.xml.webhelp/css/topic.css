@@ -800,11 +800,16 @@ a:hover{
     transition: all 1s ease-in-out .5s;
 }
 
-#toc-wrapper a {
+#toc-wrapper a,
+#toc-wrapper span.toc-title {
     min-height: 40px;
     display: inline-block;
     vertical-align: middle;
     line-height: 28px;
+}
+
+span.toc-title {
+    cursor: default;
 }
 
 /* level 1 */
@@ -817,7 +822,8 @@ a:hover{
     color:#333333;
 }
 
-.toc-container li.level1 > .toc-element-row > a {
+.toc-container li.level1 > .toc-element-row > a,
+.toc-container li.level1 > .toc-element-row > span.toc-title {
     padding-left: 1.5em;
 }
 
@@ -826,7 +832,8 @@ a:hover{
     background-color: #eaeaea;
 }
 
-.toc-container li.level2 > .toc-element-row > a {
+.toc-container li.level2 > .toc-element-row > a,
+.toc-container li.level2 > .toc-element-row > span.toc-title {
     padding-left: 2.5em;
 }
 
@@ -835,27 +842,32 @@ a:hover{
     background-color: #eaeaea;
 }
 
-.toc-container li.level3 > .toc-element-row > a {
+.toc-container li.level3 > .toc-element-row > a,
+.toc-container li.level3 > .toc-element-row > span.toc-title {
     padding-left: 3.5em;
 }
 
 /* level 4 */
-.toc-container li.level4 > .toc-element-row > a {
+.toc-container li.level4 > .toc-element-row > a,
+.toc-container li.level4 > .toc-element-row > span.toc-title {
     padding-left: 4.5em;
 }
 
 /* level 5 */
-.toc-container li.level5 > .toc-element-row > a {
+.toc-container li.level5 > .toc-element-row > a,
+.toc-container li.level5 > .toc-element-row > span.toc-title {
     padding-left: 5.5em;
 }
 
 /* level 6 */
-.toc-container li.level6 > .toc-element-row > a {
+.toc-container li.level6 > .toc-element-row > a,
+.toc-container li.level6 > .toc-element-row > span.toc-title {
     padding-left: 6.5em;
 }
 
 /* level is higher than 6 */
-.toc-container li.level-extra > .toc-element-row > a {
+.toc-container li.level-extra > .toc-element-row > a,
+.toc-container li.level-extra > .toc-element-row > span.toc-title {
     padding-left: 7.5em;
 }
 
@@ -875,7 +887,8 @@ a:hover{
     text-decoration: none;
 }
 
-.toc-container a {
+.toc-container a,
+.toc-container span.toc-title {
     width: calc(100% - 2.705em);
 }
 
@@ -887,7 +900,8 @@ a:hover{
 
 .toc-container a:visited,
 .toc-container a:link,
-.toc-container a:active {
+.toc-container a:active,
+.toc-container span.toc-title {
     text-decoration: none;
     display: inline-block;
     font-weight: normal;
@@ -898,7 +912,8 @@ a:hover{
 
 li.level1 > .toc-element-row > a:visited,
 li.level1 > .toc-element-row > a:link,
-li.level1 > .toc-element-row > a:active {
+li.level1 > .toc-element-row > a:active,
+li.level1 > .toc-element-row > span.toc-title {
     color:#333333;
     min-height: 40px;
 }
@@ -918,7 +933,11 @@ li.ancestor-of-active > .toc-element-row > a {
 .toc-element-row:hover > a,
 .toc-container li.active > .toc-element-row:hover > a,
 .toc-container li.level1 > .toc-element-row:hover > a,
-.toc-container li.ancestor-of-active > .toc-element-row:hover > a {
+.toc-container li.ancestor-of-active > .toc-element-row:hover > a,
+.toc-element-row:hover > span.toc-title,
+.toc-container li.active > .toc-element-row:hover > span.toc-title,
+.toc-container li.level1 > .toc-element-row:hover > span.toc-title,
+.toc-container li.ancestor-of-active > .toc-element-row:hover > span.toc-title {
     color: #fff;
 }
 
