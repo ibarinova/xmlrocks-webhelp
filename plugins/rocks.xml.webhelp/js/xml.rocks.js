@@ -243,7 +243,6 @@ function reloadDynamically(href){
             articleContent = $(htmlContent).find('#article-wrapper').contents(),
             breadcrumbsContent = $(htmlContent).find('.head-breadcrumb').contents(),
             topNavButtonsContainerContent = $(htmlContent).find('.top-nav-buttons-container').contents(),
-            bottomNavButtonsContainerContent = $(htmlContent).find('.bottom-nav-buttons-container').contents(),
             titleContent = $(htmlContent).filter('title').contents(),
             listItemID = $(htmlContent).find('.toc-container .active').attr('id');
 
@@ -252,7 +251,6 @@ function reloadDynamically(href){
         $('.head-breadcrumb').html(breadcrumbsContent);
 
         $('.top-nav-buttons-container').html(topNavButtonsContainerContent);
-        $('.bottom-nav-buttons-container').html(bottomNavButtonsContainerContent);
 
         $('#article-wrapper').html(articleContent);
 
