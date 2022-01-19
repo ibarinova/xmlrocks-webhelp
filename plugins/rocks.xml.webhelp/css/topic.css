@@ -1086,6 +1086,7 @@ figure .table-callouts td {
 .admonition-icon {
     padding-right: 1.2rem;
     padding-top: 1.2rem;
+    max-width: none;
 }
 
 .note {
