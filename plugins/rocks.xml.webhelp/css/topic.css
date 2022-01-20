@@ -618,7 +618,7 @@ a:hover{
 .dropdown-google-drive {
     position: relative;
     display: inline-block;
-    margin-left: 1rem;
+    margin-left: 8px;
 }
 
 .dropdown-content-google-drive {
@@ -680,6 +680,7 @@ a:hover{
     cursor: pointer;
     bottom: 0.4em;
     border-radius: 50%;
+    margin-left: 2rem;
 }
 
 .expand-collapse-search:hover {
@@ -741,8 +742,8 @@ a:hover{
     border-left: 1px solid #e7e7e7;
     display: inline;
     height: 1rem;
-    vertical-align: -webkit-baseline-middle;
-    margin: 0 1rem;
+    margin: 0.75rem 1rem;
+    position: absolute;
 }
 
 #sticky-search-button {
