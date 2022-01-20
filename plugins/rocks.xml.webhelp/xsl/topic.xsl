@@ -149,6 +149,11 @@
                                 <xsl:with-param name="prev-topicref" select="$ancestor-topicref"/>
                             </xsl:call-template>
                         </xsl:when>
+                        <xsl:when test="$preceding-topicref/@href">
+                            <xsl:call-template name="insertNavPrevButton">
+                                <xsl:with-param name="prev-topicref" select="$preceding-topicref"/>
+                            </xsl:call-template>
+                        </xsl:when>
                     </xsl:choose>
 
                     <xsl:choose>
@@ -286,6 +291,11 @@
                                 <xsl:when test="$ancestor-topicref/@href">
                                     <xsl:call-template name="insertNavPrevButton">
                                         <xsl:with-param name="prev-topicref" select="$ancestor-topicref"/>
+                                    </xsl:call-template>
+                                </xsl:when>
+                                <xsl:when test="$preceding-topicref/@href">
+                                    <xsl:call-template name="insertNavPrevButton">
+                                        <xsl:with-param name="prev-topicref" select="$preceding-topicref"/>
                                     </xsl:call-template>
                                 </xsl:when>
                             </xsl:choose>
