@@ -92,7 +92,7 @@
                             </a>
                         </xsl:when>
                         <xsl:otherwise>
-                            <span>
+                            <span class="toc-title">
                                 <xsl:value-of select="$title"/>
                             </span>
                         </xsl:otherwise>
