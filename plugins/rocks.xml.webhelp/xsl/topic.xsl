@@ -366,7 +366,8 @@
                                      mode="return-aria-label-id"/>
             </xsl:attribute>
             <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-startprop ')]" mode="out-of-line"/>
-            <xsl:apply-templates/>
+            <xsl:apply-templates select="*[not(contains(@class, ' topic/related-links '))]"/>
+            <xsl:apply-templates select="*[contains(@class, ' topic/related-links ')]"/>
             <xsl:call-template name="gen-endnotes"/>
             <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-endprop ')]" mode="out-of-line"/>
         </article>
@@ -386,7 +387,6 @@
         <script src="{$PATH2PROJ}lib/jszip.min.js"></script>
         <script src="{$PATH2PROJ}lib/kendo.all.min.js"></script>
         <script src="{$PATH2PROJ}lib/xml.rocks.js"></script>
-
     </xsl:template>
 
     <xsl:template name="insertNavPrevButton">
@@ -697,7 +697,9 @@
         <xsl:param name="nestlevel" as="xs:integer">
             <xsl:choose>
                 <xsl:when test="count(ancestor::*[contains(@class, ' topic/topic ')]) > 9">9</xsl:when>
-                <xsl:otherwise><xsl:sequence select="count(ancestor::*[contains(@class, ' topic/topic ')])"/></xsl:otherwise>
+                <xsl:otherwise>
+                    <xsl:sequence select="count(ancestor::*[contains(@class, ' topic/topic ')])"/>
+                </xsl:otherwise>
             </xsl:choose>
         </xsl:param>
         <xsl:choose>
