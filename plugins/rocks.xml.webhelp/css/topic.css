@@ -334,7 +334,7 @@ h6.title {
 .button-prev-nav {
     content: url("../img/prev-button.svg");
     display: inline;
-    margin-bottom: 1px;
+    margin-bottom: 0;
     width: 0.951rem;
 }
 
@@ -349,7 +349,7 @@ h6.title {
 .button-next-nav {
     content: url("../img/next-button.svg");
     display: inline;
-    margin-bottom: 1px;
+    margin-bottom: 0;
     width: 0.951rem;
 }
 
