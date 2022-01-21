@@ -1162,11 +1162,8 @@ li.linklist {
     padding: 13px 18px 13px 18px;
     border-radius: 50%;
     margin-bottom: 1.2rem;
-    border: 1rem solid hsla(0,0%,100%,.5);
-    background-clip: padding-box;
-    -webkit-backdrop-filter: blur(2px);
-    backdrop-filter: blur(2px);
     pointer-events: auto;
+    box-shadow: 0 0 40px 40px #ffffff;
 }
 /*--- Back to top button END ---*/
 
