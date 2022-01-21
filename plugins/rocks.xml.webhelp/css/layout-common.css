@@ -178,6 +178,7 @@
 
 .header-search-wrapper {
     display: grid;
+    margin-left: auto;
 }
 
 .search {
