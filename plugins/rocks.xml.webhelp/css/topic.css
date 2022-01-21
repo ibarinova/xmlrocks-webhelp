@@ -1034,6 +1034,7 @@ table > caption {
     vertical-align: bottom;
     text-align: center;
     background-color: #ebebed;
+    border-color: #E2E2E2;
 }
 
 .choicetableborder {
@@ -1042,6 +1043,19 @@ table > caption {
 
 tbody, td, tfoot, th, thead, tr {
     border: 1px solid;
+    border-color: #E2E2E2;
+}
+
+.thead{
+    border-color: #E2E2E2;
+}
+
+.table>:not(:last-child)>:last-child>* {
+    border-color: #E2E2E2;
+}
+
+.sthead, .stentry, .strow{
+    border-color: #E2E2E2;
 }
 
 .stentry{
