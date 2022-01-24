@@ -126,6 +126,36 @@ function runStickySearch() {
     location.href = "search.html?key=" + searchInputValue;
 }
 
+// Show 'X' button inside header search input if input contains text
+$('#header-search-input').keyup(function() {
+    if ($(this).val() != '') {
+        $('#search-cancel-button').addClass('show');
+    } else {
+        $('#search-cancel-button').removeClass('show');
+    }
+});
+
+// Clear search input and hide 'X' button from the header search input
+$('#search-cancel-button').click(function () {
+    $('#header-search-input').val('');
+    $('#search-cancel-button').removeClass('show');
+});
+
+// Show 'X' button inside body search input if input contains text
+$('.topic-page-sticky-search-container .search-input').keyup(function() {
+    if ($(this).val() != '') {
+        $('#sticky-search-cancel-button').addClass('show');
+    } else {
+        $('#sticky-search-cancel-button').removeClass('show');
+    }
+});
+
+// Clear search input and hide 'X' button from the body search input
+$('#sticky-search-cancel-button').click(function () {
+    $('.topic-page-sticky-search-container .search-input').val('');
+    $('#sticky-search-cancel-button').removeClass('show');
+});
+
 // Update link transition event if page is not opened as file
 function updatePageReloadingBehaviour(event) {
     if (window.location.protocol != 'file:') {
