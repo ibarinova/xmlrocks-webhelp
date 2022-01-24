@@ -296,3 +296,9 @@ function flipCard(button) {
     var card = button.closest('.card');
     $(card).toggleClass('is-flipped');
 }
+
+/*todo show mobile breadcrumbs*/
+function showBreadcrumbs(button) {
+    var breadcrumb = button.closest('.head-breadcrumbs-child-element');
+    $(breadcrumb).toggleClass('is-show');
+}

@@ -287,6 +287,23 @@ h6.title {
     margin: 2px 4px;
     width: 0.5em;
 }
+/*todo breadcrumbs*/
+@media only screen and (min-width: 1026px){
+    #mobile-separator-button{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 1026px){
+   .head-breadcrumbs-child-element{
+       display: none;
+   }
+}
+
+.head-breadcrumbs-child-element.is-show{
+    display: inline;
+}
+
 /* --- Breadcrumbs END --- */
 
 /* --- Prev-Next buttons START --- */
