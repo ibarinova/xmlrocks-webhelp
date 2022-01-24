@@ -264,6 +264,8 @@
                 <div class="search-input-container max-width">
                     <input class="form-control search search-input" type="search" placeholder="Search"
                            aria-label="Search"/>
+                    <button id="sticky-search-cancel-button"></button>
+                    <div class="sticky-search-buttons-separator"></div>
                     <button id="sticky-search-button"></button>
                 </div>
             </div>
@@ -353,6 +355,8 @@
             <nav class="header-search-wrapper">
                 <input id="header-search-input" class="form-control search" type="search" placeholder="Search"
                        aria-label="Search"/>
+                <button id="search-cancel-button"/>
+                <div class="search-buttons-separator"></div>
                 <button id="search-button"/>
             </nav>
         </div>
