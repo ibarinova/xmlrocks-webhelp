@@ -176,21 +176,41 @@
                     <div class="left-buttons-container">
                         <div class="button-hide-show-toc-container">
                             <button onclick="hideOrShowTOC()" id="button-hide-show-toc">
-                                <span class="tooltip-hide-toc">Hide TOC</span>
-                                <span class="tooltip-show-toc">Show TOC</span>
+                                <span class="tooltip-hide-toc">
+                                    <xsl:call-template name="getVariable">
+                                        <xsl:with-param name="id" select="'Hide navigation'"/>
+                                    </xsl:call-template>
+                                </span>
+                                <span class="tooltip-show-toc">
+                                    <xsl:call-template name="getVariable">
+                                        <xsl:with-param name="id" select="'Show navigation'"/>
+                                    </xsl:call-template>
+                                </span>
                             </button>
                         </div>
 
                         <div class="button-expand-collapse-container">
                             <button onclick="expandCollapseAll()" id="button-expand-collapse">
-                                <span class="tooltip-expand-all">Expand All</span>
-                                <span class="tooltip-collapse-all">Collapse All</span>
+                                <span class="tooltip-expand-all">
+                                    <xsl:call-template name="getVariable">
+                                        <xsl:with-param name="id" select="'Expand all'"/>
+                                    </xsl:call-template>
+                                </span>
+                                <span class="tooltip-collapse-all">
+                                    <xsl:call-template name="getVariable">
+                                        <xsl:with-param name="id" select="'Collapse all'"/>
+                                    </xsl:call-template>
+                                </span>
                             </button>
                         </div>
 
                         <div class="button-show-active-container">
                             <button onclick="showActive()" id="button-show-active">
-                                <span class="tooltip-show-active">Show active topic</span>
+                                <span class="tooltip-show-active">
+                                    <xsl:call-template name="getVariable">
+                                        <xsl:with-param name="id" select="'Show active topic'"/>
+                                    </xsl:call-template>
+                                </span>
                             </button>
                         </div>
                     </div>
@@ -200,16 +220,28 @@
                             <xsl:when test="$includes-pdf = ('yes', 'true')">
                                 <div class="dropdown-download">
                                     <button onclick="dropdownDownload()" class="button-dropdown-download">
-                                        <span class="tooltip-download">Download PDF</span>
+                                        <span class="tooltip-download">
+                                            <xsl:call-template name="getVariable">
+                                                <xsl:with-param name="id" select="'Download'"/>
+                                            </xsl:call-template>
+                                        </span>
                                     </button>
 
                                     <div id="menu-dropdown-download" class="dropdown-content-download">
                                         <button id="download-page-btn" onclick="exportPdf()">
-                                            <div class="download-page">Download this page as PDF</div>
+                                            <div class="download-page">
+                                                <xsl:call-template name="getVariable">
+                                                    <xsl:with-param name="id" select="'Download topic PDF'"/>
+                                                </xsl:call-template>
+                                            </div>
                                         </button>
                                         <button id="download-output-btn">
                                             <a href="{$output-pdf-full-path}" target="_blank">
-                                                <div class="download-output">Download PDF output</div>
+                                                <div class="download-output">
+                                                    <xsl:call-template name="getVariable">
+                                                        <xsl:with-param name="id" select="'Download common PDF'"/>
+                                                    </xsl:call-template>
+                                                </div>
                                             </a>
                                         </button>
                                     </div>
@@ -219,7 +251,11 @@
                             <xsl:otherwise>
                                 <div class="dropdown-download">
                                     <button onclick="exportPdf()" class="button-dropdown-download">
-                                        <span class="tooltip-download-current-page">Download current page PDF</span>
+                                        <span class="tooltip-download-current-page">
+                                            <xsl:call-template name="getVariable">
+                                                <xsl:with-param name="id" select="'Download topic PDF'"/>
+                                            </xsl:call-template>
+                                        </span>
                                     </button>
                                 </div>
                             </xsl:otherwise>
@@ -231,14 +267,22 @@
                                                                 else('button-print-container last-right-container')"/>
 
                             <button onclick="window.print()" id="printbtn" class="button-print">
-                                <span class="tooltip-print">Print this page</span>
+                                <span class="tooltip-print">
+                                    <xsl:call-template name="getVariable">
+                                        <xsl:with-param name="id" select="'Print topic'"/>
+                                    </xsl:call-template>
+                                </span>
                             </button>
                         </div>
 
                         <xsl:if test="$includes-pdf = ('yes', 'true') and $save-to-google-drive = ('yes', 'true')">
                             <div class="dropdown-google-drive last-right-container">
                                 <button onclick="dropdownGoogleDrive()" class="button-dropdown-share-google-drive">
-                                    <span class="tooltip-google-drive">Save to Google Drive</span>
+                                    <span class="tooltip-google-drive">
+                                        <xsl:call-template name="getVariable">
+                                            <xsl:with-param name="id" select="'Save to Google Drive'"/>
+                                        </xsl:call-template>
+                                    </span>
                                 </button>
 
                                 <div id="menu-dropdown-google-drive" class="dropdown-content-google-drive">
@@ -262,8 +306,18 @@
 
             <div class="topic-page-sticky-search-container">
                 <div class="search-input-container max-width">
-                    <input class="form-control search search-input" type="search" placeholder="Search"
-                           aria-label="Search"/>
+                    <input class="form-control search search-input" type="search">
+                        <xsl:attribute name="placeholder">
+                            <xsl:call-template name="getVariable">
+                                <xsl:with-param name="id" select="'Search'"/>
+                            </xsl:call-template>
+                        </xsl:attribute>
+                        <xsl:attribute name="arial-label">
+                            <xsl:call-template name="getVariable">
+                                <xsl:with-param name="id" select="'Search'"/>
+                            </xsl:call-template>
+                        </xsl:attribute>
+                    </input>
                     <button id="sticky-search-cancel-button"></button>
                     <div class="sticky-search-buttons-separator"></div>
                     <button id="sticky-search-button"></button>

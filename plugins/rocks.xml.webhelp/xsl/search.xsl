@@ -24,24 +24,43 @@
                         <div class="head-breadcrumb max-width">
                             <span class="home">
                                 <a href="{concat($PATH2PROJ, 'index', $OUTEXT)}">
-                                    <xsl:text>Home</xsl:text>
+                                    <xsl:call-template name="getVariable">
+                                        <xsl:with-param name="id" select="'Home'"/>
+                                    </xsl:call-template>
                                 </a>
                                 <xsl:text> </xsl:text>
                                 <pre class="breadcrumbs-separator">&gt;</pre>
                                 <xsl:text> </xsl:text>
                             </span>
 
-                            <xsl:value-of select="'Search'"/>
+                            <xsl:call-template name="getVariable">
+                                <xsl:with-param name="id" select="'Search'"/>
+                            </xsl:call-template>
                         </div>
                     </div>
 
                     <div class="search-page-results-container max-width">
-                        <span id="search-results-text">Search results</span>
+                        <span id="search-results-text">
+                            <xsl:call-template name="getVariable">
+                                <xsl:with-param name="id" select="'Search results'"/>
+                            </xsl:call-template>
+                        </span>
                     </div>
 
                     <div class="search-input-container-wrapper">
                         <div class="search-input-container max-width">
-                            <input class="form-control search search-input" type="search" placeholder="Search" aria-label="Search"/>
+                            <input class="form-control search search-input" type="search">
+                                <xsl:attribute name="placeholder">
+                                    <xsl:call-template name="getVariable">
+                                        <xsl:with-param name="id" select="'Search'"/>
+                                    </xsl:call-template>
+                                </xsl:attribute>
+                                <xsl:attribute name="arial-label">
+                                    <xsl:call-template name="getVariable">
+                                        <xsl:with-param name="id" select="'Search'"/>
+                                    </xsl:call-template>
+                                </xsl:attribute>
+                            </input>
                         </div>
                     </div>
 

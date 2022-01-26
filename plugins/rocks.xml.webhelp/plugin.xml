@@ -16,4 +16,7 @@
 
     <template file="xsl/dita2xmlrocksImpl_template.xsl"/>
     <template file="xsl/dita2xmlrocksCoverImpl_template.xsl"/>
+
+    <feature extension="dita.xsl.strings" file="resources/vars/vars.xml"/>
+
 </plugin>
