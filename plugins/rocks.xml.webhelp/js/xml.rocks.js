@@ -47,43 +47,28 @@ function expandCollapseAll() {
 }
 
 //Create PDF from HTML topic content
-function getPDF() {
-    var idTopicArticle = document.getElementById("topic-article");
-    var removedChild = idTopicArticle.querySelector('.related-links');
-
-    idTopicArticle.removeChild(idTopicArticle.querySelector('.related-links'));
-
-    var htmlWidth = $("#topic-article").width();
-    var htmlHeight = $("#topic-article").height();
-
-    var topLeftMargin = 15;
-    var pdfWidth = htmlWidth + (topLeftMargin * 2);
-    var pdfHeight = (pdfWidth * 1.5) + (topLeftMargin * 2);
-    var canvasImageWidth = htmlWidth;
-    var canvasImageHeight = htmlHeight;
-
-    var totalPDFPages = Math.ceil(htmlHeight / pdfHeight) - 1;
-
-    var topicName = document.getElementsByClassName("title topictitle1")[0].textContent;
+function exportPdf() {
+    var idTopicArticle = document.getElementById("topic-article"),
+        topicName = document.getElementsByClassName("title topictitle1")[0].textContent;
 
     topicName = topicName.replace(/\s+/g, '-');
 
-    html2canvas(idTopicArticle, {allowTaint: true}).then(function (canvas) {
-        canvas.getContext('2d');
-        var imgData = canvas.toDataURL("image/jpeg", 1.0);
-        var pdf = new jsPDF('p', 'pt', [pdfWidth, pdfHeight]);
-        pdf.addImage(imgData, 'JPG', topLeftMargin, topLeftMargin, canvasImageWidth, canvasImageHeight);
+    // Hide related links from the PDF
+    $('.related-links').addClass('non-displayed');
 
-        for (var i = 1; i <= totalPDFPages; i++) {
-            pdf.addPage(pdfWidth, pdfHeight);
-            pdf.addImage(imgData, 'JPG', topLeftMargin, -(pdfHeight * i) + (topLeftMargin * 4), canvasImageWidth, canvasImageHeight);
-        }
-
-        pdf.save(topicName + ".pdf");
-    });
-    // Append 'related-links' to the page after downloading current topic
-    idTopicArticle.appendChild(removedChild);
-};
+    kendo.drawing
+        .drawDOM("#topic-article",
+            {
+                paperSize: "A4",
+                margin: {top: "1cm", bottom: "1cm", right: "1cm", left: "1cm"},
+                scale: 0.8,
+                height: 500
+            })
+        .then(function (group) {
+            kendo.drawing.pdf.saveAs(group, topicName + ".pdf");
+            $('.related-links.non-displayed').removeClass('non-displayed');
+        });
+}
 
 // Function for dropdown menu for 'download' button
 function dropdownDownload() {
@@ -141,6 +126,36 @@ function runStickySearch() {
     location.href = "search.html?key=" + searchInputValue;
 }
 
+// Show 'X' button inside header search input if input contains text
+$('#header-search-input').keyup(function() {
+    if ($(this).val() != '') {
+        $('#search-cancel-button').addClass('show');
+    } else {
+        $('#search-cancel-button').removeClass('show');
+    }
+});
+
+// Clear search input and hide 'X' button from the header search input
+$('#search-cancel-button').click(function () {
+    $('#header-search-input').val('');
+    $('#search-cancel-button').removeClass('show');
+});
+
+// Show 'X' button inside body search input if input contains text
+$('.topic-page-sticky-search-container .search-input').keyup(function() {
+    if ($(this).val() != '') {
+        $('#sticky-search-cancel-button').addClass('show');
+    } else {
+        $('#sticky-search-cancel-button').removeClass('show');
+    }
+});
+
+// Clear search input and hide 'X' button from the body search input
+$('#sticky-search-cancel-button').click(function () {
+    $('.topic-page-sticky-search-container .search-input').val('');
+    $('#sticky-search-cancel-button').removeClass('show');
+});
+
 // Update link transition event if page is not opened as file
 function updatePageReloadingBehaviour(event) {
     if (window.location.protocol != 'file:') {
@@ -175,11 +190,19 @@ function expandCollapseSearch() {
 }
 
 $(document).ready(function() {
+    var height;
+
     // Expand all parent li's
     $('.active').parents('nav li').addClass('expanded ancestor-of-active');
 
     // Count main container min-height (needed for correct displaying of footer if the content is too short)
-    var height = $(window).height() - ($("header").outerHeight() + $('div.breadcrumb-container').outerHeight() + $('div.top-nav-buttons-container-wrapper').outerHeight() + $('div.main-button-container').outerHeight() + $("footer").outerHeight() + 150);
+    if($('div.breadcrumb-container').length && $('div.top-nav-buttons-container-wrapper').length && $('div.main-button-container').length) {
+        height = $(window).height() - ($("header").outerHeight(true) + $('div.breadcrumb-container').outerHeight(true) + $('div.top-nav-buttons-container-wrapper').outerHeight(true) + $('div.main-button-container').outerHeight(true) + $('#back-to-top-button-container').outerHeight(true) + $("footer").outerHeight(true) + 36);
+    } else {
+        height = $(window).height() - ($("header").outerHeight(true) + $('#back-to-top-button-container').outerHeight(true) + $("footer").outerHeight(true) + 24);
+    }
+
+    // Apply min-height value to the main element
     $("main.container").css("min-height", height + "px");
 
     // Reveal active topic in the TOC when page reloads
@@ -233,6 +256,7 @@ $(document).ready(function() {
     // Get the sticky element
     const stickyElm = document.querySelector('.main-button-container-wrapper');
 
+    // Add class 'is-sticky' if buttons bar reaches the top of the viewport
     const observer = new IntersectionObserver(
         ([e]) => e.target.classList.toggle('is-sticky', e.intersectionRatio < 1),
         {threshold: [1]}
@@ -246,10 +270,9 @@ $(document).ready(function() {
 function reloadDynamically(href){
     jQuery.post(href, function (content) {
         var htmlContent = $.parseHTML(content),
-            articleContent = $(htmlContent).find('article').contents(),
+            articleContent = $(htmlContent).find('#article-wrapper').contents(),
             breadcrumbsContent = $(htmlContent).find('.head-breadcrumb').contents(),
             topNavButtonsContainerContent = $(htmlContent).find('.top-nav-buttons-container').contents(),
-            bottomNavButtonsContainerContent = $(htmlContent).find('.bottom-nav-buttons-container').contents(),
             titleContent = $(htmlContent).filter('title').contents(),
             listItemID = $(htmlContent).find('.toc-container .active').attr('id');
 
@@ -258,9 +281,8 @@ function reloadDynamically(href){
         $('.head-breadcrumb').html(breadcrumbsContent);
 
         $('.top-nav-buttons-container').html(topNavButtonsContainerContent);
-        $('.bottom-nav-buttons-container').html(bottomNavButtonsContainerContent);
 
-        $('article').html(articleContent);
+        $('#article-wrapper').html(articleContent);
 
         $('.toc-container').find('.active').parents('nav li').removeClass('ancestor-of-active');
         $('.toc-container').find('.active').removeClass('active');

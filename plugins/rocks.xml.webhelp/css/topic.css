@@ -12,7 +12,7 @@ a:hover {
     text-decoration: underline;
 }
 
-body{
+body {
     color: #5E5E5E;
     font-size: 15px;
 }
@@ -42,6 +42,10 @@ h6.title {
     margin: 1em 0 0.6em 0;
     font-weight: 500;
     color: #333333;
+}
+
+.nested0 {
+    margin-top: 0;
 }
 /* --- Body END --- */
 
@@ -334,7 +338,7 @@ h6.title {
 .button-prev-nav {
     content: url("../img/prev-button.svg");
     display: inline;
-    margin-bottom: 1px;
+    margin-bottom: 0;
     width: 0.951rem;
 }
 
@@ -349,7 +353,7 @@ h6.title {
 .button-next-nav {
     content: url("../img/next-button.svg");
     display: inline;
-    margin-bottom: 1px;
+    margin-bottom: 0;
     width: 0.951rem;
 }
 
@@ -376,7 +380,7 @@ h6.title {
 }
 
 .main-button-container .dropdown-download {
-    margin-right: 15px;
+    margin-right: 8px;
 }
 
 .dropdown-download {
@@ -426,7 +430,7 @@ a:hover{
 .button-hide-show-toc-container {
     position: relative;
     display: inline-block;
-    margin-right: 15px;
+    margin-right: 8px;
 }
 
 #button-hide-show-toc {
@@ -457,7 +461,7 @@ a:hover{
 .button-expand-collapse-container {
     display: inline-block;
     position: relative;
-    margin-right: 15px;
+    margin-right: 8px;
 }
 
 .button-show-active-container {
@@ -618,7 +622,7 @@ a:hover{
 .dropdown-google-drive {
     position: relative;
     display: inline-block;
-    margin-left: 1rem;
+    margin-left: 8px;
 }
 
 .dropdown-content-google-drive {
@@ -680,6 +684,7 @@ a:hover{
     cursor: pointer;
     bottom: 0.4em;
     border-radius: 50%;
+    margin-left: 2rem;
 }
 
 .expand-collapse-search:hover {
@@ -697,7 +702,7 @@ a:hover{
 }
 
 .main-button-container-wrapper {
-    margin: 1rem auto;
+    margin: 15px auto;
     padding: 1px 1rem;
     position: sticky;
     top: -1px;
@@ -741,8 +746,8 @@ a:hover{
     border-left: 1px solid #e7e7e7;
     display: inline;
     height: 1rem;
-    vertical-align: -webkit-baseline-middle;
-    margin: 0 1rem;
+    margin: 0.75rem 1rem;
+    position: absolute;
 }
 
 #sticky-search-button {
@@ -800,11 +805,16 @@ a:hover{
     transition: all 1s ease-in-out .5s;
 }
 
-#toc-wrapper a {
+#toc-wrapper a,
+#toc-wrapper span.toc-title {
     min-height: 40px;
     display: inline-block;
     vertical-align: middle;
     line-height: 28px;
+}
+
+span.toc-title {
+    cursor: default;
 }
 
 /* level 1 */
@@ -817,7 +827,8 @@ a:hover{
     color:#333333;
 }
 
-.toc-container li.level1 > .toc-element-row > a {
+.toc-container li.level1 > .toc-element-row > a,
+.toc-container li.level1 > .toc-element-row > span.toc-title {
     padding-left: 1.5em;
 }
 
@@ -826,7 +837,8 @@ a:hover{
     background-color: #eaeaea;
 }
 
-.toc-container li.level2 > .toc-element-row > a {
+.toc-container li.level2 > .toc-element-row > a,
+.toc-container li.level2 > .toc-element-row > span.toc-title {
     padding-left: 2.5em;
 }
 
@@ -835,27 +847,32 @@ a:hover{
     background-color: #eaeaea;
 }
 
-.toc-container li.level3 > .toc-element-row > a {
+.toc-container li.level3 > .toc-element-row > a,
+.toc-container li.level3 > .toc-element-row > span.toc-title {
     padding-left: 3.5em;
 }
 
 /* level 4 */
-.toc-container li.level4 > .toc-element-row > a {
+.toc-container li.level4 > .toc-element-row > a,
+.toc-container li.level4 > .toc-element-row > span.toc-title {
     padding-left: 4.5em;
 }
 
 /* level 5 */
-.toc-container li.level5 > .toc-element-row > a {
+.toc-container li.level5 > .toc-element-row > a,
+.toc-container li.level5 > .toc-element-row > span.toc-title {
     padding-left: 5.5em;
 }
 
 /* level 6 */
-.toc-container li.level6 > .toc-element-row > a {
+.toc-container li.level6 > .toc-element-row > a,
+.toc-container li.level6 > .toc-element-row > span.toc-title {
     padding-left: 6.5em;
 }
 
 /* level is higher than 6 */
-.toc-container li.level-extra > .toc-element-row > a {
+.toc-container li.level-extra > .toc-element-row > a,
+.toc-container li.level-extra > .toc-element-row > span.toc-title {
     padding-left: 7.5em;
 }
 
@@ -875,7 +892,8 @@ a:hover{
     text-decoration: none;
 }
 
-.toc-container a {
+.toc-container a,
+.toc-container span.toc-title {
     width: calc(100% - 2.705em);
 }
 
@@ -887,7 +905,8 @@ a:hover{
 
 .toc-container a:visited,
 .toc-container a:link,
-.toc-container a:active {
+.toc-container a:active,
+.toc-container span.toc-title {
     text-decoration: none;
     display: inline-block;
     font-weight: normal;
@@ -898,7 +917,8 @@ a:hover{
 
 li.level1 > .toc-element-row > a:visited,
 li.level1 > .toc-element-row > a:link,
-li.level1 > .toc-element-row > a:active {
+li.level1 > .toc-element-row > a:active,
+li.level1 > .toc-element-row > span.toc-title {
     color:#333333;
     min-height: 40px;
 }
@@ -918,7 +938,11 @@ li.ancestor-of-active > .toc-element-row > a {
 .toc-element-row:hover > a,
 .toc-container li.active > .toc-element-row:hover > a,
 .toc-container li.level1 > .toc-element-row:hover > a,
-.toc-container li.ancestor-of-active > .toc-element-row:hover > a {
+.toc-container li.ancestor-of-active > .toc-element-row:hover > a,
+.toc-element-row:hover > span.toc-title,
+.toc-container li.active > .toc-element-row:hover > span.toc-title,
+.toc-container li.level1 > .toc-element-row:hover > span.toc-title,
+.toc-container li.ancestor-of-active > .toc-element-row:hover > span.toc-title {
     color: #fff;
 }
 
@@ -1010,6 +1034,7 @@ table > caption {
     vertical-align: bottom;
     text-align: center;
     background-color: #ebebed;
+    border-color: #E2E2E2;
 }
 
 .choicetableborder {
@@ -1018,6 +1043,19 @@ table > caption {
 
 tbody, td, tfoot, th, thead, tr {
     border: 1px solid;
+    border-color: #E2E2E2;
+}
+
+.thead{
+    border-color: #E2E2E2;
+}
+
+.table>:not(:last-child)>:last-child>* {
+    border-color: #E2E2E2;
+}
+
+.sthead, .stentry, .strow{
+    border-color: #E2E2E2;
 }
 
 .stentry{
@@ -1054,8 +1092,7 @@ figure {
     display: table;
 }
 
-figcaption {
-    display: table-caption;
+.figure-title {
     caption-side: bottom;
     font-style: italic;
     padding-top: 1rem;
@@ -1086,7 +1123,8 @@ figure .table-callouts td {
 
 .admonition-icon {
     padding-right: 1.2rem;
-    padding-top: 1.2rem;
+    padding-top: 1em;
+    max-width: none;
 }
 
 .note {
@@ -1138,11 +1176,8 @@ li.linklist {
     padding: 13px 18px 13px 18px;
     border-radius: 50%;
     margin-bottom: 1.2rem;
-    border: 1rem solid hsla(0,0%,100%,.5);
-    background-clip: padding-box;
-    -webkit-backdrop-filter: blur(2px);
-    backdrop-filter: blur(2px);
     pointer-events: auto;
+    box-shadow: 0 0 40px 40px #ffffff;
 }
 /*--- Back to top button END ---*/
 
@@ -1449,3 +1484,18 @@ button, input, optgroup, select, textarea {
     background-color: #2c74eb;
 }
 /*--- Index page cards END---*/
+
+/*--- Download PDF START---*/
+.k-pdf-export h1.title {
+    color: #333333;
+}
+
+.k-pdf-export article {
+    color: #5E5E5E;
+    font-weight: normal;
+}
+
+.non-displayed {
+    display: none;
+}
+/*--- Download PDF END---*/

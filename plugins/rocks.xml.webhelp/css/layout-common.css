@@ -178,6 +178,7 @@
 
 .header-search-wrapper {
     display: grid;
+    margin-left: auto;
 }
 
 .search {
@@ -189,6 +190,10 @@
     grid-row-start: 1;
 }
 
+.rocks-header .search {
+    padding-right: 80px;
+}
+
 #search-button{
     background: url(../img/search.svg) center no-repeat;
     width: 40px;
@@ -198,6 +203,67 @@
     justify-self: end;
 }
 
+/* clears the 'X' from Internet Explorer */
+input#header-search-input::-ms-clear,
+input#header-search-input::-ms-reveal,
+.search-input-container > input.search-input::-ms-clear,
+.search-input-container > input.search-input::-ms-reveal {
+    display: none;
+    width: 0;
+    height: 0;
+}
+
+/* clears the 'X' from Chrome */
+input#header-search-input::-webkit-search-decoration,
+input#header-search-input::-webkit-search-cancel-button,
+input#header-search-input::-webkit-search-results-button,
+input#header-search-input::-webkit-search-results-decoration,
+.search-input-container > input.search-input::-webkit-search-decoration,
+.search-input-container > input.search-input::-webkit-search-cancel-button,
+.search-input-container > input.search-input::-webkit-search-results-button,
+.search-input-container > input.search-input::-webkit-search-results-decoration {
+    display: none;
+}
+
+#search-cancel-button,
+#sticky-search-cancel-button {
+    background: url(../img/search-close.svg) center no-repeat;
+    width: 40px;
+    grid-column-start: 1;
+    grid-column-end: -1;
+    grid-row-start: 1;
+    justify-self: end;
+    margin-right: 40px;
+    display: none;
+    z-index: 1;
+}
+
+.search-buttons-separator {
+    margin: 0.6rem 0;
+}
+
+.sticky-search-buttons-separator {
+    margin: 0.75rem 0;
+}
+
+.search-buttons-separator,
+.sticky-search-buttons-separator {
+    border-left: 1px solid #e7e7e7;
+    display: none;
+    height: 1rem;
+    grid-column-start: 1;
+    grid-column-end: -1;
+    grid-row-start: 1;
+    justify-self: end;
+    margin-right: 40px;
+}
+
+#search-cancel-button.show,
+#sticky-search-cancel-button.show,
+#search-cancel-button.show + .search-buttons-separator,
+#sticky-search-cancel-button.show + .sticky-search-buttons-separator {
+    display: block;
+}
 /* --- Main bar END --- */
 
 /* --- Footer START --- */
@@ -217,7 +283,7 @@
 .footer-text {
     padding: 1rem;
     text-decoration: none;
-    color: #5e5e5e;
+    color: #999999;
     font-size: 15px;
 }
 /* --- Footer END --- */
