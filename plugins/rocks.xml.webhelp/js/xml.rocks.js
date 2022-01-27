@@ -266,6 +266,54 @@ $(document).ready(function() {
     if(stickyElm !== null) {
         observer.observe(stickyElm);
     }
+
+    // Hide TOC on mobile page
+    if(($(window).width() < 721) && (!($('#toc-wrapper').hasClass('hidden')))) {
+        $('#toc-wrapper').addClass('hidden');
+        $('#button-hide-show-toc').addClass('hidden');
+        $('#button-expand-collapse').addClass('inactive');
+        $('#button-show-active').addClass('inactive');
+        $('.left-buttons-container').addClass('non-displayed');
+    }
+});
+
+// mobile-menu-button implementation
+$('#mobile-menu-button').click(function () {
+    if($('#toc-wrapper').hasClass('hidden')) {
+        $('#toc-wrapper').removeClass('hidden');
+        $('#button-hide-show-toc').removeClass('hidden');
+        $('#button-expand-collapse').removeClass('inactive');
+        $('#button-show-active').removeClass('inactive');
+        $('#mobile-menu-button').addClass('active');
+        $('.right-buttons-container').addClass('non-displayed');
+        $('.left-buttons-container').removeClass('non-displayed');
+    } else {
+        $('#toc-wrapper').addClass('hidden');
+        $('#button-hide-show-toc').addClass('hidden');
+        $('#button-expand-collapse').addClass('inactive');
+        $('#button-show-active').addClass('inactive');
+        $('#mobile-menu-button').removeClass('active');
+        $('.left-buttons-container').addClass('non-displayed');
+        $('.right-buttons-container').removeClass('non-displayed');
+    }
+});
+
+// Hide TOC on mobile page
+$(window).on('resize', function() {
+    if(($(window).width() < 721) && (!($('#toc-wrapper').hasClass('hidden')))) {
+        $('#toc-wrapper').addClass('hidden');
+        $('#button-hide-show-toc').addClass('hidden');
+        $('#button-expand-collapse').addClass('inactive');
+        $('#button-show-active').addClass('inactive');
+        $('#mobile-menu-button').removeClass('active');
+        $('.left-buttons-container').addClass('non-displayed');
+    } else if(($(window).width() < 721)) {
+        $('.left-buttons-container').addClass('non-displayed');
+        $('.right-buttons-container').removeClass('non-displayed');
+    } else {
+        $('.left-buttons-container').removeClass('non-displayed');
+        $('.right-buttons-container').removeClass('non-displayed');
+    }
 });
 
 function reloadDynamically(href){
