@@ -270,6 +270,8 @@
                 </div>
             </div>
 
+            <div class="shading-container-wrapper" id="shading-wrapper"></div>
+
             <main role="main">
                 <xsl:attribute name="class" select="'container max-width'"/>
 
