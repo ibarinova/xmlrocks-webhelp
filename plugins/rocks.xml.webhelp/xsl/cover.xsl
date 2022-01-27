@@ -81,92 +81,114 @@
 
     <xsl:template match="*[contains(@class, ' map/topicref ')][not(@toc = 'no')][not(@processing-role = 'resource-only')]" mode="tiles">
         <xsl:param name="pathFromMaplist"/>
+        <xsl:param name="topicrefTitle" select="''" tunnel="yes"/>
+        <xsl:param name="skipShortdesc" select="false()" tunnel="yes"/>
 
         <xsl:variable name="title">
-            <xsl:apply-templates select="." mode="get-navtitle"/>
+            <xsl:choose>
+                <xsl:when test="normalize-space($topicrefTitle)">
+                    <xsl:value-of select="$topicrefTitle"/>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:apply-templates select="." mode="get-navtitle"/>
+                </xsl:otherwise>
+            </xsl:choose>
         </xsl:variable>
 
         <xsl:variable name="shortdesc">
-            <xsl:apply-templates select="*[contains(@class, ' map/topicmeta ')]/*[contains(@class, ' map/shortdesc ')]" mode="text-only"/>
+            <xsl:choose>
+                <xsl:when test="$skipShortdesc"/>
+                <xsl:otherwise>
+                    <xsl:apply-templates select="*[contains(@class, ' map/topicmeta ')]/*[contains(@class, ' map/shortdesc ')]" mode="text-only"/>
+                </xsl:otherwise>
+            </xsl:choose>
         </xsl:variable>
 
-        <xsl:if test="normalize-space(@href)">
-            <div class="card-container col col-sm-4">
-                <div class="card">
-                    <div class="front face">
-                        <div class="chapter-title">
-                            <a>
-                                <xsl:attribute name="href">
-                                    <xsl:variable name="current-href">
-                                        <xsl:choose>
-                                            <xsl:when test="@copy-to and not(contains(@chunk, 'to-content')) and (not(@format) or @format = 'dita' or @format = 'ditamap') ">
-                                                <xsl:if test="not(@scope = 'external')">
-                                                    <xsl:value-of select="$pathFromMaplist"/>
-                                                </xsl:if>
-                                                <xsl:call-template name="replace-extension">
-                                                    <xsl:with-param name="filename" select="@copy-to"/>
-                                                    <xsl:with-param name="extension" select="$OUTEXT"/>
-                                                </xsl:call-template>
-                                                <xsl:if test="not(contains(@copy-to, '#')) and contains(@href, '#')">
-                                                    <xsl:value-of select="concat('#', substring-after(@href, '#'))"/>
-                                                </xsl:if>
-                                            </xsl:when>
-                                            <xsl:when
-                                                    test="not(@scope = 'external') and (not(@format) or @format = 'dita' or @format = 'ditamap')">
-                                                <xsl:if test="not(@scope = 'external')">
-                                                    <xsl:value-of select="$pathFromMaplist"/>
-                                                </xsl:if>
-                                                <xsl:call-template name="replace-extension">
-                                                    <xsl:with-param name="filename" select="@href"/>
-                                                    <xsl:with-param name="extension" select="$OUTEXT"/>
-                                                </xsl:call-template>
-                                            </xsl:when>
-                                            <xsl:otherwise>
-                                                <xsl:if test="not(@scope = 'external')">
-                                                    <xsl:value-of select="$pathFromMaplist"/>
-                                                </xsl:if>
-                                                <xsl:value-of select="@href"/>
-                                            </xsl:otherwise>
-                                        </xsl:choose>
-                                    </xsl:variable>
-                                    <xsl:variable name="current-href-fixed">
-                                        <xsl:choose>
-                                            <xsl:when test="(@chunk = 'to-content') and contains($current-href, '#')">
-                                                <xsl:value-of select="substring-before($current-href, '#')"/>
-                                            </xsl:when>
-                                            <xsl:otherwise>
-                                                <xsl:value-of select="$current-href"/>
-                                            </xsl:otherwise>
-                                        </xsl:choose>
-                                    </xsl:variable>
-                                    <xsl:value-of select="$current-href-fixed"/>
-                                </xsl:attribute>
+        <xsl:choose>
+            <xsl:when test="normalize-space(@href)">
+                <div class="card-container col col-sm-4">
+                    <div class="card">
+                        <div class="front face">
+                            <div class="chapter-title">
+                                <a>
+                                    <xsl:attribute name="href">
+                                        <xsl:variable name="current-href">
+                                            <xsl:choose>
+                                                <xsl:when test="@copy-to and not(contains(@chunk, 'to-content')) and (not(@format) or @format = 'dita' or @format = 'ditamap') ">
+                                                    <xsl:if test="not(@scope = 'external')">
+                                                        <xsl:value-of select="$pathFromMaplist"/>
+                                                    </xsl:if>
+                                                    <xsl:call-template name="replace-extension">
+                                                        <xsl:with-param name="filename" select="@copy-to"/>
+                                                        <xsl:with-param name="extension" select="$OUTEXT"/>
+                                                    </xsl:call-template>
+                                                    <xsl:if test="not(contains(@copy-to, '#')) and contains(@href, '#')">
+                                                        <xsl:value-of select="concat('#', substring-after(@href, '#'))"/>
+                                                    </xsl:if>
+                                                </xsl:when>
+                                                <xsl:when
+                                                        test="not(@scope = 'external') and (not(@format) or @format = 'dita' or @format = 'ditamap')">
+                                                    <xsl:if test="not(@scope = 'external')">
+                                                        <xsl:value-of select="$pathFromMaplist"/>
+                                                    </xsl:if>
+                                                    <xsl:call-template name="replace-extension">
+                                                        <xsl:with-param name="filename" select="@href"/>
+                                                        <xsl:with-param name="extension" select="$OUTEXT"/>
+                                                    </xsl:call-template>
+                                                </xsl:when>
+                                                <xsl:otherwise>
+                                                    <xsl:if test="not(@scope = 'external')">
+                                                        <xsl:value-of select="$pathFromMaplist"/>
+                                                    </xsl:if>
+                                                    <xsl:value-of select="@href"/>
+                                                </xsl:otherwise>
+                                            </xsl:choose>
+                                        </xsl:variable>
+                                        <xsl:variable name="current-href-fixed">
+                                            <xsl:choose>
+                                                <xsl:when test="(@chunk = 'to-content') and contains($current-href, '#')">
+                                                    <xsl:value-of select="substring-before($current-href, '#')"/>
+                                                </xsl:when>
+                                                <xsl:otherwise>
+                                                    <xsl:value-of select="$current-href"/>
+                                                </xsl:otherwise>
+                                            </xsl:choose>
+                                        </xsl:variable>
+                                        <xsl:value-of select="$current-href-fixed"/>
+                                    </xsl:attribute>
 
-                                <xsl:if test="@scope = 'external' or not(not(@format) or @format = 'dita' or @format = 'ditamap')">
-                                    <xsl:apply-templates select="." mode="external-link"/>
-                                </xsl:if>
+                                    <xsl:if test="@scope = 'external' or not(not(@format) or @format = 'dita' or @format = 'ditamap')">
+                                        <xsl:apply-templates select="." mode="external-link"/>
+                                    </xsl:if>
 
-                                <xsl:value-of select="$title"/>
-                            </a>
+                                    <xsl:value-of select="$title"/>
+                                </a>
+                            </div>
+                            <xsl:if test="normalize-space($shortdesc)">
+                                <div class="flip-card-button-container">
+                                    <button onclick="flipCard(this)" class="button-flip-card"><span class="tooltip-flip-card">See topic short description</span></button>
+                                </div>
+                            </xsl:if>
                         </div>
                         <xsl:if test="normalize-space($shortdesc)">
-                            <div class="flip-card-button-container">
-                                <button onclick="flipCard(this)" class="button-flip-card"><span class="tooltip-flip-card">See topic short description</span></button>
+                            <div class="back face">
+                                <div class="chapter-shortdesc">
+                                    <xsl:value-of select="$shortdesc"/>
+                                </div>
+                                <div class="flip-card-button-container">
+                                    <button onclick="flipCard(this)" class="button-flip-card"><span class="tooltip-flip-card">See topic title</span></button>
+                                </div>
                             </div>
                         </xsl:if>
                     </div>
-                    <xsl:if test="normalize-space($shortdesc)">
-                        <div class="back face">
-                            <div class="chapter-shortdesc">
-                                <xsl:value-of select="$shortdesc"/>
-                            </div>
-                            <div class="flip-card-button-container">
-                                <button onclick="flipCard(this)" class="button-flip-card"><span class="tooltip-flip-card">See topic title</span></button>
-                            </div>
-                        </div>
-                    </xsl:if>
                 </div>
-            </div>
-        </xsl:if>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:apply-templates select="descendant::*[contains(@class, ' map/topicref ')][normalize-space(@href)][1]" mode="tiles">
+                    <xsl:with-param name="topicrefTitle" select="$title" tunnel="yes"/>
+                    <xsl:with-param name="skipShortdesc" select="true()" tunnel="yes"/>
+                </xsl:apply-templates>
+            </xsl:otherwise>
+        </xsl:choose>
     </xsl:template>
 </xsl:stylesheet>
