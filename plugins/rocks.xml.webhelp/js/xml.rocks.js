@@ -163,6 +163,7 @@ function updatePageReloadingBehaviour(event) {
         event.preventDefault();
         window.history.pushState(currentHref, "", currentHref);
         reloadDynamically(currentHref);
+        $('.shading-container-wrapper').removeClass('grey');
     }
 }
 
@@ -295,4 +296,38 @@ function reloadDynamically(href){
 function flipCard(button) {
     var card = button.closest('.card');
     $(card).toggleClass('is-flipped');
+}
+
+// Adding class for mobile breadcrumbs
+function showBreadcrumbs(button) {
+    if ($('.head-breadcrumbs-child-elements').hasClass('show')) {
+        $('.head-breadcrumbs-child-elements').removeClass('show');
+        $('.head-breadcrumbs-child-elements').children().removeClass('show');
+    } else {
+        $('.head-breadcrumbs-child-elements').addClass('show');
+        $('.head-breadcrumbs-child-elements').children().addClass('show');
+        $('.shading-container-wrapper').addClass('grey');
+
+    }
+}
+
+// Close the mobile breadcrumbs if the user clicks outside block
+window.onclick = function (event) {
+    console.log(event.target);
+    if (!event.target.closest('.child-elements')
+        && !event.target.matches('.three-dots-separator')) {
+        closeSpan("head-breadcrumbs-child-elements");
+
+    }
+};
+
+function closeSpan(className){
+    var breadcrumbs = document.getElementsByClassName(className);
+    for (var i = 0; i < breadcrumbs.length; i++) {
+        var openBreadcrumbs = breadcrumbs[i];
+        if (openBreadcrumbs.classList.contains('show')) {
+            openBreadcrumbs.classList.remove('show');
+            $('.shading-container-wrapper').removeClass('grey');
+        }
+    }
 }

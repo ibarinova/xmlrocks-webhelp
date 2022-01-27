@@ -35,8 +35,30 @@
                 <xsl:text> </xsl:text>
             </span>
 
-            <xsl:apply-templates select="descendant-or-self::*[contains(@class, ' topic/topic ')][1]/*[contains(@class, ' topic/related-links ')]" mode="custom-breadcrumb"/>
-            <xsl:apply-templates select="descendant-or-self::*[contains(@class, ' topic/topic ')][1]/*[contains(@class, ' topic/title ')][1]" mode="text-only"/>
+            <button class="mobile-breadcrumbs-separator" id="mobile-separator-button" onclick="showBreadcrumbs()">
+                <span class="mobile-button-breadcrumbs">
+                    <img class="three-dots-separator" src="{$PATH2PROJ}img/three-dots.svg"/>
+                </span>
+            </button>
+
+            <span class="head-breadcrumbs-child-elements">
+
+                <button class="close-mobile-breadcrumbs">
+                    <span class="close-breadcrumbs">
+                        <img src="{$PATH2PROJ}img/search-close.svg"/>
+                    </span>
+            </button>
+                <span class="child-elements">
+                <xsl:apply-templates
+                        select="descendant-or-self::*[contains(@class, ' topic/topic ')][1]/*[contains(@class, ' topic/related-links ')]"
+                        mode="custom-breadcrumb"/>
+                    <span class="head-breadcrumbs-child-last-elements">
+                <xsl:apply-templates
+                        select="descendant-or-self::*[contains(@class, ' topic/topic ')][1]/*[contains(@class, ' topic/title ')][1]"
+                        mode="text-only"/>
+            </span>
+                </span>
+            </span>
         </div>
     </xsl:template>
 
