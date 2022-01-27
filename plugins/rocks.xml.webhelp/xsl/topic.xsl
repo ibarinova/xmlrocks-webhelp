@@ -173,6 +173,9 @@
 
             <div class="main-button-container-wrapper">
                 <div class="main-button-container max-width">
+                    <div class="mobile-menu-button-container">
+                        <button id="mobile-menu-button"/>
+                    </div>
                     <div class="left-buttons-container">
                         <div class="button-hide-show-toc-container">
                             <button onclick="hideOrShowTOC()" id="button-hide-show-toc">

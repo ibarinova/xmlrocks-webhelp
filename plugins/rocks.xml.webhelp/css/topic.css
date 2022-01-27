@@ -1499,3 +1499,68 @@ button, input, optgroup, select, textarea {
     display: none;
 }
 /*--- Download PDF END---*/
+
+#mobile-menu-button {
+    background-image: url(../img/menu.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: #FFFFFF;
+    padding: 20px;
+    font-size: 16px;
+    border: none;
+    left: 45em;
+    cursor: pointer;
+    top: 1.7em;
+    border-radius: 50%;
+}
+
+#mobile-menu-button.active {
+    background-image: url(../img/search-close.svg);
+}
+
+@media only screen and (min-width: 721px) {
+    .mobile-menu-button-container {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 721px) {
+
+    .button-hide-show-toc-container {
+        display: none;
+    }
+
+    .toc-container {
+        height: 100%;
+        max-width: 60%;
+    }
+
+    #toc-wrapper {
+        width: 100%;
+        transform: translateY(0%);
+        padding: 0;
+    }
+
+    #toc-wrapper.hidden {
+        height: 0;
+        transform: translateY(-100%);
+    }
+
+    #article-wrapper {
+        width: 100%;
+    }
+
+    .main-button-container-wrapper {
+        padding: 1px 0;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    #toc-wrapper {
+        width: 100%;
+    }
+
+    .toc-container {
+        max-width: 100%;
+    }
+}
