@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<vars xmlns="http://www.idiominc.com/opentopic/vars">
+
+    <variable id="Home">主页</variable>
+
+    <variable id="Search">搜索</variable>
+    <variable id="Search results">搜索结果</variable>
+
+    <variable id="Download">Download</variable>
+    <variable id="Download topic PDF">Download topic PDF</variable>
+    <variable id="Download common PDF">Download common PDF</variable>
+    <variable id="Print topic">打印主题</variable>
+    <variable id="Save to Google Drive">Save to Google Drive</variable>
+
+    <variable id="Show navigation">显示导航</variable>
+    <variable id="Hide navigation">隐藏导航</variable>
+    <variable id="Expand all">Expand all</variable>
+    <variable id="Collapse all">Collapse all</variable>
+    <variable id="Show active topic">Show active topic</variable>
+
+</vars>

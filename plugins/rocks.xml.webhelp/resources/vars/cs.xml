@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<vars xmlns="http://www.idiominc.com/opentopic/vars">
+
+    <variable id="Home">Domů</variable>
+
+    <variable id="Search">Hledat</variable>
+    <variable id="Search results">Výsledky hledání</variable>
+
+    <variable id="Download">Download</variable>
+    <variable id="Download topic PDF">Download topic PDF</variable>
+    <variable id="Download common PDF">Download common PDF</variable>
+    <variable id="Print topic">Vytisknout téma</variable>
+    <variable id="Save to Google Drive">Save to Google Drive</variable>
+
+    <variable id="Show navigation">Zobrazit navigaci</variable>
+    <variable id="Hide navigation">Skrýt navigaci</variable>
+    <variable id="Expand all">Expand all</variable>
+    <variable id="Collapse all">Collapse all</variable>
+    <variable id="Show active topic">Show active topic</variable>
+
+</vars>

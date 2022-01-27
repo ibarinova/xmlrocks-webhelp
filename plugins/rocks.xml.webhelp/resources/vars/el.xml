@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<vars xmlns="http://www.idiominc.com/opentopic/vars">
+
+    <variable id="Home">Αρχική</variable>
+
+    <variable id="Search">Αναζήτηση</variable>
+    <variable id="Search results">Αποτελέσματα αναζήτησης</variable>
+
+    <variable id="Download">Download</variable>
+    <variable id="Download topic PDF">Download topic PDF</variable>
+    <variable id="Download common PDF">Download common PDF</variable>
+    <variable id="Print topic">Εκτύπωση θέματος</variable>
+    <variable id="Save to Google Drive">Save to Google Drive</variable>
+
+    <variable id="Show navigation">Show navigation</variable>
+    <variable id="Hide navigation">Hide navigation</variable>
+    <variable id="Expand all">Expand all</variable>
+    <variable id="Collapse all">Collapse all</variable>
+    <variable id="Show active topic">Show active topic</variable>
+
+</vars>

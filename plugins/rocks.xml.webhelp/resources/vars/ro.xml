@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<vars xmlns="http://www.idiominc.com/opentopic/vars">
+
+    <variable id="Home">Acasă</variable>
+
+    <variable id="Search">Căutare</variable>
+    <variable id="Search results">Rezultatele căutării</variable>
+
+    <variable id="Download">Download</variable>
+    <variable id="Download topic PDF">Download topic PDF</variable>
+    <variable id="Download common PDF">Download common PDF</variable>
+    <variable id="Print topic">Tipărire temă</variable>
+    <variable id="Save to Google Drive">Save to Google Drive</variable>
+
+    <variable id="Show navigation">Mostrar navegação</variable>
+    <variable id="Hide navigation">Ocultar navegação</variable>
+    <variable id="Expand all">Expand all</variable>
+    <variable id="Collapse all">Collapse all</variable>
+    <variable id="Show active topic">Show active topic</variable>
+
+</vars>

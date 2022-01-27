@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<vars xmlns="http://www.idiominc.com/opentopic/vars">
+
+    <variable id="Home">Početak</variable>
+
+    <variable id="Search">Traži</variable>
+    <variable id="Search results">Rezultati pretraživanja</variable>
+
+    <variable id="Download">Download</variable>
+    <variable id="Download topic PDF">Download topic PDF</variable>
+    <variable id="Download common PDF">Download common PDF</variable>
+    <variable id="Print topic">Ispis teme</variable>
+    <variable id="Save to Google Drive">Save to Google Drive</variable>
+
+    <variable id="Show navigation">Show navigation</variable>
+    <variable id="Hide navigation">Hide navigation</variable>
+    <variable id="Expand all">Expand all</variable>
+    <variable id="Collapse all">Collapse all</variable>
+    <variable id="Show active topic">Show active topic</variable>
+
+</vars>

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<vars xmlns="http://www.idiominc.com/opentopic/vars">
+
+    <variable id="Home">Головна</variable>
+
+    <variable id="Search">Пошук</variable>
+    <variable id="Search results">Результати пошуку</variable>
+
+    <variable id="Download">Скачати PDF</variable>
+    <variable id="Download topic PDF">Скачати PDF поточної теми</variable>
+    <variable id="Download common PDF">Скачати загальний PDF</variable>
+    <variable id="Print topic">Друкувати тему</variable>
+    <variable id="Save to Google Drive">Зберегти в Google Drive</variable>
+
+    <variable id="Show navigation">Показати навігацію</variable>
+    <variable id="Hide navigation">Сховати навігацію</variable>
+    <variable id="Expand all">Розгорнути все</variable>
+    <variable id="Collapse all">Згорнути все</variable>
+    <variable id="Show active topic">Показати поточну тему</variable>
+
+</vars>

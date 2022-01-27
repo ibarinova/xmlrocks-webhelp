@@ -26,7 +26,9 @@
         <div class="head-breadcrumb max-width">
             <span class="home">
                 <a href="{concat($PATH2PROJ, 'index', $OUTEXT)}">
-                    <xsl:text>Home</xsl:text>
+                    <xsl:call-template name="getVariable">
+                        <xsl:with-param name="id" select="'Home'"/>
+                    </xsl:call-template>
                 </a>
                 <xsl:text> </xsl:text>
                 <pre class="breadcrumbs-separator">&gt;</pre>
