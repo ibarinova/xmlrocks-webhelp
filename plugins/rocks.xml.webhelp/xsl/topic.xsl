@@ -17,6 +17,8 @@
                select="'#default parent child sibling friend next previous cousin ancestor descendant sample external other'"
                as="xs:string"/>
 
+    <xsl:variable name="css-path-normalized" select="if($CSSPATH = '/') then('') else($CSSPATH)"/>
+
     <xsl:variable name="output-pdf-name" select="concat($name-of-map, '.pdf')"/>
     <xsl:variable name="output-pdf-full-path" select="concat($PATH2PROJ, 'pdf/',$output-pdf-name)"/>
 
@@ -36,7 +38,7 @@
                                                     [not(ancestor::*[contains(@chunk, 'to-content')])][@href][1]"/>
 
     <xsl:attribute-set name="banner">
-        <xsl:attribute name="class">rocks-header sticky-top accent-background-color</xsl:attribute>
+        <xsl:attribute name="class">rocks-header</xsl:attribute>
     </xsl:attribute-set>
 
     <xsl:template match="*" mode="chapterHead">
@@ -58,8 +60,6 @@
     </xsl:template>
 
     <xsl:template name="generateCssLinks">
-        <xsl:variable name="css-path-normalized" select="if($CSSPATH = '/') then('') else($CSSPATH)"/>
-
         <xsl:variable name="childlang" as="xs:string">
             <xsl:variable name="lang">
                 <xsl:choose>
