@@ -282,7 +282,7 @@ h6.title {
 }
 
 .breadcrumbs-separator {
-    content: url("../img/breadcrumbs-separator.svg");
+    content: url("../images/breadcrumbs-separator.svg");
     display: inline;
     margin: 2px 4px;
     width: 0.5em;
@@ -345,7 +345,7 @@ h6.title {
     text-align: center;
     margin-left: auto;
     margin-right: auto;
-    content: url(../img/toc-bottom-arrow.svg);
+    content: url(../images/toc-bottom-arrow.svg);
     color: #404040;
 }
 
@@ -412,14 +412,14 @@ h6.title {
 }
 
 .button-prev-nav {
-    content: url("../img/prev-button.svg");
+    content: url("../images/prev-button.svg");
     display: inline;
     margin-bottom: 0;
     width: 0.951rem;
 }
 
 .prev-button:hover > .button-prev-nav {
-    content: url("../img/prev-button-blue.svg");
+    content: url("../images/prev-button-blue.svg");
 }
 
 .next-button:hover {
@@ -427,14 +427,14 @@ h6.title {
 }
 
 .button-next-nav {
-    content: url("../img/next-button.svg");
+    content: url("../images/next-button.svg");
     display: inline;
     margin-bottom: 0;
     width: 0.951rem;
 }
 
 .next-button:hover > .button-next-nav {
-    content: url("../img/next-button-blue.svg");
+    content: url("../images/next-button-blue.svg");
 }
 
 /* --- Prev-Next buttons END --- */
@@ -510,7 +510,7 @@ a:hover{
 }
 
 #button-hide-show-toc {
-    background-image: url(../img/toc-hide.svg);
+    background-image: url(../images/toc-hide.svg);
     background-repeat: no-repeat;
     background-position: center;
     background-color: #FFFFFF;
@@ -522,16 +522,16 @@ a:hover{
 }
 
 #button-hide-show-toc:hover {
-    background-image: url(../img/toc-hide-white.svg);
+    background-image: url(../images/toc-hide-white.svg);
     background-color: #2c74eb;
 }
 
 #button-hide-show-toc.hidden {
-    background-image: url(../img/toc-show.svg);
+    background-image: url(../images/toc-show.svg);
 }
 
 #button-hide-show-toc.hidden:hover {
-    background-image: url(../img/toc-show-white.svg);
+    background-image: url(../images/toc-show-white.svg);
 }
 
 .button-expand-collapse-container {
@@ -546,7 +546,7 @@ a:hover{
 }
 
 #button-expand-collapse {
-    background-image: url(../img/toc-expand-all.svg);
+    background-image: url(../images/toc-expand-all.svg);
     background-repeat: no-repeat;
     background-position: center;
     background-color: #FFFFFF;
@@ -558,25 +558,25 @@ a:hover{
 }
 
 #button-expand-collapse.expanded {
-    background-image: url(../img/toc-collapse-all.svg);
+    background-image: url(../images/toc-collapse-all.svg);
 }
 
 #button-expand-collapse:not(.inactive):not(.expanded):hover {
-    background-image: url(../img/toc-expand-all-white.svg);
+    background-image: url(../images/toc-expand-all-white.svg);
     background-color: #2c74eb;
 }
 
 #button-expand-collapse:not(.inactive).expanded:hover {
-    background-image: url(../img/toc-collapse-all-white.svg);
+    background-image: url(../images/toc-collapse-all-white.svg);
     background-color: #2c74eb;
 }
 
 #button-expand-collapse.inactive {
-    background-image: url(../img/toc-expand-all-light.svg);
+    background-image: url(../images/toc-expand-all-light.svg);
 }
 
 #button-expand-collapse.expanded.inactive {
-    background-image: url(../img/toc-collapse-all-light.svg);
+    background-image: url(../images/toc-collapse-all-light.svg);
 }
 
 #button-expand-collapse.inactive:hover,
@@ -589,7 +589,7 @@ a:hover{
 }
 
 #button-show-active {
-    background-image: url(../img/toc-show-active.svg);
+    background-image: url(../images/toc-show-active.svg);
     background-repeat: no-repeat;
     background-position: center;
     background-color: #FFFFFF;
@@ -601,12 +601,12 @@ a:hover{
 }
 
 #button-show-active:hover {
-    background-image: url(../img/toc-show-active-white.svg);
+    background-image: url(../images/toc-show-active-white.svg);
     background-color: #2c74eb;
 }
 
 #button-show-active.inactive {
-    background-image: url(../img/toc-show-active-light.svg);
+    background-image: url(../images/toc-show-active-light.svg);
 }
 
 #button-show-active.inactive:hover {
@@ -614,7 +614,7 @@ a:hover{
 }
 
 .button-dropdown-download {
-    background-image: url(../img/download.svg);
+    background-image: url(../images/download.svg);
     background-repeat: no-repeat;
     background-position: center;
     background-color: #FFFFFF;
@@ -629,7 +629,7 @@ a:hover{
 
 .button-dropdown-download:hover,
 .button-dropdown-download:focus {
-    background-image: url(../img/download-white.svg);
+    background-image: url(../images/download-white.svg);
     background-color: #2c74eb;
 }
 
@@ -658,7 +658,7 @@ a:hover{
 }
 
 .button-print {
-    background-image: url(../img/print.svg);
+    background-image: url(../images/print.svg);
     background-repeat: no-repeat;
     background-position: center;
     background-color: #FFFFFF;
@@ -672,12 +672,12 @@ a:hover{
 }
 
 .button-print:hover {
-    background-image: url(../img/print-white.svg);
+    background-image: url(../images/print-white.svg);
     background-color: #2c74eb;
 }
 
 .button-dropdown-share-google-drive {
-    background-image: url(../img/save-to-drive.svg);
+    background-image: url(../images/save-to-drive.svg);
     background-repeat: no-repeat;
     background-position: center;
     background-color: #FFFFFF;
@@ -691,7 +691,7 @@ a:hover{
 
 .button-dropdown-share-google-drive:hover,
 .button-dropdown-share-google-drive:focus {
-    background-image: url(../img/save-to-drive-white.svg);
+    background-image: url(../images/save-to-drive-white.svg);
     background-color: #2c74eb;
 }
 
@@ -751,7 +751,7 @@ a:hover{
 }
 
 .expand-collapse-search {
-    background: url(../img/search-grey.svg) center no-repeat;
+    background: url(../images/search-grey.svg) center no-repeat;
     background-color: #FFFFFF;
     padding: 20px;
     font-size: 16px;
@@ -764,16 +764,16 @@ a:hover{
 }
 
 .expand-collapse-search:hover {
-    background: url(../img/search-white.svg) center no-repeat;
+    background: url(../images/search-white.svg) center no-repeat;
     background-color: #2c74eb;
 }
 
 .expand-collapse-search-container.expanded .expand-collapse-search {
-    background: url(../img/search-close.svg) center no-repeat;
+    background: url(../images/search-close.svg) center no-repeat;
 }
 
 .expand-collapse-search-container.expanded .expand-collapse-search:hover {
-    background: url(../img/search-close-white.svg) center no-repeat;
+    background: url(../images/search-close-white.svg) center no-repeat;
     background-color: #2c74eb;
 }
 
@@ -827,7 +827,7 @@ a:hover{
 }
 
 #sticky-search-button {
-    background: url(../img/search-grey.svg) center no-repeat;
+    background: url(../images/search-grey.svg) center no-repeat;
     height: 40px;
     width: 40px;
     grid-column-start: 1;
@@ -1027,37 +1027,37 @@ li.ancestor-of-active > .toc-element-row > a {
     height: 40px;
     background-position: center;
     background-repeat: no-repeat;
-    background-image: url(../img/toc-bottom-arrow.svg);
+    background-image: url(../images/toc-bottom-arrow.svg);
 }
 
 .toc-container li.level1 > .toc-element-row > .button-toc-expand-collapse,
 .toc-container li.ancestor-of-active > .toc-element-row > .button-toc-expand-collapse {
-    background-image: url("../img/toc-bottom-arrow-dark.svg");
+    background-image: url("../images/toc-bottom-arrow-dark.svg");
 }
 
 .toc-container li.expanded > .toc-element-row > .button-toc-expand-collapse {
-    background-image: url("../img/toc-top-arrow.svg");
+    background-image: url("../images/toc-top-arrow.svg");
 }
 
 .toc-container li.expanded.level1 > .toc-element-row > .button-toc-expand-collapse,
 .toc-container li.expanded.ancestor-of-active > .toc-element-row > .button-toc-expand-collapse {
-    background-image: url("../img/toc-top-arrow-dark.svg");
+    background-image: url("../images/toc-top-arrow-dark.svg");
 }
 
 .toc-container li.active > .toc-element-row > .button-toc-expand-collapse {
-    background-image: url("../img/toc-bottom-arrow-blue.svg");
+    background-image: url("../images/toc-bottom-arrow-blue.svg");
 }
 
 .toc-container li.active.expanded > .toc-element-row > .button-toc-expand-collapse {
-    background-image: url("../img/toc-top-arrow-blue.svg");
+    background-image: url("../images/toc-top-arrow-blue.svg");
 }
 
 .toc-container li > .toc-element-row:hover > .button-toc-expand-collapse {
-    background-image: url("../img/toc-bottom-arrow-white.svg");
+    background-image: url("../images/toc-bottom-arrow-white.svg");
 }
 
 .toc-container li.expanded > .toc-element-row:hover > .button-toc-expand-collapse {
-    background-image: url("../img/toc-top-arrow-white.svg");
+    background-image: url("../images/toc-top-arrow-white.svg");
 }
 
 /* Smooth scroll */
@@ -1545,7 +1545,7 @@ button, input, optgroup, select, textarea {
 }
 
 .button-flip-card {
-    background-image: url("../img/flip-card.svg");
+    background-image: url("../images/flip-card.svg");
     background-repeat: no-repeat;
     background-position: center;
     width: 100%;
@@ -1556,7 +1556,7 @@ button, input, optgroup, select, textarea {
 }
 
 .button-flip-card:hover {
-    background-image: url(../img/flip-card-white.svg);
+    background-image: url(../images/flip-card-white.svg);
     background-color: #2c74eb;
 }
 /*--- Index page cards END---*/
@@ -1577,7 +1577,7 @@ button, input, optgroup, select, textarea {
 /*--- Download PDF END---*/
 
 #mobile-menu-button {
-    background-image: url(../img/menu.svg);
+    background-image: url(../images/menu.svg);
     background-repeat: no-repeat;
     background-position: center;
     background-color: #FFFFFF;
@@ -1591,7 +1591,7 @@ button, input, optgroup, select, textarea {
 }
 
 #mobile-menu-button.active {
-    background-image: url(../img/search-close.svg);
+    background-image: url(../images/search-close.svg);
 }
 
 @media only screen and (min-width: 721px) {
