@@ -123,7 +123,7 @@
     </xsl:template>
 
     <xsl:template name="addFavicon">
-        <link rel="icon" type="image/png" href="{$PATH2PROJ}img/favicon.png"/>
+        <link rel="icon" type="image/png" href="{$PATH2PROJ}resources/images/favicon.png"/>
     </xsl:template>
 
     <xsl:template match="*" mode="chapterBody">
@@ -452,13 +452,12 @@
 
     <xsl:template name="insertBackToTopButton">
         <button type="button" class="go-to-top accent-background-color" id="button-back-to-top" onclick="backToTop()">
-            <img src="{$PATH2PROJ}img/go-to-top.svg"/>
+            <img src="{$PATH2PROJ}resources/images/go-to-top.svg"/>
         </button>
     </xsl:template>
 
     <xsl:template name="insertJavaScript">
         <script src="{$PATH2PROJ}lib/jquery-3.6.0.min.js"></script>
-        <script src="{$PATH2PROJ}lib/popper.min.js"></script>
         <script src="{$PATH2PROJ}lib/platform.js"></script>
         <script src="{$PATH2PROJ}lib/angular.min.js"></script>
         <script src="{$PATH2PROJ}lib/jszip.min.js"></script>
@@ -624,7 +623,7 @@
             <tbody>
                 <tr>
                     <td>
-                        <img src="{concat($PATH2PROJ, 'img/', $image-name)}.svg" class="admonition-icon"/>
+                        <img src="{concat($PATH2PROJ, 'resources/images/', $image-name)}.svg" class="admonition-icon"/>
                     </td>
                     <td>
                         <div>

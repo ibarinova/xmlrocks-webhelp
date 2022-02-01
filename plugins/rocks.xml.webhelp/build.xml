@@ -32,19 +32,19 @@
 
     <target name="dita2xmlrocks-webhelp.copy-resources">
         <copy todir="${output.dir}/${args.csspath}">
-            <fileset dir="${dita.plugin.rocks.xml.webhelp.dir}/css">
+            <fileset dir="${dita.plugin.rocks.xml.webhelp.dir}/resources/css">
                 <include name="**/*.*"/>
             </fileset>
         </copy>
 
-        <copy todir="${output.dir}/img">
-            <fileset dir="${dita.plugin.rocks.xml.webhelp.dir}/img">
+        <copy todir="${output.dir}/resources/images">
+            <fileset dir="${dita.plugin.rocks.xml.webhelp.dir}/resources/images">
                 <include name="**/*.*"/>
             </fileset>
         </copy>
 
         <copy todir="${output.dir}/lib">
-            <fileset dir="${dita.plugin.rocks.xml.webhelp.dir}/js">
+            <fileset dir="${dita.plugin.rocks.xml.webhelp.dir}/resources/js">
                 <include name="**/*.*"/>
             </fileset>
         </copy>
@@ -55,8 +55,8 @@
             </fileset>
         </copy>
 
-        <copy todir="${output.dir}/fonts">
-            <fileset dir="${dita.plugin.rocks.xml.webhelp.dir}/fonts"/>
+        <copy todir="${output.dir}/resources/fonts">
+            <fileset dir="${dita.plugin.rocks.xml.webhelp.dir}/resources/fonts"/>
         </copy>
     </target>
 
