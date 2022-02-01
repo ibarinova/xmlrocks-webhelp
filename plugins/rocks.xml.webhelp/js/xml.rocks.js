@@ -361,7 +361,6 @@ function showBreadcrumbs(button) {
 
 // Close the mobile breadcrumbs if the user clicks outside block
 window.onclick = function (event) {
-    console.log(event.target);
     if (!event.target.closest('.child-elements')
         && !event.target.matches('.three-dots-separator')) {
         closeSpan("head-breadcrumbs-child-elements");
