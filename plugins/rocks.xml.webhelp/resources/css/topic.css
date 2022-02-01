@@ -4,7 +4,7 @@ article {
 }
 
 a {
-    color: #2c74eb;
+    color: var(--accent-color);
     text-decoration: none;
 }
 
@@ -265,7 +265,7 @@ h6.title {
 }
 
 .head-breadcrumb a:hover {
-    color: #2c74eb;
+    color: var(--accent-color);
 }
 
 .head-breadcrumb a:hover,
@@ -408,7 +408,7 @@ h6.title {
 }
 
 .prev-button:hover {
-    color: #2c74eb;
+    color: var(--accent-color);
 }
 
 .button-prev-nav {
@@ -423,7 +423,7 @@ h6.title {
 }
 
 .next-button:hover {
-    color: #2c74eb;
+    color: var(--accent-color);
 }
 
 .button-next-nav {
@@ -474,7 +474,7 @@ h6.title {
 
 #download-output-btn:hover{
     display: block;
-    background-color: #2c74eb;
+    background-color: var(--accent-bg-color);
     width: 100%;
 }
 
@@ -499,7 +499,7 @@ a:hover{
 
 #download-page-btn:hover {
     display: block;
-    background-color: #2c74eb;
+    background-color: var(--accent-bg-color);
     width: 100%;
 }
 
@@ -523,7 +523,7 @@ a:hover{
 
 #button-hide-show-toc:hover {
     background-image: url(../images/toc-hide-white.svg);
-    background-color: #2c74eb;
+    background-color: var(--accent-bg-color);
 }
 
 #button-hide-show-toc.hidden {
@@ -563,12 +563,12 @@ a:hover{
 
 #button-expand-collapse:not(.inactive):not(.expanded):hover {
     background-image: url(../images/toc-expand-all-white.svg);
-    background-color: #2c74eb;
+    background-color: var(--accent-bg-color);
 }
 
 #button-expand-collapse:not(.inactive).expanded:hover {
     background-image: url(../images/toc-collapse-all-white.svg);
-    background-color: #2c74eb;
+    background-color: var(--accent-bg-color);
 }
 
 #button-expand-collapse.inactive {
@@ -602,7 +602,7 @@ a:hover{
 
 #button-show-active:hover {
     background-image: url(../images/toc-show-active-white.svg);
-    background-color: #2c74eb;
+    background-color: var(--accent-bg-color);
 }
 
 #button-show-active.inactive {
@@ -630,7 +630,7 @@ a:hover{
 .button-dropdown-download:hover,
 .button-dropdown-download:focus {
     background-image: url(../images/download-white.svg);
-    background-color: #2c74eb;
+    background-color: var(--accent-bg-color);
 }
 
 .dropdown-content-download {
@@ -673,7 +673,7 @@ a:hover{
 
 .button-print:hover {
     background-image: url(../images/print-white.svg);
-    background-color: #2c74eb;
+    background-color: var(--accent-bg-color);
 }
 
 .button-dropdown-share-google-drive {
@@ -692,7 +692,7 @@ a:hover{
 .button-dropdown-share-google-drive:hover,
 .button-dropdown-share-google-drive:focus {
     background-image: url(../images/save-to-drive-white.svg);
-    background-color: #2c74eb;
+    background-color: var(--accent-bg-color);
 }
 
 .dropdown-google-drive {
@@ -765,7 +765,7 @@ a:hover{
 
 .expand-collapse-search:hover {
     background: url(../images/search-white.svg) center no-repeat;
-    background-color: #2c74eb;
+    background-color: var(--accent-bg-color);
 }
 
 .expand-collapse-search-container.expanded .expand-collapse-search {
@@ -774,7 +774,7 @@ a:hover{
 
 .expand-collapse-search-container.expanded .expand-collapse-search:hover {
     background: url(../images/search-close-white.svg) center no-repeat;
-    background-color: #2c74eb;
+    background-color: var(--accent-bg-color);
 }
 
 .main-button-container-wrapper {
@@ -1004,11 +1004,11 @@ li.ancestor-of-active > .toc-element-row > a {
 }
 
 .toc-element-row:hover {
-    background-color: #2c74eb;
+    background-color: var(--accent-bg-color);
 }
 
 .toc-container li.active > .toc-element-row > a {
-    color: #2c74eb;
+    color: var(--accent-color);
 }
 
 .toc-element-row:hover > a,
@@ -1247,7 +1247,7 @@ li.linklist {
 #button-back-to-top {
     position: relative;
     display: none;
-    background-color: #2c74eb;
+    background-color: var(--accent-bg-color);
     margin-left: auto;
     padding: 13px 18px 13px 18px;
     border-radius: 50%;
@@ -1523,7 +1523,7 @@ button, input, optgroup, select, textarea {
 }
 
 .card:hover a{
-    color: #2c74eb;
+    color: var(--accent-color);
 }
 
 .card.is-flipped {
@@ -1557,7 +1557,7 @@ button, input, optgroup, select, textarea {
 
 .button-flip-card:hover {
     background-image: url(../images/flip-card-white.svg);
-    background-color: #2c74eb;
+    background-color: var(--accent-bg-color);
 }
 /*--- Index page cards END---*/
 

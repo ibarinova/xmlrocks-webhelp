@@ -3,6 +3,7 @@
 
   <xsl:import href="plugin:rocks.xml.webhelp:xsl/cover.xsl"/>
   <xsl:import href="plugin:rocks.xml.webhelp:xsl/search.xsl"/>
+  <xsl:import href="plugin:rocks.xml.webhelp:xsl/color_scheme_css.xsl"/>
 
   <dita:extension id="rocks.xsl.html5.cover"
                   behavior="org.dita.dost.platform.ImportXSLAction"

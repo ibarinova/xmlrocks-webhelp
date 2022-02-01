@@ -160,6 +160,7 @@
 /* --- Main bar START --- */
 .rocks-header {
     position: relative;
+    background-color: var(--header-bg-color);
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
 }
@@ -268,7 +269,7 @@ input#header-search-input::-webkit-search-results-decoration,
 
 /* --- Footer START --- */
 .footer-container {
-    background-color: #000000;
+    background-color: var(--footer-bg-color);
     display: block;
     margin-left: auto;
     margin-right: auto;
