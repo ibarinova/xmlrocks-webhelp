@@ -391,7 +391,11 @@
                 <a href="{$PATH2PROJ}index.html"
                    class="d-flex align-items-center text-light text-decoration-none header-logo">
                 </a>
-                <span class="tooltip-logo">Home</span>
+                <span class="tooltip-logo">
+                    <xsl:call-template name="getVariable">
+                        <xsl:with-param name="id" select="'Home'"/>
+                    </xsl:call-template>
+                </span>
             </div>
 
             <span class="header-title">
@@ -412,8 +416,18 @@
             </span>
 
             <nav class="header-search-wrapper">
-                <input id="header-search-input" class="form-control search" type="search" placeholder="Search"
-                       aria-label="Search"/>
+                <input id="header-search-input" class="form-control search" type="search">
+                    <xsl:attribute name="placeholder">
+                        <xsl:call-template name="getVariable">
+                            <xsl:with-param name="id" select="'Search'"/>
+                        </xsl:call-template>
+                    </xsl:attribute>
+                    <xsl:attribute name="arial-label">
+                        <xsl:call-template name="getVariable">
+                            <xsl:with-param name="id" select="'Search'"/>
+                        </xsl:call-template>
+                    </xsl:attribute>
+                </input>
                 <button id="search-cancel-button"/>
                 <div class="search-buttons-separator"></div>
                 <button id="search-button"/>
