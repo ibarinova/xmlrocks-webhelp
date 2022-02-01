@@ -37,7 +37,7 @@
 
             <button class="mobile-breadcrumbs-separator" id="mobile-separator-button" onclick="showBreadcrumbs()">
                 <span class="mobile-button-breadcrumbs">
-                    <img class="three-dots-separator" src="{$PATH2PROJ}resources/images/three-dots.svg"/>
+                    <img class="three-dots-separator" src="{$PATH2PROJ}images/three-dots.svg"/>
                 </span>
             </button>
 
@@ -45,7 +45,7 @@
 
                 <button class="close-mobile-breadcrumbs">
                     <span class="close-breadcrumbs">
-                        <img src="{$PATH2PROJ}resources/images/search-close.svg"/>
+                        <img src="{$PATH2PROJ}images/search-close.svg"/>
                     </span>
             </button>
                 <span class="child-elements">

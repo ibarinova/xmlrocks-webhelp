@@ -37,7 +37,7 @@
             </fileset>
         </copy>
 
-        <copy todir="${output.dir}/resources/images">
+        <copy todir="${output.dir}/images">
             <fileset dir="${dita.plugin.rocks.xml.webhelp.dir}/resources/images">
                 <include name="**/*.*"/>
             </fileset>
@@ -55,7 +55,7 @@
             </fileset>
         </copy>
 
-        <copy todir="${output.dir}/resources/fonts">
+        <copy todir="${output.dir}/fonts">
             <fileset dir="${dita.plugin.rocks.xml.webhelp.dir}/resources/fonts"/>
         </copy>
     </target>

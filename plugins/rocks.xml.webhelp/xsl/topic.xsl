@@ -123,7 +123,7 @@
     </xsl:template>
 
     <xsl:template name="addFavicon">
-        <link rel="icon" type="image/png" href="{$PATH2PROJ}resources/images/favicon.png"/>
+        <link rel="icon" type="image/png" href="{$PATH2PROJ}images/favicon.png"/>
     </xsl:template>
 
     <xsl:template match="*" mode="chapterBody">
@@ -452,7 +452,7 @@
 
     <xsl:template name="insertBackToTopButton">
         <button type="button" class="go-to-top accent-background-color" id="button-back-to-top" onclick="backToTop()">
-            <img src="{$PATH2PROJ}resources/images/go-to-top.svg"/>
+            <img src="{$PATH2PROJ}images/go-to-top.svg"/>
         </button>
     </xsl:template>
 
@@ -623,7 +623,7 @@
             <tbody>
                 <tr>
                     <td>
-                        <img src="{concat($PATH2PROJ, 'resources/images/', $image-name)}.svg" class="admonition-icon"/>
+                        <img src="{concat($PATH2PROJ, 'images/', $image-name)}.svg" class="admonition-icon"/>
                     </td>
                     <td>
                         <div>
