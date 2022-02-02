@@ -8,4 +8,8 @@
     <param name="organization-name" expression="${organization-name}" if:set="organization-name"/>
     <param name="two-col-fig-callouts" expression="${two-col-fig-callouts}" if:set="two-col-fig-callouts"/>
     <param name="name-of-map" expression="${name-of-map}"/>
+    <param name="header-bg-color" expression="${header-bg-color}" if:set="header-bg-color"/>
+    <param name="accent-bg-color" expression="${accent-bg-color}" if:set="accent-bg-color"/>
+    <param name="accent-color" expression="${accent-color}" if:set="accent-color"/>
+    <param name="footer-bg-color" expression="${footer-bg-color}" if:set="footer-bg-color"/>
 </params>

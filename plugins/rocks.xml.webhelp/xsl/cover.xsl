@@ -65,6 +65,7 @@
             <xsl:call-template name="insertJavaScript"/>
         </body>
         <xsl:call-template name="addSearchPage"/>
+        <xsl:call-template name="addColorSchemeCSS"/>
     </xsl:template>
 
     <xsl:template match="*[contains(@class, ' map/map ')]" mode="tiles">
