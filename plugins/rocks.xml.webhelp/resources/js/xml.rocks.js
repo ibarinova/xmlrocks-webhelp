@@ -2,10 +2,20 @@ var backToTopButton = document.getElementById("button-back-to-top"),
     state = null;
 
 window.onscroll = function() {
+    // On scroll turn on and off back to top button
     if (document.documentElement.scrollTop > 20) {
         backToTopButton.style.display = "block";
     } else {
         backToTopButton.style.display = "none";
+    }
+
+    // On scroll hide/show search button in the buttons container
+    if ($(window).scrollTop() >= $('.main-button-container-wrapper').offset().top) {
+        $('.main-button-container-wrapper').addClass('is-sticky');
+    } else {
+        $('.main-button-container-wrapper').removeClass('is-sticky');
+        $('.topic-page-sticky-search-container').removeClass('expanded');
+        $('.expand-collapse-search-container').removeClass('expanded');
     }
 }
 
@@ -254,17 +264,9 @@ $(document).ready(function() {
         }
     });
 
-    // Get the sticky element
-    const stickyElm = document.querySelector('.main-button-container-wrapper');
-
-    // Add class 'is-sticky' if buttons bar reaches the top of the viewport
-    const observer = new IntersectionObserver(
-        ([e]) => e.target.classList.toggle('is-sticky', e.intersectionRatio < 1),
-        {threshold: [1]}
-    );
-
-    if(stickyElm !== null) {
-        observer.observe(stickyElm);
+    // When page reloads stick main-button-container to the top if needed
+    if ($(window).scrollTop() >= $('.main-button-container-wrapper').offset().top) {
+        $('.main-button-container-wrapper').addClass('is-sticky');
     }
 
     // Hide TOC on mobile page
