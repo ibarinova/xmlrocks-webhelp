@@ -114,9 +114,13 @@
                     <xsl:with-param name="extension" select="$OUTEXT"/>
                     <xsl:with-param name="ignore-fragment" select="true()"/>
                 </xsl:call-template>
-                <xsl:if test="contains(@href, '#') and not((@role = 'child') and contains(@class, ' topic/link '))">
+                <xsl:choose>
+                    <xsl:when test="(@role = 'child') and contains(@class, ' topic/link ')"/>
+                    <xsl:when test="contains(@href, '#')">
+                        <xsl:text>#</xsl:text>
                     <xsl:value-of select="dita-ot:generate-id(dita-ot:get-topic-id(@href), dita-ot:get-element-id(@href))"/>
-                </xsl:if>
+                    </xsl:when>
+                </xsl:choose>
             </xsl:when>
             <xsl:otherwise>
                 <xsl:apply-templates select="." mode="ditamsg:unknown-extension"/>
