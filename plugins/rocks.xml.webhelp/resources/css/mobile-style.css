@@ -17,6 +17,14 @@
     .close-mobile-breadcrumbs{
         display: none;
     }
+
+    .prev-topic{
+        display: none;
+    }
+
+    .next-topic{
+        display: none;
+    }
 }
 .close-mobile-breadcrumbs.show{
     pointer-events: auto;
