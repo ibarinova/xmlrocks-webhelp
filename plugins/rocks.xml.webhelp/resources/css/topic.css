@@ -377,6 +377,13 @@ h6.title {
 
 .right-buttons-container {
     height: 40px;
+    width: 136px;
+    transition: all ease-in-out .1s;
+}
+
+.main-button-container-wrapper.is-sticky .right-buttons-container {
+    width: 208px;
+    transition: all ease-in-out .1s;
 }
 
 .main-button-container .dropdown-download {
@@ -659,19 +666,13 @@ a:hover{
 
 .expand-collapse-search-container {
     display: inline-block;
-    position: relative;
-    transform: translateX(100%);
-    transition: all ease-in-out .5s;
     opacity: 0;
-    width: 0;
 }
 
 .is-sticky .expand-collapse-search-container {
     display: inline-block;
-    transform: translateX(0%);
     transition: all ease-in-out .5s;
     opacity: 100%;
-    width: 73px;
 }
 
 .expand-collapse-search {
