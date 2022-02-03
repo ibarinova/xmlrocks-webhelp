@@ -479,9 +479,11 @@
             <pre class="button-prev-nav"/>
             <xsl:text>&#32;</xsl:text>
 
-            <xsl:call-template name="getVariable">
-                <xsl:with-param name="id" select="'Previous topic'"/>
-            </xsl:call-template>
+            <span class="prev-topic">
+                <xsl:call-template name="getVariable">
+                    <xsl:with-param name="id" select="'Previous topic'"/>
+                </xsl:call-template>
+            </span>
 
             <span class="prev-button-tooltip">
                 <xsl:apply-templates select="$prev-topicref" mode="get-navtitle"/>
@@ -499,9 +501,11 @@
                 </xsl:call-template>
             </xsl:attribute>
 
-            <xsl:call-template name="getVariable">
-                <xsl:with-param name="id" select="'Next topic'"/>
-            </xsl:call-template>
+            <span class="next-topic">
+                <xsl:call-template name="getVariable">
+                    <xsl:with-param name="id" select="'Next topic'"/>
+                </xsl:call-template>
+            </span>
 
             <xsl:text>&#32;</xsl:text>
             <pre class="button-next-nav"/>
