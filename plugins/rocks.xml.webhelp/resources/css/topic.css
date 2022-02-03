@@ -719,7 +719,7 @@ a:hover{
     opacity: 0;
     transition: all ease-in-out .5s;
     z-index: 3;
-    transform: translateY(0);
+    transform: translateY(-100%);
     background-color: #ffffff;
     box-shadow: 0 10px 10px #f3f3f3;
 }
