@@ -377,6 +377,7 @@ function closeSpan(className){
         if (openBreadcrumbs.classList.contains('show')) {
             openBreadcrumbs.classList.remove('show');
             $('.shading-container-wrapper').removeClass('grey');
+            $('.head-breadcrumbs-child-elements').children().removeClass('show');
         }
     }
 }
