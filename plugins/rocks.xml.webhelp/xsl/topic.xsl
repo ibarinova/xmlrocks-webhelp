@@ -480,9 +480,9 @@
             <xsl:text>&#32;</xsl:text>
 
             <span class="prev-topic">
-            <xsl:call-template name="getVariable">
-                <xsl:with-param name="id" select="'Previous topic'"/>
-            </xsl:call-template>
+                <xsl:call-template name="getVariable">
+                    <xsl:with-param name="id" select="'Previous topic'"/>
+                </xsl:call-template>
             </span>
 
             <span class="prev-button-tooltip">
@@ -502,9 +502,9 @@
             </xsl:attribute>
 
             <span class="next-topic">
-            <xsl:call-template name="getVariable">
-                <xsl:with-param name="id" select="'Next topic'"/>
-            </xsl:call-template>
+                <xsl:call-template name="getVariable">
+                    <xsl:with-param name="id" select="'Next topic'"/>
+                </xsl:call-template>
             </span>
 
             <xsl:text>&#32;</xsl:text>
