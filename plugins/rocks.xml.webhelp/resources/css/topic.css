@@ -397,10 +397,10 @@ h6.title {
 
 #download-output-btn{
     color: #5e5e5e;
-    padding-left: 6px;
     font-size: 16px;
     font-weight: normal;
     width: 100%;
+    padding: 0.3em 0.5em;
 }
 
 #download-output-btn:hover{
@@ -409,8 +409,14 @@ h6.title {
     width: 100%;
 }
 
-.download-output:hover {
-    color: #bbbbbb;
+#download-page-btn:hover .download-page{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+
+#download-output-btn:hover .download-output{
+    color: #FFFFFF;
+    text-decoration: none;
 }
 
 a:hover{
@@ -422,10 +428,7 @@ a:hover{
     font-size: 16px;
     font-weight: normal;
     width: 100%;
-}
-
-.download-page:hover {
-    color: #bbbbbb;
+    padding: 0.3em 0.5em;
 }
 
 #download-page-btn:hover {
@@ -567,17 +570,16 @@ a:hover{
 .dropdown-content-download {
     display: none;
     position: absolute;
-    background-color: #f1f1f1;
+    background-color: #f8f8f8;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
-    right: 10%;
-    top: 2.7em;
+    right: 0;
+    top: 3.3em;
     width: 16rem;
 }
 
 .dropdown-content-download div {
-    color: black;
+    color: #5e5e5e;
     padding-left: 0.5rem;
     text-decoration: none;
     text-align: left;

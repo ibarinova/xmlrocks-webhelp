@@ -239,13 +239,12 @@
                                             </div>
                                         </button>
                                         <button id="download-output-btn">
-                                            <a href="{$output-pdf-full-path}" target="_blank">
-                                                <div class="download-output">
-                                                    <xsl:call-template name="getVariable">
-                                                        <xsl:with-param name="id" select="'Download common PDF'"/>
-                                                    </xsl:call-template>
-                                                </div>
-                                            </a>
+                                            <div class="download-output">
+                                                <a href="{$output-pdf-full-path}" target="_blank"/>
+                                                <xsl:call-template name="getVariable">
+                                                    <xsl:with-param name="id" select="'Download common PDF'"/>
+                                                </xsl:call-template>
+                                            </div>
                                         </button>
                                     </div>
                                 </div>
