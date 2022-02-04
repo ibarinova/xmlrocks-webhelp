@@ -377,13 +377,12 @@ h6.title {
 
 .right-buttons-container {
     height: 40px;
-    width: 136px;
-    transition: all ease-in-out .1s;
+    max-width: 136px;
+    text-align: right;
 }
 
 .main-button-container-wrapper.is-sticky .right-buttons-container {
-    width: 208px;
-    transition: all ease-in-out .1s;
+    max-width: 208px;
 }
 
 .main-button-container .dropdown-download {
