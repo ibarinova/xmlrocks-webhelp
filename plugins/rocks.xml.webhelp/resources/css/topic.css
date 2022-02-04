@@ -403,6 +403,11 @@ h6.title {
     padding: 0.3em 0.5em;
 }
 
+.output-pdf-path{
+    color: #5e5e5e;
+
+}
+
 #download-output-btn:hover{
     display: block;
     background-color: var(--accent-bg-color);
@@ -414,7 +419,7 @@ h6.title {
     text-decoration: none;
 }
 
-#download-output-btn:hover .download-output{
+#download-output-btn:hover .download-output a{
     color: #FFFFFF;
     text-decoration: none;
 }
@@ -584,10 +589,6 @@ a:hover{
     text-decoration: none;
     text-align: left;
     display: block;
-}
-
-.dropdown-content-download a:hover {
-    background-color: #ddd
 }
 
 .button-print {

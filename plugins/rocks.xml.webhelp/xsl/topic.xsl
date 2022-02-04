@@ -240,10 +240,11 @@
                                         </button>
                                         <button id="download-output-btn">
                                             <div class="download-output">
-                                                <a href="{$output-pdf-full-path}" target="_blank"/>
-                                                <xsl:call-template name="getVariable">
-                                                    <xsl:with-param name="id" select="'Download common PDF'"/>
-                                                </xsl:call-template>
+                                                <a href="{$output-pdf-full-path}" target="_blank" class="output-pdf-path">
+                                                    <xsl:call-template name="getVariable">
+                                                        <xsl:with-param name="id" select="'Download common PDF'"/>
+                                                    </xsl:call-template>
+                                                </a>
                                             </div>
                                         </button>
                                     </div>
