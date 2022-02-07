@@ -79,11 +79,18 @@
     position: fixed;
     height: 100%;
     width: 100%;
-    z-index: 1100;
+    z-index: 2;
     top: 0;
 }
 
-
+.shading-container-wrapper.toc {
+    background-color: #0007;
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 2;
+    top: 0;
+}
 
 #mobile-menu-button {
     background-image: url(../images/menu.svg);
@@ -117,13 +124,14 @@
 
     .toc-container {
         height: 100%;
-        max-width: 60%;
+        max-width: 100%;
     }
 
     #toc-wrapper {
         width: 100%;
         transform: translateY(0%);
         padding: 0;
+        transition: none;
     }
 
     #toc-wrapper.hidden {
@@ -133,6 +141,10 @@
 
     #article-wrapper {
         width: 100%;
+    }
+
+    #article-wrapper.hidden {
+        display: none;
     }
 
     .main-button-container-wrapper {

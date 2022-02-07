@@ -293,6 +293,7 @@ h6.title {
 .top-nav-buttons-container-wrapper {
     background-color: #f8f8f8;
     padding: 20px 0;
+    z-index: 5;
 }
 
 .top-nav-buttons-container {
@@ -784,6 +785,7 @@ a:hover{
     transform: translateX(0%);
     transition: all 1s ease-in-out .5s;
     z-index: 2;
+    pointer-events: none;
 }
 
 #toc-wrapper.hidden {
@@ -993,6 +995,7 @@ li.ancestor-of-active > .toc-element-row > a {
     max-width: 370px;
     width: 100%;
     line-height: 22px;
+    pointer-events: auto;
 }
 
 .toc-container li ul {
