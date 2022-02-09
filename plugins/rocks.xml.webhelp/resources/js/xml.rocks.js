@@ -1,6 +1,7 @@
 var backToTopButton = document.getElementById("button-back-to-top"),
     state = null,
-    previousWidth = $(window).width();
+    previousWidth = $(window).width(),
+    topicScrollPosition = 0;
 
 window.onscroll = function() {
     // On scroll turn on and off back to top button
@@ -271,13 +272,18 @@ $(document).ready(function() {
     }
 
     // Hide TOC on mobile page
-    if(($(window).width() < 721) && ($(window).width() !== previousWidth) && (!($('#toc-wrapper').hasClass('hidden')))) {
+    if(($(window).width() < 721) && (!($('#toc-wrapper').hasClass('hidden')))) {
         $('#toc-wrapper').addClass('hidden');
         $('#button-hide-show-toc').addClass('hidden');
         $('#button-expand-collapse').addClass('inactive');
         $('#button-show-active').addClass('inactive');
         $('.left-buttons-container').addClass('non-displayed');
     }
+
+    // Hide mobile TOC on click on shading-container-wrapper
+    $('.shading-container-wrapper').click(function () {
+        hideMobileTOC();
+    });
 });
 
 // mobile-menu-button implementation
@@ -287,12 +293,6 @@ $('#mobile-menu-button').click(function () {
     } else {
         hideMobileTOC();
     }
-});
-
-$(document).ready ( function () {
-    $('.shading-container-wrapper').click(function () {
-        hideMobileTOC();
-    });
 });
 
 // Hide TOC on mobile page
@@ -344,6 +344,7 @@ function reloadDynamically(href){
 }
 
 function showMobileTOC() {
+    topicScrollPosition = $(window).scrollTop();
     $('#toc-wrapper').removeClass('hidden');
     $('#article-wrapper').addClass('hidden');
     $('#button-hide-show-toc').removeClass('hidden');
@@ -357,6 +358,7 @@ function showMobileTOC() {
     $('.rocks-header').hide();
     $('.breadcrumb-container').hide();
     $('.top-nav-buttons-container-wrapper').hide();
+    $(window).scrollTop(0);
 }
 
 function hideMobileTOC() {
@@ -373,6 +375,7 @@ function hideMobileTOC() {
     $('.rocks-header').show();
     $('.breadcrumb-container').show();
     $('.top-nav-buttons-container-wrapper').show();
+    $(window).scrollTop(topicScrollPosition);
 }
 
 function flipCard(button) {
