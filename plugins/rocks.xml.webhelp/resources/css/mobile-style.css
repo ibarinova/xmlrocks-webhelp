@@ -7,6 +7,10 @@
     .close-mobile-breadcrumbs{
         display: none;
     }
+
+    .topic-page-sticky-search-header-container{
+        display: none;
+    }
 }
 
 @media only screen and (max-width: 721px){
@@ -23,6 +27,10 @@
     }
 
     .next-topic{
+        display: none;
+    }
+
+    .header-search-wrapper{
         display: none;
     }
 }
@@ -138,6 +146,67 @@
     .main-button-container-wrapper {
         padding: 1px 0;
     }
+
+    #mobile-search-button{
+        background: url(../images/search-grey.svg) center no-repeat;
+        height: 40px;
+        width: 40px;
+        grid-column-start: 1;
+        grid-column-end: -1;
+        grid-row-start: 1;
+        justify-self: end;
+    }
+
+    .topic-page-sticky-search-header-container {
+        position: fixed;
+        width: 100%;
+        /* top: 0; */
+        height: 60px;
+        /* opacity: 0; */
+        transition: all ease-in-out .5s;
+        z-index: 3;
+        transform: translateY(-100%);
+        background-color: #ffffff;
+        box-shadow: 0 10px 10px #f3f3f3;
+    }
+
+    .is-sticky + .topic-page-sticky-search-header-container.expanded {
+        opacity: 100%;
+        transform: translateY(100%);
+    }
+
+    .topic-page-sticky-search-header-container .header-search-input-container {
+        margin: 10px auto;
+        height: 40px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+    }
+
+    .topic-page-sticky-search-header-container .header-search-input-container .header-search-input {
+        grid-column-start: 1;
+        grid-column-end: -1;
+        grid-row-start: 1;
+    }
+
+    .header-mobile-buttons-separator {
+        border-left: 1px solid #e7e7e7;
+        display: inline;
+        height: 1rem;
+        margin: 0.75rem 1rem;
+        position: absolute;
+    }
+
+    #sticky-header-search-button {
+        background: url(../images/search-grey.svg) center no-repeat;
+        height: 40px;
+        width: 40px;
+        grid-column-start: 1;
+        grid-column-end: -1;
+        grid-row-start: 1;
+        justify-self: end;
+    }
+
 }
 
 @media only screen and (max-width: 320px) {

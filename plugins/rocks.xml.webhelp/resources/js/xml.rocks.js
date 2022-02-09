@@ -200,6 +200,18 @@ function expandCollapseSearch() {
     }
 }
 
+function expandCollapseHeaderSearch() {
+    if ($('.topic-page-sticky-search-header-container').hasClass('expanded')){
+        // Remove .expanded from current TOC topic
+        $('.topic-page-sticky-search-header-container').removeClass('expanded');
+        $('.expand-collapse-search-header-container').removeClass('expanded');
+    } else {
+        // Add .expanded to current TOC topic
+        $('.topic-page-sticky-search-header-container').addClass('expanded');
+        $('.expand-collapse-search-header-container').addClass('expanded');
+    }
+}
+
 $(document).ready(function() {
     var height;
 
