@@ -1,5 +1,7 @@
 var backToTopButton = document.getElementById("button-back-to-top"),
-    state = null;
+    state = null,
+    previousWidth = $(window).width(),
+    topicScrollPosition = 0;
 
 window.onscroll = function() {
     // On scroll turn on and off back to top button
@@ -328,32 +330,25 @@ $(document).ready(function() {
         $('#button-show-active').addClass('inactive');
         $('.left-buttons-container').addClass('non-displayed');
     }
+
+    // Hide mobile TOC on click on shading-container-wrapper
+    $('.shading-container-wrapper').click(function () {
+        hideMobileTOC();
+    });
 });
 
 // mobile-menu-button implementation
 $('#mobile-menu-button').click(function () {
     if($('#toc-wrapper').hasClass('hidden')) {
-        $('#toc-wrapper').removeClass('hidden');
-        $('#button-hide-show-toc').removeClass('hidden');
-        $('#button-expand-collapse').removeClass('inactive');
-        $('#button-show-active').removeClass('inactive');
-        $('#mobile-menu-button').addClass('active');
-        $('.right-buttons-container').addClass('non-displayed');
-        $('.left-buttons-container').removeClass('non-displayed');
+        showMobileTOC();
     } else {
-        $('#toc-wrapper').addClass('hidden');
-        $('#button-hide-show-toc').addClass('hidden');
-        $('#button-expand-collapse').addClass('inactive');
-        $('#button-show-active').addClass('inactive');
-        $('#mobile-menu-button').removeClass('active');
-        $('.left-buttons-container').addClass('non-displayed');
-        $('.right-buttons-container').removeClass('non-displayed');
+        hideMobileTOC();
     }
 });
 
 // Hide TOC on mobile page
 $(window).on('resize', function() {
-    if(($(window).width() < 721) && (!($('#toc-wrapper').hasClass('hidden')))) {
+    if(($(window).width() < 721) && ($(window).width() !== previousWidth) && (!($('#toc-wrapper').hasClass('hidden')))) {
         $('#toc-wrapper').addClass('hidden');
         $('#button-hide-show-toc').addClass('hidden');
         $('#button-expand-collapse').addClass('inactive');
@@ -366,6 +361,7 @@ $(window).on('resize', function() {
     } else {
         $('.left-buttons-container').removeClass('non-displayed');
         $('.right-buttons-container').removeClass('non-displayed');
+        $('.shading-container-wrapper').removeClass('toc');
     }
 });
 
@@ -391,7 +387,55 @@ function reloadDynamically(href){
 
         $('.toc-container').find('#' + listItemID).addClass('active');
         $('.toc-container').find('#' + listItemID).parents('nav li').addClass('expanded ancestor-of-active');
+
+        if($('#mobile-menu-button').hasClass('active')) {
+            hideMobileTOC();
+        }
+
+        $(window).scrollTop(0);
+        topicScrollPosition = 0;
     }, 'html')
+}
+
+function showMobileTOC() {
+    topicScrollPosition = $(window).scrollTop();
+    $('#toc-wrapper').removeClass('hidden');
+    $('#article-wrapper').addClass('hidden');
+    $('#button-hide-show-toc').removeClass('hidden');
+    $('#button-expand-collapse').removeClass('inactive');
+    $('#button-show-active').removeClass('inactive');
+    $('#mobile-menu-button').addClass('active');
+    $('.right-buttons-container').addClass('non-displayed');
+    $('.left-buttons-container').removeClass('non-displayed');
+    $('.shading-container-wrapper').addClass('toc');
+    $('.main-button-container-wrapper').css("margin", "auto");
+    $('.rocks-header').hide();
+    $('.breadcrumb-container').hide();
+    $('.top-nav-buttons-container-wrapper').hide();
+    $(window).scrollTop(0);
+
+    // Close sticky search when mobile TOC is opened
+    if ($('.topic-page-sticky-search-container').hasClass('expanded')) {
+        $('.topic-page-sticky-search-container').removeClass('expanded');
+        $('.expand-collapse-search-container').removeClass('expanded');
+    }
+}
+
+function hideMobileTOC() {
+    $('#toc-wrapper').addClass('hidden');
+    $('#article-wrapper').removeClass('hidden');
+    $('#button-hide-show-toc').addClass('hidden');
+    $('#button-expand-collapse').addClass('inactive');
+    $('#button-show-active').addClass('inactive');
+    $('#mobile-menu-button').removeClass('active');
+    $('.left-buttons-container').addClass('non-displayed');
+    $('.right-buttons-container').removeClass('non-displayed');
+    $('.shading-container-wrapper').removeClass('toc');
+    $('.main-button-container-wrapper').css("margin", "15px auto");
+    $('.rocks-header').show();
+    $('.breadcrumb-container').show();
+    $('.top-nav-buttons-container-wrapper').show();
+    $(window).scrollTop(topicScrollPosition);
 }
 
 function flipCard(button) {
@@ -408,7 +452,6 @@ function showBreadcrumbs(button) {
         $('.head-breadcrumbs-child-elements').addClass('show');
         $('.head-breadcrumbs-child-elements').children().addClass('show');
         $('.shading-container-wrapper').addClass('grey');
-
     }
 }
 
