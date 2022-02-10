@@ -340,6 +340,9 @@ function reloadDynamically(href){
         if($('#mobile-menu-button').hasClass('active')) {
             hideMobileTOC();
         }
+
+        $(window).scrollTop(0);
+        topicScrollPosition = 0;
     }, 'html')
 }
 
@@ -359,6 +362,12 @@ function showMobileTOC() {
     $('.breadcrumb-container').hide();
     $('.top-nav-buttons-container-wrapper').hide();
     $(window).scrollTop(0);
+
+    // Close sticky search when mobile TOC is opened
+    if ($('.topic-page-sticky-search-container').hasClass('expanded')) {
+        $('.topic-page-sticky-search-container').removeClass('expanded');
+        $('.expand-collapse-search-container').removeClass('expanded');
+    }
 }
 
 function hideMobileTOC() {
