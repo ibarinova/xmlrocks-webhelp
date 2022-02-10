@@ -91,7 +91,13 @@
     top: 0;
 }
 
-
+.shading-container-wrapper.mobile-search-layer{
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    z-index: 4;
+    top: 0;
+}
 
 #mobile-menu-button {
     background-image: url(../images/menu.svg);
@@ -148,7 +154,7 @@
     }
 
     #mobile-search-button{
-        background: url(../images/search-grey.svg) center no-repeat;
+        background: url(../images/search-white.svg) center no-repeat;
         height: 40px;
         width: 40px;
         grid-column-start: 1;
@@ -157,17 +163,20 @@
         justify-self: end;
     }
 
-    .topic-page-sticky-search-header-container {
+    .main-header + .topic-page-sticky-search-header-container {
         position: fixed;
         width: 100%;
-        /* top: 0; */
         height: 60px;
-        /* opacity: 0; */
-        transition: all ease-in-out .5s;
-        z-index: 3;
-        transform: translateY(-100%);
+        transition: all ease-in-out 1s;
+        z-index: 1;
+        transform: translateY(-1000%);
         background-color: #ffffff;
         box-shadow: 0 10px 10px #f3f3f3;
+    }
+
+    .main-header + .topic-page-sticky-search-header-container.expanded {
+        transform: translateY(0%);
+        margin-top: 0;
     }
 
     .is-sticky + .topic-page-sticky-search-header-container.expanded {
@@ -176,25 +185,23 @@
     }
 
     .topic-page-sticky-search-header-container .header-search-input-container {
-        margin: 10px auto;
+        margin: 0;
         height: 40px;
         display: grid;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr;
     }
 
-    .topic-page-sticky-search-header-container .header-search-input-container .header-search-input {
-        grid-column-start: 1;
-        grid-column-end: -1;
-        grid-row-start: 1;
+    #mobile-search-button:hover {
+        background: url(../images/search-white.svg) center no-repeat;
     }
 
-    .header-mobile-buttons-separator {
-        border-left: 1px solid #e7e7e7;
-        display: inline;
-        height: 1rem;
-        margin: 0.75rem 1rem;
-        position: absolute;
+    .expand-collapse-search-header-container.expanded #mobile-search-button {
+        background: url(../images/search-close-white.svg) center no-repeat;
+    }
+
+    .expand-collapse-search-header-container.expanded #mobile-search-button:hover {
+        background: url(../images/search-close-white.svg) center no-repeat;
     }
 
     #sticky-header-search-button {

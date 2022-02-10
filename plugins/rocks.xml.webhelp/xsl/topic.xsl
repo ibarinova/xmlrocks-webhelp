@@ -432,18 +432,14 @@
                 <div class="search-buttons-separator"></div>
                 <button id="search-button"/>
             </nav>
-<!--todo added button for mobile version-->
-            <div class="expand-collapse-search-header-container"><!--class="expand-collapse-search-container"-->
-                <div class="header-mobile-buttons-separator"></div>
-                <button id="mobile-search-button" onclick="expandCollapseHeaderSearch()"/> <!--class="expand-collapse-search"-->
+            <div class="expand-collapse-search-header-container">
+                <button id="mobile-search-button" onclick="expandCollapseHeaderSearch()"/>
             </div>
         </div>
 
-
-<!--todo search header-->
-        <div class="topic-page-sticky-search-header-container"> <!--class="topic-page-sticky-search-container"-->
-            <div class="header-search-input-container max-width"> <!--class="search-input-container max-width"-->
-                <input class="header-form-control search header-search-input" type="search"> <!--class="form-control search search-input"-->
+        <div class="topic-page-sticky-search-header-container">
+            <div class="header-search-input-container max-width">
+                <input class="header-form-control header-search mobile-header-search-input" id="mobile-header-search-input" type="search">
                     <xsl:attribute name="placeholder">
                         <xsl:call-template name="getVariable">
                             <xsl:with-param name="id" select="'Search'"/>
@@ -455,9 +451,9 @@
                         </xsl:call-template>
                     </xsl:attribute>
                 </input>
-                <button id="sticky-header-search-cancel-button"></button> <!--id="sticky-search-cancel-button"-->
-                <div class="sticky-header-search-buttons-separator"></div> <!--class="sticky-search-buttons-separator"-->
-                <button id="sticky-header-search-button"></button> <!--id="sticky-search-button"-->
+                <button id="sticky-header-search-cancel-button"></button>
+                <div class="sticky-header-search-buttons-separator"></div>
+                <button id="sticky-header-search-button"></button>
             </div>
         </div>
     </xsl:template>
