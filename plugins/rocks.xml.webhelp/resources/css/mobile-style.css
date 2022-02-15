@@ -1,5 +1,4 @@
-
-@media only screen and (min-width: 1170px){
+@media only screen and (min-width: 1171px) {
     #mobile-separator-button{
         display: none;
     }
@@ -13,7 +12,7 @@
     }
 }
 
-@media only screen and (max-width: 1169px) and (min-width: 721px) {
+@media only screen and (max-width: 1170px) {
     .head-breadcrumbs-child-elements{
         display: none;
     }
@@ -29,7 +28,41 @@
     .next-topic{
         display: none;
     }
+
+    .button-hide-show-toc-container {
+        display: none;
+    }
+
+    .toc-container {
+        height: 100%;
+        max-width: 100%;
+    }
+
+    #toc-wrapper {
+        width: 100%;
+        transform: translateY(0%);
+        padding: 0;
+        transition: none;
+    }
+
+    #toc-wrapper.hidden {
+        height: 0;
+        transform: translateY(-100%);
 }
+
+    #article-wrapper {
+        width: 100%;
+    }
+
+    #article-wrapper.hidden {
+        display: none;
+    }
+
+    .main-button-container-wrapper {
+        padding: 1px 0;
+    }
+}
+
 .close-mobile-breadcrumbs.show{
     pointer-events: auto;
     background-color: #fff;
@@ -114,41 +147,7 @@
     background-image: url(../images/search-close.svg);
 }
 
-
-    .button-hide-show-toc-container {
-        display: none;
-    }
-
-    .toc-container {
-        height: 100%;
-        max-width: 100%;
-    }
-
-    #toc-wrapper {
-        width: 100%;
-        transform: translateY(0%);
-        padding: 0;
-        transition: none;
-    }
-
-    #toc-wrapper.hidden {
-        height: 0;
-        transform: translateY(-100%);
-    }
-
-    #article-wrapper {
-        width: 100%;
-    }
-
-    #article-wrapper.hidden {
-        display: none;
-    }
-
-    .main-button-container-wrapper {
-        padding: 1px 0;
-    }
-
-@media only screen and (max-width: 720px) and (min-width: 320px) {
+@media only screen and (min-width: 320px) and (max-width: 720px) {
     #toc-wrapper {
         width: 100%;
     }
@@ -157,7 +156,4 @@
         max-width: 100%;
     }
 
-    .head-breadcrumbs-child-elements{
-        display: none;
-    }
 }
