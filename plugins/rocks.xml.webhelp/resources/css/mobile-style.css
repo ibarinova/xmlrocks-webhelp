@@ -1,4 +1,4 @@
-@media only screen and (min-width: 1171px) {
+@media only screen and (min-width: 1170px) {
     #mobile-separator-button{
         display: none;
     }
@@ -12,7 +12,7 @@
     }
 }
 
-@media only screen and (max-width: 1170px) {
+@media only screen and (max-width: 1169px) {
     .head-breadcrumbs-child-elements{
         display: none;
     }
