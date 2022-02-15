@@ -1422,6 +1422,6 @@ button, input, optgroup, select, textarea {
 
 /*--- Syntaxdiagram START---*/
 .syntaxdiagram{
-    color: #5E5E5E;
+    color: inherit;
 }
 /*--- Syntaxdiagram END---*/
