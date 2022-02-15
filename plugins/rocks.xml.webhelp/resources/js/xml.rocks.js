@@ -227,6 +227,7 @@ function expandCollapseHeaderSearch() {
         $('.topic-page-sticky-search-header-container').removeClass('expanded');
         $('.expand-collapse-search-header-container').removeClass('expanded');
         $('.shading-container-wrapper').removeClass('mobile-search-layer');
+        $('#mobile-header-search-input').val('');
     } else {
         $('.shading-container-wrapper').addClass('mobile-search-layer');
         $('.topic-page-sticky-search-header-container').addClass('expanded');
@@ -238,6 +239,7 @@ $('body').on('click', '#shading-wrapper.shading-container-wrapper.mobile-search-
     $('.expand-collapse-search-header-container.expanded').removeClass('expanded');
     $('.topic-page-sticky-search-header-container.expanded').removeClass('expanded');
     $('.shading-container-wrapper').removeClass('mobile-search-layer');
+    $('#mobile-header-search-input').val('');
 });
 
 $(document).ready(function() {
