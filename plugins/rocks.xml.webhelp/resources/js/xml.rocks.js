@@ -3,6 +3,90 @@ var backToTopButton = document.getElementById("button-back-to-top"),
     previousWidth = $(window).width(),
     topicScrollPosition = 0;
 
+$(document).ready(function() {
+    var height;
+
+    // Expand all parent li's
+    $('.active').parents('nav li').addClass('expanded ancestor-of-active');
+
+    // Count main container min-height (needed for correct displaying of footer if the content is too short)
+    if($('div.breadcrumb-container').length && $('div.top-nav-buttons-container-wrapper').length && $('div.main-button-container').length) {
+        height = $(window).height() - ($("header").outerHeight(true) + $('div.breadcrumb-container').outerHeight(true) + $('div.top-nav-buttons-container-wrapper').outerHeight(true) + $('div.main-button-container').outerHeight(true) + $('#back-to-top-button-container').outerHeight(true) + $("footer").outerHeight(true) + 36);
+    } else {
+        height = $(window).height() - ($("header").outerHeight(true) + $('#back-to-top-button-container').outerHeight(true) + $("footer").outerHeight(true) + 24);
+    }
+
+    // Apply min-height value to the main element
+    $("main.container").css("min-height", height + "px");
+
+    // Reveal active topic in the TOC when page reloads
+    showActive;
+
+    // Count header padding for references on element inside topic
+    if (window.location.href.indexOf("#") > -1) {
+        var url = window.location.href,
+            currentId = url.substring(url.lastIndexOf('#') + 1),
+            $currentElem = $('#' + currentId),
+            headerHeight = $('header').outerHeight();
+
+        $("html, body").animate({ scrollTop: $currentElem.offset().top - headerHeight}, 0);
+    }
+
+    // Search page code
+    if ($('body#search-page')) {
+        var url_string = window.location.href,
+            url = new URL(url_string),
+            key = url.searchParams.get("key");
+
+        // If keyword exists show 'document(s) found for [keyword]' text
+        if(key !== '') {
+            $('#search-results-info').addClass('show');
+            $('#search-results').addClass('show');
+
+            // Insert search key value in #keyword-text element
+            $('#keyword-text').html(key);
+
+            // Insert search key value in search input
+            $('.search-input-container input.search-input').val(key);
+        } else {
+            // Show string 'Search keyword cannot be empty'
+            $('#empty-keyword').addClass('show');
+        }
+    }
+
+    // Press search button on enter
+    // Get the input field
+    var input = document.getElementById("header-search-input");
+
+    // Execute a function when the user releases a key on the keyboard
+    input.addEventListener("keyup", function(event) {
+        // Number 13 is the "Enter" key on the keyboard
+        if (event.keyCode === 13) {
+            // Trigger the button element with a click
+            document.getElementById("search-button").click();
+        }
+    });
+
+    // When page reloads stick main-button-container to the top if needed
+    if ($(window).scrollTop() >= $('.main-button-container-wrapper').offset().top) {
+        $('.main-button-container-wrapper').addClass('is-sticky');
+    }
+
+    // Hide TOC on mobile page
+    if(($(window).width() < 721) && (!($('#toc-wrapper').hasClass('hidden')))) {
+        $('#toc-wrapper').addClass('hidden');
+        $('#button-hide-show-toc').addClass('hidden');
+        $('#button-expand-collapse').addClass('inactive');
+        $('#button-show-active').addClass('inactive');
+        $('.left-buttons-container').addClass('non-displayed');
+    }
+
+    // Hide mobile TOC on click on shading-container-wrapper
+    $('.shading-container-wrapper').click(function () {
+        hideMobileTOC();
+    });
+});
+
 window.onscroll = function() {
     // On scroll turn on and off back to top button
     if (document.documentElement.scrollTop > 20) {
@@ -201,90 +285,6 @@ function expandCollapseSearch() {
         $('.expand-collapse-search-container').addClass('expanded');
     }
 }
-
-$(document).ready(function() {
-    var height;
-
-    // Expand all parent li's
-    $('.active').parents('nav li').addClass('expanded ancestor-of-active');
-
-    // Count main container min-height (needed for correct displaying of footer if the content is too short)
-    if($('div.breadcrumb-container').length && $('div.top-nav-buttons-container-wrapper').length && $('div.main-button-container').length) {
-        height = $(window).height() - ($("header").outerHeight(true) + $('div.breadcrumb-container').outerHeight(true) + $('div.top-nav-buttons-container-wrapper').outerHeight(true) + $('div.main-button-container').outerHeight(true) + $('#back-to-top-button-container').outerHeight(true) + $("footer").outerHeight(true) + 36);
-    } else {
-        height = $(window).height() - ($("header").outerHeight(true) + $('#back-to-top-button-container').outerHeight(true) + $("footer").outerHeight(true) + 24);
-    }
-
-    // Apply min-height value to the main element
-    $("main.container").css("min-height", height + "px");
-
-    // Reveal active topic in the TOC when page reloads
-    showActive;
-
-    // Count header padding for references on element inside topic
-    if (window.location.href.indexOf("#") > -1) {
-        var url = window.location.href,
-            currentId = url.substring(url.lastIndexOf('#') + 1),
-            $currentElem = $('#' + currentId),
-            headerHeight = $('header').outerHeight();
-
-        $("html, body").animate({ scrollTop: $currentElem.offset().top - headerHeight}, 0);
-    }
-
-    // Search page code
-    if ($('body#search-page')) {
-        var url_string = window.location.href,
-            url = new URL(url_string),
-            key = url.searchParams.get("key");
-
-        // If keyword exists show 'document(s) found for [keyword]' text
-        if(key !== '') {
-            $('#search-results-info').addClass('show');
-            $('#search-results').addClass('show');
-
-            // Insert search key value in #keyword-text element
-            $('#keyword-text').html(key);
-
-            // Insert search key value in search input
-            $('.search-input-container input.search-input').val(key);
-        } else {
-            // Show string 'Search keyword cannot be empty'
-            $('#empty-keyword').addClass('show');
-        }
-    }
-
-    // Press search button on enter
-    // Get the input field
-    var input = document.getElementById("header-search-input");
-
-    // Execute a function when the user releases a key on the keyboard
-    input.addEventListener("keyup", function(event) {
-        // Number 13 is the "Enter" key on the keyboard
-        if (event.keyCode === 13) {
-            // Trigger the button element with a click
-            document.getElementById("search-button").click();
-        }
-    });
-
-    // When page reloads stick main-button-container to the top if needed
-    if ($(window).scrollTop() >= $('.main-button-container-wrapper').offset().top) {
-        $('.main-button-container-wrapper').addClass('is-sticky');
-    }
-
-    // Hide TOC on mobile page
-    if(($(window).width() < 721) && (!($('#toc-wrapper').hasClass('hidden')))) {
-        $('#toc-wrapper').addClass('hidden');
-        $('#button-hide-show-toc').addClass('hidden');
-        $('#button-expand-collapse').addClass('inactive');
-        $('#button-show-active').addClass('inactive');
-        $('.left-buttons-container').addClass('non-displayed');
-    }
-
-    // Hide mobile TOC on click on shading-container-wrapper
-    $('.shading-container-wrapper').click(function () {
-        hideMobileTOC();
-    });
-});
 
 // mobile-menu-button implementation
 $('#mobile-menu-button').click(function () {
