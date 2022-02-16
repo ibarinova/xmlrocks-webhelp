@@ -127,7 +127,6 @@ $('body').on('click', '.bottom-nav-buttons-container a', updatePageReloadingBeha
 // Open search page when search button is pressed
 $('body').on('click', '#search-button', runSearch);
 $('body').on('click', '#sticky-search-button', runStickySearch);
-$('body').on('click', '#sticky-header-search-button', runMobileStickySearch);
 
 function runSearch() {
     var searchInputValue = $('input.search').val();
@@ -136,11 +135,6 @@ function runSearch() {
 
 function runStickySearch() {
     var searchInputValue = $('.topic-page-sticky-search-container.expanded .search-input').val();
-    location.href = "search.html?key=" + searchInputValue;
-}
-
-function runMobileStickySearch() {
-    var searchInputValue = $('input.mobile-header-search-input').val();
     location.href = "search.html?key=" + searchInputValue;
 }
 
@@ -172,21 +166,6 @@ $('.topic-page-sticky-search-container .search-input').keyup(function() {
 $('#sticky-search-cancel-button').click(function () {
     $('.topic-page-sticky-search-container .search-input').val('');
     $('#sticky-search-cancel-button').removeClass('show');
-});
-
-// Show 'X' button inside mobile header search input if input contains text
-$('.mobile-header-search-input').keyup(function() {
-    if ($(this).val() != '') {
-        $('#sticky-header-search-cancel-button').addClass('show');
-    } else {
-        $('#sticky-header-search-cancel-button').removeClass('show');
-    }
-});
-
-// Clear mobile header search input and hide 'X' button from the body search input
-$('#sticky-header-search-cancel-button').click(function () {
-    $('.mobile-header-search-input').val('');
-    $('#sticky-header-search-cancel-button').removeClass('show');
 });
 
 // Update link transition event if page is not opened as file
@@ -222,27 +201,6 @@ function expandCollapseSearch() {
         $('.expand-collapse-search-container').addClass('expanded');
     }
 }
-
-// Expand mobile search
-function expandCollapseHeaderSearch() {
-    if ($('.topic-page-sticky-search-header-container').hasClass('expanded')){
-        $('.topic-page-sticky-search-header-container').removeClass('expanded');
-        $('.expand-collapse-search-header-container').removeClass('expanded');
-        $('.shading-container-wrapper').removeClass('mobile-search-layer');
-        $('#mobile-header-search-input').val('');
-    } else {
-        $('.shading-container-wrapper').addClass('mobile-search-layer');
-        $('.topic-page-sticky-search-header-container').addClass('expanded');
-        $('.expand-collapse-search-header-container').addClass('expanded');
-    }
-}
-
-$('body').on('click', '#shading-wrapper.shading-container-wrapper.mobile-search-layer',function (){
-    $('.expand-collapse-search-header-container.expanded').removeClass('expanded');
-    $('.topic-page-sticky-search-header-container.expanded').removeClass('expanded');
-    $('.shading-container-wrapper').removeClass('mobile-search-layer');
-    $('#mobile-header-search-input').val('');
-});
 
 $(document).ready(function() {
     var height;
@@ -305,17 +263,6 @@ $(document).ready(function() {
         if (event.keyCode === 13) {
             // Trigger the button element with a click
             document.getElementById("search-button").click();
-        }
-    });
-
-    var mobileInput = document.getElementById("mobile-header-search-input");
-
-    // Execute a function when the user releases a key on the keyboard
-    mobileInput.addEventListener("keyup", function(event) {
-        // Number 13 is the "Enter" key on the keyboard
-        if (event.keyCode === 13) {
-            // Trigger the button element with a click
-            document.getElementById("sticky-header-search-button").click();
         }
     });
 
