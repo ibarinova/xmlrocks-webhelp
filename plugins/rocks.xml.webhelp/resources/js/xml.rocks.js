@@ -58,9 +58,9 @@ $(document).ready(function() {
     // Get the input field
     var input = document.getElementById("header-search-input");
 
-    // Execute a function when the user releases a key on the keyboard
+    // Execute a function when the user releases a key on a keyboard
     input.addEventListener("keyup", function(event) {
-        // Number 13 is the "Enter" key on the keyboard
+        // Number 13 is the "Enter" key on a keyboard
         if (event.keyCode === 13) {
             // Trigger the button element with a click
             document.getElementById("search-button").click();
@@ -88,7 +88,7 @@ $(document).ready(function() {
 });
 
 window.onscroll = function() {
-    // On scroll turn on and off back to top button
+    // On scroll turn on/off "Back to top" button
     if (document.documentElement.scrollTop > 20) {
         backToTopButton.style.display = "block";
     } else {
@@ -142,7 +142,7 @@ function expandCollapseAll() {
     }
 }
 
-//Create PDF from HTML topic content
+// Create a PDF file from the HTML topic content
 function exportPdf() {
     var idTopicArticle = document.getElementById("topic-article"),
         topicName = document.getElementsByClassName("title topictitle1")[0].textContent;
