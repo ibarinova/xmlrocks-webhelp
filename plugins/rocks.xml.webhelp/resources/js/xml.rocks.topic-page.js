@@ -5,7 +5,7 @@ $(document).ready(function() {
     }
 
     // Hide TOC on mobile page
-    if(($window.width() < 721) && (!($('#toc-wrapper').hasClass('hidden')))) {
+    if(($window.width() < 1170) && (!($('#toc-wrapper').hasClass('hidden')))) {
         document.getElementById('toc-wrapper').classList.add('hidden');
         document.getElementById('button-hide-show-toc').classList.add('hidden');
         document.getElementById('button-expand-collapse').classList.add('hidden');
@@ -16,14 +16,14 @@ $(document).ready(function() {
 
 // Hide TOC on mobile page
 $window.on('resize', function() {
-    if(($window.width() < 721) && ($window.width() !== previousWidth) && (!($('#toc-wrapper').hasClass('hidden')))) {
+    if(($window.width() < 1170) && ($window.width() !== previousWidth) && (!($('#toc-wrapper').hasClass('hidden')))) {
         document.getElementById('toc-wrapper').classList.add('hidden');
         document.getElementById('button-hide-show-toc').classList.add('hidden');
         document.getElementById('button-expand-collapse').classList.add('inactive');
         document.getElementById('button-show-active').classList.add('inactive');
         document.getElementById('mobile-menu-button').classList.remove('active');
         document.getElementsByClassName('left-buttons-container')[0].classList.add('non-displayed');
-    } else if(($window.width() < 721)) {
+    } else if(($window.width() < 1170)) {
         document.getElementsByClassName('left-buttons-container')[0].classList.add('non-displayed');
         document.getElementsByClassName('right-buttons-container')[0].classList.remove('non-displayed');
     } else {
