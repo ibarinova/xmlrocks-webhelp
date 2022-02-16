@@ -10,6 +10,7 @@
                 <xsl:call-template name="chapterHead"/>
 
                 <body id="search-page">
+                    <div class="shading-container-wrapper" id="shading-wrapper"></div>
                     <xsl:variable name="header-content">
                         <xsl:call-template name="gen-user-header"/>
                     </xsl:variable>

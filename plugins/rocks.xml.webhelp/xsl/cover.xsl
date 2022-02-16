@@ -6,6 +6,8 @@
     <xsl:param name="organization-name"/>
 
     <xsl:template match="*[contains(@class, ' map/map ')]" mode="chapterBody">
+
+        <div class="shading-container-wrapper" id="shading-wrapper"></div>
         <body>
             <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-startprop ')]/@style" mode="add-ditaval-style"/>
 
