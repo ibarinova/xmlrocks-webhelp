@@ -80,6 +80,7 @@ h6.title {
     padding: 0.5em;
     bottom: 2.5em;
     width: max-content;
+    font-weight: 400;
 }
 
 .prev-button-tooltip {
