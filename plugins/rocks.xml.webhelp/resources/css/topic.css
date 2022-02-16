@@ -1420,3 +1420,8 @@ button, input, optgroup, select, textarea {
 }
 /*--- Download PDF END---*/
 
+/*--- Syntaxdiagram START---*/
+.syntaxdiagram{
+    color: inherit;
+}
+/*--- Syntaxdiagram END---*/
