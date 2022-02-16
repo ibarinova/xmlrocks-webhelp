@@ -325,7 +325,7 @@ $(document).ready(function() {
     }
 
     // Hide TOC on mobile page
-    if(($(window).width() < 721) && (!($('#toc-wrapper').hasClass('hidden')))) {
+    if(($(window).width() < 1170 ) && (!($('#toc-wrapper').hasClass('hidden')))) {
         $('#toc-wrapper').addClass('hidden');
         $('#button-hide-show-toc').addClass('hidden');
         $('#button-expand-collapse').addClass('inactive');
@@ -350,14 +350,14 @@ $('#mobile-menu-button').click(function () {
 
 // Hide TOC on mobile page
 $(window).on('resize', function() {
-    if(($(window).width() < 721) && ($(window).width() !== previousWidth) && (!($('#toc-wrapper').hasClass('hidden')))) {
+    if(($(window).width() < 1170) && ($(window).width() !== previousWidth) && (!($('#toc-wrapper').hasClass('hidden')))) {
         $('#toc-wrapper').addClass('hidden');
         $('#button-hide-show-toc').addClass('hidden');
         $('#button-expand-collapse').addClass('inactive');
         $('#button-show-active').addClass('inactive');
         $('#mobile-menu-button').removeClass('active');
         $('.left-buttons-container').addClass('non-displayed');
-    } else if(($(window).width() < 721)) {
+    } else if(($(window).width() < 1170)) {
         $('.left-buttons-container').addClass('non-displayed');
         $('.right-buttons-container').removeClass('non-displayed');
     } else {
