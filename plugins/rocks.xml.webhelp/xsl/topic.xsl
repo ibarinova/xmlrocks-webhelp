@@ -432,29 +432,6 @@
                 <div class="search-buttons-separator"></div>
                 <button id="search-button"/>
             </nav>
-            <div class="expand-collapse-search-header-container">
-                <button id="mobile-search-button" onclick="expandCollapseHeaderSearch()"/>
-            </div>
-        </div>
-
-        <div class="topic-page-sticky-search-header-container">
-            <div class="header-search-input-container max-width">
-                <input class="header-form-control header-search mobile-header-search-input" id="mobile-header-search-input" type="search">
-                    <xsl:attribute name="placeholder">
-                        <xsl:call-template name="getVariable">
-                            <xsl:with-param name="id" select="'Search'"/>
-                        </xsl:call-template>
-                    </xsl:attribute>
-                    <xsl:attribute name="arial-label">
-                        <xsl:call-template name="getVariable">
-                            <xsl:with-param name="id" select="'Search'"/>
-                        </xsl:call-template>
-                    </xsl:attribute>
-                </input>
-                <button id="sticky-header-search-cancel-button"></button>
-                <div class="sticky-header-search-buttons-separator"></div>
-                <button id="sticky-header-search-button"></button>
-            </div>
         </div>
     </xsl:template>
 

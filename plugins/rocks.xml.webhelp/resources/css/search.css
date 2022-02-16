@@ -15,28 +15,10 @@
     padding: 0 1rem;
 }
 
-.header-search-input-container{
-    margin: 0 auto;
-    padding: 0 1rem;
-}
-
 .search-input-container > .search-input {
     width: 100%;
     box-shadow: none;
     border: 1px solid #bbbbbb;
-}
-
-.header-search-input-container >.mobile-header-search-input{
-    width: 100%;
-    box-shadow: none;
-    border: 1px solid #bbbbbb;
-    padding-left: 0.5rem;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-}
-
-.header-search-input-container >.mobile-header-search-input:focus-visible{
-    outline: none;
 }
 
 .main-search-page {

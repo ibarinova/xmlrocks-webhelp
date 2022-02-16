@@ -155,79 +155,23 @@
         display: none;
     }
 
-    .main-button-container-wrapper {
-        padding: 1px 0;
+    .header-title {
+        text-align: center;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
     }
 
-    #mobile-search-button{
-        background: url(../images/search-white.svg) center no-repeat;
-        height: 40px;
-        width: 40px;
+    .header-search-wrapper{
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .search {
+        border: none;
+        border-radius: 30px;
+        width: 100%;
         grid-column-start: 1;
         grid-column-end: -1;
         grid-row-start: 1;
-        justify-self: end;
-    }
-
-    .main-header + .topic-page-sticky-search-header-container {
-        position: fixed;
-        width: 100%;
-        height: 60px;
-        transition: all ease-in-out 1s;
-        z-index: 1;
-        transform: translateY(-1000%);
-        background-color: #ffffff;
-        box-shadow: 0 10px 10px #f3f3f3;
-    }
-
-    .main-header + .topic-page-sticky-search-header-container.expanded {
-        transform: translateY(0%);
-        margin-top: 0;
-    }
-
-    .is-sticky + .topic-page-sticky-search-header-container.expanded {
-        opacity: 100%;
-        transform: translateY(100%);
-    }
-
-    .topic-page-sticky-search-header-container .header-search-input-container {
-        margin: 0;
-        height: 40px;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr;
-    }
-
-    #mobile-search-button:hover {
-        background: url(../images/search-white.svg) center no-repeat;
-    }
-
-    .expand-collapse-search-header-container.expanded #mobile-search-button {
-        background: url(../images/search-close-white.svg) center no-repeat;
-    }
-
-    .expand-collapse-search-header-container.expanded #mobile-search-button:hover {
-        background: url(../images/search-close-white.svg) center no-repeat;
-    }
-
-    #sticky-header-search-button {
-        background: url(../images/search-grey.svg) center no-repeat;
-        height: 40px;
-        width: 40px;
-        grid-column-start: 1;
-        grid-column-end: -1;
-        grid-row-start: 1;
-        justify-self: end;
-    }
-
-}
-
-@media only screen and (max-width: 320px) {
-    #toc-wrapper {
-        width: 100%;
-    }
-
-    .toc-container {
-        max-width: 100%;
     }
 }
