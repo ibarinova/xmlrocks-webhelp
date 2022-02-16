@@ -63,6 +63,7 @@
                 <xsl:with-param name="map" select="/*"/>
             </xsl:apply-templates>
             <xsl:call-template name="insertJavaScript"/>
+            <script src="{$PATH2PROJ}lib/xml.rocks.main-page.js"></script>
         </body>
         <xsl:call-template name="addSearchPage"/>
         <xsl:call-template name="addColorSchemeCSS"/>

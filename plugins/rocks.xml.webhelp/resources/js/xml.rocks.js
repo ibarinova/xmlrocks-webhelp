@@ -1,6 +1,7 @@
 var backToTopButton = document.getElementById("button-back-to-top"),
     state = null,
-    previousWidth = $(window).width(),
+    $window = $(window),
+    previousWidth = $window.width(),
     topicScrollPosition = 0;
 
 $(document).ready(function() {
@@ -11,9 +12,9 @@ $(document).ready(function() {
 
     // Count main container min-height (needed for correct displaying of footer if the content is too short)
     if($('div.breadcrumb-container').length && $('div.top-nav-buttons-container-wrapper').length && $('div.main-button-container').length) {
-        height = $(window).height() - ($("header").outerHeight(true) + $('div.breadcrumb-container').outerHeight(true) + $('div.top-nav-buttons-container-wrapper').outerHeight(true) + $('div.main-button-container').outerHeight(true) + $('#back-to-top-button-container').outerHeight(true) + $("footer").outerHeight(true) + 36);
+        height = $window.height() - ($("header").outerHeight(true) + $('div.breadcrumb-container').outerHeight(true) + $('div.top-nav-buttons-container-wrapper').outerHeight(true) + $('div.main-button-container').outerHeight(true) + $('#back-to-top-button-container').outerHeight(true) + $("footer").outerHeight(true) + 36);
     } else {
-        height = $(window).height() - ($("header").outerHeight(true) + $('#back-to-top-button-container').outerHeight(true) + $("footer").outerHeight(true) + 24);
+        height = $window.height() - ($("header").outerHeight(true) + $('#back-to-top-button-container').outerHeight(true) + $("footer").outerHeight(true) + 24);
     }
 
     // Apply min-height value to the main element
@@ -32,28 +33,6 @@ $(document).ready(function() {
         $("html, body").animate({ scrollTop: $currentElem.offset().top - headerHeight}, 0);
     }
 
-    // Search page code
-    if ($('body').is('#search-page')) {
-        var url_string = window.location.href,
-            url = new URL(url_string),
-            key = url.searchParams.get("key");
-
-        // If keyword exists show 'document(s) found for [keyword]' text
-        if(key !== '') {
-            document.getElementById('search-results-info').classList.add('show');
-            document.getElementById('search-results').classList.add('show');
-
-            // Insert search key value in #keyword-text element
-            $('#keyword-text').html(key);
-
-            // Insert search key value in search input
-            $('.search-input-container input.search-input').val(key);
-        } else {
-            // Show string 'Search keyword cannot be empty'
-            document.getElementsById('empty-keyword').classList.add('show');
-        }
-    }
-
     // Press search button on enter
     // Get the input field
     var input = document.getElementById("header-search-input");
@@ -66,20 +45,6 @@ $(document).ready(function() {
             document.getElementById("search-button").click();
         }
     });
-
-    // When page reloads stick main-button-container to the top if needed
-    if (($(window).scrollTop() >= $('.main-button-container-wrapper').offset().top) && $('.main-button-container-wrapper')) {
-        document.getElementsByClassName('main-button-container-wrapper')[0].classList.add('is-sticky');
-    }
-
-    // Hide TOC on mobile page
-    if(($(window).width() < 721) && (!($('#toc-wrapper').hasClass('hidden')))) {
-        document.getElementById('toc-wrapper').classList.add('hidden');
-        document.getElementById('button-hide-show-toc').classList.add('hidden');
-        document.getElementById('button-expand-collapse').classList.add('hidden');
-        document.getElementById('button-show-active').classList.add('hidden');
-        document.getElementsByClassName('left-buttons-container')[0].classList.add('non-displayed');
-    }
 
     // Hide mobile TOC on click on shading-container-wrapper
     $('.shading-container-wrapper').click(function () {
@@ -96,12 +61,14 @@ window.onscroll = function() {
     }
 
     // On scroll show/hide search button in the main buttons container
-    if ($('.main-button-container-wrapper') && ($(window).scrollTop() >= $('.main-button-container-wrapper').offset().top)) {
-        document.getElementsByClassName('main-button-container-wrapper')[0].classList.add('is-sticky');
-    } else {
-        document.getElementsByClassName('main-button-container-wrapper')[0].classList.remove('is-sticky');
-        document.getElementsByClassName('topic-page-sticky-search-container')[0].classList.remove('expanded');
-        document.getElementsByClassName('expand-collapse-search-container')[0].classList.remove('expanded');
+    if (document.querySelector('.main-button-container-wrapper') !== null) {
+        if ($window.scrollTop() >= $('.main-button-container-wrapper').offset().top) {
+            document.getElementsByClassName('main-button-container-wrapper')[0].classList.add('is-sticky');
+        } else {
+            document.getElementsByClassName('main-button-container-wrapper')[0].classList.remove('is-sticky');
+            document.getElementsByClassName('topic-page-sticky-search-container')[0].classList.remove('expanded');
+            document.getElementsByClassName('expand-collapse-search-container')[0].classList.remove('expanded');
+        }
     }
 }
 
@@ -125,8 +92,13 @@ function showActive() {
 
 function expandCollapseAll() {
     if (!($('#button-expand-collapse').hasClass('inactive'))) {
-        $('.toc-container nav li').toggleClass('expanded');
-        document.getElementById('button-expand-collapse').classList.toggle('expanded');
+        if ($('#button-expand-collapse').hasClass('expanded')) {
+            $('.toc-container nav li.expanded').removeClass('expanded');
+            document.getElementById('button-expand-collapse').classList.remove('expanded');
+        } else {
+            $('.toc-container nav li').addClass('expanded');
+            document.getElementById('button-expand-collapse').classList.add('expanded');
+        }
     }
 }
 
@@ -250,25 +222,6 @@ $('#mobile-menu-button').click(function () {
     }
 });
 
-// Hide TOC on mobile page
-$(window).on('resize', function() {
-    if(($(window).width() < 721) && ($(window).width() !== previousWidth) && (!($('#toc-wrapper').hasClass('hidden')))) {
-        document.getElementById('toc-wrapper').classList.add('hidden');
-        document.getElementById('button-hide-show-toc').classList.add('hidden');
-        document.getElementById('button-expand-collapse').classList.add('inactive');
-        document.getElementById('button-show-active').classList.add('inactive');
-        document.getElementById('mobile-menu-button').classList.remove('active');
-        document.getElementsByClassName('left-buttons-container')[0].classList.add('non-displayed');
-    } else if(($(window).width() < 721)) {
-        document.getElementsByClassName('left-buttons-container')[0].classList.add('non-displayed');
-        document.getElementsByClassName('right-buttons-container')[0].classList.remove('non-displayed');
-    } else {
-        document.getElementsByClassName('left-buttons-container')[0].classList.remove('non-displayed');
-        document.getElementsByClassName('right-buttons-container')[0].classList.remove('non-displayed');
-        document.getElementsByClassName('shading-container-wrapper')[0].classList.remove('toc');
-    }
-});
-
 function reloadDynamically(href){
     jQuery.post(href, function (content) {
         var htmlContent = $.parseHTML(content),
@@ -296,27 +249,27 @@ function reloadDynamically(href){
             hideMobileTOC();
         }
 
-        $(window).scrollTop(0);
+        $window.scrollTop(0);
         topicScrollPosition = 0;
     }, 'html')
 }
 
 function showMobileTOC() {
-    topicScrollPosition = $(window).scrollTop();
-    $('#toc-wrapper').removeClass('hidden');
-    $('#article-wrapper').addClass('hidden');
-    $('#button-hide-show-toc').removeClass('hidden');
-    $('#button-expand-collapse').removeClass('inactive');
-    $('#button-show-active').removeClass('inactive');
-    $('#mobile-menu-button').addClass('active');
-    $('.right-buttons-container').addClass('non-displayed');
-    $('.left-buttons-container').removeClass('non-displayed');
-    $('.shading-container-wrapper').addClass('toc');
+    topicScrollPosition = $window.scrollTop();
+    document.getElementById('toc-wrapper').classList.remove('hidden');
+    document.getElementById('article-wrapper').classList.add('hidden');
+    document.getElementById('button-hide-show-toc').classList.remove('hidden');
+    document.getElementById('button-expand-collapse').classList.remove('inactive');
+    document.getElementById('button-show-active').classList.remove('inactive');
+    document.getElementById('mobile-menu-button').classList.add('active');
+    document.getElementsByClassName('left-buttons-container')[0].classList.remove('non-displayed');
+    document.getElementsByClassName('right-buttons-container')[0].classList.add('non-displayed');
+    document.getElementsByClassName('shading-container-wrapper')[0].classList.add('toc');
     $('.main-button-container-wrapper').css("margin", "auto");
     $('.rocks-header').hide();
     $('.breadcrumb-container').hide();
     $('.top-nav-buttons-container-wrapper').hide();
-    $(window).scrollTop(0);
+    $window.scrollTop(0);
 
     // Close sticky search when mobile TOC is opened
     if ($('.topic-page-sticky-search-container').hasClass('expanded')) {
@@ -326,34 +279,29 @@ function showMobileTOC() {
 }
 
 function hideMobileTOC() {
-    $('#toc-wrapper').addClass('hidden');
-    $('#article-wrapper').removeClass('hidden');
-    $('#button-hide-show-toc').addClass('hidden');
-    $('#button-expand-collapse').addClass('inactive');
-    $('#button-show-active').addClass('inactive');
-    $('#mobile-menu-button').removeClass('active');
-    $('.left-buttons-container').addClass('non-displayed');
-    $('.right-buttons-container').removeClass('non-displayed');
-    $('.shading-container-wrapper').removeClass('toc');
+    document.getElementById('toc-wrapper').classList.add('hidden');
+    document.getElementById('article-wrapper').classList.remove('hidden');
+    document.getElementById('button-hide-show-toc').classList.add('hidden');
+    document.getElementById('button-expand-collapse').classList.add('inactive');
+    document.getElementById('button-show-active').classList.add('inactive');
+    document.getElementById('mobile-menu-button').classList.remove('active');
+    document.getElementsByClassName('left-buttons-container')[0].classList.add('non-displayed');
+    document.getElementsByClassName('right-buttons-container')[0].classList.remove('non-displayed');
+    document.getElementsByClassName('shading-container-wrapper')[0].classList.remove('toc');
     $('.main-button-container-wrapper').css("margin", "15px auto");
     $('.rocks-header').show();
     $('.breadcrumb-container').show();
     $('.top-nav-buttons-container-wrapper').show();
-    $(window).scrollTop(topicScrollPosition);
-}
-
-function flipCard(button) {
-    var card = button.closest('.card');
-    $(card).toggleClass('is-flipped');
+    $window.scrollTop(topicScrollPosition);
 }
 
 // Adding class for mobile breadcrumbs
 function showBreadcrumbs(button) {
-    $('.head-breadcrumbs-child-elements').toggleClass('show');
+    document.getElementsByClassName('head-breadcrumbs-child-elements')[0].classList.toggle('show');
     $('.head-breadcrumbs-child-elements').children().toggleClass('show');
 
     if (($('.head-breadcrumbs-child-elements').hasClass('show'))) {
-        $('.shading-container-wrapper').addClass('grey');
+        document.getElementsByClassName('shading-container-wrapper')[0].classList.add('grey');
     }
 }
 
@@ -376,9 +324,9 @@ window.onclick = function (event) {
 
 function closeBreadcrumbsPopUp(){
     if ($('.head-breadcrumbs-child-elements').hasClass('show')) {
-        $('.head-breadcrumbs-child-elements').removeClass('show');
+        document.getElementsByClassName('head-breadcrumbs-child-elements')[0].classList.remove('show');
         $('.head-breadcrumbs-child-elements').children().removeClass('show');
-        $('.shading-container-wrapper').removeClass('grey');
+        document.getElementsByClassName('shading-container-wrapper')[0].classList.remove('grey');
     }
 }
 

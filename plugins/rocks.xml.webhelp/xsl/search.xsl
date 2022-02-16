@@ -100,6 +100,7 @@
                     </xsl:apply-templates>
 
                     <xsl:call-template name="insertJavaScript"/>
+                    <script src="{$PATH2PROJ}lib/xml.rocks.search-page.js"></script>
                 </body>
             </html>
         </xsl:result-document>

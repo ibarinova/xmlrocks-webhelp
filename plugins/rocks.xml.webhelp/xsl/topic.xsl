@@ -382,6 +382,7 @@
             </div>
             <xsl:apply-templates select="." mode="addFooterToHtmlBodyElement"/>
             <xsl:call-template name="insertJavaScript"/>
+            <script src="{$PATH2PROJ}lib/xml.rocks.topic-page.js"></script>
         </body>
     </xsl:template>
 
