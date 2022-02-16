@@ -81,7 +81,6 @@
 .head-breadcrumbs-child-elements.show{
     padding: 20px 0;
     display:block;
-    white-space:nowrap;
     z-index: 1200;
     position: absolute;
     width: 95%;

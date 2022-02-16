@@ -1,23 +1,74 @@
 var backToTopButton = document.getElementById("button-back-to-top"),
     state = null,
-    previousWidth = $(window).width(),
+    $window = $(window),
+    previousWidth = $window.width(),
     topicScrollPosition = 0;
 
+$(document).ready(function() {
+    var height;
+
+    // Expand all parent li's
+    $('.active').parents('nav li').addClass('expanded ancestor-of-active');
+
+    // Count main container min-height (needed for correct displaying of footer if the content is too short)
+    if($('div.breadcrumb-container').length && $('div.top-nav-buttons-container-wrapper').length && $('div.main-button-container').length) {
+        height = $window.height() - ($("header").outerHeight(true) + $('div.breadcrumb-container').outerHeight(true) + $('div.top-nav-buttons-container-wrapper').outerHeight(true) + $('div.main-button-container').outerHeight(true) + $('#back-to-top-button-container').outerHeight(true) + $("footer").outerHeight(true) + 36);
+    } else {
+        height = $window.height() - ($("header").outerHeight(true) + $('#back-to-top-button-container').outerHeight(true) + $("footer").outerHeight(true) + 24);
+    }
+
+    // Apply min-height value to the main element
+    $("main.container").css("min-height", height + "px");
+
+    // Reveal active topic in the TOC when page reloads
+    showActive;
+
+    // Count header padding for references on element inside topic
+    if (window.location.href.indexOf("#") > -1) {
+        var url = window.location.href,
+            currentId = url.substring(url.lastIndexOf('#') + 1),
+            $currentElem = $('#' + currentId),
+            headerHeight = $('header').outerHeight();
+
+        $("html, body").animate({ scrollTop: $currentElem.offset().top - headerHeight}, 0);
+    }
+
+    // Press search button on enter
+    // Get the input field
+    var input = document.getElementById("header-search-input");
+
+    // Execute a function when the user releases a key on a keyboard
+    input.addEventListener("keyup", function(event) {
+        // Number 13 is the "Enter" key on a keyboard
+        if (event.keyCode === 13) {
+            // Trigger the button element with a click
+            document.getElementById("search-button").click();
+        }
+    });
+
+    // Hide mobile TOC on click on shading-container-wrapper
+    $('.shading-container-wrapper').click(function () {
+        hideMobileTOC();
+    });
+});
+
 window.onscroll = function() {
-    // On scroll turn on and off back to top button
+    // On scroll turn on/off "Back to top" button
     if (document.documentElement.scrollTop > 20) {
         backToTopButton.style.display = "block";
     } else {
         backToTopButton.style.display = "none";
     }
 
-    // On scroll hide/show search button in the buttons container
-    if ($(window).scrollTop() >= $('.main-button-container-wrapper').offset().top) {
-        $('.main-button-container-wrapper').addClass('is-sticky');
-    } else {
-        $('.main-button-container-wrapper').removeClass('is-sticky');
-        $('.topic-page-sticky-search-container').removeClass('expanded');
-        $('.expand-collapse-search-container').removeClass('expanded');
+    // On scroll show/hide search button in the main buttons container
+    if (document.querySelector('.main-button-container-wrapper') !== null) {
+        if ($window.scrollTop() >= $('.main-button-container-wrapper').offset().top) {
+            document.getElementsByClassName('main-button-container-wrapper')[0].classList.add('is-sticky');
+        } else {
+            document.getElementsByClassName('main-button-container-wrapper')[0].classList.remove('is-sticky');
+            document.getElementsByClassName('topic-page-sticky-search-container')[0].classList.remove('expanded');
+            document.getElementsByClassName('expand-collapse-search-container')[0].classList.remove('expanded');
+        }
     }
 }
 
@@ -26,17 +77,10 @@ function backToTop() {
 }
 
 function hideOrShowTOC() {
-    if($('#toc-wrapper').hasClass('hidden')) {
-        $('#toc-wrapper').removeClass('hidden');
-        $('#button-hide-show-toc').removeClass('hidden');
-        $('#button-expand-collapse').removeClass('inactive');
-        $('#button-show-active').removeClass('inactive');
-    } else {
-        $('#toc-wrapper').addClass('hidden');
-        $('#button-hide-show-toc').addClass('hidden');
-        $('#button-expand-collapse').addClass('inactive');
-        $('#button-show-active').addClass('inactive');
-    }
+    document.getElementById('toc-wrapper').classList.toggle('hidden');
+    document.getElementById('button-hide-show-toc').classList.toggle('hidden');
+    document.getElementById('button-expand-collapse').classList.toggle('inactive');
+    document.getElementById('button-show-active').classList.toggle('inactive');
 }
 
 function showActive() {
@@ -50,15 +94,15 @@ function expandCollapseAll() {
     if (!($('#button-expand-collapse').hasClass('inactive'))) {
         if ($('#button-expand-collapse').hasClass('expanded')) {
             $('.toc-container nav li.expanded').removeClass('expanded');
-            $('#button-expand-collapse').removeClass('expanded');
+            document.getElementById('button-expand-collapse').classList.remove('expanded');
         } else {
             $('.toc-container nav li').addClass('expanded');
-            $('#button-expand-collapse').addClass('expanded');
+            document.getElementById('button-expand-collapse').classList.add('expanded');
         }
     }
 }
 
-//Create PDF from HTML topic content
+// Create a PDF file from the HTML topic content
 function exportPdf() {
     var idTopicArticle = document.getElementById("topic-article"),
         topicName = document.getElementsByClassName("title topictitle1")[0].textContent;
@@ -87,27 +131,6 @@ function dropdownDownload() {
     document.getElementById("menu-dropdown-download").classList.toggle("show");
 }
 
-// Close the dropdown menu if the user clicks outside
-window.onclick = function (event) {
-    if (!event.target.matches('.button-dropdown-download')) {
-        closeDropDown("dropdown-content-download");
-    }
-
-    if (!event.target.matches('.button-dropdown-share-google-drive')) {
-        closeDropDown("dropdown-content-google-drive");
-    }
-};
-
-function closeDropDown(className){
-    var dropdowns = document.getElementsByClassName(className);
-
-    for (var i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-            openDropdown.classList.remove('show');
-        }
-    }
-}
 
 // Function for dropdown menu for 'save to Google Drive' button
 function dropdownGoogleDrive() {
@@ -156,16 +179,16 @@ $('#search-cancel-button').click(function () {
 // Show 'X' button inside body search input if input contains text
 $('.topic-page-sticky-search-container .search-input').keyup(function() {
     if ($(this).val() != '') {
-        $('#sticky-search-cancel-button').addClass('show');
+        document.getElementById('sticky-search-cancel-button').classList.add('show');
     } else {
-        $('#sticky-search-cancel-button').removeClass('show');
+        document.getElementById('sticky-search-cancel-button').classList.remove('show');
     }
 });
 
 // Clear search input and hide 'X' button from the body search input
 $('#sticky-search-cancel-button').click(function () {
     $('.topic-page-sticky-search-container .search-input').val('');
-    $('#sticky-search-cancel-button').removeClass('show');
+    document.getElementById('sticky-search-cancel-button').classList.remove('show');
 });
 
 // Update link transition event if page is not opened as file
@@ -175,116 +198,20 @@ function updatePageReloadingBehaviour(event) {
         event.preventDefault();
         window.history.pushState(currentHref, "", currentHref);
         reloadDynamically(currentHref);
-        $('.shading-container-wrapper').removeClass('grey');
+        document.getElementsByClassName('shading-container-wrapper')[0].classList.remove('grey');
     }
 }
 
 // Expand topics in the TOC
 function applyExpandedClass(id){
-    if ($(id).parent().parent().hasClass('expanded')) {
-        // Remove .expanded from current TOC topic
-        $(id).parent().parent().removeClass('expanded');
-    } else {
-        // Add .expanded to current TOC topic
-        $(id).parent().parent().addClass('expanded');
-    }
+    // Add or remove .expanded to current TOC topic
+    $(id).parent().parent().toggleClass('expanded');
 }
 
 function expandCollapseSearch() {
-    if ($('.topic-page-sticky-search-container').hasClass('expanded')) {
-        // Remove .expanded from current TOC topic
-        $('.topic-page-sticky-search-container').removeClass('expanded');
-        $('.expand-collapse-search-container').removeClass('expanded');
-    } else {
-        // Add .expanded to current TOC topic
-        $('.topic-page-sticky-search-container').addClass('expanded');
-        $('.expand-collapse-search-container').addClass('expanded');
-    }
+    document.getElementsByClassName('topic-page-sticky-search-container')[0].classList.toggle('expanded');
+    document.getElementsByClassName('expand-collapse-search-container')[0].classList.toggle('expanded');
 }
-
-$(document).ready(function() {
-    var height;
-
-    // Expand all parent li's
-    $('.active').parents('nav li').addClass('expanded ancestor-of-active');
-
-    // Count main container min-height (needed for correct displaying of footer if the content is too short)
-    if($('div.breadcrumb-container').length && $('div.top-nav-buttons-container-wrapper').length && $('div.main-button-container').length) {
-        height = $(window).height() - ($("header").outerHeight(true) + $('div.breadcrumb-container').outerHeight(true) + $('div.top-nav-buttons-container-wrapper').outerHeight(true) + $('div.main-button-container').outerHeight(true) + $('#back-to-top-button-container').outerHeight(true) + $("footer").outerHeight(true) + 36);
-    } else {
-        height = $(window).height() - ($("header").outerHeight(true) + $('#back-to-top-button-container').outerHeight(true) + $("footer").outerHeight(true) + 24);
-    }
-
-    // Apply min-height value to the main element
-    $("main.container").css("min-height", height + "px");
-
-    // Reveal active topic in the TOC when page reloads
-    showActive;
-
-    // Count header padding for references on element inside topic
-    if (window.location.href.indexOf("#") > -1) {
-        var url = window.location.href,
-            currentId = url.substring(url.lastIndexOf('#') + 1),
-            $currentElem = $('#' + currentId),
-            headerHeight = $('header').outerHeight();
-
-        $("html, body").animate({ scrollTop: $currentElem.offset().top - headerHeight}, 0);
-    }
-
-    // Search page code
-    if ($('body#search-page')) {
-        var url_string = window.location.href,
-            url = new URL(url_string),
-            key = url.searchParams.get("key");
-
-        // If keyword exists show 'document(s) found for [keyword]' text
-        if(key !== '') {
-            $('#search-results-info').addClass('show');
-            $('#search-results').addClass('show');
-
-            // Insert search key value in #keyword-text element
-            $('#keyword-text').html(key);
-
-            // Insert search key value in search input
-            $('.search-input-container input.search-input').val(key);
-        } else {
-            // Show string 'Search keyword cannot be empty'
-            $('#empty-keyword').addClass('show');
-        }
-    }
-
-    // Press search button on enter
-    // Get the input field
-    var input = document.getElementById("header-search-input");
-
-    // Execute a function when the user releases a key on the keyboard
-    input.addEventListener("keyup", function(event) {
-        // Number 13 is the "Enter" key on the keyboard
-        if (event.keyCode === 13) {
-            // Trigger the button element with a click
-            document.getElementById("search-button").click();
-        }
-    });
-
-    // When page reloads stick main-button-container to the top if needed
-    if ($(window).scrollTop() >= $('.main-button-container-wrapper').offset().top) {
-        $('.main-button-container-wrapper').addClass('is-sticky');
-    }
-
-    // Hide TOC on mobile page
-    if(($(window).width() < 1170 ) && (!($('#toc-wrapper').hasClass('hidden')))) {
-        $('#toc-wrapper').addClass('hidden');
-        $('#button-hide-show-toc').addClass('hidden');
-        $('#button-expand-collapse').addClass('inactive');
-        $('#button-show-active').addClass('inactive');
-        $('.left-buttons-container').addClass('non-displayed');
-    }
-
-    // Hide mobile TOC on click on shading-container-wrapper
-    $('.shading-container-wrapper').click(function () {
-        hideMobileTOC();
-    });
-});
 
 // mobile-menu-button implementation
 $('#mobile-menu-button').click(function () {
@@ -292,25 +219,6 @@ $('#mobile-menu-button').click(function () {
         showMobileTOC();
     } else {
         hideMobileTOC();
-    }
-});
-
-// Hide TOC on mobile page
-$(window).on('resize', function() {
-    if(($(window).width() < 1170) && ($(window).width() !== previousWidth) && (!($('#toc-wrapper').hasClass('hidden')))) {
-        $('#toc-wrapper').addClass('hidden');
-        $('#button-hide-show-toc').addClass('hidden');
-        $('#button-expand-collapse').addClass('inactive');
-        $('#button-show-active').addClass('inactive');
-        $('#mobile-menu-button').removeClass('active');
-        $('.left-buttons-container').addClass('non-displayed');
-    } else if(($(window).width() < 1170)) {
-        $('.left-buttons-container').addClass('non-displayed');
-        $('.right-buttons-container').removeClass('non-displayed');
-    } else {
-        $('.left-buttons-container').removeClass('non-displayed');
-        $('.right-buttons-container').removeClass('non-displayed');
-        $('.shading-container-wrapper').removeClass('toc');
     }
 });
 
@@ -341,27 +249,27 @@ function reloadDynamically(href){
             hideMobileTOC();
         }
 
-        $(window).scrollTop(0);
+        $window.scrollTop(0);
         topicScrollPosition = 0;
     }, 'html')
 }
 
 function showMobileTOC() {
-    topicScrollPosition = $(window).scrollTop();
-    $('#toc-wrapper').removeClass('hidden');
-    $('#article-wrapper').addClass('hidden');
-    $('#button-hide-show-toc').removeClass('hidden');
-    $('#button-expand-collapse').removeClass('inactive');
-    $('#button-show-active').removeClass('inactive');
-    $('#mobile-menu-button').addClass('active');
-    $('.right-buttons-container').addClass('non-displayed');
-    $('.left-buttons-container').removeClass('non-displayed');
-    $('.shading-container-wrapper').addClass('toc');
+    topicScrollPosition = $window.scrollTop();
+    document.getElementById('toc-wrapper').classList.remove('hidden');
+    document.getElementById('article-wrapper').classList.add('hidden');
+    document.getElementById('button-hide-show-toc').classList.remove('hidden');
+    document.getElementById('button-expand-collapse').classList.remove('inactive');
+    document.getElementById('button-show-active').classList.remove('inactive');
+    document.getElementById('mobile-menu-button').classList.add('active');
+    document.getElementsByClassName('left-buttons-container')[0].classList.remove('non-displayed');
+    document.getElementsByClassName('right-buttons-container')[0].classList.add('non-displayed');
+    document.getElementsByClassName('shading-container-wrapper')[0].classList.add('toc');
     $('.main-button-container-wrapper').css("margin", "auto");
     $('.rocks-header').hide();
     $('.breadcrumb-container').hide();
     $('.top-nav-buttons-container-wrapper').hide();
-    $(window).scrollTop(0);
+    $window.scrollTop(0);
 
     // Close sticky search when mobile TOC is opened
     if ($('.topic-page-sticky-search-container').hasClass('expanded')) {
@@ -371,56 +279,59 @@ function showMobileTOC() {
 }
 
 function hideMobileTOC() {
-    $('#toc-wrapper').addClass('hidden');
-    $('#article-wrapper').removeClass('hidden');
-    $('#button-hide-show-toc').addClass('hidden');
-    $('#button-expand-collapse').addClass('inactive');
-    $('#button-show-active').addClass('inactive');
-    $('#mobile-menu-button').removeClass('active');
-    $('.left-buttons-container').addClass('non-displayed');
-    $('.right-buttons-container').removeClass('non-displayed');
-    $('.shading-container-wrapper').removeClass('toc');
+    document.getElementById('toc-wrapper').classList.add('hidden');
+    document.getElementById('article-wrapper').classList.remove('hidden');
+    document.getElementById('button-hide-show-toc').classList.add('hidden');
+    document.getElementById('button-expand-collapse').classList.add('inactive');
+    document.getElementById('button-show-active').classList.add('inactive');
+    document.getElementById('mobile-menu-button').classList.remove('active');
+    document.getElementsByClassName('left-buttons-container')[0].classList.add('non-displayed');
+    document.getElementsByClassName('right-buttons-container')[0].classList.remove('non-displayed');
+    document.getElementsByClassName('shading-container-wrapper')[0].classList.remove('toc');
     $('.main-button-container-wrapper').css("margin", "15px auto");
     $('.rocks-header').show();
     $('.breadcrumb-container').show();
     $('.top-nav-buttons-container-wrapper').show();
-    $(window).scrollTop(topicScrollPosition);
-}
-
-function flipCard(button) {
-    var card = button.closest('.card');
-    $(card).toggleClass('is-flipped');
+    $window.scrollTop(topicScrollPosition);
 }
 
 // Adding class for mobile breadcrumbs
 function showBreadcrumbs(button) {
-    if ($('.head-breadcrumbs-child-elements').hasClass('show')) {
-        $('.head-breadcrumbs-child-elements').removeClass('show');
-        $('.head-breadcrumbs-child-elements').children().removeClass('show');
-    } else {
-        $('.head-breadcrumbs-child-elements').addClass('show');
-        $('.head-breadcrumbs-child-elements').children().addClass('show');
-        $('.shading-container-wrapper').addClass('grey');
+    document.getElementsByClassName('head-breadcrumbs-child-elements')[0].classList.toggle('show');
+    $('.head-breadcrumbs-child-elements').children().toggleClass('show');
+
+    if (($('.head-breadcrumbs-child-elements').hasClass('show'))) {
+        document.getElementsByClassName('shading-container-wrapper')[0].classList.add('grey');
     }
 }
 
-// Close the mobile breadcrumbs if the user clicks outside block
 window.onclick = function (event) {
-    if (!event.target.closest('.child-elements')
-        && !event.target.matches('.three-dots-separator')) {
-        closeSpan("head-breadcrumbs-child-elements");
+    // Close the mobile breadcrumbs if the user clicks outside block
+    if (!event.target.closest('.child-elements') && !event.target.matches('.three-dots-separator')) {
+        closeBreadcrumbsPopUp();
+    }
 
+    // Close the dropdown menu from the download button if user clicks outside
+    if (!event.target.matches('.button-dropdown-download') && !event.target.matches('#menu-dropdown-download')) {
+        closeDropDown('.dropdown-content-download');
+    }
+
+    // Close the dropdown menu from the Google Drive dropdown if user clicks outside
+    if (!event.target.matches('.button-dropdown-share-google-drive') && !event.target.matches('#menu-dropdown-google-drive')) {
+        closeDropDown('.dropdown-content-google-drive');
     }
 };
 
-function closeSpan(className){
-    var breadcrumbs = document.getElementsByClassName(className);
-    for (var i = 0; i < breadcrumbs.length; i++) {
-        var openBreadcrumbs = breadcrumbs[i];
-        if (openBreadcrumbs.classList.contains('show')) {
-            openBreadcrumbs.classList.remove('show');
-            $('.shading-container-wrapper').removeClass('grey');
-            $('.head-breadcrumbs-child-elements').children().removeClass('show');
-        }
+function closeBreadcrumbsPopUp(){
+    if ($('.head-breadcrumbs-child-elements').hasClass('show')) {
+        document.getElementsByClassName('head-breadcrumbs-child-elements')[0].classList.remove('show');
+        $('.head-breadcrumbs-child-elements').children().removeClass('show');
+        document.getElementsByClassName('shading-container-wrapper')[0].classList.remove('grey');
+    }
+}
+
+function closeDropDown(className){
+    if ($(className).hasClass('show')) {
+        $(className).removeClass('show');
     }
 }
