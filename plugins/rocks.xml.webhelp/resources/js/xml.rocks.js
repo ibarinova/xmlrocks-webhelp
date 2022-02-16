@@ -40,8 +40,8 @@ $(document).ready(function() {
 
         // If keyword exists show 'document(s) found for [keyword]' text
         if(key !== '') {
-            $('#search-results-info').addClass('show');
-            $('#search-results').addClass('show');
+            document.getElementsById('search-results-info').classList.add('show');
+            document.getElementsById('search-results').classList.add('show');
 
             // Insert search key value in #keyword-text element
             $('#keyword-text').html(key);
@@ -50,7 +50,7 @@ $(document).ready(function() {
             $('.search-input-container input.search-input').val(key);
         } else {
             // Show string 'Search keyword cannot be empty'
-            $('#empty-keyword').addClass('show');
+            document.getElementsById('empty-keyword').classList.add('show');
         }
     }
 
@@ -68,17 +68,17 @@ $(document).ready(function() {
     });
 
     // When page reloads stick main-button-container to the top if needed
-    if ($(window).scrollTop() >= $('.main-button-container-wrapper').offset().top) {
-        $('.main-button-container-wrapper').addClass('is-sticky');
+    if (($(window).scrollTop() >= $('.main-button-container-wrapper').offset().top) && $('.main-button-container-wrapper')) {
+        document.getElementsByClassName('main-button-container-wrapper')[0].classList.add('is-sticky');
     }
 
     // Hide TOC on mobile page
     if(($(window).width() < 721) && (!($('#toc-wrapper').hasClass('hidden')))) {
-        $('#toc-wrapper').addClass('hidden');
-        $('#button-hide-show-toc').addClass('hidden');
-        $('#button-expand-collapse').addClass('inactive');
-        $('#button-show-active').addClass('inactive');
-        $('.left-buttons-container').addClass('non-displayed');
+        document.getElementsById('toc-wrapper').classList.add('hidden');
+        document.getElementsById('button-hide-show-toc').classList.add('hidden');
+        document.getElementsById('button-expand-collapse').classList.add('hidden');
+        document.getElementsById('button-show-active').classList.add('hidden');
+        document.getElementsByClassName('left-buttons-container')[0].classList.add('non-displayed');
     }
 
     // Hide mobile TOC on click on shading-container-wrapper
@@ -95,13 +95,13 @@ window.onscroll = function() {
         backToTopButton.style.display = "none";
     }
 
-    // On scroll hide/show search button in the buttons container
-    if ($(window).scrollTop() >= $('.main-button-container-wrapper').offset().top) {
-        $('.main-button-container-wrapper').addClass('is-sticky');
+    // On scroll show/hide search button in the main buttons container
+    if ($('.main-button-container-wrapper') && ($(window).scrollTop() >= $('.main-button-container-wrapper').offset().top)) {
+        document.getElementsByClassName('main-button-container-wrapper')[0].classList.add('is-sticky');
     } else {
-        $('.main-button-container-wrapper').removeClass('is-sticky');
-        $('.topic-page-sticky-search-container').removeClass('expanded');
-        $('.expand-collapse-search-container').removeClass('expanded');
+        document.getElementsByClassName('main-button-container-wrapper')[0].classList.remove('is-sticky');
+        document.getElementsByClassName('topic-page-sticky-search-container')[0].classList.remove('expanded');
+        document.getElementsByClassName('expand-collapse-search-container')[0].classList.remove('expanded');
     }
 }
 
@@ -110,17 +110,10 @@ function backToTop() {
 }
 
 function hideOrShowTOC() {
-    if($('#toc-wrapper').hasClass('hidden')) {
-        $('#toc-wrapper').removeClass('hidden');
-        $('#button-hide-show-toc').removeClass('hidden');
-        $('#button-expand-collapse').removeClass('inactive');
-        $('#button-show-active').removeClass('inactive');
-    } else {
-        $('#toc-wrapper').addClass('hidden');
-        $('#button-hide-show-toc').addClass('hidden');
-        $('#button-expand-collapse').addClass('inactive');
-        $('#button-show-active').addClass('inactive');
-    }
+    document.getElementById('toc-wrapper').classList.toggle('hidden');
+    document.getElementById('button-hide-show-toc').classList.toggle('hidden');
+    document.getElementById('button-expand-collapse').classList.toggle('inactive');
+    document.getElementById('button-show-active').classList.toggle('inactive');
 }
 
 function showActive() {
@@ -132,13 +125,8 @@ function showActive() {
 
 function expandCollapseAll() {
     if (!($('#button-expand-collapse').hasClass('inactive'))) {
-        if ($('#button-expand-collapse').hasClass('expanded')) {
-            $('.toc-container nav li.expanded').removeClass('expanded');
-            $('#button-expand-collapse').removeClass('expanded');
-        } else {
-            $('.toc-container nav li').addClass('expanded');
-            $('#button-expand-collapse').addClass('expanded');
-        }
+        $('.toc-container nav li').toggleClass('expanded');
+        document.getElementById('button-expand-collapse').classList.toggle('expanded');
     }
 }
 
@@ -171,27 +159,6 @@ function dropdownDownload() {
     document.getElementById("menu-dropdown-download").classList.toggle("show");
 }
 
-// Close the dropdown menu if the user clicks outside
-window.onclick = function (event) {
-    if (!event.target.matches('.button-dropdown-download')) {
-        closeDropDown("dropdown-content-download");
-    }
-
-    if (!event.target.matches('.button-dropdown-share-google-drive')) {
-        closeDropDown("dropdown-content-google-drive");
-    }
-};
-
-function closeDropDown(className){
-    var dropdowns = document.getElementsByClassName(className);
-
-    for (var i = 0; i < dropdowns.length; i++) {
-        var openDropdown = dropdowns[i];
-        if (openDropdown.classList.contains('show')) {
-            openDropdown.classList.remove('show');
-        }
-    }
-}
 
 // Function for dropdown menu for 'save to Google Drive' button
 function dropdownGoogleDrive() {
@@ -240,16 +207,16 @@ $('#search-cancel-button').click(function () {
 // Show 'X' button inside body search input if input contains text
 $('.topic-page-sticky-search-container .search-input').keyup(function() {
     if ($(this).val() != '') {
-        $('#sticky-search-cancel-button').addClass('show');
+        document.getElementById('sticky-search-cancel-button').classList.add('show');
     } else {
-        $('#sticky-search-cancel-button').removeClass('show');
+        document.getElementById('sticky-search-cancel-button').classList.remove('show');
     }
 });
 
 // Clear search input and hide 'X' button from the body search input
 $('#sticky-search-cancel-button').click(function () {
     $('.topic-page-sticky-search-container .search-input').val('');
-    $('#sticky-search-cancel-button').removeClass('show');
+    document.getElementById('sticky-search-cancel-button').classList.remove('show');
 });
 
 // Update link transition event if page is not opened as file
@@ -259,31 +226,19 @@ function updatePageReloadingBehaviour(event) {
         event.preventDefault();
         window.history.pushState(currentHref, "", currentHref);
         reloadDynamically(currentHref);
-        $('.shading-container-wrapper').removeClass('grey');
+        document.getElementsByClassName('shading-container-wrapper')[0].classList.remove('grey');
     }
 }
 
 // Expand topics in the TOC
 function applyExpandedClass(id){
-    if ($(id).parent().parent().hasClass('expanded')) {
-        // Remove .expanded from current TOC topic
-        $(id).parent().parent().removeClass('expanded');
-    } else {
-        // Add .expanded to current TOC topic
-        $(id).parent().parent().addClass('expanded');
-    }
+    // Add or remove .expanded to current TOC topic
+    $(id).parent().parent().toggleClass('expanded');
 }
 
 function expandCollapseSearch() {
-    if ($('.topic-page-sticky-search-container').hasClass('expanded')) {
-        // Remove .expanded from current TOC topic
-        $('.topic-page-sticky-search-container').removeClass('expanded');
-        $('.expand-collapse-search-container').removeClass('expanded');
-    } else {
-        // Add .expanded to current TOC topic
-        $('.topic-page-sticky-search-container').addClass('expanded');
-        $('.expand-collapse-search-container').addClass('expanded');
-    }
+    document.getElementsByClassName('topic-page-sticky-search-container')[0].classList.toggle('expanded');
+    document.getElementsByClassName('expand-collapse-search-container')[0].classList.toggle('expanded');
 }
 
 // mobile-menu-button implementation
@@ -394,33 +349,41 @@ function flipCard(button) {
 
 // Adding class for mobile breadcrumbs
 function showBreadcrumbs(button) {
-    if ($('.head-breadcrumbs-child-elements').hasClass('show')) {
-        $('.head-breadcrumbs-child-elements').removeClass('show');
-        $('.head-breadcrumbs-child-elements').children().removeClass('show');
-    } else {
-        $('.head-breadcrumbs-child-elements').addClass('show');
-        $('.head-breadcrumbs-child-elements').children().addClass('show');
+    $('.head-breadcrumbs-child-elements').toggleClass('show');
+    $('.head-breadcrumbs-child-elements').children().toggleClass('show');
+
+    if (($('.head-breadcrumbs-child-elements').hasClass('show'))) {
         $('.shading-container-wrapper').addClass('grey');
     }
 }
 
-// Close the mobile breadcrumbs if the user clicks outside block
 window.onclick = function (event) {
-    if (!event.target.closest('.child-elements')
-        && !event.target.matches('.three-dots-separator')) {
-        closeSpan("head-breadcrumbs-child-elements");
+    // Close the mobile breadcrumbs if the user clicks outside block
+    if (!event.target.closest('.child-elements') && !event.target.matches('.three-dots-separator')) {
+        closeBreadcrumbsPopUp();
+    }
 
+    // Close the dropdown menu from the download button if user clicks outside
+    if (!event.target.matches('.button-dropdown-download') && !event.target.matches('#menu-dropdown-download')) {
+        closeDropDown('.dropdown-content-download');
+    }
+
+    // Close the dropdown menu from the Google Drive dropdown if user clicks outside
+    if (!event.target.matches('.button-dropdown-share-google-drive') && !event.target.matches('#menu-dropdown-google-drive')) {
+        closeDropDown('.dropdown-content-google-drive');
     }
 };
 
-function closeSpan(className){
-    var breadcrumbs = document.getElementsByClassName(className);
-    for (var i = 0; i < breadcrumbs.length; i++) {
-        var openBreadcrumbs = breadcrumbs[i];
-        if (openBreadcrumbs.classList.contains('show')) {
-            openBreadcrumbs.classList.remove('show');
-            $('.shading-container-wrapper').removeClass('grey');
-            $('.head-breadcrumbs-child-elements').children().removeClass('show');
-        }
+function closeBreadcrumbsPopUp(){
+    if ($('.head-breadcrumbs-child-elements').hasClass('show')) {
+        $('.head-breadcrumbs-child-elements').removeClass('show');
+        $('.head-breadcrumbs-child-elements').children().removeClass('show');
+        $('.shading-container-wrapper').removeClass('grey');
+    }
+}
+
+function closeDropDown(className){
+    if ($(className).hasClass('show')) {
+        $(className).removeClass('show');
     }
 }
