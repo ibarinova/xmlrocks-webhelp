@@ -33,6 +33,60 @@
         display: none;
     }
 
+    .logo-header:hover > .tooltip-logo,
+    .button-flip-card:hover > .tooltip-flip-card,
+    .main-button-container-wrapper:not(.is-sticky) #button-hide-show-toc:not(.hidden):hover > .tooltip-hide-toc,
+    .main-button-container-wrapper:not(.is-sticky) #button-hide-show-toc.hidden:hover > .tooltip-show-toc,
+    .main-button-container-wrapper:not(.is-sticky) #button-expand-collapse:not(.inactive):not(.expanded):hover > .tooltip-expand-all,
+    .main-button-container-wrapper:not(.is-sticky) #button-expand-collapse:not(.inactive).expanded:hover > .tooltip-collapse-all,
+    .main-button-container-wrapper:not(.is-sticky) #button-show-active:not(.inactive):hover > .tooltip-show-active,
+    .main-button-container-wrapper:not(.is-sticky) .button-dropdown-download:hover > .tooltip-download,
+    .main-button-container-wrapper:not(.is-sticky) .button-print:hover > .tooltip-print,
+    .main-button-container-wrapper:not(.is-sticky) .button-dropdown-download:hover > .tooltip-download-current-page,
+    .main-button-container-wrapper:not(.is-sticky) .button-dropdown-share-google-drive:hover > .tooltip-google-drive {
+        display: none;
+    }
+
+    .button-dropdown-download:hover, .button-dropdown-download:focus {
+        background-image: url(../images/download.svg);
+        background-color: #FFFFFF;
+    }
+
+    .button-print:hover, .button-print:focus {
+        background-image: url(../images/print.svg);
+        background-color: #FFFFFF;
+    }
+
+    .button-dropdown-share-google-drive:hover, .button-dropdown-share-google-drive:focus {
+        background-image: url(../images/save-to-drive.svg);
+        background-color: #FFFFFF;
+    }
+
+    .expand-collapse-search-container.expanded .expand-collapse-search:hover{
+        background-image: url(../images/search-close.svg);
+        background-color: #FFFFFF;
+    }
+
+    #button-expand-collapse:not(.inactive).expanded:hover {
+        background-image: url(../images/toc-collapse-all.svg);
+        background-color: #FFFFFF;
+    }
+
+    #button-expand-collapse:not(.inactive):not(.expanded):hover {
+        background-image: url(../images/toc-expand-all.svg);
+        background-color: #FFFFFF;
+    }
+
+    #button-show-active:hover {
+        background-image: url(../images/toc-show-active.svg);
+        background-color: #FFFFFF;
+    }
+
+    .expand-collapse-search:hover {
+        background-image: url(../images/search-grey.svg);
+        background-color: #FFFFFF;
+    }
+
     .toc-container {
         height: 100%;
         max-width: 100%;
