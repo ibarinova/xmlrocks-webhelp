@@ -72,6 +72,16 @@ window.onscroll = function() {
     }
 }
 
+// Save scroll position before printing
+window.onbeforeprint = function () {
+    topicScrollPosition = $window.scrollTop();
+}
+
+// Return original scroll position
+window.onafterprint = function () {
+    $window.scrollTop(topicScrollPosition);
+}
+
 function backToTop() {
     document.documentElement.scrollTo({top: 0, behavior: 'smooth'});
 }
