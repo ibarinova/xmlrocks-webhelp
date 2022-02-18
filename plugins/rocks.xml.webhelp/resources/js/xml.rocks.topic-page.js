@@ -30,5 +30,6 @@ $window.on('resize', function() {
         document.getElementsByClassName('left-buttons-container')[0].classList.remove('non-displayed');
         document.getElementsByClassName('right-buttons-container')[0].classList.remove('non-displayed');
         document.getElementsByClassName('shading-container-wrapper')[0].classList.remove('toc');
+        closeBreadcrumbsPopUp();
     }
 });
