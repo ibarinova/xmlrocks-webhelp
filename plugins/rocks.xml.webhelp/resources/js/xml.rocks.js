@@ -47,7 +47,7 @@ $(document).ready(function() {
     });
 
     // Hide mobile TOC on click on shading-container-wrapper
-    $('.shading-container-wrapper').click(function () {
+    $('#shading-wrapper.toc').click(function () {
         hideMobileTOC();
     });
 });
