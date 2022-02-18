@@ -135,7 +135,7 @@
 .head-breadcrumbs-child-elements.show{
     padding: 20px 0;
     display:block;
-    z-index: 1200;
+    z-index: 70;
     position: absolute;
     width: 95%;
 }
@@ -173,7 +173,7 @@
     position: fixed;
     height: 100%;
     width: 100%;
-    z-index: 1100;
+    z-index: 60;
     top: 0;
 }
 
@@ -182,7 +182,7 @@
     position: fixed;
     height: 100%;
     width: 100%;
-    z-index: 2;
+    z-index: 20;
     top: 0;
 }
 
