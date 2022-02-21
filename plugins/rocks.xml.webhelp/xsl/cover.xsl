@@ -76,14 +76,14 @@
 
         <xsl:if test="descendant::*[contains(@class, ' map/topicref ')][not(@toc = 'no')][not(@processing-role = 'resource-only')]">
             <div class="row row-cols-1 row-cols-md-3 mb-3 text-left main-page-tiles">
-                <xsl:apply-templates select="*[contains(@class, ' map/topicref ')]" mode="tiles">
+                <xsl:apply-templates select="*[contains(@class, ' map/topicref ')][not(@toc = 'no')][not(@processing-role = 'resource-only')][not(ancestor-or-self::*[contains(@class, ' bookmap/frontmatter ')])][not(ancestor-or-self::*[contains(@class, ' bookmap/backmatter ')])]" mode="tiles">
                     <xsl:with-param name="pathFromMaplist" select="$pathFromMaplist"/>
                 </xsl:apply-templates>
             </div>
         </xsl:if>
     </xsl:template>
 
-    <xsl:template match="*[contains(@class, ' map/topicref ')][not(@toc = 'no')][not(@processing-role = 'resource-only')]" mode="tiles">
+    <xsl:template match="*[contains(@class, ' map/topicref ')]" mode="tiles">
         <xsl:param name="pathFromMaplist"/>
         <xsl:param name="topicrefTitle" select="''" tunnel="yes"/>
         <xsl:param name="skipShortdesc" select="false()" tunnel="yes"/>
