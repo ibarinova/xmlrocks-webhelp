@@ -811,6 +811,10 @@ a:hover{
     transition: all 1s ease-in-out .5s;
 }
 
+#article-wrapper.no-transition {
+    transition: all 0s ease-in-out 0s;
+}
+
 #toc-wrapper a,
 #toc-wrapper span.toc-title {
     min-height: 40px;
