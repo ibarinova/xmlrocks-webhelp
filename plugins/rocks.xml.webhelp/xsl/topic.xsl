@@ -831,6 +831,88 @@
             </table>
         </div>
         <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-endprop ')]" mode="out-of-line"/>
+    </xsl:template>
 
+    <xsl:template match="*[contains(@class, ' topic/simpletable ')]" name="topic.simpletable">
+        <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-startprop ')]" mode="out-of-line"/>
+        <div class="simpletable-wrapper">
+            <xsl:call-template name="spec-title"/>
+            <table>
+                <xsl:apply-templates select="." mode="table:common"/>
+                <xsl:apply-templates select="*[contains(@class, ' topic/title ')]"/>
+                <xsl:call-template name="dita2html:simpletable-cols"/>
+                <xsl:apply-templates select="*[contains(@class, ' topic/sthead ')]"/>
+                <xsl:apply-templates select="." mode="generate-table-header"/>
+
+                <tbody>
+                    <xsl:apply-templates select="*[contains(@class, ' topic/strow ')]"/>
+                </tbody>
+            </table>
+        </div>
+
+        <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-endprop ')]" mode="out-of-line"/>
+    </xsl:template>
+
+    <xsl:template match="*[contains(@class,' reference/properties ')]" name="reference.properties">
+        <xsl:call-template name="spec-title"/>
+        <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-startprop ')]" mode="out-of-line"/>
+        <xsl:call-template name="setaname"/>
+        <div class="properties-table-wrapper">
+            <table cellpadding="4" cellspacing="0"><!--summary=""-->
+                <xsl:call-template name="setid"/>
+                <xsl:if test="not(@frame = 'none')">
+                    <xsl:attribute name="border" select="1"/>
+                </xsl:if>
+                <xsl:call-template name="commonattributes">
+                    <xsl:with-param name="default-output-class">
+                        <xsl:choose>
+                            <xsl:when test="@frame = 'none'">simpletablenoborder</xsl:when>
+                            <xsl:otherwise>simpletableborder</xsl:otherwise>
+                        </xsl:choose>
+                    </xsl:with-param>
+                </xsl:call-template>
+                <xsl:apply-templates select="." mode="generate-table-summary-attribute"/>
+                <xsl:call-template name="setscale"/>
+                <xsl:call-template name="dita2html:simpletable-cols"/>
+
+            <xsl:variable name="header" select="*[contains(@class,' reference/prophead ')]"/>
+            <xsl:variable name="properties" select="*[contains(@class,' reference/property ')]"/>
+            <xsl:variable name="hasType" select="exists($header/*[contains(@class,' reference/proptypehd ')] | $properties/*[contains(@class,' reference/proptype ')])"/>
+            <xsl:variable name="hasValue" select="exists($header/*[contains(@class,' reference/propvaluehd ')] | $properties/*[contains(@class,' reference/propvalue ')])"/>
+            <xsl:variable name="hasDesc" select="exists($header/*[contains(@class,' reference/propdeschd ')] | $properties/*[contains(@class,' reference/propdesc ')])"/>
+
+                <xsl:variable name="prophead" as="element()">
+                    <xsl:choose>
+                        <xsl:when test="*[contains(@class, ' reference/prophead ')]">
+                            <xsl:sequence select="*[contains(@class, ' reference/prophead ')]"/>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:variable name="gen" as="element(gen)?">
+                                <xsl:call-template name="gen-prophead">
+                                    <xsl:with-param name="hasType" select="$hasType"/>
+                                    <xsl:with-param name="hasValue" select="$hasValue"/>
+                                    <xsl:with-param name="hasDesc" select="$hasDesc"/>
+                                </xsl:call-template>
+                            </xsl:variable>
+                            <xsl:sequence select="$gen/*"/>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </xsl:variable>
+                <xsl:apply-templates select="$prophead">
+                    <xsl:with-param name="hasType" select="$hasType"/>
+                    <xsl:with-param name="hasValue" select="$hasValue"/>
+                    <xsl:with-param name="hasDesc" select="$hasDesc"/>
+                </xsl:apply-templates>
+                <tbody>
+                    <xsl:apply-templates
+                            select="*[contains(@class, ' reference/property ')] | processing-instruction()">
+                        <xsl:with-param name="hasType" select="$hasType"/>
+                        <xsl:with-param name="hasValue" select="$hasValue"/>
+                        <xsl:with-param name="hasDesc" select="$hasDesc"/>
+                    </xsl:apply-templates>
+                </tbody>
+            </table>
+        </div>
+        <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-endprop ')]" mode="out-of-line"/>
     </xsl:template>
 </xsl:stylesheet>
