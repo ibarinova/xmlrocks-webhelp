@@ -2,6 +2,7 @@
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
                 xmlns:xs="http://www.w3.org/2001/XMLSchema"
                 xmlns:dita2html="http://dita-ot.sourceforge.net/ns/200801/dita2html"
+                xmlns:table="http://dita-ot.sourceforge.net/ns/201007/dita-ot/table"
                 exclude-result-prefixes="#all"
                 version="2.0">
 
@@ -817,5 +818,19 @@
         </figure>
         <xsl:call-template name="place-fig-lbl"/>
         <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-endprop ')]" mode="out-of-line"/>
+    </xsl:template>
+
+    <xsl:template match="*[contains(@class,' topic/table ')]" name="topic.table">
+        <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-startprop ')]" mode="out-of-line"/>
+        <div class="table-wrapper">
+            <table>
+                <xsl:apply-templates select="." mode="table:common"/>
+                <xsl:apply-templates select="." mode="table:title"/>
+                <!-- title and desc are processed elsewhere -->
+                <xsl:apply-templates select="*[contains(@class, ' topic/tgroup ')]"/>
+            </table>
+        </div>
+        <xsl:apply-templates select="*[contains(@class, ' ditaot-d/ditaval-endprop ')]" mode="out-of-line"/>
+
     </xsl:template>
 </xsl:stylesheet>

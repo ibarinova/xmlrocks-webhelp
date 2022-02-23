@@ -1022,6 +1022,11 @@ table {
     caption-side: top;
 }
 
+.table-wrapper{
+    width: 100%;
+    overflow-x: scroll;
+}
+
 table > caption {
     color: #333333;
     font-style: italic;
