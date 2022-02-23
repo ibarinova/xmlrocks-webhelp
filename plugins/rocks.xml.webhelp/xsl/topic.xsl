@@ -27,15 +27,15 @@
     <xsl:variable name="separate-fig-callouts" select="$two-col-fig-callouts = ('yes', 'true')"/>
 
     <xsl:variable name="preceding-sibling-topicref" select="$current-topicref/preceding-sibling::*[not(@toc = 'no')]
-                                                            [not(@processing-role = 'resource-only')][not(ancestor::*[contains(@chunk, 'to-content')])][@href][1]"/>
+                                                            [not(@processing-role = 'resource-only')][not(ancestor::*[contains(@chunk, 'to-content')])][not(ancestor-or-self::*[contains(@class, ' bookmap/frontmatter ')])][not(ancestor-or-self::*[contains(@class, ' bookmap/backmatter ')])][@href][1]"/>
     <xsl:variable name="preceding-topicref" select="$current-topicref/preceding::*[not(@toc = 'no')]
-                                                    [not(@processing-role = 'resource-only')][not(ancestor::*[contains(@chunk, 'to-content')])][@href][1]"/>
+                                                    [not(@processing-role = 'resource-only')][not(ancestor::*[contains(@chunk, 'to-content')])][not(ancestor-or-self::*[contains(@class, ' bookmap/frontmatter ')])][not(ancestor-or-self::*[contains(@class, ' bookmap/backmatter ')])][@href][1]"/>
     <xsl:variable name="ancestor-topicref" select="$current-topicref/ancestor::*[not(@toc = 'no')][not(@processing-role = 'resource-only')]
-                                                    [not(ancestor::*[contains(@chunk, 'to-content')])][@href][1]"/>
+                                                    [not(ancestor::*[contains(@chunk, 'to-content')])][not(ancestor-or-self::*[contains(@class, ' bookmap/frontmatter ')])][not(ancestor-or-self::*[contains(@class, ' bookmap/backmatter ')])][@href][1]"/>
     <xsl:variable name="child-topicref" select="$current-topicref/child::*[not(@toc = 'no')][not(@processing-role = 'resource-only')]
-                                                [not(ancestor::*[contains(@chunk, 'to-content')])][@href][1]"/>
+                                                [not(ancestor::*[contains(@chunk, 'to-content')])][not(ancestor-or-self::*[contains(@class, ' bookmap/frontmatter ')])][not(ancestor-or-self::*[contains(@class, ' bookmap/backmatter ')])][@href][1]"/>
     <xsl:variable name="following-topicref" select="$current-topicref/following::*[not(@toc = 'no')][not(@processing-role = 'resource-only')]
-                                                    [not(ancestor::*[contains(@chunk, 'to-content')])][@href][1]"/>
+                                                    [not(ancestor::*[contains(@chunk, 'to-content')])][not(ancestor-or-self::*[contains(@class, ' bookmap/frontmatter ')])][not(ancestor-or-self::*[contains(@class, ' bookmap/backmatter ')])][@href][1]"/>
 
     <xsl:attribute-set name="banner">
         <xsl:attribute name="class">rocks-header</xsl:attribute>
