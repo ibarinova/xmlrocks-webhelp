@@ -75,6 +75,10 @@ window.onscroll = function() {
 // Save scroll position before printing
 window.onbeforeprint = function () {
     topicScrollPosition = $window.scrollTop();
+    document.getElementById('article-wrapper').classList.add('no-transition');
+    setTimeout(function(){
+        document.getElementById('article-wrapper').classList.remove('no-transition');
+    }, 2000);
 }
 
 // Return original scroll position
