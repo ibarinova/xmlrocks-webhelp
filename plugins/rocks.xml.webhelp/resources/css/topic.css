@@ -1022,6 +1022,11 @@ table {
     caption-side: top;
 }
 
+.table-wrapper{
+    width: 100%;
+    overflow-x: scroll;
+}
+
 table > caption {
     color: #333333;
     font-style: italic;
@@ -1071,6 +1076,16 @@ tbody, td, tfoot, th, thead, tr {
 
 .stentry{
     padding: 0.5rem;
+}
+
+.simpletable-wrapper{
+    width: 100%;
+    overflow-x: scroll;
+}
+
+.properties-table-wrapper{
+    width: 100%;
+    overflow-x: scroll;
 }
 
 .rowsep-1 {
