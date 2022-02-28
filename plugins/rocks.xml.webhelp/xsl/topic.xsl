@@ -875,11 +875,11 @@
                 <xsl:call-template name="setscale"/>
                 <xsl:call-template name="dita2html:simpletable-cols"/>
 
-            <xsl:variable name="header" select="*[contains(@class,' reference/prophead ')]"/>
-            <xsl:variable name="properties" select="*[contains(@class,' reference/property ')]"/>
-            <xsl:variable name="hasType" select="exists($header/*[contains(@class,' reference/proptypehd ')] | $properties/*[contains(@class,' reference/proptype ')])"/>
-            <xsl:variable name="hasValue" select="exists($header/*[contains(@class,' reference/propvaluehd ')] | $properties/*[contains(@class,' reference/propvalue ')])"/>
-            <xsl:variable name="hasDesc" select="exists($header/*[contains(@class,' reference/propdeschd ')] | $properties/*[contains(@class,' reference/propdesc ')])"/>
+                <xsl:variable name="header" select="*[contains(@class,' reference/prophead ')]"/>
+                <xsl:variable name="properties" select="*[contains(@class,' reference/property ')]"/>
+                <xsl:variable name="hasType" select="exists($header/*[contains(@class,' reference/proptypehd ')] | $properties/*[contains(@class,' reference/proptype ')])"/>
+                <xsl:variable name="hasValue" select="exists($header/*[contains(@class,' reference/propvaluehd ')] | $properties/*[contains(@class,' reference/propvalue ')])"/>
+                <xsl:variable name="hasDesc" select="exists($header/*[contains(@class,' reference/propdeschd ')] | $properties/*[contains(@class,' reference/propdesc ')])"/>
 
                 <xsl:variable name="prophead" as="element()">
                     <xsl:choose>
