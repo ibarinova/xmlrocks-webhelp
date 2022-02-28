@@ -474,6 +474,10 @@ a:hover{
     background-image: url(../images/toc-show-white.svg);
 }
 
+#button-hide-show-toc:focus-visible{
+    outline: none;
+}
+
 .button-expand-collapse-container {
     display: inline-block;
     position: relative;
