@@ -1036,6 +1036,10 @@ table > caption {
     border: none;
 }
 
+.table-hover>tbody>tr:hover {
+    --bs-table-accent-bg: none;
+}
+
 .table > thead {
     vertical-align: bottom;
     text-align: center;
