@@ -1016,7 +1016,7 @@ li.ancestor-of-active > .toc-element-row > a {
 .toc-container li.expanded > ul {
     transition: max-height 0.6s ease-in-out;
     height: auto;
-    max-height: 2000px;
+    max-height: 3000px;
 }
 
 /* --- Table of contents (TOC) END --- */
