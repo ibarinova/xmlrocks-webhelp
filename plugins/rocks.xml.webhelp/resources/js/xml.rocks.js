@@ -163,10 +163,16 @@ $('body').on('click', '.bottom-nav-buttons-container a', updatePageReloadingBeha
 
 // Open search page when search button is pressed
 $('body').on('click', '#search-button', runSearch);
+$('body').on('click', '#body-search-button', runBodySearch);
 $('body').on('click', '#sticky-search-button', runStickySearch);
 
 function runSearch() {
     var searchInputValue = $('input.search').val();
+    location.href = "search.html?key=" + searchInputValue;
+}
+
+function runBodySearch() {
+    var searchInputValue = $('#body-search-input').val();
     location.href = "search.html?key=" + searchInputValue;
 }
 
@@ -197,6 +203,30 @@ $('.topic-page-sticky-search-container .search-input').keyup(function() {
     } else {
         document.getElementById('sticky-search-cancel-button').classList.remove('show');
     }
+});
+
+// Show 'X' button inside body search input if input contains text
+$('#body-search-input').keyup(function() {
+    if ($(this).val() != '') {
+        document.getElementById('body-search-cancel-button').classList.add('show');
+    } else {
+        document.getElementById('body-search-cancel-button').classList.remove('show');
+    }
+});
+
+// Show 'X' button inside body search input if input contains text
+$('#body-search-input').keyup(function() {
+    if ($(this).val() != '') {
+        document.getElementById('body-search-cancel-button').classList.add('show');
+    } else {
+        document.getElementById('body-search-cancel-button').classList.remove('show');
+    }
+});
+
+// Clear search input and hide 'X' button from the body search input
+$('#body-search-cancel-button').click(function () {
+    $('#body-search-input').val('');
+    document.getElementById('body-search-cancel-button').classList.remove('show');
 });
 
 // Clear search input and hide 'X' button from the body search input

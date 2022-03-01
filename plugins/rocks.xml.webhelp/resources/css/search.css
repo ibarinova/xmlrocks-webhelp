@@ -52,3 +52,21 @@
 #search-results.show {
     display: block;
 }
+
+.search-input-container-wrapper .search-input-container {
+    margin: 10px auto;
+    height: 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+}
+
+#body-search-button {
+    background: url(../images/search-grey.svg) center no-repeat;
+    height: 40px;
+    width: 40px;
+    grid-column-start: 1;
+    grid-column-end: -1;
+    grid-row-start: 1;
+    justify-self: end;
+}

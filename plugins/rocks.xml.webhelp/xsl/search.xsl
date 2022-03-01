@@ -50,7 +50,7 @@
 
                     <div class="search-input-container-wrapper">
                         <div class="search-input-container max-width">
-                            <input class="form-control search search-input" type="search">
+                            <input class="form-control search search-input" id="body-search-input" type="search">
                                 <xsl:attribute name="placeholder">
                                     <xsl:call-template name="getVariable">
                                         <xsl:with-param name="id" select="'Search'"/>
@@ -62,6 +62,9 @@
                                     </xsl:call-template>
                                 </xsl:attribute>
                             </input>
+                            <button id="body-search-cancel-button"></button>
+                            <div class="body-search-buttons-separator"></div>
+                            <button id="body-search-button"></button>
                         </div>
                     </div>
 
