@@ -12,6 +12,19 @@ $(document).ready(function() {
         document.getElementById('button-show-active').classList.add('hidden');
         document.getElementsByClassName('left-buttons-container')[0].classList.add('non-displayed');
     }
+
+    // Press sticky search button on enter
+        // Get the input field
+        var stickyInput = document.getElementById("sticky-search-input");
+
+        // Execute a function when the user releases a key on a keyboard
+        stickyInput.addEventListener("keyup", function(event) {
+            // Number 13 is the "Enter" key on a keyboard
+            if (event.keyCode === 13) {
+                // Trigger the button element with a click
+                document.getElementById("sticky-search-button").click();
+            }
+        });
 });
 
 // Hide TOC on mobile page

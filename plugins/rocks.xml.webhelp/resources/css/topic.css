@@ -474,7 +474,7 @@ a:hover{
     background-image: url(../images/toc-show-white.svg);
 }
 
-#button-hide-show-toc:focus-visible{
+#button-hide-show-toc:focus-visible {
     outline: none;
 }
 
@@ -1040,7 +1040,7 @@ table > caption {
     border: none;
 }
 
-.table-hover>tbody>tr:hover {
+.table-hover > tbody > tr:hover {
     --bs-table-accent-bg: none;
 }
 
@@ -1086,12 +1086,12 @@ tbody, td, tfoot, th, thead, tr {
     padding: 0.5rem;
 }
 
-.simpletable-wrapper{
+.simpletable-wrapper {
     width: 100%;
     overflow-x: scroll;
 }
 
-.properties-table-wrapper{
+.properties-table-wrapper {
     width: 100%;
     overflow-x: scroll;
 }
