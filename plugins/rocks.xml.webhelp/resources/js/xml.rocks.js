@@ -81,6 +81,7 @@ window.onscroll = function() {
             document.getElementsByClassName('main-button-container-wrapper')[0].classList.remove('is-sticky');
             document.getElementsByClassName('topic-page-sticky-search-container')[0].classList.remove('expanded');
             document.getElementsByClassName('expand-collapse-search-container')[0].classList.remove('expanded');
+            $('.topic-page-sticky-search-container .search-input').val('');
         }
     }
 }
