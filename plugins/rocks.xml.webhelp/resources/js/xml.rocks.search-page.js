@@ -13,7 +13,6 @@ $(document).ready(function() {
         if (event.keyCode === 13) {
             // Trigger the button element with a click
             document.getElementById("body-search-button").click();
-            console.log('123');
         }
     });
 });
