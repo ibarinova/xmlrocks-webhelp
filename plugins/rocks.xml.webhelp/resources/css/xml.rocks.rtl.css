@@ -13,3 +13,65 @@ html[dir='rtl'] .header-search-wrapper {
 }
 /*--- Searchbar Header END ---*/
 
+/*--- TOC right padding fix START ---*/
+html[dir='rtl'] .toc-element-row {
+    display:flex;
+    -webkit-flex-direction: row-reverse;
+    flex-direction: row-reverse;
+}
+
+html[dir='rtl'] #toc-wrapper a,
+html[dir='rtl'] #toc-wrapper span.toc-title {
+    margin-left: auto;
+}
+/*--- TOC right padding fix END ---*/
+
+/*--- Move TOC arrows to the left side START ---*/
+/* level 1 */
+html[dir='rtl'] .toc-container li.level1 > .toc-element-row > a,
+html[dir='rtl'] .toc-container li.level1 > .toc-element-row > span.toc-title {
+    padding-left: 0;
+    padding-right: 1.5em;
+}
+
+/* level 2 */
+html[dir='rtl'] .toc-container li.level2 > .toc-element-row > a,
+html[dir='rtl'] .toc-container li.level2 > .toc-element-row > span.toc-title {
+    padding-left: 0;
+    padding-right: 2.5em;
+}
+
+/* level 3 */
+html[dir='rtl'] .toc-container li.level3 > .toc-element-row > a,
+html[dir='rtl'] .toc-container li.level3 > .toc-element-row > span.toc-title {
+    padding-left: 0;
+    padding-right: 3.5em;
+}
+
+/* level 4 */
+html[dir='rtl'] .toc-container li.level4 > .toc-element-row > a,
+html[dir='rtl'] .toc-container li.level4 > .toc-element-row > span.toc-title {
+    padding-left: 0;
+    padding-right: 4.5em;
+}
+
+/* level 5 */
+html[dir='rtl'] .toc-container li.level5 > .toc-element-row > a,
+html[dir='rtl'] .toc-container li.level5 > .toc-element-row > span.toc-title {
+    padding-left: 0;
+    padding-right: 5.5em;
+}
+
+/* level 6 */
+html[dir='rtl'] .toc-container li.level6 > .toc-element-row > a,
+html[dir='rtl'] .toc-container li.level6 > .toc-element-row > span.toc-title {
+    padding-left: 0;
+    padding-right: 6.5em;
+}
+
+/* level is higher than 6 */
+html[dir='rtl'] .toc-container li.level-extra > .toc-element-row > a,
+html[dir='rtl'] .toc-container li.level-extra > .toc-element-row > span.toc-title {
+    padding-left: 7.5em;
+}
+/*--- Move TOC arrows to the left side END ---*/
