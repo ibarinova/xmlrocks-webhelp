@@ -11,5 +11,9 @@ html[dir='rtl'] .header-search-wrapper {
     margin-right: auto;
     margin-left: 0;
 }
+
+.rocks-header .search {
+    padding-left: 80px;
+}
 /*--- Searchbar Header END ---*/
 
