@@ -13,3 +13,20 @@ html[dir='rtl'] .header-search-wrapper {
 }
 /*--- Searchbar Header END ---*/
 
+/*--- TOC hide/show RTL buttons START ---*/
+html[dir='rtl'] #button-hide-show-toc {
+    background-image: url(../images/toc-hide-rtl.svg);
+}
+
+html[dir='rtl'] #button-hide-show-toc:hover {
+    background-image: url(../images/toc-hide-white-rtl.svg);
+}
+
+html[dir='rtl'] #button-hide-show-toc.hidden {
+    background-image: url(../images/toc-show-rtl.svg);
+}
+
+html[dir='rtl'] #button-hide-show-toc.hidden:hover {
+    background-image: url(../images/toc-show-white-rtl.svg);
+}
+/*--- TOC hide/show RTL buttons END ---*/
