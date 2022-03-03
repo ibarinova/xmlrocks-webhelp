@@ -1,3 +1,10 @@
+/*--- Back to top button START ---*/
+html[dir='rtl'] #button-back-to-top{
+    margin-left: unset;
+    margin-right: auto;
+}
+/*--- Back to top button END ---*/
+
 /*--- Searchbar Header START ---*/
 html[dir='rtl'] .header-search-wrapper {
     display: grid;
@@ -5,3 +12,4 @@ html[dir='rtl'] .header-search-wrapper {
     margin-left: 0;
 }
 /*--- Searchbar Header END ---*/
+
