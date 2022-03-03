@@ -4,3 +4,12 @@ html[dir='rtl'] #button-back-to-top{
     margin-right: auto;
 }
 /*--- Back to top button END ---*/
+
+/*--- Searchbar Header START ---*/
+html[dir='rtl'] .header-search-wrapper {
+    display: grid;
+    margin-right: auto;
+    margin-left: 0;
+}
+/*--- Searchbar Header END ---*/
+
