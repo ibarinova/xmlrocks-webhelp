@@ -13,6 +13,32 @@ html[dir='rtl'] .header-search-wrapper {
 }
 /*--- Searchbar Header END ---*/
 
+/*--- Main buttons bar START ---*/
+html[dir='rtl'] .expand-collapse-search {
+    margin-left: 0;
+    margin-right: 2rem;
+}
+
+html[dir='rtl'] .dropdown-google-drive {
+    margin-left: 0;
+    margin-right: 8px;
+}
+
+html[dir='rtl'] .main-button-container .dropdown-download {
+    margin-right: 0;
+    margin-left: 8px;
+}
+
+html[dir='rtl'] .button-expand-collapse-container {
+    margin-right: 0;
+    margin-left: 8px;
+}
+
+html[dir='rtl'] .button-hide-show-toc-container {
+    margin-right: 0;
+    margin-left: 8px;
+}
+/*--- Main buttons bar END ---*/
 /*--- TOC hide/show RTL buttons START ---*/
 html[dir='rtl'] #button-hide-show-toc {
     background-image: url(../images/toc-hide-rtl.svg);
