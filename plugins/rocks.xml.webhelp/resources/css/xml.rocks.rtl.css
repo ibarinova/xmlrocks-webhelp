@@ -39,6 +39,41 @@ html[dir='rtl'] .topic-page-sticky-search-container .search-input-container .sea
 }
 /*--- Searchbar Sticky END ---*/
 
+/*--- Navigation START ---*/
+html[dir='rtl'] .button-next-nav{
+    content: url(../images/prev-button.svg);
+    display: inline;
+    float: right;
+    padding-top: 0.5em;
+    margin-left: 0.1em;
+}
+html[dir='rtl'] .next-button:hover > .button-next-nav {
+    content: url("../images/prev-button-blue.svg");
+}
+
+html[dir='rtl'] .prev-button{
+    margin-left: 0;
+    margin-right: 0;
+}
+
+html[dir='rtl'] .button-prev-nav{
+    content: url(../images/next-button.svg);
+    display: inline;
+    float: left;
+    padding-top: 0.5em;
+    margin-right: 0.1em;
+}
+
+html[dir='rtl'] .prev-button:hover > .button-prev-nav {
+    content: url("../images/next-button-blue.svg");
+}
+
+html[dir='rtl'] .next-button{
+    margin-right: auto;
+    margin-left: 0;
+}
+/*--- Navigation END ---*/
+
 /*--- Breadcrumbs START ---*/
 html[dir='rtl'] .breadcrumbs-separator {
     content: url(../images/breadcrumbs-separator-rtl.svg);
