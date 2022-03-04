@@ -1,3 +1,10 @@
+/*--- Header wrapper START ---*/
+html[dir='rtl'] .header-logo{
+    margin-left: 1em;
+    margin-right: 0;
+}
+/*--- Header wrapper END ---*/
+
 /*--- Back to top button START ---*/
 html[dir='rtl'] #button-back-to-top{
     margin-left: unset;
