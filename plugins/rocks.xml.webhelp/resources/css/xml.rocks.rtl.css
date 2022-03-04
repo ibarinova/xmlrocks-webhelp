@@ -17,6 +17,12 @@ html[dir='rtl'] .header-search-wrapper {
 }
 /*--- Searchbar Header END ---*/
 
+/*--- Breadcrumbs START ---*/
+html[dir='rtl'] .breadcrumbs-separator {
+    content: url(../images/breadcrumbs-separator-rtl.svg);
+}
+/*--- Breadcrumbs END ---*/
+
 /*--- Main buttons bar START ---*/
 html[dir='rtl'] .expand-collapse-search {
     margin-left: 0;
