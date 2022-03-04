@@ -17,6 +17,12 @@ html[dir='rtl'] .header-search-wrapper {
 }
 /*--- Searchbar Header END ---*/
 
+/*--- Searchbar Sticky START ---*/
+html[dir='rtl'] .topic-page-sticky-search-container .search-input-container .search-input{
+    padding-left: 80px;
+}
+/*--- Searchbar Sticky END ---*/
+
 /*--- Breadcrumbs START ---*/
 html[dir='rtl'] .breadcrumbs-separator {
     content: url(../images/breadcrumbs-separator-rtl.svg);
