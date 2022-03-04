@@ -12,8 +12,17 @@ html[dir='rtl'] .header-search-wrapper {
     margin-left: 0;
 }
 
-.rocks-header .search {
+html[dir='rtl'] .rocks-header .search {
     padding-left: 80px;
+    padding-right: 0.75rem;
+}
+
+html[dir='rtl'] #search-cancel-button, #body-search-cancel-button, #sticky-search-cancel-button{
+    margin-left: 40px;
+}
+
+html[dir='rtl'] .search-buttons-separator, .sticky-search-buttons-separator{
+    margin-left: 40px;
 }
 /*--- Searchbar Header END ---*/
 
