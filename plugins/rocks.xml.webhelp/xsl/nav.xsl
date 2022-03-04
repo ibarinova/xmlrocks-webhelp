@@ -5,6 +5,16 @@
                 exclude-result-prefixes="#all"
                 version="2.0">
 
+    <xsl:variable name="childlang">
+        <xsl:apply-templates select="/*" mode="get-first-topic-lang"/>
+    </xsl:variable>
+
+    <xsl:variable name="direction">
+        <xsl:apply-templates select="." mode="get-render-direction">
+            <xsl:with-param name="lang" select="$childlang"/>
+        </xsl:apply-templates>
+    </xsl:variable>
+
     <xsl:template match="*[contains(@class, ' map/topicref ')]" mode="normalize-map">
         <data name="topicref-id" value="{generate-id()}"/>
         <xsl:next-match/>
@@ -42,6 +52,12 @@
                 <xsl:attribute name="class" select="concat($liLevelNormalized, ' ', $isActive)"/>
 
                 <div class="toc-element-row">
+                    <xsl:if test="child::*[contains(@class, ' map/topicref ')][not(@toc = 'no')][not(@processing-role = 'resource-only')][not(contains(@class, ' ditavalref-d/ditavalref '))] and not(@chunk = 'to-content') and (normalize-space($direction) = 'rtl')">
+                        <span id="{$testId}" class="button-toc-expand-collapse"
+                              onclick="applyExpandedClass('#{$testId}')">
+                        </span>
+                    </xsl:if>
+
                     <xsl:choose>
                         <xsl:when test="normalize-space(@href)">
                             <xsl:variable name="current-href">
@@ -84,9 +100,14 @@
                                 <xsl:attribute name="href" select="$current-href-fixed"/>
 
                                 <!-- Add left padding to TOC topics with levels greater than 6 (levels 1-6 are handled with CSS) -->
-                                <xsl:if test="$liLevel gt 6">
-                                    <xsl:attribute name="style" select="concat('padding-left: ', $liLevel + 0.5, 'em')"/>
-                                </xsl:if>
+                                <xsl:choose>
+                                    <xsl:when test="($liLevel gt 6) and not(normalize-space($direction) = 'rtl')">
+                                        <xsl:attribute name="style" select="concat('padding-left: ', $liLevel + 0.5, 'em')"/>
+                                    </xsl:when>
+                                    <xsl:when test="($liLevel gt 6) and (normalize-space($direction) = 'rtl')">
+                                        <xsl:attribute name="style" select="concat('padding-right: ', $liLevel + 0.5, 'em')"/>
+                                    </xsl:when>
+                                </xsl:choose>
 
                                 <xsl:value-of select="$title"/>
                             </a>
@@ -98,7 +119,7 @@
                         </xsl:otherwise>
                     </xsl:choose>
 
-                    <xsl:if test="child::*[contains(@class, ' map/topicref ')][not(@toc = 'no')][not(@processing-role = 'resource-only')][not(contains(@class, ' ditavalref-d/ditavalref '))] and not(@chunk = 'to-content')">
+                    <xsl:if test="child::*[contains(@class, ' map/topicref ')][not(@toc = 'no')][not(@processing-role = 'resource-only')][not(contains(@class, ' ditavalref-d/ditavalref '))] and not(@chunk = 'to-content') and not(normalize-space($direction) = 'rtl')">
                         <span id="{$testId}" class="button-toc-expand-collapse"
                               onclick="applyExpandedClass('#{$testId}')">
                         </span>
