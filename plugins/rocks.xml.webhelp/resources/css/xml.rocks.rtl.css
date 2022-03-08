@@ -152,3 +152,9 @@ html[dir='rtl'] #button-hide-show-toc.hidden:hover {
     background-image: url(../images/toc-show-white-rtl.svg);
 }
 /*--- TOC hide/show RTL buttons END ---*/
+
+/*--- TOC hide/show RTL to right side START ---*/
+#toc-wrapper.hidden {
+    transform: translateX(100%);
+}
+/*--- TOC hide/show RTL to right side END ---*/
