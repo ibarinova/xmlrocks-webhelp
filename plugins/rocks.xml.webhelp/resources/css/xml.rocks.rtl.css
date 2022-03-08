@@ -152,3 +152,15 @@ html[dir='rtl'] #button-hide-show-toc.hidden:hover {
     background-image: url(../images/toc-show-white-rtl.svg);
 }
 /*--- TOC hide/show RTL buttons END ---*/
+
+/*--- Admonitions START ---*/
+html[dir='rtl'] .note{
+    border-right: 1px #e9e9e9 solid;
+    border-left: none;
+    padding-right: 1rem;
+}
+
+html[dir='rtl'] .admonition-icon{
+    padding-left: 1.2rem;
+}
+/*--- Admonitions END ---*/
