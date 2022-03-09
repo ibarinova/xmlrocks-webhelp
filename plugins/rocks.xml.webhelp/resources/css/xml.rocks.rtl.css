@@ -105,6 +105,11 @@ html[dir='rtl'] .button-hide-show-toc-container {
     margin-right: 0;
     margin-left: 8px;
 }
+
+html[dir='rtl'] .dropdown-content-download {
+    left: 0;
+    right: auto;
+}
 /*--- Main buttons bar END ---*/
 
 /*--- TOC right padding fix START ---*/
