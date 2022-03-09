@@ -29,6 +29,10 @@
         display: none;
     }
 
+    .prev-button:hover > .prev-button-tooltip, .next-button:hover > .next-button-tooltip{
+        display: none;
+    }
+
     .button-hide-show-toc-container {
         display: none;
     }
