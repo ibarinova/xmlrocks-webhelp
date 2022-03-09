@@ -39,6 +39,41 @@ html[dir='rtl'] .topic-page-sticky-search-container .search-input-container .sea
 }
 /*--- Searchbar Sticky END ---*/
 
+/*--- Navigation START ---*/
+html[dir='rtl'] .button-next-nav{
+    content: url(../images/prev-button.svg);
+    display: inline;
+    float: right;
+    padding-top: 0.5em;
+    margin-left: 0.1em;
+}
+html[dir='rtl'] .next-button:hover > .button-next-nav {
+    content: url("../images/prev-button-blue.svg");
+}
+
+html[dir='rtl'] .prev-button{
+    margin-left: 0;
+    margin-right: 0;
+}
+
+html[dir='rtl'] .button-prev-nav{
+    content: url(../images/next-button.svg);
+    display: inline;
+    float: left;
+    padding-top: 0.5em;
+    margin-right: 0.1em;
+}
+
+html[dir='rtl'] .prev-button:hover > .button-prev-nav {
+    content: url("../images/next-button-blue.svg");
+}
+
+html[dir='rtl'] .next-button{
+    margin-right: auto;
+    margin-left: 0;
+}
+/*--- Navigation END ---*/
+
 /*--- Breadcrumbs START ---*/
 html[dir='rtl'] .breadcrumbs-separator {
     content: url(../images/breadcrumbs-separator-rtl.svg);
@@ -69,6 +104,11 @@ html[dir='rtl'] .button-expand-collapse-container {
 html[dir='rtl'] .button-hide-show-toc-container {
     margin-right: 0;
     margin-left: 8px;
+}
+
+html[dir='rtl'] .dropdown-content-download {
+    left: 0;
+    right: auto;
 }
 /*--- Main buttons bar END ---*/
 
@@ -152,6 +192,12 @@ html[dir='rtl'] #button-hide-show-toc.hidden:hover {
     background-image: url(../images/toc-show-white-rtl.svg);
 }
 /*--- TOC hide/show RTL buttons END ---*/
+
+/*--- TOC hide/show RTL to right side START ---*/
+html[dir='rtl'] #toc-wrapper.hidden {
+    transform: translateX(100%);
+}
+/*--- TOC hide/show RTL to right side END ---*/
 
 /*--- Admonitions START ---*/
 html[dir='rtl'] .note{
