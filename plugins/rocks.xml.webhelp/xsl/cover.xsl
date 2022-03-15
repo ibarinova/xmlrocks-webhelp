@@ -5,6 +5,14 @@
 
     <xsl:param name="organization-name"/>
 
+    <xsl:variable name="direction">
+        <xsl:apply-templates select="." mode="get-render-direction">
+            <xsl:with-param name="lang" select="$childlang"/>
+        </xsl:apply-templates>
+    </xsl:variable>
+
+    <xsl:variable name="rtl-CSS" select="unparsed-text(concat($rocks-xml-webhelp-dir, '/resources/css/xml.rocks.rtl.css'))"/>
+
     <xsl:template match="*[contains(@class, ' map/map ')]" mode="chapterBody">
 
         <div class="shading-container-wrapper" id="shading-wrapper"></div>
@@ -69,6 +77,9 @@
         </body>
         <xsl:call-template name="addSearchPage"/>
         <xsl:call-template name="addColorSchemeCSS"/>
+        <xsl:if test="normalize-space($direction) = 'rtl'">
+            <xsl:call-template name="addRtlCSS"/>
+        </xsl:if>
     </xsl:template>
 
     <xsl:template match="*[contains(@class, ' map/map ')]" mode="tiles">
@@ -194,5 +205,11 @@
                 </xsl:apply-templates>
             </xsl:otherwise>
         </xsl:choose>
+    </xsl:template>
+
+    <xsl:template name="addRtlCSS">
+        <xsl:result-document href="{$PATH2PROJ}{$css-path-normalized}xml.rocks.rtl.css" method="text">
+            <xsl:value-of select="$rtl-CSS"/>
+        </xsl:result-document>
     </xsl:template>
 </xsl:stylesheet>
