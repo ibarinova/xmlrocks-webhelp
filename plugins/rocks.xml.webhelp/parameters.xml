@@ -12,5 +12,6 @@
     <param name="accent-bg-color" expression="${accent-bg-color}" if:set="accent-bg-color"/>
     <param name="accent-color" expression="${accent-color}" if:set="accent-color"/>
     <param name="footer-bg-color" expression="${footer-bg-color}" if:set="footer-bg-color"/>
+    <param name="main-hex-color" expression="${main-hex-color}" if:set="main-hex-color"/>
     <param name="rocks-xml-webhelp-dir" expression="${dita.plugin.rocks.xml.webhelp.dir}" if:set="dita.plugin.rocks.xml.webhelp.dir"/>
 </params>
