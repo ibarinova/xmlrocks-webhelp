@@ -133,6 +133,9 @@
     </xsl:template>
 
     <xsl:template match="*" mode="chapterBody">
+        <xsl:variable name="ancestorlang">
+            <xsl:call-template name="getLowerCaseLang"/>
+        </xsl:variable>
         <body>
             <xsl:apply-templates select="." mode="addAttributesToHtmlBodyElement"/>
             <xsl:call-template name="setaname"/>
@@ -244,6 +247,12 @@
                                                 </xsl:call-template>
                                             </div>
                                         </button>
+
+                                        <xsl:choose>
+                                            <xsl:when test="$ancestorlang = ('ar', 'ar-sa')"/>
+                                            <xsl:when test="$ancestorlang = ('zh', 'zh-cn')"/>
+                                            <xsl:when test="$ancestorlang = ('he')"/>
+                                            <xsl:otherwise>
                                         <button id="download-output-btn">
                                             <div class="download-output">
                                                 <a href="{$output-pdf-full-path}" target="_blank" class="output-pdf-path">
@@ -253,6 +262,8 @@
                                                 </a>
                                             </div>
                                         </button>
+                                            </xsl:otherwise>
+                                        </xsl:choose>
                                     </div>
                                 </div>
                             </xsl:when>
