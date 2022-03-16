@@ -283,6 +283,7 @@ input#header-search-input::-webkit-search-results-decoration,
     margin-left: auto;
     margin-right: auto;
     position: relative;
+    z-index: 40;
 }
 
 .footer-div {
