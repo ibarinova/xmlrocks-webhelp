@@ -34,6 +34,7 @@
         <copy todir="${output.dir}/${args.csspath}">
             <fileset dir="${dita.plugin.rocks.xml.webhelp.dir}/resources/css">
                 <include name="**/*.*"/>
+                <exclude name="**/xml.rocks.rtl.css"/>
             </fileset>
         </copy>
 

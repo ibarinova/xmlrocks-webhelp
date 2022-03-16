@@ -17,6 +17,7 @@
     <xsl:param name="include.rellinks"
                select="'#default parent child sibling friend next previous cousin ancestor descendant sample external other'"
                as="xs:string"/>
+    <xsl:param name="rocks-xml-webhelp-dir"/>
 
     <xsl:variable name="css-path-normalized" select="if($CSSPATH = '/') then('') else($CSSPATH)"/>
 
@@ -106,6 +107,10 @@
 
         <link rel="stylesheet" type="text/css" href="{$PATH2PROJ}{$css-path-normalized}bootstrap.min.css"/>
         <link rel="stylesheet" type="text/css" href="{$PATH2PROJ}{$css-path-normalized}xml.rocks.css"/>
+
+        <xsl:if test="normalize-space($direction) = 'rtl'">
+            <link rel="stylesheet" type="text/css" href="{$PATH2PROJ}{$css-path-normalized}xml.rocks.rtl.css"/>
+        </xsl:if>
 
         <xsl:if test="string-length($CSS) > 0">
             <xsl:choose>
