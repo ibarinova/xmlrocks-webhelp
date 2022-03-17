@@ -229,6 +229,10 @@
         margin-right: auto;
     }
 
+    html[dir='rtl'] .header-search-wrapper{
+        margin-left: auto !important;
+    }
+
     .search {
         border: none;
         border-radius: 30px;
