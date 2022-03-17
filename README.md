@@ -28,6 +28,7 @@ Use ```xmlrocks-webhelp``` transtype to generate xmlRocks webHelp output.
    2. ```accent-bg-color``` - background color of accent elements (buttons, active menu options, hovers, etc.). Default value is #2c74eb.
    3. ```accent-color``` - color of the accent elements (subtitles, active topic in TOC, etc.). Default value is #2c74eb.
    4. ```footer-bg-color``` - footer background color. Default value is #000000.
+7. Also color scheme can be updated based on the one main color HEX-code. Parameter ```main-hex-color``` can be used to change accent color and accent background color, and header background color will be shaded based on this parameter. Please note that only 6-digit and shortened 3-digit HEX-codes are supported. You can use ```main-hex-color``` parameter mixed with ```header-bg-color```, ```accent-bg-color```,  ```accent-color``` and ```footer-bg-color``` in this case ```main-hex-color``` has lower priority.
 ____
 ## Extension points
 There are two extension points to override plugin templates:
