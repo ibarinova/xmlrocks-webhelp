@@ -775,6 +775,14 @@ a:hover{
     overflow: hidden;
 }
 
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    width: 100%;
+    padding-right: var(--bs-gutter-x, 1rem);
+    padding-left: var(--bs-gutter-x, 1rem);
+    margin-right: auto;
+    margin-left: auto;
+}
+
 #main-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
