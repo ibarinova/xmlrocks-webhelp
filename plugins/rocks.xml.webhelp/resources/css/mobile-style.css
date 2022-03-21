@@ -229,6 +229,10 @@
         margin-right: auto;
     }
 
+    html[dir='rtl'] .rocks-header .header-search-wrapper{
+        margin-left: auto;
+    }
+
     .search {
         border: none;
         border-radius: 30px;
