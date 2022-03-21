@@ -229,8 +229,8 @@
         margin-right: auto;
     }
 
-    html[dir='rtl'] .header-search-wrapper{
-        margin-left: auto !important;
+    html[dir='rtl'] .rocks-header .header-search-wrapper{
+        margin-left: auto;
     }
 
     .search {
