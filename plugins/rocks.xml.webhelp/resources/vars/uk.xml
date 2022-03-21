@@ -19,4 +19,7 @@
     <variable id="Collapse all">Згорнути все</variable>
     <variable id="Show active topic">Показати поточну тему</variable>
 
+    <variable id="Search keyword cannot be empty">Search keyword cannot be empty</variable>
+    <variable id="0 document(s) found for">0 document(s) found for</variable>
+
 </vars>
