@@ -35,6 +35,29 @@ if(key !== '') {
 }
 
 var idx = lunr(function () {
+    this.use(lunr.ar);
+    this.use(lunr.da);
+    this.use(lunr.de);
+    this.use(lunr.du);
+    this.use(lunr.es);
+    this.use(lunr.fi);
+    this.use(lunr.fr);
+    this.use(lunr.hi);
+    this.use(lunr.it);
+    this.use(lunr.ja);
+    this.use(lunr.jp);
+    this.use(lunr.nl);
+    this.use(lunr.no);
+    this.use(lunr.pt);
+    this.use(lunr.ro);
+    this.use(lunr.ru);
+    this.use(lunr.sv);
+    this.use(lunr.ta);
+    this.use(lunr.th);
+    this.use(lunr.tr);
+    this.use(lunr.vi);
+    this.use(lunr.zh);
+
     this.ref('name')
     this.field('text')
 

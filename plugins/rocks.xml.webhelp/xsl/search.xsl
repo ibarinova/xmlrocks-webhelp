@@ -94,6 +94,31 @@
 
                     <xsl:call-template name="insertJavaScript"/>
                     <script src="https://unpkg.com/lunr/lunr.js"></script>
+                    <script src="{$PATH2PROJ}lib/lunr.stemmer.support.js"></script>
+                    <script src="{$PATH2PROJ}lib/lunr.lang/lunr.ar.js"></script>
+                    <script src="{$PATH2PROJ}lib/lunr.lang/lunr.da.js"></script>
+                    <script src="{$PATH2PROJ}lib/lunr.lang/lunr.de.js"></script>
+                    <script src="{$PATH2PROJ}lib/lunr.lang/lunr.du.js"></script>
+                    <script src="{$PATH2PROJ}lib/lunr.lang/lunr.es.js"></script>
+                    <script src="{$PATH2PROJ}lib/lunr.lang/lunr.fi.js"></script>
+                    <script src="{$PATH2PROJ}lib/lunr.lang/lunr.fr.js"></script>
+                    <script src="{$PATH2PROJ}lib/lunr.lang/lunr.hi.js"></script>
+                    <script src="{$PATH2PROJ}lib/lunr.lang/lunr.hu.js"></script>
+                    <script src="{$PATH2PROJ}lib/lunr.lang/lunr.it.js"></script>
+                    <script src="{$PATH2PROJ}lib/lunr.lang/lunr.ja.js"></script>
+                    <script src="{$PATH2PROJ}lib/lunr.lang/lunr.jp.js"></script>
+                    <script src="{$PATH2PROJ}lib/lunr.lang/lunr.nl.js"></script>
+                    <script src="{$PATH2PROJ}lib/lunr.lang/lunr.no.js"></script>
+                    <script src="{$PATH2PROJ}lib/lunr.lang/lunr.pt.js"></script>
+                    <script src="{$PATH2PROJ}lib/lunr.lang/lunr.ro.js"></script>
+                    <script src="{$PATH2PROJ}lib/lunr.lang/lunr.ru.js"></script>
+                    <script src="{$PATH2PROJ}lib/lunr.lang/lunr.sv.js"></script>
+                    <script src="{$PATH2PROJ}lib/lunr.lang/lunr.ta.js"></script>
+                    <script src="{$PATH2PROJ}lib/lunr.lang/lunr.th.js"></script>
+                    <script src="{$PATH2PROJ}lib/lunr.lang/lunr.tr.js"></script>
+                    <script src="{$PATH2PROJ}lib/lunr.lang/lunr.vi.js"></script>
+                    <script src="{$PATH2PROJ}lib/lunr.lang/lunr.zh.js"></script>
+
                     <script src="{$PATH2PROJ}lib/xml.rocks.search-topics.js"></script>
                     <script src="{$PATH2PROJ}lib/xml.rocks.search-page.js"></script>
                 </body>
@@ -164,9 +189,9 @@ var documents = [
                     </xsl:choose>
                 </xsl:variable>
 {
-"name": "<xsl:value-of select="$title"/>",
+"name": "<xsl:value-of select="translate($title, '&quot;', '')"/>",
 "href": "<xsl:value-of select="$current-href-fixed"/>",
-"text": "<xsl:value-of select="$title"/>"
+"text": "<xsl:value-of select="translate($title, '&quot;', '')"/>"
 },
             </xsl:if>
         </xsl:for-each>
