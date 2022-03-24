@@ -71,8 +71,16 @@
                     <main role="main" class="container main-search-page max-width">
                         <div id="search-main-wrapper">
 
-                            <div id="empty-keyword">Search keyword cannot be empty</div>
-                            <div id="search-results-info">0 document(s) found for
+                            <div id="empty-keyword">
+                                <xsl:call-template name="getVariable">
+                                    <xsl:with-param name="id" select="'Search keyword cannot be empty'"/>
+                                </xsl:call-template>
+                            </div>
+
+                            <div id="search-results-info">
+                                <xsl:call-template name="getVariable">
+                                    <xsl:with-param name="id" select="'0 document(s) found for'"/>
+                                </xsl:call-template>
                                 <b>
                                     <span id="keyword-text"/>
                                 </b>
