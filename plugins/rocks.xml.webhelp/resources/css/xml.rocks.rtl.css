@@ -80,6 +80,34 @@ html[dir='rtl'] .breadcrumbs-separator {
 }
 /*--- Breadcrumbs END ---*/
 
+/*--- Tooltips START ---*/
+html[dir='rtl'] .tooltip-hide-toc{
+    right: 0;
+}
+
+html[dir='rtl'] .tooltip-show-active{
+    right: 0;
+}
+
+html[dir='rtl'] .tooltip-download{
+    left: 0;
+}
+
+html[dir='rtl'] .tooltip-print{
+    left: 0;
+    margin-left: 0;
+}
+
+html[dir='rtl'] .tooltip-google-drive{
+    margin-left: 0;
+}
+
+html[dir='rtl'] .last-right-container span{
+    left: 0;
+    right: unset;
+}
+/*--- Tooltips END ---*/
+
 /*--- Main buttons bar START ---*/
 html[dir='rtl'] .expand-collapse-search {
     margin-left: 0;
