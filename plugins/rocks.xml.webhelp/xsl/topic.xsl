@@ -358,7 +358,7 @@
                         </div>
                     </div>
 
-                    <div class="col col-sm-8" id="article-wrapper">
+                    <div class="col-sm-8" id="article-wrapper">
                         <xsl:apply-templates select="." mode="addContentToHtmlBodyElement"/>
 
                         <div class="bottom-nav-buttons-container">
