@@ -20,6 +20,6 @@
     <variable id="Show active topic">Show active topic</variable>
 
     <variable id="Search keyword cannot be empty">Search keyword cannot be empty</variable>
-    <variable id="0 document(s) found for">0 document(s) found for</variable>
+    <variable id=" document(s) found for "> document(s) found for </variable>
 
 </vars>
