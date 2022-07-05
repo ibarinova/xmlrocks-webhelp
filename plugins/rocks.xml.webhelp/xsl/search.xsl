@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot"
                 exclude-result-prefixes="#all"
                 version="2.0">
 
@@ -78,27 +80,15 @@
                             </div>
 
                             <div id="search-results-info">
+                                <span id="search-documents-number"></span>
                                 <xsl:call-template name="getVariable">
-                                    <xsl:with-param name="id" select="'0 document(s) found for'"/>
+                                    <xsl:with-param name="id" select="' document(s) found for '"/>
                                 </xsl:call-template>
                                 <b>
                                     <span id="keyword-text"/>
                                 </b>
                             </div>
-                            <!-- FIXME Search results are temporary hardcoded -->
                             <div id="search-results">
-                                <div class="search-result-block">
-                                    <p class="search-result-title"><a href="index.html">Dummy search result block</a></p>
-                                    <p class="search-result-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                                </div>
-                                <div class="search-result-block">
-                                    <p class="search-result-title"><a href="index.html">Dummy search result block2</a></p>
-                                    <p class="search-result-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                                </div>
-                                <div class="search-result-block">
-                                    <p class="search-result-title"><a href="index.html">Dummy search result block3</a></p>
-                                    <p class="search-result-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                                </div>
                             </div>
                         </div>
                     </main>
