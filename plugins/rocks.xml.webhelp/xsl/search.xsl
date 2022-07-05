@@ -133,5 +133,90 @@
                 </body>
             </html>
         </xsl:result-document>
+
+        <xsl:result-document href="lib/xml.rocks.search-topics.js" method="text">
+var documents = [
+            <xsl:call-template name="searchResultTopics">
+                <xsl:with-param name="map" select="/*"/>
+            </xsl:call-template>
+{}]
+        </xsl:result-document>
+    </xsl:template>
+
+    <xsl:template name="searchResultTopics">
+        <xsl:param name="map"/>
+        <xsl:param name="pathFromMaplist" select="$PATH2PROJ" as="xs:string"/>
+        <xsl:param name="children" select="if ($nav-toc = 'full') then *[contains(@class, ' map/topicref ')] else ()" as="element()*"/>
+
+        <xsl:variable name="workFilePath" select="document-uri(/)"/>
+        <xsl:variable name="workFilePathNormalized" select="translate($workFilePath, '\', '/')"/>
+        <xsl:variable name="workFileName" select="tokenize($workFilePathNormalized, '/')[last()]"/>
+        <xsl:variable name="workDir" select="substring-before($workFilePathNormalized, $workFileName)"/>
+
+        <xsl:for-each select="$map/descendant::*[contains(@class, ' map/topicref ')][not(@toc = 'no')][not(@processing-role = 'resource-only')]">
+            <xsl:variable name="navtitle">
+                <xsl:apply-templates select="." mode="get-navtitle"/>
+            </xsl:variable>
+
+            <xsl:variable name="orig-navtitle">
+                <xsl:value-of select="@dita-ot:orig-navtitle"/>
+            </xsl:variable>
+
+            <xsl:variable name="title" select="if(normalize-space($navtitle)) then($navtitle) else($orig-navtitle)"/>
+
+            <xsl:if test="normalize-space($title)">
+                <xsl:variable name="current-href">
+                    <xsl:if test="not(@scope = 'external')">
+                        <xsl:value-of select="$pathFromMaplist"/>
+                    </xsl:if>
+                    <xsl:choose>
+                        <xsl:when test="@copy-to and not(contains(@chunk, 'to-content')) and (not(@format) or @format = 'dita' or @format = 'ditamap') ">
+                            <xsl:call-template name="replace-extension">
+                                <xsl:with-param name="filename" select="@copy-to"/>
+                                <xsl:with-param name="extension" select="$OUTEXT"/>
+                            </xsl:call-template>
+
+                            <xsl:if test="not(contains(@copy-to, '#')) and contains(@href, '#')">
+                                <xsl:value-of select="concat('#', substring-after(@href, '#'))"/>
+                            </xsl:if>
+                        </xsl:when>
+                        <xsl:when test="not(@scope = 'external') and (not(@format) or @format = 'dita' or @format = 'ditamap')">
+                            <xsl:call-template name="replace-extension">
+                                <xsl:with-param name="filename" select="@href"/>
+                                <xsl:with-param name="extension" select="$OUTEXT"/>
+                            </xsl:call-template>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:value-of select="@href"/>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </xsl:variable>
+
+                <xsl:variable name="current-href-fixed">
+                    <xsl:choose>
+                        <xsl:when test="(@chunk = 'to-content') and contains($current-href, '#')">
+                            <xsl:value-of select="substring-before($current-href, '#')"/>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:value-of select="$current-href"/>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </xsl:variable>
+
+                <xsl:variable name="topicPath" select="concat($workDir, @href)"/>
+
+                <xsl:variable name="topicBody">
+                    <xsl:if test="doc-available($topicPath)">
+                        <xsl:value-of select="document($topicPath)"/>
+                    </xsl:if>
+                </xsl:variable>
+
+{
+"name": "<xsl:value-of select="normalize-space(translate($title, '&#xA;&#xD;&gt;&lt;&quot;', '    '))"/>",
+"href": "<xsl:value-of select="$current-href-fixed"/>",
+"text": "<xsl:value-of select="normalize-space(replace(translate($topicBody, '&#xA;&#xD;&gt;&lt;&quot;', '    '), '\\', '\\\\'))"/>"
+},
+            </xsl:if>
+        </xsl:for-each>
     </xsl:template>
 </xsl:stylesheet>
