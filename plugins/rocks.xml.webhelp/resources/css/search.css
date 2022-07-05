@@ -70,3 +70,8 @@
     grid-row-start: 1;
     justify-self: end;
 }
+
+.search-result-body {
+    max-height: 70px;
+    overflow: hidden;
+}
