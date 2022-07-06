@@ -4,6 +4,29 @@ var url_string = window.location.href,
 
 
 var idx = lunr(function () {
+/*    this.use(lunr.ar);
+    this.use(lunr.da);
+    this.use(lunr.de);
+    this.use(lunr.du);
+    this.use(lunr.es);
+    this.use(lunr.fi);
+    this.use(lunr.fr);
+    this.use(lunr.hi);
+    this.use(lunr.it);
+    this.use(lunr.ja);
+    this.use(lunr.jp);
+    this.use(lunr.nl);
+    this.use(lunr.no);
+    this.use(lunr.pt);
+    this.use(lunr.ro);
+    this.use(lunr.ru);
+    this.use(lunr.sv);
+    this.use(lunr.ta);
+    this.use(lunr.th);
+    this.use(lunr.tr);
+    this.use(lunr.vi);
+    this.use(lunr.zh);*/
+
     this.ref('name')
     this.field('text')
 
@@ -89,3 +112,30 @@ if(key !== '') {
     // Show string 'Search keyword cannot be empty'
     document.getElementsById('empty-keyword').classList.add('show');
 }
+
+searchRes.forEach(function () {
+    /*console.log(searchRes[i].ref);*/
+    /*console.log(documents[i]["text"]);*/
+    /*console.log(documents.filter(item => item.name === searchRes[i].ref).map(item => item.text));*/
+
+    var searchResultBlock = document.createElement("div");
+    var searchResultTitle = document.createElement("p");
+    var anchor = document.createElement("a");
+    var searchResultTitleText = document.createTextNode(searchRes[i].ref);
+
+    searchResultBlock.classList.add('search-result-block');
+    searchResultBlock.appendChild(searchResultTitle).classList.add('search-result-title');
+    searchResultTitle.appendChild(anchor);
+    anchor.appendChild(searchResultTitleText);
+    anchor.href = documents.filter(item => item.name === searchRes[i].ref).map(item => item.href);
+
+    var searchResultBody = document.createElement("p");
+    var searchResultBodyText = document.createTextNode(documents.filter(item => item.name === searchRes[i].ref).map(item => item.text));
+    searchResultBlock.appendChild(searchResultBody).classList.add('search-result-body');
+    searchResultBody.appendChild(searchResultBodyText);
+
+    var searchResults = document.getElementById("search-results");
+    searchResults.appendChild(searchResultBlock);
+
+    i++;
+}, this)
