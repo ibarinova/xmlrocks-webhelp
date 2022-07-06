@@ -35,7 +35,7 @@ if(key !== '') {
 }
 
 var idx = lunr(function () {
-    this.use(lunr.ar);
+/*    this.use(lunr.ar);
     this.use(lunr.da);
     this.use(lunr.de);
     this.use(lunr.du);
@@ -56,7 +56,7 @@ var idx = lunr(function () {
     this.use(lunr.th);
     this.use(lunr.tr);
     this.use(lunr.vi);
-    this.use(lunr.zh);
+    this.use(lunr.zh);*/
 
     this.ref('name')
     this.field('text')
