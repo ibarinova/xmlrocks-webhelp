@@ -72,7 +72,6 @@
 
                     <main role="main" class="container main-search-page max-width">
                         <div id="search-main-wrapper">
-
                             <div id="empty-keyword">
                                 <xsl:call-template name="getVariable">
                                     <xsl:with-param name="id" select="'Search keyword cannot be empty'"/>
@@ -90,6 +89,14 @@
                             </div>
                             <div id="search-results">
                             </div>
+                        </div>
+                        <div id="wrapper">
+                            <section>
+                                <div class="data-container"></div>
+                                <div id="pagination-demo1"></div>
+                                <div class="data-container"></div>
+                                <div id="pagination-demo2"></div>
+                            </section>
                         </div>
                     </main>
 
@@ -128,6 +135,7 @@
                     <script src="{$PATH2PROJ}lib/lunr.lang/lunr.vi.js"></script>
                     <script src="{$PATH2PROJ}lib/lunr.lang/lunr.zh.js"></script>
 -->
+                    <script src="{$PATH2PROJ}lib/pagination.min.js"></script>
                     <script src="{$PATH2PROJ}lib/xml.rocks.search-topics.js"></script>
                     <script src="{$PATH2PROJ}lib/xml.rocks.search-page.js"></script>
                 </body>
@@ -210,7 +218,6 @@ var documents = [
                         <xsl:value-of select="document($topicPath)"/>
                     </xsl:if>
                 </xsl:variable>
-
 {
 "name": "<xsl:value-of select="normalize-space(translate($title, '&#xA;&#xD;&gt;&lt;&quot;', '    '))"/>",
 "href": "<xsl:value-of select="$current-href-fixed"/>",
