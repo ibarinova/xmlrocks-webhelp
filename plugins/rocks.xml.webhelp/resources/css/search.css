@@ -109,6 +109,10 @@ ul, li {
     margin: unset;
 }
 
+#wrapper.hide {
+    display: none;
+}
+
 #pagination-demo2 {
     margin: auto;
     width: fit-content;

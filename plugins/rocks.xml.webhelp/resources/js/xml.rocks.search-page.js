@@ -1,6 +1,22 @@
 var url_string = window.location.href,
     url = new URL(url_string),
-    key = url.searchParams.get("key");
+    key = url.searchParams.get("key"),
+    searchRes = [''],
+    i = 0;
+
+$(document).ready(function() {
+    // Press body search button on enter
+    // Get the input field
+    var bodyInput = document.getElementById("body-search-input");
+
+    // Execute a function when the user releases a key on a keyboard
+    bodyInput.addEventListener("keyup", function(event) {
+        // Number 13 is the "Enter" key on a keyboard
+        if (event.keyCode === 13) {
+            // Trigger the button element with a click
+            document.getElementById("body-search-button").click();
+        }
+    });
 
 
 var idx = lunr(function () {
@@ -27,8 +43,8 @@ var idx = lunr(function () {
     this.use(lunr.vi);
     this.use(lunr.zh);*/
 
-    this.ref('name')
-    this.field('text')
+        this.ref('name');
+        this.field('text');
 
     documents.forEach(function (doc) {
         this.add(doc);
@@ -36,28 +52,12 @@ var idx = lunr(function () {
 })
 
 var searchInputValue = $('#body-search-input').val();
-var searchRes = idx.search(searchInputValue);
+    searchRes = idx.search(searchInputValue);
 
 // Add search document number
 var searchDocNumber = document.getElementById("search-documents-number");
 var searchDocNumberValue = document.createTextNode(searchRes.length);
 searchDocNumber.appendChild(searchDocNumberValue);
-
-var i = 0;
-
-$(document).ready(function() {
-    // Press body search button on enter
-    // Get the input field
-    var bodyInput = document.getElementById("body-search-input");
-
-    // Execute a function when the user releases a key on a keyboard
-    bodyInput.addEventListener("keyup", function(event) {
-        // Number 13 is the "Enter" key on a keyboard
-        if (event.keyCode === 13) {
-            // Trigger the button element with a click
-            document.getElementById("body-search-button").click();
-        }
-    });
 
     (function(name) {
         var container = $('#pagination-' + name);
@@ -99,7 +99,6 @@ $(document).ready(function() {
 // If keyword exists show 'document(s) found for [keyword]' text
 if(key !== '') {
     document.getElementById('search-results-info').classList.add('show');
-    document.getElementById('search-results').classList.add('show');
 
     // Insert search key value in #keyword-text element
     $('#keyword-text').html(key);
@@ -110,14 +109,13 @@ if(key !== '') {
     document.getElementById('body-search-cancel-button').classList.add('show');
 } else {
     // Show string 'Search keyword cannot be empty'
-    document.getElementsById('empty-keyword').classList.add('show');
+    document.getElementById('empty-keyword').classList.add('show');
+
+    // Hide search reesults wrapper and pagination
+    document.getElementById('wrapper').classList.add('hide');
 }
 
 searchRes.forEach(function () {
-    /*console.log(searchRes[i].ref);*/
-    /*console.log(documents[i]["text"]);*/
-    /*console.log(documents.filter(item => item.name === searchRes[i].ref).map(item => item.text));*/
-
     var searchResultBlock = document.createElement("div");
     var searchResultTitle = document.createElement("p");
     var anchor = document.createElement("a");
@@ -133,9 +131,5 @@ searchRes.forEach(function () {
     var searchResultBodyText = document.createTextNode(documents.filter(item => item.name === searchRes[i].ref).map(item => item.text));
     searchResultBlock.appendChild(searchResultBody).classList.add('search-result-body');
     searchResultBody.appendChild(searchResultBodyText);
-
-    var searchResults = document.getElementById("search-results");
-    searchResults.appendChild(searchResultBlock);
-
     i++;
 }, this)

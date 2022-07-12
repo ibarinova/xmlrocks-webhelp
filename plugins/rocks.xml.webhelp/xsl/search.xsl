@@ -87,8 +87,6 @@
                                     <span id="keyword-text"/>
                                 </b>
                             </div>
-                            <div id="search-results">
-                            </div>
                         </div>
                         <div id="wrapper">
                             <section>
