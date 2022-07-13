@@ -204,9 +204,9 @@ h6.title {
     color: #5e5e5e;
     padding-top: 0.5em;
     padding-bottom: 0.5em;
-    width: 6rem;
+    width: 200%;
     bottom: 4.0em;
-    margin-left: -50px;
+    margin-left: -40px;
 }
 
 .tooltip-google-drive {
