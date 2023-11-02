@@ -490,6 +490,7 @@
 
         <a class="prev-button">
             <xsl:attribute name="href">
+                <xsl:value-of select="$PATH2PROJ"/>
                 <xsl:call-template name="replace-extension">
                     <xsl:with-param name="filename" select="$prev-topicref/@href"/>
                     <xsl:with-param name="extension" select="$OUTEXT"/>
@@ -515,6 +516,7 @@
         <xsl:param name="next-topicref"/>
         <a class="next-button">
             <xsl:attribute name="href">
+                <xsl:value-of select="$PATH2PROJ"/>
                 <xsl:call-template name="replace-extension">
                     <xsl:with-param name="filename" select="$next-topicref/@href"/>
                     <xsl:with-param name="extension" select="$OUTEXT"/>
