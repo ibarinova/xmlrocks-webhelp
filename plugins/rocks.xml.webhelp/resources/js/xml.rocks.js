@@ -256,6 +256,7 @@ function applyExpandedClass(id){
 function expandCollapseSearch() {
     document.getElementsByClassName('topic-page-sticky-search-container')[0].classList.toggle('expanded');
     document.getElementsByClassName('expand-collapse-search-container')[0].classList.toggle('expanded');
+    document.getElementById('sticky-search-input').focus();
 }
 
 // mobile-menu-button implementation
