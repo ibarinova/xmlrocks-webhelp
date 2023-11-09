@@ -52,7 +52,7 @@
 
                     <div class="search-input-container-wrapper">
                         <div class="search-input-container max-width">
-                            <input class="form-control search search-input" id="body-search-input" type="search">
+                            <input class="form-control search search-input" id="body-search-input" type="search" data-path-to-proj="{$PATH2PROJ}">
                                 <xsl:attribute name="placeholder">
                                     <xsl:call-template name="getVariable">
                                         <xsl:with-param name="id" select="'Search'"/>

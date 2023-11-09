@@ -353,7 +353,7 @@
 
             <div class="topic-page-sticky-search-container">
                 <div class="search-input-container max-width">
-                    <input class="form-control search search-input" id="sticky-search-input" type="search">
+                    <input class="form-control search search-input" id="sticky-search-input" type="search" data-path-to-proj="{$PATH2PROJ}">
                         <xsl:attribute name="placeholder">
                             <xsl:call-template name="getVariable">
                                 <xsl:with-param name="id" select="'Search'"/>
@@ -461,7 +461,7 @@
             </span>
 
             <nav class="header-search-wrapper">
-                <input id="header-search-input" class="form-control search" type="search">
+                <input id="header-search-input" class="form-control search" type="search" data-path-to-proj="{$PATH2PROJ}">
                     <xsl:attribute name="placeholder">
                         <xsl:call-template name="getVariable">
                             <xsl:with-param name="id" select="'Search'"/>
@@ -481,7 +481,7 @@
     </xsl:template>
 
     <xsl:template match="*" mode="addContentToHtmlBodyElement">
-        <article xsl:use-attribute-sets="article" id="topic-article">
+        <article xsl:use-attribute-sets="article" id="topic-article" data-path-to-proj="{$PATH2PROJ}">
             <xsl:attribute name="aria-labelledby">
                 <xsl:apply-templates select="*[contains(@class,' topic/title ')] |
                                        self::dita/*[1]/*[contains(@class,' topic/title ')]"
@@ -514,10 +514,13 @@
         <xsl:param name="prev-topicref"/>
 
         <a class="prev-button">
+            <xsl:variable name="prevHref" select="$prev-topicref/@href"/>
+            <xsl:variable name="prevHrefFixed" select="if(contains($prevHref, '#')) then(substring-before($prevHref, '#')) else($prevHref)"/>
+
             <xsl:attribute name="href">
                 <xsl:value-of select="$PATH2PROJ"/>
                 <xsl:call-template name="replace-extension">
-                    <xsl:with-param name="filename" select="$prev-topicref/@href"/>
+                    <xsl:with-param name="filename" select="$prevHrefFixed"/>
                     <xsl:with-param name="extension" select="$OUTEXT"/>
                 </xsl:call-template>
             </xsl:attribute>
@@ -539,11 +542,14 @@
 
     <xsl:template name="insertNavNextButton">
         <xsl:param name="next-topicref"/>
+        <xsl:variable name="nextHref" select="$next-topicref/@href"/>
+        <xsl:variable name="nextHrefFixed" select="if(contains($nextHref, '#')) then(substring-before($nextHref, '#')) else($nextHref)"/>
+
         <a class="next-button">
             <xsl:attribute name="href">
                 <xsl:value-of select="$PATH2PROJ"/>
                 <xsl:call-template name="replace-extension">
-                    <xsl:with-param name="filename" select="$next-topicref/@href"/>
+                    <xsl:with-param name="filename" select="$nextHrefFixed"/>
                     <xsl:with-param name="extension" select="$OUTEXT"/>
                 </xsl:call-template>
             </xsl:attribute>
