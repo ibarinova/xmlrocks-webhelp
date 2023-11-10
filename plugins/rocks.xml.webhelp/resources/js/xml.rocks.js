@@ -169,19 +169,19 @@ $('body').on('click', '#sticky-search-button', runStickySearch);
 
 function runSearch() {
     var searchInputValue = $('input.search').val();
-    var pathToProj = $('input.search').attr( "data-path-to-proj" );
+    var pathToProj = $('#topic-article').attr( "data-path-to-proj" );
     location.href = pathToProj + "search.html?key=" + searchInputValue;
 }
 
 function runBodySearch() {
     var searchInputValue = $('#body-search-input').val();
-    var pathToProj = $('#body-search-input').attr( "data-path-to-proj" );
+    var pathToProj = $('#topic-article').attr( "data-path-to-proj" );
     location.href = pathToProj + "search.html?key=" + searchInputValue;
 }
 
 function runStickySearch() {
     var searchInputValue = $('.topic-page-sticky-search-container.expanded .search-input').val();
-    var pathToProj = $('.topic-page-sticky-search-container.expanded .search-input').attr( "data-path-to-proj" );
+    var pathToProj = $('#topic-article').attr( "data-path-to-proj" );
     location.href = pathToProj + "search.html?key=" + searchInputValue;
 }
 
