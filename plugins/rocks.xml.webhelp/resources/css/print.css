@@ -16,11 +16,15 @@
     }
 
 
-    .top-nav-buttons-container-wrapper{
+    .top-nav-buttons-container-wrapper {
           display: none;
     }
 
-    .main-button-container{
+    .main-button-container {
+        display: none;
+    }
+
+    .topic-page-sticky-search-container {
         display: none;
     }
 

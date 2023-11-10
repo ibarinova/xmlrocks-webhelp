@@ -526,6 +526,7 @@ a:hover{
 #button-expand-collapse.inactive:hover,
 #button-expand-collapse.expanded.inactive:hover{
     background-color: inherit;
+    cursor: not-allowed;
 }
 
 .button-show-active-container {
@@ -555,6 +556,7 @@ a:hover{
 
 #button-show-active.inactive:hover {
     background-color: inherit;
+    cursor: not-allowed;
 }
 
 .button-dropdown-download {
@@ -793,7 +795,9 @@ a:hover{
     opacity: 100%;
     width: 33.33333333%;
     transform: translateX(0%);
-    transition: all 1s ease-in-out .5s;
+    transition: all 1s ease-in-out .5s,
+                font-size 0s,
+                padding-left 0s;
     z-index: 20;
     pointer-events: none;
 }
@@ -801,7 +805,9 @@ a:hover{
 #toc-wrapper.hidden {
     opacity: 0;
     transform: translateX(-100%);
-    transition: all 1s ease-in-out .5s;
+    transition: all 1s ease-in-out .5s,
+                font-size 0s,
+                padding-left 0s;
 }
 
 #article-wrapper {
@@ -809,7 +815,9 @@ a:hover{
     grid-column-end: -1;
     grid-row-start: 1;
     width: 66.66666667%;
-    transition: all 1s ease-in-out .5s;
+    transition: all 1s ease-in-out .5s,
+                font-size 0s,
+                padding-left 0s;
     justify-self: end;
     padding-left: 18px;
     padding-right: 15px;
@@ -817,7 +825,6 @@ a:hover{
 
 #toc-wrapper.hidden + #article-wrapper {
     width: 100%;
-    transition: all 1s ease-in-out .5s;
 }
 
 #article-wrapper.no-transition {
@@ -1225,7 +1232,7 @@ li.linklist {
     border-radius: 50%;
     margin-bottom: 1.2rem;
     pointer-events: auto;
-    box-shadow: 0 0 40px 40px #ffffff;
+    box-shadow: 0 0 19px 19px #ffffff;
 }
 /*--- Back to top button END ---*/
 

@@ -169,17 +169,20 @@ $('body').on('click', '#sticky-search-button', runStickySearch);
 
 function runSearch() {
     var searchInputValue = $('input.search').val();
-    location.href = "search.html?key=" + searchInputValue;
+    var pathToProj = $('input.search').attr( "data-path-to-proj" );
+    location.href = pathToProj + "search.html?key=" + searchInputValue;
 }
 
 function runBodySearch() {
     var searchInputValue = $('#body-search-input').val();
-    location.href = "search.html?key=" + searchInputValue;
+    var pathToProj = $('#body-search-input').attr( "data-path-to-proj" );
+    location.href = pathToProj + "search.html?key=" + searchInputValue;
 }
 
 function runStickySearch() {
     var searchInputValue = $('.topic-page-sticky-search-container.expanded .search-input').val();
-    location.href = "search.html?key=" + searchInputValue;
+    var pathToProj = $('.topic-page-sticky-search-container.expanded .search-input').attr( "data-path-to-proj" );
+    location.href = pathToProj + "search.html?key=" + searchInputValue;
 }
 
 // Show 'X' button inside header search input if input contains text
@@ -241,8 +244,30 @@ function updatePageReloadingBehaviour(event) {
     if (window.location.protocol != 'file:') {
         var currentHref = $(this).attr('href');
         event.preventDefault();
-        window.history.pushState(currentHref, "", currentHref);
-        reloadDynamically(currentHref);
+
+        var pathToProj = $('#header-search-input').attr( "data-path-to-proj" );
+        var dynamicPathToProj = $('#topic-article').attr( "data-path-to-proj" );
+
+        if (pathToProj === dynamicPathToProj) {
+            reloadDynamically(currentHref);
+            window.history.pushState(currentHref, "", currentHref);
+        } else if ((dynamicPathToProj === '') && (currentHref.startsWith(pathToProj))) {
+            let pathLength = pathToProj.length;
+            let currentHref2 = currentHref.substring(pathLength);
+            reloadDynamically(currentHref2);
+            window.history.pushState(currentHref2, "", currentHref2);
+        } else if ((dynamicPathToProj === '') && !(currentHref.startsWith(pathToProj))) {
+            reloadDynamically(currentHref);
+            window.history.pushState(currentHref, "", currentHref);
+        } else if ((pathToProj === '') && !(dynamicPathToProj === '') && !(currentHref.startsWith(dynamicPathToProj))) {
+            currentHref = dynamicPathToProj + currentHref;
+            reloadDynamically(currentHref);
+            window.history.pushState(currentHref, "", currentHref);
+        } else {
+            reloadDynamically(currentHref);
+            window.history.pushState(currentHref, "", currentHref);
+        }
+
         document.getElementsByClassName('shading-container-wrapper')[0].classList.remove('grey');
     }
 }
@@ -256,6 +281,7 @@ function applyExpandedClass(id){
 function expandCollapseSearch() {
     document.getElementsByClassName('topic-page-sticky-search-container')[0].classList.toggle('expanded');
     document.getElementsByClassName('expand-collapse-search-container')[0].classList.toggle('expanded');
+    document.getElementById('sticky-search-input').focus();
 }
 
 // mobile-menu-button implementation
@@ -345,7 +371,7 @@ function showBreadcrumbs(button) {
     document.getElementsByClassName('head-breadcrumbs-child-elements')[0].classList.toggle('show');
     $('.head-breadcrumbs-child-elements').children().toggleClass('show');
 
-    if (($('.head-breadcrumbs-child-elements').hasClass('show'))) {
+    if ($('.head-breadcrumbs-child-elements').hasClass('show')) {
         document.getElementsByClassName('shading-container-wrapper')[0].classList.add('grey');
     }
 }

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+                xmlns:xs="http://www.w3.org/2001/XMLSchema"
+                xmlns:dita-ot="http://dita-ot.sourceforge.net/ns/201007/dita-ot"
                 exclude-result-prefixes="#all"
                 version="2.0">
 
@@ -50,7 +52,7 @@
 
                     <div class="search-input-container-wrapper">
                         <div class="search-input-container max-width">
-                            <input class="form-control search search-input" id="body-search-input" type="search">
+                            <input class="form-control search search-input" id="body-search-input" type="search" data-path-to-proj="{$PATH2PROJ}">
                                 <xsl:attribute name="placeholder">
                                     <xsl:call-template name="getVariable">
                                         <xsl:with-param name="id" select="'Search'"/>
@@ -70,7 +72,6 @@
 
                     <main role="main" class="container main-search-page max-width">
                         <div id="search-main-wrapper">
-
                             <div id="empty-keyword">
                                 <xsl:call-template name="getVariable">
                                     <xsl:with-param name="id" select="'Search keyword cannot be empty'"/>
@@ -78,28 +79,22 @@
                             </div>
 
                             <div id="search-results-info">
+                                <span id="search-documents-number"></span>
                                 <xsl:call-template name="getVariable">
-                                    <xsl:with-param name="id" select="'0 document(s) found for'"/>
+                                    <xsl:with-param name="id" select="' document(s) found for '"/>
                                 </xsl:call-template>
                                 <b>
                                     <span id="keyword-text"/>
                                 </b>
                             </div>
-                            <!-- FIXME Search results are temporary hardcoded -->
-                            <div id="search-results">
-                                <div class="search-result-block">
-                                    <p class="search-result-title"><a href="index.html">Dummy search result block</a></p>
-                                    <p class="search-result-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                                </div>
-                                <div class="search-result-block">
-                                    <p class="search-result-title"><a href="index.html">Dummy search result block2</a></p>
-                                    <p class="search-result-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                                </div>
-                                <div class="search-result-block">
-                                    <p class="search-result-title"><a href="index.html">Dummy search result block3</a></p>
-                                    <p class="search-result-body">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-                                </div>
-                            </div>
+                        </div>
+                        <div id="wrapper">
+                            <section>
+                                <div class="data-container"></div>
+                                <div id="pagination-demo1"></div>
+                                <div class="data-container"></div>
+                                <div id="pagination-demo2"></div>
+                            </section>
                         </div>
                     </main>
 
@@ -112,9 +107,96 @@
                     </xsl:apply-templates>
 
                     <xsl:call-template name="insertJavaScript"/>
+                    <script src="https://unpkg.com/lunr/lunr.js"></script>
+                    <script src="{$PATH2PROJ}lib/pagination.min.js"></script>
+                    <script src="{$PATH2PROJ}lib/xml.rocks.search-topics.js"></script>
                     <script src="{$PATH2PROJ}lib/xml.rocks.search-page.js"></script>
                 </body>
             </html>
         </xsl:result-document>
+
+        <xsl:result-document href="lib/xml.rocks.search-topics.js" method="text">
+var documents = [
+            <xsl:call-template name="searchResultTopics">
+                <xsl:with-param name="map" select="/*"/>
+            </xsl:call-template>
+{}]
+        </xsl:result-document>
+    </xsl:template>
+
+    <xsl:template name="searchResultTopics">
+        <xsl:param name="map"/>
+        <xsl:param name="pathFromMaplist" select="$PATH2PROJ" as="xs:string"/>
+        <xsl:param name="children" select="if ($nav-toc = 'full') then *[contains(@class, ' map/topicref ')] else ()" as="element()*"/>
+
+        <xsl:variable name="workFilePath" select="document-uri(/)"/>
+        <xsl:variable name="workFilePathNormalized" select="translate($workFilePath, '\', '/')"/>
+        <xsl:variable name="workFileName" select="tokenize($workFilePathNormalized, '/')[last()]"/>
+        <xsl:variable name="workDir" select="substring-before($workFilePathNormalized, $workFileName)"/>
+
+        <xsl:for-each select="$map/descendant::*[contains(@class, ' map/topicref ')][not(@toc = 'no')][not(@processing-role = 'resource-only')]">
+            <xsl:variable name="navtitle">
+                <xsl:apply-templates select="." mode="get-navtitle"/>
+            </xsl:variable>
+
+            <xsl:variable name="orig-navtitle">
+                <xsl:value-of select="@dita-ot:orig-navtitle"/>
+            </xsl:variable>
+
+            <xsl:variable name="title" select="if(normalize-space($navtitle)) then($navtitle) else($orig-navtitle)"/>
+
+            <xsl:if test="normalize-space($title)">
+                <xsl:variable name="current-href">
+                    <xsl:if test="not(@scope = 'external')">
+                        <xsl:value-of select="$pathFromMaplist"/>
+                    </xsl:if>
+                    <xsl:choose>
+                        <xsl:when test="@copy-to and not(contains(@chunk, 'to-content')) and (not(@format) or @format = 'dita' or @format = 'ditamap') ">
+                            <xsl:call-template name="replace-extension">
+                                <xsl:with-param name="filename" select="@copy-to"/>
+                                <xsl:with-param name="extension" select="$OUTEXT"/>
+                            </xsl:call-template>
+
+                            <xsl:if test="not(contains(@copy-to, '#')) and contains(@href, '#')">
+                                <xsl:value-of select="concat('#', substring-after(@href, '#'))"/>
+                            </xsl:if>
+                        </xsl:when>
+                        <xsl:when test="not(@scope = 'external') and (not(@format) or @format = 'dita' or @format = 'ditamap')">
+                            <xsl:call-template name="replace-extension">
+                                <xsl:with-param name="filename" select="@href"/>
+                                <xsl:with-param name="extension" select="$OUTEXT"/>
+                            </xsl:call-template>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:value-of select="@href"/>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </xsl:variable>
+
+                <xsl:variable name="current-href-fixed">
+                    <xsl:choose>
+                        <xsl:when test="(@chunk = 'to-content') and contains($current-href, '#')">
+                            <xsl:value-of select="substring-before($current-href, '#')"/>
+                        </xsl:when>
+                        <xsl:otherwise>
+                            <xsl:value-of select="$current-href"/>
+                        </xsl:otherwise>
+                    </xsl:choose>
+                </xsl:variable>
+
+                <xsl:variable name="topicPath" select="concat($workDir, @href)"/>
+
+                <xsl:variable name="topicBody">
+                    <xsl:if test="doc-available($topicPath)">
+                        <xsl:value-of select="document($topicPath)"/>
+                    </xsl:if>
+                </xsl:variable>
+{
+"name": "<xsl:value-of select="normalize-space(translate($title, '&#xA;&#xD;&gt;&lt;&quot;', '    '))"/>",
+"href": "<xsl:value-of select="$current-href-fixed"/>",
+"text": "<xsl:value-of select="normalize-space(replace(translate($topicBody, '&#xA;&#xD;&gt;&lt;&quot;', '    '), '\\', '\\\\'))"/>"
+},
+            </xsl:if>
+        </xsl:for-each>
     </xsl:template>
 </xsl:stylesheet>
