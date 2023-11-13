@@ -59,6 +59,24 @@
             </xsl:choose>
         </xsl:variable>
 
+        <xsl:variable name="accent-hover-color-value">
+            <xsl:choose>
+                <xsl:when test="normalize-space($accent-color)">
+                    <xsl:call-template name="generateHoverColor">
+                        <xsl:with-param name="hex-code" select="$accent-color"/>
+                    </xsl:call-template>
+                </xsl:when>
+                <xsl:when test="normalize-space($main-hex-color)">
+                    <xsl:call-template name="generateHoverColor">
+                        <xsl:with-param name="hex-code" select="$main-hex-color"/>
+                    </xsl:call-template>
+                </xsl:when>
+                <xsl:otherwise>
+                    <xsl:value-of select="'#0a58ca'"/>
+                </xsl:otherwise>
+            </xsl:choose>
+        </xsl:variable>
+
         <xsl:variable name="footer-bg-color-value" select="if(normalize-space($footer-bg-color)) then($footer-bg-color) else('#000000')"/>
 
         <xsl:result-document href="{$PATH2PROJ}{$css-path-normalized}color-scheme.css" method="text">
@@ -66,6 +84,7 @@
     --header-bg-color: <xsl:value-of select="$header-bg-color-value"/>;
     --accent-bg-color: <xsl:value-of select="$accent-bg-color-value"/>;
     --accent-color: <xsl:value-of select="$accent-color-value"/>;
+    --accent-hover-color: <xsl:value-of select="$accent-hover-color-value"/>;
     --footer-bg-color: <xsl:value-of select="$footer-bg-color-value"/>;
 }
         </xsl:result-document>
@@ -115,6 +134,69 @@
                 <xsl:variable name="header-bg-red-hex" select="string-join(xr:decToHex(round(number($red-dec) div 3.5)), '')"/>
                 <xsl:variable name="header-bg-green-hex" select="string-join(xr:decToHex(round(number($green-dec) div 3.5)), '')"/>
                 <xsl:variable name="header-bg-blue-hex" select="string-join(xr:decToHex(round(number($blue-dec) div 3.5)), '')"/>
+
+                <xsl:variable name="header-bg-red-hex-normalized" select="if(string-length($header-bg-red-hex) = 1)
+                                                                            then(concat('0', $header-bg-red-hex))
+                                                                            else($header-bg-red-hex)"/>
+                <xsl:variable name="header-bg-green-hex-normalized" select="if(string-length($header-bg-green-hex) = 1)
+                                                                            then(concat('0', $header-bg-green-hex))
+                                                                            else($header-bg-green-hex)"/>
+                <xsl:variable name="header-bg-blue-hex-normalized" select="if(string-length($header-bg-blue-hex) = 1)
+                                                                            then(concat('0', $header-bg-blue-hex))
+                                                                            else($header-bg-blue-hex)"/>
+
+                <xsl:value-of select="concat('#', $header-bg-red-hex-normalized, $header-bg-green-hex-normalized, $header-bg-blue-hex-normalized)"/>
+            </xsl:when>
+            <xsl:otherwise>
+                <xsl:message>Error: Parameter 'main-hex-color' has invalid value.</xsl:message>
+            </xsl:otherwise>
+        </xsl:choose>
+    </xsl:template>
+
+    <xsl:template name="generateHoverColor">
+        <xsl:param name="hex-code"/>
+        <xsl:variable name="clean-hex" select="upper-case(substring-after(normalize-space($hex-code), '#'))"/>
+
+        <xsl:choose>
+            <xsl:when test="string-length($clean-hex) = 6">
+                <xsl:variable name="red" select="substring($clean-hex, 1, 2)"/>
+                <xsl:variable name="red-dec" select="xr:hexToDec($red)"/>
+
+                <xsl:variable name="green" select="substring($clean-hex, 3, 2)"/>
+                <xsl:variable name="green-dec" select="xr:hexToDec($green)"/>
+
+                <xsl:variable name="blue" select="substring($clean-hex, 5, 2)"/>
+                <xsl:variable name="blue-dec" select="xr:hexToDec($blue)"/>
+
+                <xsl:variable name="header-bg-red-hex" select="string-join(xr:decToHex(round(number($red-dec) div 3.5)), '')"/>
+                <xsl:variable name="header-bg-green-hex" select="string-join(xr:decToHex(round(number($green-dec) div 3.5)), '')"/>
+                <xsl:variable name="header-bg-blue-hex" select="string-join(xr:decToHex(round(number($blue-dec) div 3.5)), '')"/>
+
+                <xsl:variable name="header-bg-red-hex-normalized" select="if(string-length($header-bg-red-hex) = 1)
+                                                                            then(concat('0', $header-bg-red-hex))
+                                                                            else($header-bg-red-hex)"/>
+                <xsl:variable name="header-bg-green-hex-normalized" select="if(string-length($header-bg-green-hex) = 1)
+                                                                            then(concat('0', $header-bg-green-hex))
+                                                                            else($header-bg-green-hex)"/>
+                <xsl:variable name="header-bg-blue-hex-normalized" select="if(string-length($header-bg-blue-hex) = 1)
+                                                                            then(concat('0', $header-bg-blue-hex))
+                                                                            else($header-bg-blue-hex)"/>
+
+                <xsl:value-of select="concat('#', $header-bg-red-hex-normalized, $header-bg-green-hex-normalized, $header-bg-blue-hex-normalized)"/>
+            </xsl:when>
+            <xsl:when test="string-length($clean-hex) = 3">
+                <xsl:variable name="red" select="substring($clean-hex, 1, 1)"/>
+                <xsl:variable name="red-dec" select="xr:hexToDec(concat($red, $red))"/>
+
+                <xsl:variable name="green" select="substring($clean-hex, 2, 1)"/>
+                <xsl:variable name="green-dec" select="xr:hexToDec(concat($green, $green))"/>
+
+                <xsl:variable name="blue" select="substring($clean-hex, 3, 1)"/>
+                <xsl:variable name="blue-dec" select="xr:hexToDec(concat($blue, $blue))"/>
+
+                <xsl:variable name="header-bg-red-hex" select="string-join(xr:decToHex(round(number($red-dec) div 1.5)), '')"/>
+                <xsl:variable name="header-bg-green-hex" select="string-join(xr:decToHex(round(number($green-dec) div 1.5)), '')"/>
+                <xsl:variable name="header-bg-blue-hex" select="string-join(xr:decToHex(round(number($blue-dec) div 1.5)), '')"/>
 
                 <xsl:variable name="header-bg-red-hex-normalized" select="if(string-length($header-bg-red-hex) = 1)
                                                                             then(concat('0', $header-bg-red-hex))
