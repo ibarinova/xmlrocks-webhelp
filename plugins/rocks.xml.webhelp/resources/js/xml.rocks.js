@@ -175,8 +175,7 @@ function runSearch() {
 
 function runBodySearch() {
     var searchInputValue = $('#body-search-input').val();
-    var pathToProj = $('#topic-article').attr( "data-path-to-proj" );
-    location.href = pathToProj + "search.html?key=" + searchInputValue;
+    location.href = "search.html?key=" + searchInputValue;
 }
 
 function runStickySearch() {
