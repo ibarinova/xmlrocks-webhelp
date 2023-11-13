@@ -37,6 +37,10 @@ var searchDocNumber = document.getElementById("search-documents-number");
 var searchDocNumberValue = document.createTextNode(searchRes.length);
 searchDocNumber.appendChild(searchDocNumberValue);
 
+    if (searchRes.length === 0) {
+        document.getElementById('wrapper').classList.add('hide');
+    };
+
     (function(name) {
         var container = $('#pagination-' + name);
         container.pagination({
