@@ -171,6 +171,18 @@ function runSearch() {
     var searchInputValue = $('input.search').val();
     var pathToProj = $('#topic-article').attr( "data-path-to-proj" );
     location.href = pathToProj + "search.html?key=" + searchInputValue;
+
+    var pathToProj;
+
+    if (typeof ($('#topic-article').attr( "data-path-to-proj" )) !== "undefined") {
+        pathToProj = $('#topic-article').attr( "data-path-to-proj" )
+    } else if (typeof ($('#header-search-input').attr( "data-path-to-proj" )) !== "undefined") {
+        pathToProj = $('#header-search-input').attr( "data-path-to-proj" );
+    } else {
+        pathToProj = '';
+    }
+
+    location.href = pathToProj + "search.html?key=" + searchInputValue;
 }
 
 function runBodySearch() {
